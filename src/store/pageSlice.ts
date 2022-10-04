@@ -3,14 +3,16 @@ import { HYDRATE } from "next-redux-wrapper";
 import { AppState } from "./store";
 
 // Type for our state
-export interface PageState {
+export interface StateProps {
   listing: any[];
-  selected: any | null;
+  searchText: string;
+  selected: null;
 }
 
 // Initial state
-const initialState: PageState = {
+const initialState: StateProps = {
   listing: [],
+  searchText: "",
   selected: null,
 };
 
@@ -20,10 +22,13 @@ export const slice = createSlice({
   initialState,
   reducers: {
     // Action to set the authentication status
-    setPages(state, action) {
+    setListing(state, action) {
       state.listing = action.payload;
     },
-    setPage(state, action) {
+    setSearchText(state, action) {
+      state.searchText = action.payload;
+    },
+    setSelected(state, action) {
       state.selected = action.payload;
     },
   },
@@ -38,9 +43,10 @@ export const slice = createSlice({
   },
 });
 
-export const { setPages, setPage } = slice.actions;
+export const { setListing, setSearchText, setSelected } = slice.actions;
 
 export const selectListing = (state: AppState) => state.page.listing;
 export const selectSelected = (state: AppState) => state.page.selected;
+export const selectSearchText = (state: AppState) => state.page.searchText;
 
 export default slice.reducer;

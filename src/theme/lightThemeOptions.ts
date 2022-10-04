@@ -4,27 +4,20 @@ const lightThemeOptions: ThemeOptions = {
   direction: "ltr",
   palette: {
     primary: {
-      light: "#ab5357",
-      main: "#97282D",
-      dark: "#691c1f",
+      light: "#db62c7",
+      main: "#d33bba",
+      dark: "#932982",
     },
     secondary: {
-      light: "#33bfff",
-      main: "#00b0ff",
-      dark: "#007bb2",
+      light: "#9361eb",
+      main: "#783ae7",
+      dark: "#5428a1",
     },
     background: {
       paper: "#fff",
-      default: "#fafafa",
-    },
-    text: {
-      primary: "#8B0F14",
-      secondary: "#0B416A",
+      default: "#fff",
     },
   },
-  // shape: {
-  //   borderRadius: 0,
-  // },
   typography: {
     fontFamily: ["Manrope", "serif"].join(","),
   },

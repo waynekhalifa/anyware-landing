@@ -3,46 +3,65 @@ import { HYDRATE } from "next-redux-wrapper";
 import { AppState } from "./store";
 
 // Type for our state
-export interface MainState {
+export interface StateProps {
+  slug: string;
+  action: string;
+  session: any;
   modalOpen: boolean;
-  modalContent: ModelContent;
-}
-
-export interface ModelContent {
-  name: string;
-  id?: string;
-  formFields?: any[];
-  content?: any;
+  modalID: string;
+  modalContent: any;
+  snackBarOpen: boolean;
+  snackBarSeverity: any;
+  snackBarContent: string;
+  snackBarPersist: boolean;
+  dateRange: any;
 }
 
 // Initial state
-const initialState: MainState = {
+const initialState: StateProps = {
+  slug: "",
+  action: "",
+  session: null,
   modalOpen: false,
-  modalContent: {
-    name: "",
-    id: "",
-    formFields: [],
-    content: "",
-  },
+  modalID: "",
+  modalContent: null,
+  snackBarOpen: false,
+  snackBarSeverity: "info",
+  snackBarContent: "",
+  snackBarPersist: false,
+  dateRange: null,
 };
 
 // Actual Slice
-export const mainSlice = createSlice({
-  name: "main",
+export const slice = createSlice({
+  name: "app",
   initialState,
   reducers: {
     // Action to set the authentication status
-    openModal(state, action) {
-      (state.modalOpen = true), (state.modalContent = action.payload);
+    setSlug(state, action) {
+      state.slug = action.payload;
     },
-    closeModal(state, action) {
-      (state.modalOpen = false),
-        (state.modalContent = {
-          name: "",
-          id: "",
-          formFields: [],
-          content: "",
-        });
+    setAction(state, action) {
+      state.action = action.payload;
+    },
+    setSession(state, action) {
+      state.session = action.payload;
+    },
+    setModal(state, action) {
+      state.modalOpen = true;
+      state.modalID = action.payload.modalID;
+      state.modalContent = action.payload.modalContent;
+    },
+    setSnackBar(state, action) {
+      state.snackBarOpen = action.payload.snackBarOpen;
+      state.snackBarContent = action.payload.snackBarContent;
+      state.snackBarSeverity = action.payload.snackBarSeverity;
+      state.snackBarPersist = action.payload.snackBarPersist
+        ? action.payload.snackBarPersist
+        : false;
+    },
+    setDateRange(state, action) {
+      state.dateRange = action.payload;
     },
   },
   // Special reducer for hydrating the state. Special case for next-redux-wrapper
@@ -50,15 +69,34 @@ export const mainSlice = createSlice({
     [HYDRATE]: (state, action) => {
       return {
         ...state,
-        ...action.payload.auth,
+        ...action.payload.app,
       };
     },
   },
 });
 
-export const { openModal, closeModal } = mainSlice.actions;
+export const {
+  setSession,
+  setModal,
+  setSnackBar,
+  setDateRange,
+  setSlug,
+  setAction,
+} = slice.actions;
 
-export const selectModalOpen = (state: AppState) => state.main.modalOpen;
-export const selectModalContent = (state: AppState) => state.main.modalContent;
+export const selectSlug = (state: AppState) => state.app.slug;
+export const selectAction = (state: AppState) => state.app.action;
+export const selectSession = (state: AppState) => state.app.session;
+export const selectModalOpen = (state: AppState) => state.app.modalOpen;
+export const selectModalID = (state: AppState) => state.app.modalID;
+export const selectModalContent = (state: AppState) => state.app.modalContent;
+export const selectSnackBarOpen = (state: AppState) => state.app.snackBarOpen;
+export const selectSnackBarSeverity = (state: AppState) =>
+  state.app.snackBarSeverity;
+export const selectSnackBarContent = (state: AppState) =>
+  state.app.snackBarContent;
+export const selectSnackBarPersist = (state: AppState) =>
+  state.app.snackBarPersist;
+export const selectDateRange = (state: AppState) => state.app.dateRange;
 
-export default mainSlice.reducer;
+export default slice.reducer;

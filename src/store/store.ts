@@ -1,17 +1,21 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import { authSlice } from "./authSlice";
-import { mainSlice } from "./appSlice";
+import { slice as appSlice } from "./appSlice";
 import { slice as pageSlice } from "./pageSlice";
+import { slice as menuSlice } from "./menuSlice";
 import { createWrapper } from "next-redux-wrapper";
 
 const makeStore = () =>
   configureStore({
     reducer: {
-      [authSlice.name]: authSlice.reducer,
-      [mainSlice.name]: mainSlice.reducer,
+      [appSlice.name]: appSlice.reducer,
       [pageSlice.name]: pageSlice.reducer,
+      [menuSlice.name]: menuSlice.reducer,
     },
     devTools: true,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+      }),
   });
 
 export type AppStore = ReturnType<typeof makeStore>;

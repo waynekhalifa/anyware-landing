@@ -1,11 +1,12 @@
 import Head from "next/head";
-import { AppProps } from "next/app";
+import App, { AppContext, AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import theme from "@/theme";
 import createEmotionCache from "@/helpers/createEmotionCache";
 import { wrapper } from "@/store/store";
+import { setListing as setMenus } from "@/store/menuSlice";
 import { GlobalStyles } from "@mui/material";
 
 import "@fontsource/manrope/300.css";
@@ -15,6 +16,7 @@ import "@fontsource/manrope/700.css";
 import MainModal from "@/components/UI/MainModal";
 import { useSelector } from "react-redux";
 import { selectModalOpen } from "@/store/appSlice";
+import { getMenusByName, MenuItem } from "@/services/menu";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -58,5 +60,17 @@ function MyApp(props: MyAppProps) {
     </CacheProvider>
   );
 }
+
+MyApp.getInitialProps = wrapper.getInitialAppProps(
+  (store) => async (appContext: AppContext) => {
+    const ctx = await App.getInitialProps(appContext);
+
+    const mainMenu: MenuItem[] = await getMenusByName("main-navigation");
+
+    store.dispatch(setMenus(mainMenu));
+
+    return { ...ctx };
+  }
+);
 
 export default wrapper.withRedux(MyApp);
