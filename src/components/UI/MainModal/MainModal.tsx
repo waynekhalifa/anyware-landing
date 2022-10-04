@@ -1,34 +1,28 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-import { useDispatch, useSelector } from "react-redux";
 import { Backdrop, Box } from "@mui/material";
-import { selectModalOpen, selectModalContent } from "@/store/appSlice";
 import ContentLoader from "../ContentLoader";
-import { closeModal } from "@/store/appSlice";
 import ActionModal from "../ActionModal";
+import useApp from "@/hooks/useApp";
 
 const ModalForm = dynamic(() => import("../Forms/ModalForm"), {
   suspense: true,
 });
 
 const MainModal: React.FC = () => {
-  const dispatch = useDispatch();
-  const modalOpen = useSelector(selectModalOpen);
-  const modalContent = useSelector(selectModalContent);
+  const { modalOpen, modalID, modalContent, closeModal } = useApp();
+
+  console.log({ modalOpen, modalID, modalContent });
 
   const renderModalContent = () => {
-    switch (modalContent.name) {
+    switch (modalID) {
       case "joinUS":
         return <ModalForm title={`Student Application & registration`} />;
       case "actionButton":
-        return <ActionModal action={modalContent.content} />;
+        return <ActionModal action={modalContent} />;
       default:
-        return null;
+        return modalContent;
     }
-  };
-
-  const handleClose = () => {
-    dispatch(closeModal({}));
   };
 
   return (
@@ -46,7 +40,7 @@ const MainModal: React.FC = () => {
           zIndex: 0,
           cursor: "pointer",
         }}
-        onClick={handleClose}
+        onClick={closeModal}
       />
       <Suspense fallback={<ContentLoader />}>{renderModalContent()}</Suspense>
     </Backdrop>

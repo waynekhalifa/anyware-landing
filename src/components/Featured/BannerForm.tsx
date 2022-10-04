@@ -1,10 +1,11 @@
+import useApp from "@/hooks/useApp";
 import useUpdating from "@/hooks/useUpdating";
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { useRouter } from "next/router";
+import CustomLoader from "../UI/CustomLoader";
 import Partners from "./Partners";
 
 const BannerForm: React.FC = () => {
-  const { push } = useRouter();
+  const { openModal } = useApp();
   const { updating, changeUpdating } = useUpdating();
 
   const handleClick = async () => {
@@ -15,7 +16,7 @@ const BannerForm: React.FC = () => {
     setTimeout(() => {
       changeUpdating(false);
 
-      push("/login");
+      openModal({ modalID: "login modal", modalContent: "login form" });
     }, 2000);
   };
 
@@ -53,7 +54,7 @@ const BannerForm: React.FC = () => {
           }}
           onClick={handleClick}
         >
-          {updating ? <>Loading...</> : "Get Started"}
+          {updating ? <CustomLoader /> : "Get Started"}
         </Button>
       </Box>
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>

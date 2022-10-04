@@ -10,7 +10,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Anyware Software</title>
-        <meta name="description" content={"Asten College"} />
+        <meta name="description" content={"Anyware Software"} />
       </Head>
       <Header />
       <Featured />

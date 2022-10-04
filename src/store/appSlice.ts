@@ -48,7 +48,7 @@ export const slice = createSlice({
       state.session = action.payload;
     },
     setModal(state, action) {
-      state.modalOpen = true;
+      state.modalOpen = action.payload.modalOpen;
       state.modalID = action.payload.modalID;
       state.modalContent = action.payload.modalContent;
     },
