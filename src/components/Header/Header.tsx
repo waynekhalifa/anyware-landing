@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Container, Grid } from "@mui/material";
+import { AppBar, Box, Button, Grid } from "@mui/material";
 
 import logo from "@images/anywarelogo.png";
 import bannerBg from "@images/home-header-bg.jpg";
@@ -32,7 +32,7 @@ const Header: React.FC = () => {
         },
       }}
     >
-      <Container>
+      <Box sx={{ maxWidth: 1248, margin: "auto", width: "100%" }}>
         <Grid container justifyContent="space-between" alignItems="center">
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box sx={{ mr: 3 }}>
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
             </Button>
           </Box>
         </Grid>
-      </Container>
+      </Box>
     </AppBar>
   );
 };

@@ -4,7 +4,7 @@ import React from "react";
 import { commonWhite } from "../../../constants/colors";
 
 interface SectionProps {
-  background: string;
+  background?: string;
   children: React.ReactNode;
 }
 

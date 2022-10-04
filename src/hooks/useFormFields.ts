@@ -220,10 +220,23 @@ const useFormFields = () => {
     },
   ];
 
+  const bannerFields = () => [
+    {
+      name: "email",
+      label: "Email",
+      placeholder: "Enter your email",
+      type: "textField",
+      autoFocus: false,
+      defaultValue: "",
+    },
+  ];
+
   const getFormFields = (name: string) => {
     switch (name) {
       case "joinUs":
         return joinUsFields();
+      case "banner":
+        return bannerFields();
       default:
         return [];
     }

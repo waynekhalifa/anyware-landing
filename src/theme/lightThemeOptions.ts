@@ -18,6 +18,9 @@ const lightThemeOptions: ThemeOptions = {
       default: "#fff",
     },
   },
+  shape: {
+    borderRadius: 8,
+  },
   typography: {
     fontFamily: ["Manrope", "serif"].join(","),
   },
