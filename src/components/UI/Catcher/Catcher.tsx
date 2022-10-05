@@ -3,11 +3,17 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import catcherBg from "@images/catcher-bg.svg";
 import useApp from "@/hooks/useApp";
+import { useRouter } from "next/router";
 
 const Catcher: React.FC = () => {
-  const { closeModal } = useApp();
+  const { push } = useRouter();
+  const { modalContent, closeModal } = useApp();
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    console.log(modalContent);
+    closeModal();
+    push("/personal-info");
+  };
 
   return (
     <Box
