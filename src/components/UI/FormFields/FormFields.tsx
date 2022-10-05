@@ -130,7 +130,7 @@ const FormFields: FC<Props> = ({
   };
 
   return (
-    <Box sx={{ mb: 2 }}>
+    <Box sx={{ mb: 3 }}>
       {type !== "checkboxes" && type !== "image" && (
         <Typography
           component={"label"}

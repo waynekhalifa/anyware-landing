@@ -7,7 +7,7 @@ import Partners from "./Partners";
 
 const Featured: React.FC = () => {
   return (
-    <Container sx={{ pt: 12 }}>
+    <Container sx={{ pt: 10 }}>
       <Section>
         <Grid container>
           <Grid item xs={12} md={6}>

@@ -1,9 +1,10 @@
 import { AppBar, Box, Button, Grid } from "@mui/material";
 
-import logo from "@images/anywarelogo.png";
-import bannerBg from "@images/home-header-bg.png";
 import NavMenu from "../NavMenu";
 import Logo from "../Logo";
+
+import logo from "@images/anywarelogo.png";
+import bannerBg from "@images/home-header-bg.png";
 
 const Header: React.FC = () => {
   return (

@@ -231,12 +231,49 @@ const useFormFields = () => {
     },
   ];
 
+  const informationFields = () => [
+    {
+      name: "name",
+      label: "Full Name",
+      placeholder: "Nada Ahmed",
+      type: "textField",
+      autoFocus: false,
+      defaultValue: "",
+    },
+    {
+      name: "restaurant",
+      label: "Restaurant/Hotel Name",
+      placeholder: "Restaurant/Hotel Name",
+      type: "textField",
+      autoFocus: false,
+      defaultValue: "",
+    },
+    {
+      name: "email",
+      label: "E-mail–mobile",
+      placeholder: "E-mail–mobile",
+      type: "textField",
+      autoFocus: false,
+      defaultValue: "",
+    },
+    {
+      name: "code",
+      label: "Referral Code",
+      placeholder: "Referral Code",
+      type: "textField",
+      autoFocus: false,
+      defaultValue: "",
+    },
+  ];
+
   const getFormFields = (name: string) => {
     switch (name) {
       case "joinUs":
         return joinUsFields();
       case "banner":
         return bannerFields();
+      case "information":
+        return informationFields();
       default:
         return [];
     }
