@@ -10,6 +10,7 @@ export enum Languages {
 
 export enum Pages {
   HOME = "",
+  LOGIN = "login",
 }
 
 export enum Orders {
