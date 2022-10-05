@@ -48,6 +48,9 @@ const BannerForm: React.FC = () => {
             textTransform: "none",
             boxShadow: 12,
             "&:hover": { boxShadow: 12 },
+            position: "relative",
+            width: 152,
+            height: 56,
           }}
           onClick={handleClick}
         >
