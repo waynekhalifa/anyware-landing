@@ -11,12 +11,10 @@ const BannerForm: React.FC = () => {
   const handleClick = async () => {
     changeUpdating(true);
 
-    console.log("should save user input");
-
     setTimeout(() => {
       changeUpdating(false);
 
-      openModal({ modalID: "login modal", modalContent: "login form" });
+      openModal({ modalID: "catcher", modalContent: "login form" });
     }, 2000);
   };
 
@@ -44,7 +42,6 @@ const BannerForm: React.FC = () => {
         </Box>
         <Button
           disableElevation
-          color="secondary"
           variant="contained"
           size="large"
           sx={{

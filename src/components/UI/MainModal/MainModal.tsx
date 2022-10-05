@@ -8,11 +8,10 @@ import useApp from "@/hooks/useApp";
 const ModalForm = dynamic(() => import("../Forms/ModalForm"), {
   suspense: true,
 });
+const Catcher = dynamic(() => import("../Catcher"), { suspense: true });
 
 const MainModal: React.FC = () => {
   const { modalOpen, modalID, modalContent, closeModal } = useApp();
-
-  console.log({ modalOpen, modalID, modalContent });
 
   const renderModalContent = () => {
     switch (modalID) {
@@ -20,6 +19,10 @@ const MainModal: React.FC = () => {
         return <ModalForm title={`Student Application & registration`} />;
       case "actionButton":
         return <ActionModal action={modalContent} />;
+      case "actionButton":
+        return <ActionModal action={modalContent} />;
+      case "catcher":
+        return <Catcher />;
       default:
         return modalContent;
     }

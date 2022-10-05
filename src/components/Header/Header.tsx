@@ -1,7 +1,7 @@
 import { AppBar, Box, Button, Grid } from "@mui/material";
 
 import logo from "@images/anywarelogo.png";
-import bannerBg from "@images/home-header-bg.jpg";
+import bannerBg from "@images/home-header-bg.png";
 import NavMenu from "../NavMenu";
 import Logo from "../Logo";
 
@@ -20,9 +20,9 @@ const Header: React.FC = () => {
           display: "block",
           position: "absolute",
           top: "0",
-          left: "calc(50vw + 44px)",
-          width: "1143px",
-          height: "1149px",
+          left: "calc(50vw + 162px)",
+          width: "965px",
+          height: "967px",
           background: `url(${bannerBg.src}) no-repeat top right/cover`,
           webkitTransform: "translate(0,-28.5%)",
           msTransform: "translate(0,-28.5%)",

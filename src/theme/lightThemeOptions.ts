@@ -4,14 +4,14 @@ const lightThemeOptions: ThemeOptions = {
   direction: "ltr",
   palette: {
     primary: {
-      light: "#db62c7",
-      main: "#d33bba",
-      dark: "#932982",
+      light: "#d1b779",
+      main: "#C6A658",
+      dark: "#8a743d",
     },
     secondary: {
-      light: "#9361eb",
-      main: "#783ae7",
-      dark: "#5428a1",
+      light: "#868686",
+      main: "#686868",
+      dark: "#484848",
     },
     background: {
       paper: "#fff",
