@@ -33,6 +33,15 @@ const question: any[] = [
     hasDropZone: false,
     hasDropdown: true,
     content: `<p><strong>Pick up your features</strong> – <strong>Customize your branded App</strong></p>`,
+    buttonText: `Continue`,
+  },
+  {
+    id: 4,
+    title: "",
+    hasFeatures: false,
+    hasDropZone: false,
+    hasDropdown: false,
+    content: `<p>Thank you for your precious time! Now we're done and one of our representatives will contact you shortly.</p>`,
     buttonText: `Get a 30-minute Product Tour`,
   },
 ];
