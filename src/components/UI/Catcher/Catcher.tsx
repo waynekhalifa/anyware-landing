@@ -10,7 +10,6 @@ const Catcher: React.FC = () => {
   const { modalContent, closeModal } = useApp();
 
   const handleClick = () => {
-    console.log(modalContent);
     closeModal();
     push("/personal-info");
   };
@@ -31,7 +30,7 @@ const Catcher: React.FC = () => {
         width: "100%",
         height: "100%",
         padding: "20px 80px 20px 80px",
-        background: `url(${catcherBg.src}) no-repeat 0 50%/890px`,
+        background: `url(${catcherBg.src}) no-repeat -10% 50%/890px`,
         color: "#fff",
       }}
     >
