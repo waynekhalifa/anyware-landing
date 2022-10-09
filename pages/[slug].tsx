@@ -5,6 +5,9 @@ import Login from "@/components/Login";
 import useApp from "@/hooks/useApp";
 import { Pages } from "@/constants/enums";
 import Survey from "@/components/Survey";
+import { wrapper } from "@/store/store";
+import { setListing as setQuestions } from "@/store/questionSlice";
+import { listQuestions } from "@/services/question";
 
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
@@ -18,5 +21,19 @@ const PageTemplate: NextPage = () => {
     </>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ params }) => {
+      // we can set the initial state from here
+      // we are setting to false but you can run your custom logic here
+
+      const questions = await listQuestions();
+
+      store.dispatch(setQuestions(questions));
+
+      return { props: {} };
+    }
+);
 
 export default PageTemplate;

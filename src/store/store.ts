@@ -2,6 +2,7 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { slice as appSlice } from "./appSlice";
 import { slice as pageSlice } from "./pageSlice";
 import { slice as menuSlice } from "./menuSlice";
+import { slice as questionSlice } from "./questionSlice";
 import { createWrapper } from "next-redux-wrapper";
 
 const makeStore = () =>
@@ -10,6 +11,7 @@ const makeStore = () =>
       [appSlice.name]: appSlice.reducer,
       [pageSlice.name]: pageSlice.reducer,
       [menuSlice.name]: menuSlice.reducer,
+      [questionSlice.name]: questionSlice.reducer,
     },
     devTools: true,
     middleware: (getDefaultMiddleware) =>
