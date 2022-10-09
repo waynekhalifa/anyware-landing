@@ -39,6 +39,19 @@ function MyApp(props: MyAppProps) {
         <CssBaseline />
         <GlobalStyles
           styles={{
+            ".content p": {
+              margin: "0px 0px 8px 0px",
+              fontSize: "1.2rem",
+            },
+            ".content ul": {
+              margin: "0px",
+              padding: "0px",
+              fontSize: "1.2rem",
+              paddingLeft: "24px",
+            },
+            ".content ul li": {
+              marginBottom: "8px",
+            },
             ".MuiAccordionSummary-root .MuiAccordionSummary-content": {
               margin: "12px 8px !important",
             },

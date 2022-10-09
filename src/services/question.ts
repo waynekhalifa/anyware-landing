@@ -30,7 +30,7 @@ const question: any[] = [
     title:
       "How do you want to start using Anyware Software digitization platform?",
     hasFeatures: true,
-    hasDropZone: true,
+    hasDropZone: false,
     hasDropdown: true,
     content: `<p><strong>Pick up your features</strong> – <strong>Customize your branded App</strong></p>`,
     buttonText: `Get a 30-minute Product Tour`,

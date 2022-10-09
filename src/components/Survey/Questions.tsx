@@ -4,6 +4,8 @@ import Logo from "../Logo";
 import useQuestion from "@/hooks/useQuestion";
 import HtmlContent from "../UI/HtmlContent";
 import { useState } from "react";
+import DropZone from "./DropZone";
+import Features from "./Features";
 
 interface StateProps {
   activeQuestion: number;
@@ -45,11 +47,24 @@ const Questions: React.FC = () => {
               {question.title}
             </Typography>
             <HtmlContent content={question.content} />
+            {question.hasDropZone && <DropZone />}
+            {question.hasFeatures && <Features />}
             <Button
               disableElevation
               variant="contained"
               size="large"
-              sx={{ textTransform: "none", borderRadius: "4px", height: 48 }}
+              sx={{
+                textTransform: "none",
+                borderRadius: "4px",
+                height: 48,
+                mt: 4,
+              }}
+              onClick={() =>
+                setState((state) => ({
+                  ...state,
+                  activeQuestion: state.activeQuestion + 1,
+                }))
+              }
             >
               {question.buttonText}
             </Button>
