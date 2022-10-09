@@ -163,3 +163,6 @@ export const enableScroll = () => {
   body.style.overflow = "unset";
   body.style.paddingRight = "0px";
 };
+
+export const createArray = (size: number) =>
+  Array.from({ length: size }, (_, i) => i);

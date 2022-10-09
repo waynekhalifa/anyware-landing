@@ -48,7 +48,12 @@ const Questions: React.FC = () => {
             </Typography>
             <HtmlContent content={question.content} />
             {question.hasDropZone && <DropZone />}
-            {question.hasFeatures && <Features />}
+            {question.hasFeatures && (
+              <Features
+                isActive={question.id === activeQuestion}
+                completed={question.id + 1 === activeQuestion}
+              />
+            )}
             <Button
               disableElevation
               variant="contained"

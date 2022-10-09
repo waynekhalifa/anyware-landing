@@ -5,6 +5,7 @@ const features: any[] = [
     desc: `Ensures orders made over the phone are logged and processed alongside any other channel to simplify the business operations.`,
     icon: "/icons/call-center.svg",
     path: "#",
+    price: 200,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const features: any[] = [
     desc: `Customizable packages with  added benefits list for the customers’ ability to buy package and leverage from these benefits.`,
     icon: "/icons/dropbox.svg",
     path: "#",
+    price: 200,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const features: any[] = [
     desc: `Classify customers into loyalty tiers  with the ability to collect points to redeem into gifts and  discounts.`,
     icon: "/icons/heart.svg",
     path: "#",
+    price: 200,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const features: any[] = [
     desc: `Guests can scan QR code to navigate restaurant digital menu and place their order without any staff interaction.`,
     icon: "/icons/qrcode.svg",
     path: "#",
+    price: 200,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const features: any[] = [
     desc: `Enables restaurant  to fully manage the cycle of table bookings from guest app that displays/showcases your venues layout.`,
     icon: "/icons/table-reservation.svg",
     path: "#",
+    price: 200,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const features: any[] = [
     desc: `All online orders are automatically synced with your existing POS or your Food Delivery mobile application.`,
     icon: "/icons/i-mac.svg",
     path: "#",
+    price: 200,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const features: any[] = [
     desc: `Digital chargeable wallet that is considered an extremely simple method for customers to pay for transactions quickly.`,
     icon: "/icons/cashless-wallet.svg",
     path: "#",
+    price: 200,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const features: any[] = [
     desc: `Your gateway to upsell menu items automatically enabling guests to order with multiple languages & reduced human assistance.`,
     icon: "/icons/kiosk.svg",
     path: "#",
+    price: 200,
   },
 ];
 
