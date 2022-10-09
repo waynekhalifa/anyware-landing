@@ -3,6 +3,7 @@ import { slice as appSlice } from "./appSlice";
 import { slice as pageSlice } from "./pageSlice";
 import { slice as menuSlice } from "./menuSlice";
 import { slice as questionSlice } from "./questionSlice";
+import { slice as featureSlice } from "./featureSlice";
 import { createWrapper } from "next-redux-wrapper";
 
 const makeStore = () =>
@@ -12,6 +13,7 @@ const makeStore = () =>
       [pageSlice.name]: pageSlice.reducer,
       [menuSlice.name]: menuSlice.reducer,
       [questionSlice.name]: questionSlice.reducer,
+      [featureSlice.name]: featureSlice.reducer,
     },
     devTools: true,
     middleware: (getDefaultMiddleware) =>
