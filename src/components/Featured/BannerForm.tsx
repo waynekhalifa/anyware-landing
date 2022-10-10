@@ -1,21 +1,36 @@
 import useApp from "@/hooks/useApp";
 import useUpdating from "@/hooks/useUpdating";
 import { Box, Button, TextField, Typography } from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 import CustomLoader from "../UI/CustomLoader";
 import Partners from "./Partners";
 
+interface StateProps {
+  email: string;
+}
+
+const initialState: StateProps = { email: "" };
+
 const BannerForm: React.FC = () => {
+  const [state, setState] = useState(initialState);
+  const { push } = useRouter();
   const { openModal } = useApp();
   const { updating, changeUpdating } = useUpdating();
+  const { email } = state;
 
   const handleClick = async () => {
     changeUpdating(true);
 
-    setTimeout(() => {
+    if (email.length === 0) {
       changeUpdating(false);
-
       openModal({ modalID: "catcher", modalContent: "login form" });
-    }, 2000);
+    } else {
+      setTimeout(() => {
+        changeUpdating(false);
+        push("/login");
+      }, 1000);
+    }
   };
 
   return (
@@ -32,8 +47,10 @@ const BannerForm: React.FC = () => {
         <Box sx={{ mb: 4 }}>
           <TextField
             placeholder={"Enter your email address or phone number"}
-            autoFocus={false}
-            defaultValue={""}
+            value={email}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setState({ ...state, email: e.target.value })
+            }
             sx={{
               minWidth: 400,
               input: { p: 2 },

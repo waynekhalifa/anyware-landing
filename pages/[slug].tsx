@@ -10,6 +10,7 @@ import { setListing as setQuestions } from "@/store/questionSlice";
 import { setListing as setFeatures } from "@/store/featureSlice";
 import { listQuestions } from "@/services/question";
 import { listFeatures } from "@/services/feature";
+import { setSlug } from "@/store/appSlice";
 
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
@@ -32,6 +33,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
       const data = await Promise.all([listQuestions(), listFeatures()]);
 
+      store.dispatch(setSlug(params!.slug));
       store.dispatch(setQuestions(data[0]));
       store.dispatch(setFeatures(data[1]));
 

@@ -22,7 +22,7 @@ const Features: React.FC<Props> = ({ isActive, completed }) => {
   };
 
   const renderCalculator = () => {
-    console.log({ completed });
+    
     if (isActive || completed)
       return (
         <PriceCalculator selectedFeatures={selected} completed={completed} />
