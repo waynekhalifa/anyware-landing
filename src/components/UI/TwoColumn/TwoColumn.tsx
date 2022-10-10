@@ -5,12 +5,11 @@ import Grid from "@mui/material/Grid";
 import Section from "../Section";
 
 interface Props {
-  slug: string;
   children: React.ReactNode;
   background?: string;
 }
 
-const TwoColumn: React.FC<Props> = ({ slug, children, background }) => {
+const TwoColumn: React.FC<Props> = ({ children, background }) => {
   return (
     <Section background={background ? background : "transparent"}>
       <Container>
@@ -19,7 +18,7 @@ const TwoColumn: React.FC<Props> = ({ slug, children, background }) => {
             {children}
           </Grid>
           <Grid item xs={12} md={4}>
-            <Sidebar slug={slug} />
+            <Sidebar />
           </Grid>
         </Grid>
       </Container>
