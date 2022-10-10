@@ -85,7 +85,7 @@ const Login: React.FC = () => {
               textAlign="center"
               paragraph
             >
-              Let's go!
+              {`Let's go!`}
             </Typography>
             {getFormFields("information").map((field: any) => (
               <FormFields

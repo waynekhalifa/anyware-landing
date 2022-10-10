@@ -8,7 +8,7 @@ interface VideoProps {}
 const Video: React.FC<VideoProps> = ({}) => {
   return (
     <Box sx={{ position: "relative", zIndex: 10 }}>
-      <Image src={videoPlaceholder} />
+      <Image src={videoPlaceholder} alt="video placeholder" />
     </Box>
   );
 };
