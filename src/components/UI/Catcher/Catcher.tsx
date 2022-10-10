@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Box, Button, InputBase, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -23,72 +24,78 @@ const Catcher: React.FC = () => {
     if (email.length === 0) {
       setState({ ...state, errMessage: "Please enter a valid email address" });
     } else {
-      closeModal();
       push("/login");
     }
   };
 
   return (
-    <>
+    <motion.div
+      initial={{
+        background: `url(${catcherBg.src}) no-repeat -50% 50%/890px`,
+      }}
+      animate={{
+        background: `url(${catcherBg.src}) no-repeat -10% 50%/890px`,
+      }}
+      transition={{ duration: 0.1, delay: 0.1 }}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        textShadow: "0 1px 1px rgb(0 0 0 / 20%)",
+        position: "relative",
+        minWidth: "400px",
+        width: "100%",
+        height: "100%",
+        padding: "20px 80px 20px 80px",
+        background: `url(${catcherBg.src}) no-repeat -10% 50%/890px`,
+        color: "#fff",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
-          webkitBoxAlign: "center",
-          msFlexAlign: "center",
+          justifyContent: "center",
           alignItems: "center",
-          webkitBoxPack: "start",
-          msFlexPack: "start",
-          justifyContent: "flex-start",
-          textShadow: "0 1px 1px rgb(0 0 0 / 20%)",
-          position: "relative",
-          minWidth: "400px",
-          width: "100%",
-          height: "100%",
-          padding: "20px 80px 20px 80px",
-          background: `url(${catcherBg.src}) no-repeat -10% 50%/890px`,
-          color: "#fff",
+          position: "absolute",
+          top: "20px",
+          right: "20px",
+          width: "50px",
+          height: "50px",
+          border: "3px solid #fff",
+          borderRadius: "50%",
+          zIndex: "50000",
+          webkitTransform: "rotate(45deg)",
+          msTransform: "rotate(45deg)",
+          transform: "rotate(45deg)",
+          cursor: "pointer",
         }}
+        onClick={closeModal}
       >
-        <Box
+        <CloseIcon
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "absolute",
-            top: "20px",
-            right: "20px",
-            width: "50px",
-            height: "50px",
-            border: "3px solid #fff",
-            borderRadius: "50%",
-            zIndex: "50000",
-            webkitTransform: "rotate(45deg)",
-            msTransform: "rotate(45deg)",
             transform: "rotate(45deg)",
-            cursor: "pointer",
+            "&:hover": {
+              transform: "rotate(315deg)",
+              transition: "all 0.3s ease-in-out",
+            },
           }}
-          onClick={closeModal}
-        >
-          <CloseIcon
-            sx={{
-              transform: "rotate(45deg)",
-              "&:hover": {
-                transform: "rotate(315deg)",
-                transition: "all 0.3s ease-in-out",
-              },
-            }}
-            fontSize="large"
-          />
-        </Box>
-        <Typography fontWeight={600}>
-          <Typography component="span" variant="h3">
-            <b>Sign up for FREE</b>
-          </Typography>
-          <br />
-          <Typography component="span" variant="h5">
-            and start using ClickUp in seconds!
-          </Typography>
+          fontSize="large"
+        />
+      </Box>
+      <Typography fontWeight={600}>
+        <Typography component="span" variant="h3">
+          <b>Sign up for FREE</b>
         </Typography>
+        <br />
+        <Typography component="span" variant="h5">
+          and start using ClickUp in seconds!
+        </Typography>
+      </Typography>
+      <motion.div
+        initial={{ opacity: 0, left: "10%", position: "relative" }}
+        animate={{ opacity: 1, left: 0 }}
+        transition={{ duration: 0.1, delay: 0.2 }}
+      >
         <Box
           sx={{
             position: "relative",
@@ -149,6 +156,7 @@ const Catcher: React.FC = () => {
               Get started
             </Button>
           </Box>
+
           {errMessage.length > 0 && (
             <Typography
               sx={{
@@ -165,8 +173,8 @@ const Catcher: React.FC = () => {
             </Typography>
           )}
         </Box>
-      </Box>
-    </>
+      </motion.div>
+    </motion.div>
   );
 };
 
