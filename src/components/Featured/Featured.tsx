@@ -4,8 +4,30 @@ import Section from "../UI/Section";
 import Video from "./Video";
 import BannerForm from "./BannerForm";
 import Partners from "./Partners";
+import { useEffect, useState } from "react";
+
+interface StateProps {
+  videoKey: string;
+}
+
+const initialState: StateProps = {
+  videoKey: new Date().toISOString(),
+};
 
 const Featured: React.FC = () => {
+  const [state, setState] = useState(initialState);
+  const { videoKey } = state;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setState({ ...state, videoKey: new Date().toISOString() });
+    }, 8000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  });
+
   return (
     <Box sx={{ overflow: "hidden" }}>
       <Container sx={{ pt: 10 }}>
@@ -14,8 +36,13 @@ const Featured: React.FC = () => {
             <Grid item xs={12} md={6}>
               <BannerForm />
             </Grid>
-            <Grid item xs={12} md={6}>
-              <Video />
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sx={{ span: { display: "block !important" } }}
+            >
+              <Video key={videoKey} />
             </Grid>
           </Grid>
         </Section>
