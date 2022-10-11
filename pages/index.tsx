@@ -1,9 +1,7 @@
+import HomePage from "@/components/HomePage";
 import type { NextPage } from "next";
 
-import Featured from "@/components/Featured";
-
 import Head from "next/head";
-import Header from "@/components/Header";
 
 const Home: NextPage = () => {
   return (
@@ -12,8 +10,7 @@ const Home: NextPage = () => {
         <title>Anyware Software</title>
         <meta name="description" content={"Anyware Software"} />
       </Head>
-      <Header />
-      <Featured />
+      <HomePage />
     </>
   );
 };

@@ -85,6 +85,10 @@ export default class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+          <link rel="preload" href="/css/styles-top.css" as="style" />
+          <link rel="preload" href="/css/styles.css" as="style" />
+          <link rel="stylesheet" href="/css/styles-top.css" />
+          <link rel="stylesheet" href="/css/styles.css" />
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>
