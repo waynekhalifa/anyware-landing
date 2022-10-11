@@ -5159,7 +5159,8 @@ ul li {
 	font: 700 14px/16px Axiforma, Arial, serif;
 	text-transform: inherit;
 	padding: 10px 20px 10px;
-	transition: none !important
+	transition: none !important;
+	text-transform: capitalize;
 }
 
 .navigation__link-wrapper {
