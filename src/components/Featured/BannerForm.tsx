@@ -28,7 +28,7 @@ const BannerForm: React.FC = () => {
     } else {
       setTimeout(() => {
         changeUpdating(false);
-        push("/login");
+        push(`/login?email=${email}`);
       }, 1000);
     }
   };

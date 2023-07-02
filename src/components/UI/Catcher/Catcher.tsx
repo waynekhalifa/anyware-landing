@@ -24,7 +24,7 @@ const Catcher: React.FC = () => {
     if (email.length === 0) {
       setState({ ...state, errMessage: "Please enter a valid email address" });
     } else {
-      push("/login");
+      push(`/login?email=${email}`);
     }
   };
 

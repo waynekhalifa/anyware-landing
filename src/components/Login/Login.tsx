@@ -16,9 +16,13 @@ import useFormValidations from "@/hooks/useFormValidations";
 import FormFields from "../UI/FormFields";
 import CustomLoader from "../UI/CustomLoader";
 import { useRouter } from "next/router";
-
+import axios from "axios"
 const Login: React.FC = () => {
+
+  
   const { push } = useRouter();
+  const router=useRouter()
+  const email = router.query.email;
   const { getFormFields } = useFormFields();
   const { getValidationSchema } = useFormValidations("test");
   const {
@@ -29,100 +33,88 @@ const Login: React.FC = () => {
   } = useForm<any>({ resolver: yupResolver(getValidationSchema()) });
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
-    console.log(data);
+    const response=await axios.post("https://localhost/php/addSiteUser.php",{mobile:isNaN(data.email)?"":data.email,fullName:data.name,restaurantName:data.restaurant,email:isNaN(data.email)?data.email:"",referalCode:data.code})
+    console.log(response.data)
 
-    push("/survey");
+    push(`/survey?mobile=${isNaN(data.email)?"":data.email}&email=${isNaN(data.email)?data.email:""}&fullName=${data.name}`);
   };
 
   return (
     <>
-      <AppBar
-        position="relative"
-        elevation={0}
-        color="transparent"
-        sx={{ pt: 3, pb: 3 }}
-      >
-        <Toolbar>
-          <Logo imgSrc={logo} />
-          <Box sx={{ flex: 1 }} />
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Typography>Already playing with ClickUp?</Typography>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{ textTransform: "capitalize", boxShadow: 12, ml: 3 }}
-            >
-              Login
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
+  <AppBar position="relative" elevation={0} color="transparent" sx={{ pt: { xs: 2, md: 3 }, pb: { xs: 2, md: 3 } }}>
+    <Toolbar>
+      <Logo imgSrc={logo} />
+      <Box sx={{ flex: 1 }} />
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Typography sx={{ display: { xs: "none", md: "block" } }}>Already Registered With Us?</Typography>
+        <Button variant="contained" size="large" sx={{ textTransform: "capitalize", boxShadow: 12, ml: { xs: 0, md: 3 } }}>
+          Login
+        </Button>
+      </Box>
+    </Toolbar>
+  </AppBar>
+  
+  <Box sx={{ marginTop:"0.5vh", position: "absolute", top: "52.5%", left: "50%", transform: "translate(-50%, -50%)" }}>
+    <Container maxWidth="sm">
       <Box
+        component="form"
+        onSubmit={handleSubmit(onSubmit)}
         sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
+          width: "100%",
+          maxWidth: "480px",
+          background: "#fff",
+          boxShadow: "0 24px 64px #26214a1a",
+          borderRadius: "12px",
+          padding: { xs: "20px", md: "30px 60px" },
+          position: "relative",
         }}
       >
-        <Container maxWidth="sm">
-          <Box
-            component="form"
-            onSubmit={handleSubmit(onSubmit)}
-            sx={{
-              width: "480px",
-              background: "#fff",
-              boxShadow: "0 24px 64px #26214a1a",
-              borderRadius: "12px",
-              padding: "30px 60px",
-              position: "relative",
-            }}
-          >
-            <Typography
-              component="h1"
-              variant="h5"
-              fontWeight={700}
-              textAlign="center"
-              paragraph
-            >
-              {`Let's go!`}
-            </Typography>
-            {getFormFields("information").map((field: any) => (
-              <FormFields
-                key={field.name}
-                name={field.name}
-                label={field.label}
-                placeholder={field.placeholder}
-                type={field.type}
-                autoFocus={field.autoFocus}
-                defaultValue={field.defaultValue}
-                options={field.options}
-                register={register}
-                setValue={setValue}
-                errors={errors}
-              />
-            ))}
-            <Button
-              fullWidth
-              disableElevation
-              variant="contained"
-              size="large"
-              type="submit"
-              sx={{
-                textTransform: "none",
-                boxShadow: 12,
-                "&:hover": { boxShadow: 12 },
-                position: "relative",
-                height: 56,
-                mb: 3,
-              }}
-            >
-              {isSubmitting ? <CustomLoader /> : "Let's Start"}
-            </Button>
-          </Box>
-        </Container>
+        <Typography
+          component="h1"
+          variant="h5"
+          fontWeight={700}
+          textAlign="center"
+          paragraph
+        >
+          {`Let's go!`}
+        </Typography>
+        {getFormFields("information").map((field: any) => (
+          <FormFields
+            key={field.name}
+            name={field.name}
+            label={field.label}
+            placeholder={field.placeholder}
+            type={field.type}
+            autoFocus={field.autoFocus}
+            defaultValue={field.name !== "email" ? field.defaultValue : email}
+            options={field.options}
+            register={register}
+            setValue={setValue}
+            errors={errors}
+          />
+        ))}
+        <Button
+          fullWidth
+          disableElevation
+          variant="contained"
+          size="large"
+          type="submit"
+          sx={{
+            textTransform: "none",
+            boxShadow: 12,
+            "&:hover": { boxShadow: 12 },
+            position: "relative",
+            height: 56,
+            mb: { xs: 2, md: 3 },
+          }}
+        >
+          {isSubmitting ? <CustomLoader /> : "Let's Start"}
+        </Button>
       </Box>
-    </>
+    </Container>
+  </Box>
+</>
+
   );
 };
 

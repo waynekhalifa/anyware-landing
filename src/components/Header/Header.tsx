@@ -15,25 +15,12 @@ const Header: React.FC = () => {
       sx={{
         pt: 3,
         pb: 3,
-        zIndex: 1,
-        "&:before": {
-          content: '""',
-          display: "block",
-          position: "absolute",
-          top: "0",
-          left: "calc(50vw + 162px)",
-          width: "965px",
-          height: "967px",
-          background: `url(${bannerBg.src}) no-repeat top right/cover`,
-          webkitTransform: "translate(0,-28.5%)",
-          msTransform: "translate(0,-28.5%)",
-          transform: "translate(0,-28.5%)",
-          transition: "unset",
-          zIndex: 0,
-        },
+        zIndex: 12,
+        backgroundColor:"white"
+        
       }}
     >
-      <Box sx={{ maxWidth: 1248, margin: "auto", width: "100%" }}>
+      <Box sx={{margin: "auto", width: "100%" }}>
         <Grid container justifyContent="space-between" alignItems="center">
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box sx={{ mr: 3 }}>
@@ -41,15 +28,17 @@ const Header: React.FC = () => {
             </Box>
             <NavMenu />
           </Box>
-          <Box>
+          <Box style={{display:"flex",flexDirection:"row",columnGap:"1vw"}}>
             <Button
-              sx={{ textTransform: "capitalize", mr: 2, color: "common.white" }}
+              variant="contained"
+              
+              sx={{ textTransform: "capitalize", boxShadow: 12 }}
             >
               contact sales
             </Button>
             <Button
               variant="contained"
-              size="large"
+              
               sx={{ textTransform: "capitalize", boxShadow: 12 }}
             >
               Login

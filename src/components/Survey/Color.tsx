@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Color: React.FC<Props> = ({ isSelected, color, onClick }) => {
-  console.log({ isSelected });
+  
 
   return (
     <Box

@@ -6,6 +6,8 @@ import React, { useState } from "react";
 interface Props {
   completed: boolean;
   selectedFeatures: any;
+  handleSelectedMonth:(color:any)=>void
+  handleTotalPrice:(color:any)=>void
 }
 
 interface StateProps {
@@ -14,7 +16,7 @@ interface StateProps {
 
 const initialState: StateProps = { months: 1 };
 
-const PriceCalculator: React.FC<Props> = ({ completed, selectedFeatures }) => {
+const PriceCalculator: React.FC<Props> = ({ completed, selectedFeatures,handleSelectedMonth,handleTotalPrice }) => {
   const [state, setState] = useState(initialState);
   const { featuresListing } = useFeature("features", "feature");
   const { months } = state;
@@ -26,6 +28,9 @@ const PriceCalculator: React.FC<Props> = ({ completed, selectedFeatures }) => {
   for (let feature of features) {
     price = price + feature.price;
   }
+  handleTotalPrice(price*months)
+  handleSelectedMonth(months)
+
 
   return (
     <Box
