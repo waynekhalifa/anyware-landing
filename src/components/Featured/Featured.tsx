@@ -563,7 +563,7 @@ const Featured: React.FC = () => {
             </Box>
             <Box style={{width:"50%",maxHeight:"83vh",minHeight:"83vh"}}>
               <img src={Tab5_1.src} style={{width:"100%",height:tab5==1? "83%":"0px",transition:"opacity 1.5s ease-in-out",opacity:tab5==1? 1:0}}/>
-              {/* <img src={Tab5_2.src} style={{width:"100%",height:tab5==2? "83%":"0px",transition:"opacity 1.5s ease-in-out",opacity:tab5==2? 1:0}}/> */}
+              <img src={Tab5_2.src} style={{width:"100%",height:tab5==2? "83%":"0px",transition:"opacity 1.5s ease-in-out",opacity:tab5==2? 1:0}}/>
 
             </Box>
 
