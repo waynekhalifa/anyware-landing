@@ -64,10 +64,12 @@ const BannerForm: React.FC = () => {
           sx={{
             textTransform: "none",
             boxShadow: 12,
-            "&:hover": { boxShadow: 12 },
+            "&:hover": { boxShadow: 12 ,  backgroundColor: "primary.light",
+            borderColor: "primary.light"},
             position: "relative",
             width: 152,
             height: 56,
+            
           }}
           onClick={handleClick}
         >

@@ -44,6 +44,8 @@ import payment3 from "../../../public/images/payment3.png"
 import cashless1 from "../../../public/images/cashless1.png"
 import cashless2 from "../../../public/images/cashless2.png"
 import cashless3 from "../../../public/images/cashless3.png"
+import FeaturedCard from "./FeaturedCard";
+import { POS } from "@/constants/features";
 interface StateProps {
   videoKey: string;
 }
@@ -878,7 +880,7 @@ const Featured: React.FC = () => {
         </Box>
 
       </Container>
-
+    <FeaturedCard tabs={["POS Payment Integrations","In-App Payments","Cashless  Solution"]} items={[POS]}/>
      
 
     </Box>

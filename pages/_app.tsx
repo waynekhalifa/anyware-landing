@@ -49,12 +49,14 @@ function MyApp(props: MyAppProps) {
               fontSize: "1.2rem",
               paddingLeft: "24px",
             },
+
             ".content ul li": {
               marginBottom: "8px",
             },
             ".MuiAccordionSummary-root .MuiAccordionSummary-content": {
               margin: "12px 8px !important",
             },
+
             ".MuiAccordionSummary-root .MuiAccordionSummary-content.Mui-expanded":
               {
                 margin: "12px 8px !important",
@@ -88,6 +90,30 @@ function MyApp(props: MyAppProps) {
               "100%": {
                 transform: "translate(24px, 0)",
               },
+            },
+            ".scroll2": {
+              display:'flex',
+              flexDirection: "row",
+              overflowY: "hidden",
+              overflowX: "scroll",
+              
+            },
+            ".scroll2::-webkit-scrollbar": {
+              maxWidth: "1px",
+              borderRadius: "20px",
+              
+            },
+            ".scroll2::-webkit-scrollbar-track": {
+              background: "rgb(181, 181, 181)",
+              borderRadius: "20px",
+            },
+            ".scroll2::-webkit-scrollbar-thumb": {
+              background: "rgb(0, 180, 255)",
+              borderRadius: "20px",
+            },
+            ".scroll2::-webkit-scrollbar-thumb:hover": {
+              background: "#555",
+              borderRadius: "20px",
             },
           }}
         />
