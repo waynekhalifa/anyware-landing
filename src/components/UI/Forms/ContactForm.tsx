@@ -18,17 +18,17 @@ const ContactForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
     try {
-      await fetch("https://asten-mail-server.herokuapp.com/api/send-mail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: data.email,
-          cc: "info@astencollege.com",
-          subject: `Asten Contact Form, Message from ${data.firstName} ${data.lastName}`,
-          message: data.message,
-          html: "",
-        }),
-      });
+      // await fetch("https://asten-mail-server.herokuapp.com/api/send-mail", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     email: data.email,
+      //     cc: "info@astencollege.com",
+      //     subject: `Asten Contact Form, Message from ${data.firstName} ${data.lastName}`,
+      //     message: data.message,
+      //     html: "",
+      //   }),
+      // });
 
       reset();
       changeConfirm("Your message has been sent!");

@@ -33,8 +33,8 @@ const Login: React.FC = () => {
   } = useForm<any>({ resolver: yupResolver(getValidationSchema()) });
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
-    const response=await axios.post("https://localhost/php/addSiteUser.php",{mobile:isNaN(data.email)?"":data.email,fullName:data.name,restaurantName:data.restaurant,email:isNaN(data.email)?data.email:"",referalCode:data.code})
-    console.log(response.data)
+    // const response=await axios.post("https://localhost/php/addSiteUser.php",{mobile:isNaN(data.email)?"":data.email,fullName:data.name,restaurantName:data.restaurant,email:isNaN(data.email)?data.email:"",referalCode:data.code})
+    // console.log(response.data)
 
     push(`/survey?mobile=${isNaN(data.email)?"":data.email}&email=${isNaN(data.email)?data.email:""}&fullName=${data.name}`);
   };

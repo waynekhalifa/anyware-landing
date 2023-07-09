@@ -41,18 +41,18 @@ const Survey: React.FC = () => {
     // formData.append('features',JSON.stringify(selectedFeatures))
     // var id=data.email!=""? data.email:data.mobile
     // formData.append('userID', id+"");
-    const response=await axios.post("https://localhost/php/addUserProduct.php",{image:selectedImage,color:selectedColor,month:selectedMonth,price:totalPrice,features:selectedFeatures,userID:data.email!=""? data.email:data.mobile}
-    ,
-    {headers: {
-      'Content-Type': 'multipart/form-data',
-    },})
-    console.log(response.data)
+    // const response=await axios.post("https://localhost/php/addUserProduct.php",{image:selectedImage,color:selectedColor,month:selectedMonth,price:totalPrice,features:selectedFeatures,userID:data.email!=""? data.email:data.mobile}
+    // ,
+    // {headers: {
+    //   'Content-Type': 'multipart/form-data',
+    // },})
+    // console.log(response.data)
   }
-  console.log(selectedImage)
-  console.log(selectedColor)
-  console.log(selectedFeatures)
-  console.log(selectedMonth)
-  console.log(totalPrice)
+  // console.log(selectedImage)
+  // console.log(selectedColor)
+  // console.log(selectedFeatures)
+  // console.log(selectedMonth)
+  // console.log(totalPrice)
   return (
     <>
       <Box sx={{ height: 400,display:"flex",flexDirection:"column" }} />

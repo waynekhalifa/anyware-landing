@@ -22,8 +22,8 @@ const Header: React.FC = () => {
     >
       <Box sx={{margin: "auto", width: "100%" }}>
         <Grid container justifyContent="space-between" alignItems="center">
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box sx={{ mr: 3 }}>
+          <Box sx={{ display: "flex", alignItems: "center",justifyContent:'center' }}>
+            <Box sx={{ mr: 3 , ml :3 }}>
               <Logo imgSrc={logo} />
             </Box>
             <NavMenu />
@@ -38,8 +38,7 @@ const Header: React.FC = () => {
             </Button>
             <Button
               variant="contained"
-              
-              sx={{ textTransform: "capitalize", boxShadow: 12 }}
+              sx={{ textTransform: "capitalize", boxShadow: 12 ,mr:3}}
             >
               Login
             </Button>
