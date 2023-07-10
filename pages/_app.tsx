@@ -115,6 +115,10 @@ function MyApp(props: MyAppProps) {
               background: "#555",
               borderRadius: "20px",
             },
+            "@keyframes fade" :{
+              "0%":{opacity: 0},"100%":{ opacity: 0 },
+              "50%": { opacity: 1 }
+            },
           }}
         />
         <Component {...pageProps} />
