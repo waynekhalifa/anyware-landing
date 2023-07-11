@@ -45,7 +45,7 @@ import cashless1 from "../../../public/images/cashless1.png"
 import cashless2 from "../../../public/images/cashless2.png"
 import cashless3 from "../../../public/images/cashless3.png"
 import FeaturedCard from "./FeaturedCard";
-import { Items } from "@/constants/features";
+import { allItems } from "@/constants/features";
 interface StateProps {
   videoKey: string;
 }
@@ -357,7 +357,7 @@ const Featured: React.FC = () => {
           </Box> */}
           
           <Box style={{backgroundColor:"#FFD95A",width:"102%",left:"-1%",alignItems:"center",borderBottomLeftRadius:"20px",borderBottomRightRadius:"20px",justifyContent:"center",display:"flex",position:"relative",marginBottom:"-14px"}}>
-              <Button onMouseLeave={(event:any)=>event.target.style.backgroundColor="transparent"} onMouseEnter={(event:any)=>event.target.style.backgroundColor="white"} endIcon={<svg width="16" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clipRule="evenodd" d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z" fill="#C07F00"></path></svg>
+              <Button onMouseLeave={(event:any)=>event.target.style.backgroundColor="transparent"} onMouseEnter={(event:any)=>event.target.style.backgroundColor="white"} endIcon={<svg width="16" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z" fill="#C07F00"></path></svg>
 } style={{padding:"1.25rem 1.875rem",fontSize:"1rem",backgroundColor:"transparent",color:"black",fontWeight:"800"}}>
                 Get Started
               </Button>
@@ -662,7 +662,7 @@ const Featured: React.FC = () => {
 
             </Box>
             <Box style={{backgroundColor:"#FFD95A",width:"102%",alignItems:"center",borderBottomLeftRadius:"20px",borderBottomRightRadius:"20px",justifyContent:"center",display:"flex",position:"relative",marginBottom:"-14px"}}>
-              <Button onMouseLeave={(event:any)=>event.target.style.backgroundColor="transparent"} onMouseEnter={(event:any)=>event.target.style.backgroundColor="white"} endIcon={<svg width="16" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clipRule="evenodd" d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z" fill="#C07F00"></path></svg>
+              <Button onMouseLeave={(event:any)=>event.target.style.backgroundColor="transparent"} onMouseEnter={(event:any)=>event.target.style.backgroundColor="white"} endIcon={<svg width="16" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z" fill="#C07F00"></path></svg>
 } style={{padding:"1.25rem 1.875rem",fontSize:"1rem",backgroundColor:"transparent",color:"black",fontWeight:"800"}}>
                 Get Started
               </Button>
@@ -684,7 +684,7 @@ const Featured: React.FC = () => {
 
             </Box>
             <Box style={{backgroundColor:"#FFD95A",width:"102%",alignItems:"center",borderBottomLeftRadius:"20px",borderBottomRightRadius:"20px",justifyContent:"center",display:"flex",position:"relative",marginBottom:"-14px"}}>
-              <Button onMouseLeave={(event:any)=>event.target.style.backgroundColor="transparent"} onMouseEnter={(event:any)=>event.target.style.backgroundColor="white"} endIcon={<svg width="16" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clipRule="evenodd" d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z" fill="#C07F00"></path></svg>
+              <Button onMouseLeave={(event:any)=>event.target.style.backgroundColor="transparent"} onMouseEnter={(event:any)=>event.target.style.backgroundColor="white"} endIcon={<svg width="16" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z" fill="#C07F00"></path></svg>
 } style={{padding:"1.25rem 1.875rem",fontSize:"1rem",backgroundColor:"transparent",color:"black",fontWeight:"800"}}>
                 Get Started
               </Button>
@@ -869,7 +869,7 @@ const Featured: React.FC = () => {
           </Box> */}
           
           <Box style={{backgroundColor:"#FFD95A",width:"102%",left:"-1%",alignItems:"center",borderBottomLeftRadius:"20px",borderBottomRightRadius:"20px",justifyContent:"center",display:"flex",position:"relative",marginBottom:"-14px"}}>
-              <Button onMouseLeave={(event:any)=>event.target.style.backgroundColor="transparent"} onMouseEnter={(event:any)=>event.target.style.backgroundColor="white"} endIcon={<svg width="16" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clipRule="evenodd" d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z" fill="#C07F00"></path></svg>
+              <Button onMouseLeave={(event:any)=>event.target.style.backgroundColor="transparent"} onMouseEnter={(event:any)=>event.target.style.backgroundColor="white"} endIcon={<svg width="16" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z" fill="#C07F00"></path></svg>
 } style={{padding:"1.25rem 1.875rem",fontSize:"1rem",backgroundColor:"transparent",color:"black",fontWeight:"800"}}>
                 Get Started
               </Button>
@@ -880,7 +880,9 @@ const Featured: React.FC = () => {
         </Box>
 
       </Container>
-    <FeaturedCard tabs={["POS Payment Integrations","In-App Payments","Cashless  Solution"]} items={Items} />
+      {allItems.map((item,index)=>(
+    <FeaturedCard key={index} index ={index} items={item} />
+      ))}
      
 
     </Box>

@@ -21,11 +21,11 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       setCurrentIndex(0)
     }
     return () => clearInterval(intervalTime);
-  }, [timeRemaining]);
+  }, [timeRemaining,currentIndex,images.length]);
   useEffect(()=>{
     setCurrentIndex(0)
     setTimeRemaining(interval)
-  },[images.length])
+  },[images.length,interval])
   useEffect(() => {
       if (timeRemaining <= 0) {
         setTimeRemaining(interval);
@@ -38,7 +38,7 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       if(currentIndex>images.length-1){
         setCurrentIndex(0)
       }
-    }, [timeRemaining,images.length,interval,currentIndex,interval,images]);
+    }, [timeRemaining,images.length,interval,currentIndex,images]);
   return (
      currentIndex<=images.length-1) && images.map((item: any , index: number) => (
       <NextImage 
@@ -48,8 +48,6 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       blurDataURL={item.blurDataURL}
       priority
       layout="fill"
-      width={images[currentIndex].src === item.src ? "100%" : "0%" }
-      height= {images[currentIndex].src === item.src ? "100%" : "0%"}
       objectFit="contain"
       sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw"
       style={{  width: images[currentIndex].src === item.src ? "100%" : "0%" , height:  images[currentIndex].src === item.src ? "100%" : "0%",transition:"opacity 1s ease-in-out", opacity:images[currentIndex].src === item.src ? 1:0 }}

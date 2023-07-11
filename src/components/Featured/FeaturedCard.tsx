@@ -5,28 +5,51 @@ import Image from "next/image";
 import FadingImages from "../fadingImages/FadingImages";
 import useIsMobile from "@/hooks/useIsMobile";
 import AnimatedTexts from "../animatedTexts/AnimatedTexts";
+import NextImage from "next/image";
 
 interface Props {
-  tabs: any;
   items: any;
+  index: number;
 }
-const FeaturedCard: React.FC<Props> = ({ tabs, items }) => {
+const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   const [selectedTap, setSelectedTap] = useState(0);
   const choosenItem = items.filter((item: any) => item.title === selectedTap);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setSelectedTap(newValue);
   };
-const {isMobile} = useIsMobile();
+  const { isMobile } = useIsMobile();
+  const baseHeight =
+    items[selectedTap].imgOrientation == "landscape" ? 320 : 380;
+  const offestHeight =
+    items[selectedTap].animatedTexts.animationType == "stack"
+      ? items[selectedTap].animatedTexts.items.length * 50
+      : items[selectedTap].animatedTexts.items.length * 10;
+  const tabs = items.map((item: any) => item.title);
   return (
-    <Container style={{ marginBottom: "10vh", backgroundColor: "#FFF7D4",
-    borderRadius: "20px",width:'100%',display:'flex',alignItems:'center',flexDirection:'column',overflow:'hidden'}}>
+    <Container
+      key={index}
+      style={{
+        marginBottom: "10vh",
+        backgroundColor: "#FFF7D4",
+        borderRadius: "20px",
+        width: "90%",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        overflow: "hidden",
+        
+      }}
+    >
       <Box
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "flex-start",
-          minHeight: 380+items[selectedTap].animatedTexts.items.length*50 + "px",      
+          minHeight:
+            baseHeight +
+            offestHeight+
+            "px",
         }}
       >
         <Tabs
@@ -51,51 +74,114 @@ const {isMobile} = useIsMobile();
             />
           ))}
         </Tabs>
-        
-        <Grid container spacing={4} sx={{ maxWidth: "90%",  }}>
-          <Grid xs={6}>
+
+        <Grid
+          container
+          spacing={4}
+          sx={{ minWidth: isMobile ?"90%":"100%",  maxWidth: isMobile? "100%": "120%", paddingLeft: 10, paddingRight: 10 }}
+        >
+          <Grid xs={items[selectedTap].direction=="row" ? 6 : 12} sx={{ }}>
             <Typography
               variant="h4"
-              style={{ fontWeight: "600", fontSize: isMobile ? "1rem" : "2rem" }}
+              style={{
+                fontWeight: "600",
+                fontSize: isMobile ? "1rem" : "1.5rem",
+                textAlign: items[selectedTap].direction=="row" ? 'left' :'center'
+              }}
             >
               {items[selectedTap].typo}
             </Typography>
-            
-              {/* <Box sx={display:'flex',flexDirection:'row',maxHeight:'20%'}>
-                
-              </Box> */}
-            
-            <AnimatedTexts texts={items[selectedTap].animatedTexts.items} interval={2}/>
+
+            {items[selectedTap].icons.length > 0 && (
+              <Grid
+                container
+                spacing={2}
+                sx={{ height: "20%", maxWidth: "90%"}}
+              >
+                {items[selectedTap].icons.map((icon: any, index: any) => (
+                  <Grid xs={3} key={index}>
+                    <NextImage
+                      src={icon.src}
+                      priority
+                      layout="responsive"
+                      width="100%"
+                      height="100%"
+                      objectFit="contain"
+                      sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            )}
+            <AnimatedTexts
+              texts={items[selectedTap].animatedTexts.items}
+              interval={2}
+              animationType={items[selectedTap].animatedTexts.animationType}
+              direction={items[selectedTap].direction}
+            />
           </Grid>
-          <Grid xs={6} sx={{maxHeight:'800px'}}>
-          <Box style={{width:'100%',height:items[selectedTap].imgOrientation==="landscape" ? "200px":'500px',position:'relative'}}>
-              {/* <img alt="anyware software" src={items[selectedTap].img[0]} style={{width:"100%",height:"100%",objectFit:'contain'}} /> */}
-              <FadingImages images={items[selectedTap].img} interval={3}  />
+          <Grid xs={items[selectedTap].direction=="row" ? 6 : 12} sx={{marginTop:items[selectedTap].direction=="row" ? 0 :'2rem'}}>
+            <Box
+              style={{
+                width: "100%",
+                height:
+                  items[selectedTap].imgOrientation === "landscape"
+                    ? "300px"
+                    : "500px",
+                position: "relative",
+              }}
+            >
+              <FadingImages images={items[selectedTap].img} interval={3} />
             </Box>
           </Grid>
-          
         </Grid>
       </Box>
-      <Box style={{backgroundColor:"#FFD95A",minWidth:"105%",minHeight:"70px",alignItems:"center",justifyContent:"center",display:"flex",marginTop:15}}>
-       
-            <Button
-              variant="text"
-              sx={{ backgroundColor: "transparent",
-              borderColor:'transparent',transition:'0.4s ease-in-out',fontSize:'1rem',
-              color:"black",fontWeight:"600",textTransform: "capitalize" ,
-              "&:hover": {
-                backgroundColor: "#fff",
-                borderColor: "#fff",
-                boxShadow: '0px 0px 6px #eee'                
-              },}}
-              endIcon={<svg width="16" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clipRule="evenodd" d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z" fill="#C07F00"></path></svg>
-}
+      <Box
+        style={{
+          backgroundColor: "#FFD95A",
+          minWidth: "105%",
+          minHeight: "70px",
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+          marginTop: 15,
+        }}
+      >
+        <Button
+          variant="text"
+          sx={{
+            backgroundColor: "transparent",
+            borderColor: "transparent",
+            transition: "0.4s ease-in-out",
+            fontSize: "1rem",
+            color: "black",
+            fontWeight: "600",
+            textTransform: "capitalize",
+            "&:hover": {
+              backgroundColor: "#fff",
+              borderColor: "#fff",
+              boxShadow: "0px 0px 6px #eee",
+            },
+          }}
+          endIcon={
+            <svg
+              width="16"
+              height="10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Get Started
-            </Button>
-              </Box>
-        
-        
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z"
+                fill="#C07F00"
+              ></path>
+            </svg>
+          }
+        >
+          Get Started
+        </Button>
+      </Box>
     </Container>
   );
 };
