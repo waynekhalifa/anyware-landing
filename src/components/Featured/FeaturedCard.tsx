@@ -17,7 +17,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setSelectedTap(newValue);
   };
-  const { isMobile } = useIsMobile();
+  const { isMobile , width} = useIsMobile();
   const baseHeight =
     items[selectedTap].imgOrientation == "landscape" ? 320 : 380;
   const offestHeight =
@@ -25,6 +25,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       ? items[selectedTap].animatedTexts.items.length * 50
       : items[selectedTap].animatedTexts.items.length * 10;
   const tabs = items.map((item: any) => item.title);
+  console.log(width)
   return (
     <Container
       key={index}
@@ -58,7 +59,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
           variant="scrollable"
           scrollButtons={true}
           aria-label="scrollable prevent tabs example"
-          style={{ maxWidth: "100%", marginBottom: "2rem" }}
+          style={{ maxWidth: width -50, marginBottom: "2rem" }}
         >
           {tabs.map((tab: any, index: number) => (
             <Tab
