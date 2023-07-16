@@ -11,6 +11,8 @@ export enum Languages {
 export enum Pages {
   HOME = "",
   LOGIN = "login",
+  TRS = "TRS",
+  SURVEY="survey"
 }
 
 export enum Orders {

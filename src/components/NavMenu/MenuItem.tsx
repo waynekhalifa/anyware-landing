@@ -1,42 +1,29 @@
-import { Button, Container, List } from "@mui/material";
+import { Button, Container } from "@mui/material";
+import React, { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import Menu from '@mui/material/Menu';
-
 import useMenu from "@/hooks/useMenu";
 import Link from "../UI/Link";
-import { MenuItem } from "@/services/menu";
-import React, { useState } from "react";
-import { Box } from '@mui/material';
-import MuiMenuItem from '@mui/material/MenuItem';
-import Menuitem from "./MenuItem";
+import { Box } from "@mui/material";
 
-
-const NavMenu: React.FC = () => {
-  const { menusListing } = useMenu("menus", "menu");
-  const [open, setOpen] = useState<string>("");
-  const handleClick = (title:string) => {
-    if(open!==title)
-      setOpen(title)
-    else
-    setOpen("");
+function MenuItem({ menu }: any) {
+  const [open, setOpen] = useState<boolean>(false);
+  const handleClick = () => {
+    setOpen(!open);
   };
   const handleClose = () => {
-    setOpen("");
+    setOpen(false);
   };
-  
   return (
-      menusListing.map((menu: MenuItem , index:number) => (
-        // <Menuitem key={index} menu={menu}/>
-        <Container key={index}>
+    <Container>
       <Button
         key={menu.id}
         component="li"
         disableRipple
         endIcon={
-          menu.children.length > 0 && <KeyboardArrowDownIcon onClick={()=>handleClick(menu.name)} fontSize="small" />
+          menu.children.length > 0 && <KeyboardArrowDownIcon onClick={handleClick} fontSize="small" />
         }
         // onClick={handleClick}
-        onClick={()=>handleClick(menu.name)}
+        onClick={handleClick}
         sx={{
           textTransform: "capitalize",
           fontWeight: 600,
@@ -49,7 +36,7 @@ const NavMenu: React.FC = () => {
           
           },
           span: {
-            transform: open === menu.name? "rotate(180deg)" : "",
+            transform: open ? "rotate(180deg)" : "",
             transition:'transform 0.5s'
           },
         }}
@@ -58,7 +45,7 @@ const NavMenu: React.FC = () => {
         {menu.name}
         {/* </Link> */}
       </Button>
-      {open === menu.name && (
+      {open && (
         <Box
           sx={{
             backgroundColor: "#fff",
@@ -71,16 +58,16 @@ const NavMenu: React.FC = () => {
           }}
         >
          {menu.children.map((child:any, index:number)=>(
-         <Button key={index}  sx={{ borderRadius:0 ,textTransform: "capitalize",}} >
-          <Link href={child.path} underline="none" color={"inherit"}> 
+         <Button variant="contained" key={index}  sx={{ borderRadius:0 ,textTransform: "capitalize","&:hover": {
+            backgroundColor: "primary.light",
+            borderColor: "primary.light",
+          },}}>
             {child.name}
-            </Link>
          </Button>))}
         </Box>
       )}
     </Container>
-      ))
   );
-};
+}
 
-export default NavMenu;
+export default MenuItem;
