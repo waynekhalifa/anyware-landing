@@ -1,10 +1,10 @@
-import { Button, Container, List } from "@mui/material";
+import { Button, Container, List , IconButton  , Menu , MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import useMenu from "@/hooks/useMenu";
 import Link from "../UI/Link";
-import { MenuItem } from "@/services/menu";
+import { MenuItem1 } from "@/services/menu";
 import React, { useState, useEffect, useRef } from "react";
 import { Box } from "@mui/material";
 import MuiMenuItem from "@mui/material/MenuItem";
@@ -24,9 +24,44 @@ const NavMenu: React.FC = () => {
   const handleClose = () => {
     setOpen("");
   };
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleClickAnchor = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseAnchor = () => {
+    setAnchorEl(null);
+  };
+
   const [loading,setLoading]=useState(false);
-   
-  return menusListing.map((menu: MenuItem, index: number) => (
+  const { isMobile } = useIsMobile();
+
+  return isMobile ?  <Box style={{marginRight:20}}>
+
+  <IconButton
+    edge="end"
+    color="inherit"
+    aria-label="menu"
+    onClick={handleClickAnchor}
+    >
+    <MenuIcon />
+  </IconButton>
+  <Menu
+    id="menu-appbar"
+    anchorEl={anchorEl}
+    open={Boolean(anchorEl)}
+    onClose={handleCloseAnchor}
+  >
+    {menusListing.map((menu: MenuItem1, index: number) => (
+      <MenuItem key={index} onClick={handleCloseAnchor}>
+        <Link href={menu.path} underline="none" color={"inherit"}>
+          {menu.name}
+        </Link>
+      </MenuItem>
+    ))}
+  </Menu>
+</Box> : menusListing.map((menu: MenuItem1, index: number) => (
     // <Menuitem key={index} menu={menu}/>
     <Container key={index}>
       <Button

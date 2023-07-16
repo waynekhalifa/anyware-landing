@@ -80,6 +80,8 @@ const HomeFeatures: React.FC = () => {
             </Grid>
           </Grid>
         </Section>
+        <Box style={{marginTop:-50}}>
+
         <Section>
           <Typography
             color="text.secondary"
@@ -89,12 +91,9 @@ const HomeFeatures: React.FC = () => {
             letterSpacing={1.2}
             paragraph
             sx={{ mt: 1 }}
-          >
+            >
             JOIN 800,000+ HIGHLY PRODUCTIVE TEAMS
           </Typography>
-          {/* <Grid container justifyContent={"center"}>
-            <Partners />
-          </Grid> */}
                   <Box
           style={{
             display: "flex",
@@ -103,14 +102,15 @@ const HomeFeatures: React.FC = () => {
             alignItems: "center",
             padding: "10px",
           }}
-        >
-          <img alt="millenium" src={millenium.src} style={{ width: "18%" }} />
-          <img alt="millenium" src={movenpick.src} style={{ width: "18%" }} />
-          <img alt="swissotel" src={jeddah.src} style={{ width: "18%" }} />
-          <img alt="anyware" src={caffe.src} style={{ width: "18%" }} />
-          <img alt="caf" src={caf.src} style={{ width: "18%", height: "10%" }} />
+          >
+          <img alt="millenium" src={millenium.src} style={{ width: "13%" }} />
+          <img alt="millenium" src={movenpick.src} style={{ width: "13%" }} />
+          <img alt="swissotel" src={jeddah.src} style={{ width: "13%" }} />
+          <img alt="anyware" src={caffe.src} style={{ width: "13%" }} />
+          <img alt="caf" src={caf.src} style={{ width: "13%", height: "10%" }} />
         </Box>
         </Section>
+          </Box>
       </Container>
 
       {allItems.map((item, index) => (

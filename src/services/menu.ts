@@ -1,17 +1,17 @@
-export interface MenuItem {
+export interface MenuItem1 {
   id: string | number;
   name: string;
   path: string;
   children: MenuSubItem[];
 }
 
-interface MenuSubItem extends MenuItem {
+interface MenuSubItem extends MenuItem1 {
   category: string;
   icon: string;
   description: string;
 }
 
-const mainMenu: MenuItem[] = [
+const mainMenu: MenuItem1[] = [
   {
     id: 1,
     name: "product",
@@ -375,9 +375,9 @@ const mainMenu: MenuItem[] = [
  * getMenusByName
  *
  * @param name name: string
- * @returns Promise<MenuItem[]>
+ * @returns Promise<MenuItem1[]>
  */
-export async function getMenusByName(name: string): Promise<MenuItem[]> {
+export async function getMenusByName(name: string): Promise<MenuItem1[]> {
   try {
     return mainMenu;
   } catch (err: any) {

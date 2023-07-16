@@ -11,11 +11,11 @@ const Partners: React.FC = () => {
       container
       alignItems="center"
       justifyContent={"space-between"}
-      sx={{ maxWidth: 408 }}
+      sx={{ maxWidth: 300 }}
     >
-      <Image src={oracle} alt="oracle" width={120} height={16} />
-      <Image src={act} alt="act" width={120} height={48} />
-      <Image src={raya} alt="act" width={120} height={32} />
+      <Image src={oracle} alt="oracle" width={80} height={13} />
+      <Image src={act} alt="act" width={80} height={40} />
+      <Image src={raya} alt="act" width={80} height={25} />
     </Grid>
   );
 };

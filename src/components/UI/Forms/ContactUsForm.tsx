@@ -5,9 +5,12 @@ import useConfirm from "@/hooks/useConfirm";
 import useFormValidations from "@/hooks/useFormValidations";
 import ButtonLoader from "../ButtonLoader";
 import LightBox from "../LightBox";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const ContactUsForm: React.FC = () => {
   const { confirm, changeConfirm } = useConfirm();
+  const { isMobile} = useIsMobile();
+
   const { getValidationSchema } = useFormValidations("contact-us");
   const {
     register,
@@ -67,7 +70,7 @@ const ContactUsForm: React.FC = () => {
           <Grid item xs={12} md={12}>
           <Box style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
             <Box style={{flex:1,marginLeft:10}}>
-            <Typography style={{ marginRight: '50px',width:"0%" }}>Restaurant/Hotel Name (Optional)</Typography>
+            <Typography style={{ marginRight: '50px',width:120,flexWrap:'wrap' }}>Restaurant/Hotel Name (Optional)</Typography>
             </Box>
             <Box style={{flex:2}}>
             <TextField
@@ -135,57 +138,22 @@ const ContactUsForm: React.FC = () => {
             )}
           </Box>
           </Grid>
-          {/* <Grid item xs={12} md={12}>
-            <Box display="flex" alignItems={'center'}>
-              <Typography style={{ marginRight: '50px',width:120 }}>Full Name</Typography>
-              <TextField
-                {...register("fullName")}
-                type="text"
-                placeholder="Full Name"
-                fullWidth
-                id="fullName"
-                size="small"
-                error={!!errors.fullName}
-              />
+
+          <Grid item xs={12} md={12}>
+          <Box style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <Box style={{flex:1,marginLeft:10}}>
+            <Typography style={{ marginRight: '50px',width:120 }}>Message</Typography>
             </Box>
-            {errors.fullName && (
-              <Typography color="error">
-                <>{errors.fullName.message}</>
-              </Typography>
-            )}
-          </Grid> */}
-          {/* <Grid item xs={12}>
-            <Box display="flex" alignItems={'center'}>
-              <Typography style={{ marginRight: '8px' }}>Restaurant/Hotel Name (Optional)</Typography>
-              <TextField
-                {...register("restaurant")}
-                type="text"
-                placeholder="Restaurant/Hotel Name"
-                fullWidth
-                id="restaurant"
-                size="small"
-                error={!!errors.restaurant}
-              />
-            </Box>
-            {errors.restaurant && (
-              <Typography color="error">
-                <>{errors.restaurant.message}</>
-              </Typography>
-            )}
-          </Grid> */}
-          {/* <Grid item xs={12}>
-            <Box display="flex" alignItems={'center'}>
-              <Typography style={{ marginRight: '8px' }}>Message</Typography>
-              <TextField
+            <Box style={{flex:2}}>
+            <TextField
                 {...register("message")}
                 type="text"
                 placeholder="Message"
                 fullWidth
                 id="message"
                 size="small"
-                multiline
-                rows={4}
                 error={!!errors.message}
+                required
               />
             </Box>
             {errors.message && (
@@ -193,8 +161,9 @@ const ContactUsForm: React.FC = () => {
                 <>{errors.message.message}</>
               </Typography>
             )}
-          </Grid> */}
-          <Grid item xs={12}>
+          </Box>
+          </Grid>
+          <Grid item xs={12} style={{marginTop:'5%'}}>
             <Button
               fullWidth
               disableElevation
