@@ -91,34 +91,7 @@ function MyApp(props: MyAppProps) {
                 transform: "translate(24px, 0)",
               },
             },
-            ".scroll2": {
-              display:'flex',
-              flexDirection: "row",
-              overflowY: "hidden",
-              overflowX: "scroll",
-              
-            },
-            ".scroll2::-webkit-scrollbar": {
-              maxWidth: "1px",
-              borderRadius: "20px",
-              
-            },
-            ".scroll2::-webkit-scrollbar-track": {
-              background: "rgb(181, 181, 181)",
-              borderRadius: "20px",
-            },
-            ".scroll2::-webkit-scrollbar-thumb": {
-              background: "rgb(0, 180, 255)",
-              borderRadius: "20px",
-            },
-            ".scroll2::-webkit-scrollbar-thumb:hover": {
-              background: "#555",
-              borderRadius: "20px",
-            },
-            "@keyframes fade" :{
-              "0%":{opacity: 0},"100%":{ opacity: 0 },
-              "50%": { opacity: 1 }
-            },
+            
           }}
         />
         <Component {...pageProps} />

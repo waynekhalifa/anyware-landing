@@ -2,6 +2,7 @@ import { Container,Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import NextImage from 'next/image'
 import checkGold from "../../../public/images/checkGold.png"
+import useIsMobile from "@/hooks/useIsMobile";
 
 interface Props {
   texts: string[];
@@ -13,7 +14,7 @@ const AnimatedTexts: React.FC<Props> = ({ texts , interval,animationType,directi
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleTexts,setVisibleTexts] = useState<string[]>([texts[0]])
   const [counter, setCounter] = useState(0);  
-//   const {isMobile} = useIsMobile();
+  const {isMobile} = useIsMobile();
   const TimeInterval = animationType=="slide" ? interval +2:  interval 
   useEffect(()=>{
     setVisibleTexts([])
@@ -80,7 +81,7 @@ const AnimatedTexts: React.FC<Props> = ({ texts , interval,animationType,directi
               >
                 {text && visibleTexts.includes(text) && <img src={checkGold.src} style={{ width: '1rem' }} />}
                 {visibleTexts.includes(text) && (
-                  <p style={{ fontWeight: '400', fontSize: '1rem', lineHeight: '1.7857142857' }}>{text}</p>
+                  <p style={{ fontWeight: isMobile ? "200" : '400', fontSize: isMobile ? '0.8rem' : '1rem', lineHeight: '1.7857142857' }}>{text}</p>
                 )}
               </Box>
             ))}
@@ -110,7 +111,7 @@ const AnimatedTexts: React.FC<Props> = ({ texts , interval,animationType,directi
               >
                 {/* {text && visibleTexts.includes(text) && <img src={checkGold.src} style={{ width: '1rem'}} />} */}
                 {visibleTexts.includes(text) && (
-                  <p style={{ fontWeight: '400', fontSize: '1rem', lineHeight: '1.7857142857',textAlign:direction=="row"?'left':'center',width:'100%' }}><img src={checkGold.src} style={{ width: '1rem',marginRight:'0.3rem',transform:'translate(0rem,0.1rem'}} />{text}</p>
+                  <p style={{ fontWeight: isMobile ? "200" : '400', fontSize: isMobile ? '0.8rem' : '1rem', lineHeight: '1.7857142857',textAlign:direction=="row"?'left':'center',width:'100%' }}><img src={checkGold.src} style={{ width: '1rem',marginRight:'0.3rem',transform:'translate(0rem,0.1rem'}} />{text}</p>
                 )}
               </Box>
             ))}
@@ -129,7 +130,7 @@ const AnimatedTexts: React.FC<Props> = ({ texts , interval,animationType,directi
     }}
   >
      {/* <img src={checkGold.src} style={{ width: '1rem'}} /> */}
-      <p style={{ fontWeight: '400', fontSize: '1rem', lineHeight: '1.7857142857' ,textAlign:direction=="row"?'left':'center',width:'100%' }}>{text}</p>
+      <p style={{ fontWeight: isMobile ? "200" : '400', fontSize: isMobile ? '0.8rem' : '1rem', lineHeight: '1.7857142857' ,textAlign:direction=="row"?'left':'center',width:'100%' }}>{text}</p>
     
   </Box>
 ))}
