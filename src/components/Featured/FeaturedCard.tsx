@@ -139,7 +139,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       </Box>
       <Box
         style={{
-          backgroundColor: "#FFD95A",
+          backgroundColor: "#C6A658",
           minWidth: "105%",
           minHeight: "70px",
           alignItems: "center",

@@ -92,14 +92,10 @@ const HomeFeatures: React.FC = () => {
           >
             JOIN 800,000+ HIGHLY PRODUCTIVE TEAMS
           </Typography>
-          <Grid container justifyContent={"center"}>
+          {/* <Grid container justifyContent={"center"}>
             <Partners />
-          </Grid>
-        </Section>
-      </Container>
-
-      <Container>
-        <Box
+          </Grid> */}
+                  <Box
           style={{
             display: "flex",
             flexDirection: "row",
@@ -114,8 +110,8 @@ const HomeFeatures: React.FC = () => {
           <img alt="anyware" src={caffe.src} style={{ width: "18%" }} />
           <img alt="caf" src={caf.src} style={{ width: "18%", height: "10%" }} />
         </Box>
+        </Section>
       </Container>
-      <br></br>
 
       {allItems.map((item, index) => (
         <FeaturedCard key={index} index={index} items={item} />
