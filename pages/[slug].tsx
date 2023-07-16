@@ -20,7 +20,11 @@ const PageTemplate: NextPage = () => {
         <title>Anyware Software | {slug}</title>
         <meta name="description" content={"Anyware Software"} />
       </Head>
-      {slug === Pages.LOGIN ? <Login /> : <Survey />}
+      {slug === Pages.LOGIN && <Login /> }
+      {slug === Pages.SURVEY &&  <Survey />}
+      {slug === Pages.TRS &&  <Survey />}
+      
+      
     </>
   );
 };

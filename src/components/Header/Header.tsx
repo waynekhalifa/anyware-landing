@@ -5,8 +5,11 @@ import Logo from "../Logo";
 
 import logo from "@images/anywarelogo.png";
 import bannerBg from "@images/home-header-bg.png";
+import React from "react";
 
 const Header: React.FC = () => {
+
+
   return (
     <AppBar
       position="fixed"
