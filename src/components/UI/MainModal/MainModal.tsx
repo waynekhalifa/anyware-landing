@@ -5,6 +5,7 @@ import ContentLoader from "../ContentLoader";
 import useApp from "@/hooks/useApp";
 
 const Catcher = dynamic(() => import("../Catcher"), { suspense: true });
+const Contact = dynamic(() => import("../../ContactUs/ContactUs"), { suspense: true });
 
 const MainModal: React.FC = () => {
   const { modalOpen, modalID, modalContent, closeModal } = useApp();
@@ -13,6 +14,8 @@ const MainModal: React.FC = () => {
     switch (modalID) {
       case "catcher":
         return <Catcher />;
+      case "contact":
+        return <Contact />;  
       default:
         return modalContent;
     }
