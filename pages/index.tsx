@@ -4,6 +4,7 @@ import HomeFeatures from "@/components/Featured";
 
 import Head from "next/head";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <HomeFeatures />
+      <Footer/>
     </>
   );
 };

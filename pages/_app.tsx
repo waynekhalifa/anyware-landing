@@ -7,7 +7,7 @@ import theme from "@/theme";
 import createEmotionCache from "@/helpers/createEmotionCache";
 import { wrapper } from "@/store/store";
 import { setListing as setMenus } from "@/store/menuSlice";
-import { GlobalStyles } from "@mui/material";
+import { GlobalStyles, Typography } from "@mui/material";
 
 import "@fontsource/manrope/300.css";
 import "@fontsource/manrope/400.css";
