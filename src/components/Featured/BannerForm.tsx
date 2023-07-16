@@ -77,7 +77,7 @@ const BannerForm: React.FC = () => {
         </Button>
       </Box>
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
-        Trusted by
+        Partner With
       </Typography>
       <Partners />
     </>
