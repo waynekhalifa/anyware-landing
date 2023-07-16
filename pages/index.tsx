@@ -4,8 +4,13 @@ import HomeFeatures from "@/components/Featured";
 
 import Head from "next/head";
 import Header from "@/components/Header";
+import TRS from "@/components/TRS/TRS";
+import useApp from "@/hooks/useApp";
+import { Pages } from "@/constants/enums";
 
 const Home: NextPage = () => {
+  const { slug } = useApp();
+
   return (
     <>
       <Head>
@@ -14,6 +19,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <HomeFeatures />
+      
     </>
   );
 };

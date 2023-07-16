@@ -25,7 +25,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       ? items[selectedTap].animatedTexts.items.length * 50
       : items[selectedTap].animatedTexts.items.length * 10;
   const tabs = items.map((item: any) => item.title);
-  console.log(width)
+  
   return (
     <Container
       key={index}

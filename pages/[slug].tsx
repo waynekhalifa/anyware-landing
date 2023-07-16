@@ -11,6 +11,7 @@ import { setListing as setFeatures } from "@/store/featureSlice";
 import { listQuestions } from "@/services/question";
 import { listFeatures } from "@/services/feature";
 import { setSlug } from "@/store/appSlice";
+import TRS from "@/components/TRS/TRS";
 
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
@@ -22,9 +23,7 @@ const PageTemplate: NextPage = () => {
       </Head>
       {slug === Pages.LOGIN && <Login /> }
       {slug === Pages.SURVEY &&  <Survey />}
-      {slug === Pages.TRS &&  <Survey />}
-      
-      
+      {slug === Pages.TRS &&  <TRS />}
     </>
   );
 };
