@@ -6,10 +6,17 @@ import Logo from "../Logo";
 import logo from "@images/anywarelogo.png";
 import bannerBg from "@images/home-header-bg.png";
 import React from "react";
+import { ContactForm } from '../UI/Forms';
+import useApp from '@/hooks/useApp';
+
 
 const Header: React.FC = () => {
+  const { openModal } = useApp();
 
+  const handleClick=()=>{
+    openModal({ modalID: "contact"});
 
+  }
   return (
     <AppBar
       position="fixed"
@@ -38,6 +45,7 @@ const Header: React.FC = () => {
                 backgroundColor: "primary.light",
                 borderColor: "primary.light",
               },}}
+              onClick={handleClick}
             >
               contact sales
             </Button>

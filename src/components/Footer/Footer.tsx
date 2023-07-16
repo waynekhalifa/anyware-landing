@@ -1,10 +1,10 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 import Logo from '../Logo';
 import logo from "@images/anywarelogo.png";
-
 const Footer = () => {
+
   return (
     <footer>
       <Box
@@ -21,10 +21,11 @@ const Footer = () => {
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
+            marginLeft:10
           }}
         >
-          <Box sx={{ marginRight: '50px' }}>
+          <Box sx={{ marginRight: '50px',marginBottom:5 }}>
             <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10 }}>
               Ordering Features
             </Typography>
@@ -50,7 +51,7 @@ const Footer = () => {
             </Link>
           </Box>
 
-          <Box sx={{ marginRight: '50px' }}>
+          <Box sx={{ marginRight: '50px',marginBottom:5  }}>
             <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10 }}>
               Customer Retention Features
             </Typography>
@@ -66,7 +67,7 @@ const Footer = () => {
             </Link>
           </Box>
 
-          <Box sx={{ marginRight: '50px' }}>
+          <Box sx={{ marginRight: '50px',marginBottom:5  }}>
             <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10 }}>
               Customer Management Features
             </Typography>
@@ -87,7 +88,7 @@ const Footer = () => {
             </Link>
           </Box>
 
-          <Box sx={{ marginRight: '50px' }}>
+          <Box sx={{ marginRight: '50px',marginBottom:5  }}>
             <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10 }}>Payment Features</Typography>
             <Link href="" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer',marginBottom:5 }}>
@@ -106,27 +107,42 @@ const Footer = () => {
             </Link>
           </Box>
 
-          <Box>
-            <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10 }}>Locations:</Typography>
-            <Typography style={{ fontSize: 15, textAlign: 'left',marginBottom:5 }}>- Cairo, Egypt Office #: +20 100 667 6388
-            </Typography>
-            <Typography style={{ fontSize: 15, textAlign: 'left',marginBottom:5 }}>- Dubai, UAE Office #: +971 50 506 4187
-            </Typography>
+          <Box sx={{ marginRight: '50px' ,marginBottom:5 }}>
+            <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10,textAlign:'left' }}>Locations:</Typography>
+              <Typography style={{ fontSize: 15, textAlign: 'left',marginBottom:5 }}>
+              - Cairo, Egypt Office #: +20 100 667 6388
+              </Typography>
+              <Typography style={{ fontSize: 15, textAlign: 'left',marginBottom:5 }}>
+              - Dubai, UAE Office #: +971 50 506 4187
+              </Typography>
           </Box>
+
+          {/* <Box sx={{ marginRight: '50px',marginBottom:5 }}>
+            <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10 }}>Anyware Software</Typography>
+            <Link href="" passHref>
+              <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer',marginBottom:5 }}>
+                - Contact Us
+              </Typography>
+            </Link>
+            <Box style={{display:'flex'}}>
+            <Button  onClick={handleclick}>- Contact Us  </Button>
+            </Box>
+            <Link href="" passHref>
+              <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer',marginBottom:5 }}>
+                - About Us
+              </Typography>
+            </Link>
+          </Box> */}
 
         </Box>
       <hr style={{ borderTop: '1px grey', margin: '20px auto', width: '90%' }} />
-      <Box style={{display:'flex'}}>
+      
+      <Box style={{display:'flex',alignItems:'center'}}>
         <Box style={{flexDirection:'column',marginTop:20,marginLeft:'5%'}}>
       <Logo imgSrc={logo} />
       <Link href={""} passHref>
       <Typography style={{fontSize:12, cursor: 'pointer',}}>@2023 Anyware Software  |  Security  |  Terms</Typography>
       </Link>
-        </Box>
-        
-        {/* Social icons */}
-        <Box>
-
         </Box>
 
       </Box>
