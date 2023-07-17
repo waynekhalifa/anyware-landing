@@ -87,7 +87,7 @@ const TRS: React.FC = () => {
             flexDirection: "column",
             padding:0,
             marginBottom: isMobile?-20 :160,
-            marginTop:-100,
+            marginTop:isMobile?0:-100,
           }}
         >
           <Grid xs={12} >
