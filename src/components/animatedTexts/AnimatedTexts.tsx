@@ -111,7 +111,7 @@ const AnimatedTexts: React.FC<Props> = ({ texts , interval,animationType,directi
               >
                 {/* {text && visibleTexts.includes(text) && <img src={checkGold.src} style={{ width: '1rem'}} />} */}
                 {visibleTexts.includes(text) && (
-                  <p style={{ fontWeight: isMobile ? "200" : '400', fontSize: isMobile ? '0.8rem' : '1rem', lineHeight: '1.7857142857',textAlign:direction=="row"?'left':'center',width:'100%' }}><img src={checkGold.src} style={{ width: '1rem',marginRight:'0.3rem',transform:'translate(0rem,0.1rem'}} />{text}</p>
+                  <p style={{ fontWeight: isMobile ? "200" : '400', fontSize: isMobile ? '0.8rem' : '1rem', lineHeight: '1.7857142857',textAlign:direction=="row"||direction=="row-reverse"?'left':'center',width:'100%' }}><img src={checkGold.src} style={{ width: '1rem',marginRight:'0.3rem',transform:'translate(0rem,0.1rem'}} />{text}</p>
                 )}
               </Box>
             ))}

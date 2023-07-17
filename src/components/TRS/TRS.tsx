@@ -13,6 +13,7 @@ import kazoku from "../../../public/images/kazoku.png";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
 import bannerBg from "../../../public/images/home-header-bg.png";
+import Footer from "../Footer/Footer";
 
 const TRS: React.FC = () => {
   const venues = [reif, megumi, lexies, sachi1, sachi2, sachi3, kazoku];
@@ -29,7 +30,7 @@ const TRS: React.FC = () => {
         height: "100vh",
         position: "absolute",
         overflowX: "hidden",
-        paddingTop: "120px",
+        paddingTop: isMobile ? 20 : 120,
       }}
     >
       <Header />
@@ -53,7 +54,8 @@ const TRS: React.FC = () => {
         />
       </Box>
       <Grid
-        spacing={2}
+        spacing={6}
+        container
         style={{
           display: "flex",
           flexDirection: "column",
@@ -83,9 +85,12 @@ const TRS: React.FC = () => {
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
+            padding:0,
+            marginBottom: isMobile?-20 :160,
+            marginTop:-100,
           }}
         >
-          <Grid xs={12}>
+          <Grid xs={12} >
             <Typography
               color="text.secondary"
               align="center"
@@ -105,16 +110,18 @@ const TRS: React.FC = () => {
               alignItems: "center",
               justifyContent: "center",
               flexDirection: "row",
+              
             }}
           >
             {venues.map((venue, index) => {
               return (
-                <Grid key={index} xs={isMobile ? 5 : undefined}>
+                <Grid key={index} xs={isMobile ? 5 : undefined} style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
                   <NextImage
                     alt="Banner background"
                     layout="fixed"
                     width="150px"
                     height="60px"
+                    objectFit="contain"
                     src={venue.src}
                   />
                 </Grid>
@@ -123,14 +130,21 @@ const TRS: React.FC = () => {
           </Grid>
         </Grid>
         {Items.slice(1, Items.length).map((item, index) => (
-          <Box
-            key={index}
-            style={{ width: "100%", minHeight: "50%", maxHeight: "100%" }}
-          >
-            <TRScard index={index} items={item} />
-          </Box>
+           <Grid key={index+1} style={{ width: "100%", padding: 0,marginBottom:isMobile?40:120 }} xs={12} md={12}>
+           <Box
+             style={{
+               width: "100%",
+               minHeight: "100%",
+               maxHeight: "100%",
+               margin: 0,
+             }}
+           >
+             <TRScard index={index+1} items={item} />
+           </Box>
+         </Grid>
         ))}
       </Grid>
+      <Footer/>
     </div>
   );
 };
