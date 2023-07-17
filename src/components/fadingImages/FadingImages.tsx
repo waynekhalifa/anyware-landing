@@ -49,7 +49,7 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       priority
       layout="fill"
       objectFit="contain"
-      sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw"
+      
       style={{  width: images[currentIndex].src === item.src ? "100%" : "0%" , height:  images[currentIndex].src === item.src ? "100%" : "0%",transition:"opacity 1s ease-in-out", opacity:images[currentIndex].src === item.src ? 1:0 }}
       />
     ))
