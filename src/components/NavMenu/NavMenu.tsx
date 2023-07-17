@@ -1,4 +1,4 @@
-import { Button, Container, List , IconButton  , Menu , MenuItem, Typography } from "@mui/material";
+import { Button, Container, List , IconButton  , Menu , MenuItem, Typography, Grid } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -48,7 +48,16 @@ const NavMenu: React.FC = () => {
   const { isMobile } = useIsMobile();
 
   return isMobile ?  
-  <Box style={{marginRight:20,display:'flex'}}>
+  <Box style={{marginRight:20,display:'flex',}}>
+                <Button
+              variant="contained"
+              sx={{ textTransform: "capitalize",backgroundColor:'transparent',boxShadow:1,marginRight:2}}
+              onClick={handleClickContact}
+              >
+                <Typography style={{fontSize:15}}>
+              contact sales
+                </Typography>
+            </Button>
   <IconButton
     edge="end"
     color="inherit"
@@ -64,45 +73,43 @@ const NavMenu: React.FC = () => {
     open={Boolean(anchorEl)}
     onClose={handleCloseAnchor}
     >
-      <Box style={{position:'fixed',top:0,bottom:0,left:0,right:0,width:'100%',height:'90%',marginTop:'20%',backgroundColor:'white',overflowY:'auto'}}>
+      {/* <Box style={{position:'fixed',top:0,bottom:0,left:0,right:0,width:'100%',height:'90%',marginTop:'20%',backgroundColor:'white',overflowY:'auto'}}> */}
+      <Grid sx={{position:'fixed',top:0,bottom:0,left:0,right:0,marginTop:'20%',backgroundColor:'white',overflowY:'auto'}}>
       {menusListing.map((menu: MenuItem1, index: number) => (
-    // <Menuitem key={index} menu={menu}/>
     <Container key={index}>
-      <Button
-        key={menu.id}
-        component="li"
-        disableRipple
-        endIcon={
-          menu.children.length > 0 && (
-            <KeyboardArrowDownIcon
-              onClick={() => handleClick(menu.name)}
-              fontSize="small"
-            />
-          )
-        }
-        onClick={() => handleClick(menu.name)}
-        sx={{
-          textTransform: "capitalize",
-          fontWeight: 600,
-          color: "text.primary",
-          justifyContent: "flex-start",
-          p: "0px 16px",
-          mr: 1,
-          zIndex: 2,
-          "&:hover": {
-            backgroundColor: "transparent",
-          },
-          span: {
-            transform: open === menu.name ? "rotate(180deg)" : "",
-            transition: "transform 0.5s",
-          },
-          marginBottom:5
-        }}
-      >
-        <Typography style={{fontWeight:'bolder'}}>
-        {menu.name}
-        </Typography>
-      </Button>
+<Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '3%' }}>
+  <Button
+    key={menu.id}
+    component="li"
+    disableRipple
+    onClick={() => handleClick(menu.name)}
+    sx={{
+      textTransform: "capitalize",
+      fontWeight: 600,
+      color: "text.primary",
+      justifyContent: "flex-start",
+      p: "0px 16px",
+      mr: 1,
+      zIndex: 2,
+      "&:hover": {
+        backgroundColor: "transparent",
+      },
+      marginBottom: 5,
+      width: '100%'
+    }}
+  >
+    <Typography style={{ fontWeight: 'bolder' }}>
+      {menu.name}
+    </Typography>
+  </Button>
+  {menu.children.length > 0 && (
+    <KeyboardArrowDownIcon
+      onClick={() => handleClick(menu.name)}
+      fontSize="small"
+      style={{ transform: open === menu.name ? "rotate(180deg)" : "" ,transition: "transform 0.5s",}}
+    />
+  )}
+</Box>
 
       {open === menu.name && (
         <Box style={{display:'flex',flexDirection:'column',marginBottom:'5%',marginTop:-30}}>
@@ -160,8 +167,8 @@ const NavMenu: React.FC = () => {
                 </Typography>
             </Button>
           </Box>
-      </Box>
-
+      {/* </Box> */}
+      </Grid>
   </Menu>
 </Box>
  : menusListing.map((menu: MenuItem1, index: number) => (
@@ -228,7 +235,8 @@ const NavMenu: React.FC = () => {
             }}
           >
             {menu.children.map((child: any, index: number) => (
-             loading ? <h3>loading...</h3> :  <Button
+             loading ? <h3>loading...</h3> :  
+             <Button
                 key={index}
                 onClick={()=>{}}
                 sx={{

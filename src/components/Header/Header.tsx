@@ -29,7 +29,8 @@ const Header: React.FC = () => {
         pt: 3,
         pb: 3,
         zIndex: 12,
-        backgroundColor:"white"
+        backgroundColor:"white",
+        boxShadow:3
         
       }}
     >
@@ -64,30 +65,6 @@ const Header: React.FC = () => {
               Login
             </Button>
           </Box>
-          
-
-        //   <Box style={{display:"flex",flexDirection:"row",columnGap:"1vw",marginTop:'5%',marginLeft:'5%'}}>
-        //   <Button
-        //     variant="contained"
-        //     sx={{ textTransform: "capitalize", boxShadow: 8 ,"&:hover": {
-        //       backgroundColor: "primary.light",
-        //       borderColor: "primary.light",
-        //     },}}
-        //     onClick={handleClick}
-        //     >
-        //     contact sales
-        //   </Button>
-        //   <Button
-        //     variant="contained"
-        //     sx={{ textTransform: "capitalize", boxShadow: 8 ,mr:3,"&:hover": {
-        //       backgroundColor: "primary.light",
-        //       borderColor: "primary.light",
-        //     },}}
-        //   >
-        //     Login
-        //   </Button>
-        // </Box>
-
               }
         </Grid>
       </Box>
