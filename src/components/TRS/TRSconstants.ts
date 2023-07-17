@@ -1,11 +1,27 @@
 import trs1 from "../../../public/images/trs1.png";
 import trs2 from "../../../public/images/trs2.png";
+import trs3 from "../../../public/images/trs3.png";
 import bakymobile1 from "../../../public/images/bakymobile1.png"
 import bakymobile2 from "../../../public/images/bakymobile2.png"
 import bakymobile3 from "../../../public/images/bakymobile3.png"
 import bakymobile4 from "../../../public/images/bakymobile4.png"
 import bakymobile5 from "../../../public/images/bakymobile5.png"
 import bakymobile6 from "../../../public/images/bakymobile6.png"
+import posPayment from "../../../public/images/posPayment.png";
+import payMob from "../../../public/images/paymob.png";
+import visa from "../../../public/images/visa.png";
+import meeza from "../../../public/images/meeza.png";
+import masterCard from "../../../public/images/masterCard.png";
+import payment1 from "../../../public/images/payment1.png";
+import payment2 from "../../../public/images/payment2.png";
+import payment3 from "../../../public/images/payment3.png";
+import cashless1 from "../../../public/images/cashless1.png";
+import cashless2 from "../../../public/images/cashless2.png";
+import aio1 from "../../../public/images/aio1.png"
+import aio3 from "../../../public/images/aio3.png"
+import aio4 from "../../../public/images/aio4.png"
+import aio5 from "../../../public/images/aio5.png"
+import aio6 from "../../../public/images/aio6.png"
 const makeRes = {
   typo: "Make outings and special events reservations more easy!",
   Description:
@@ -65,3 +81,42 @@ const checkin = {
   direction:"row"
 };
 export const Items = [makeRes,floorMap,deposit,checkin];
+
+export const TRSaio = [
+  {
+    title: "01. Easy Reservation Process",
+    img: [aio1],
+    imgOrientation: "portrait",
+    icons: [],
+  },
+  {
+    title: "02. Exclusive Zones & FloorPlans",
+    img: [trs3],
+    imgOrientation: "landscape",
+    icons: [],
+    },
+  {
+    title: "03. Login with  Apple , Google  & Facebook",
+    img: [aio3],
+    imgOrientation: "portrait",
+    icons: [],
+  },
+  {
+    title: "04. Reservation Deposits Collection",
+    img: [aio4],
+    imgOrientation: "landscape",
+    icons: [],
+  },
+  {
+    title: "05. Mobile App on both Android & iOS",
+    img: [aio5],
+    imgOrientation: "portrait",
+    icons: [],
+  },
+  {
+    title: "06. Multi Concept and Multi Location",
+    img: [aio6],
+    imgOrientation: "portrait",
+    icons: [],
+  },
+];

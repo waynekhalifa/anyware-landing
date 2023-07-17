@@ -1,7 +1,7 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Header from "../Header/Header";
-import { Items } from "./TRSconstants";
+import { Items, TRSaio } from "./TRSconstants";
 import TRScard from "./TRScard";
 import reif from "../../../public/images/reif.png";
 import megumi from "../../../public/images/megumi.png";
@@ -15,6 +15,7 @@ import NextImage from "next/image";
 import bannerBg from "../../../public/images/home-header-bg.png";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
+import TRSAIO from "./TRSAIO";
 
 const TRS: React.FC = () => {
   const venues = [reif, megumi, lexies, sachi1, sachi2, sachi3, kazoku];
@@ -113,6 +114,7 @@ const TRS: React.FC = () => {
               justifyContent: "center",
               flexDirection: "row",
               
+              
             }}
           >
             {venues.map((venue, index) => {
@@ -132,7 +134,7 @@ const TRS: React.FC = () => {
           </Grid>
         </Grid>
         {Items.slice(1, Items.length).map((item, index) => (
-           <Grid key={index+1} style={{ width: "100%", padding: 0,marginBottom:isMobile?0:120 }} xs={12} md={12}>
+           <Grid key={index+1} style={{ width: "100%", padding: 0,marginBottom:isMobile?40:120 }} xs={12} md={12}>
            <Box
              style={{
                width: "100%",
@@ -145,6 +147,25 @@ const TRS: React.FC = () => {
            </Box>
          </Grid>
         ))}
+           <Grid style={{ width: "100%", padding: 0,marginBottom:isMobile?40:120 }} xs={14} md={14}>
+           <Box
+             style={isMobile?{
+               width: "100%",
+               minHeight: "100%",
+               maxHeight: "100%",
+               margin: 0,
+               
+               display:'flex',
+               alignItems:'center',justifyContent:'center'
+             }:{width: "100%",
+             minHeight: "100%",
+             maxHeight: "100%",
+             margin: 0,
+             }}
+           >
+             <TRSAIO index={0} items={TRSaio}/>
+           </Box>
+         </Grid>
       </Grid>
       <Footer/>
     </div>
