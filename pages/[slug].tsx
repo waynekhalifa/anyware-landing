@@ -12,7 +12,7 @@ import { listQuestions } from "@/services/question";
 import { listFeatures } from "@/services/feature";
 import { setSlug } from "@/store/appSlice";
 import TRS from "@/components/TRS/TRS";
-
+import AboutUs from "@/components/AboutUs/AboutUs";
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
   return (
@@ -24,6 +24,8 @@ const PageTemplate: NextPage = () => {
       {slug === Pages.LOGIN && <Login /> }
       {slug === Pages.SURVEY &&  <Survey />}
       {slug === Pages.TRS &&  <TRS />}
+      {slug === Pages.AboutUs &&  <AboutUs />}
+
     </>
   );
 };

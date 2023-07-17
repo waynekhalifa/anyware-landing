@@ -12,7 +12,8 @@ export enum Pages {
   HOME = "",
   LOGIN = "login",
   TRS = "TRS",
-  SURVEY="survey"
+  SURVEY="survey",
+  AboutUs = "AboutUs"
 }
 
 export enum Orders {

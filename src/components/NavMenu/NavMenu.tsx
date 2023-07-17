@@ -49,33 +49,6 @@ const NavMenu: React.FC = () => {
 
   return isMobile ?  
   <Box style={{marginRight:20,display:'flex'}}>
-                <Box style={{display:"flex",flexDirection:"row",columnGap:"2vw"}}>
-            <Button
-              variant="contained"
-              sx={{ textTransform: "capitalize", boxShadow: 6 ,"&:hover": {
-                backgroundColor: "primary.light",
-                borderColor: "primary.light",
-              },}}
-              onClick={handleClickContact}
-
-              // onClick={handleClick}
-              >
-                <Typography style={{fontSize:10}}>
-              contact sales
-                </Typography>
-            </Button>
-            <Button
-              variant="contained"
-              sx={{ textTransform: "capitalize", boxShadow: 6 ,"&:hover": {
-                backgroundColor: "primary.light",
-                borderColor: "primary.light",
-              },}}
-            >
-               <Typography style={{fontSize:15}}>
-              Login
-                </Typography>
-            </Button>
-          </Box>
   <IconButton
     edge="end"
     color="inherit"
@@ -91,7 +64,7 @@ const NavMenu: React.FC = () => {
     open={Boolean(anchorEl)}
     onClose={handleCloseAnchor}
     >
-      <Box style={{position:'fixed',top:0,bottom:0,left:0,right:0,width:'100%',height:'93%',marginTop:'20%',backgroundColor:'white',overflowY:'auto'}}>
+      <Box style={{position:'fixed',top:0,bottom:0,left:0,right:0,width:'100%',height:'90%',marginTop:'20%',backgroundColor:'white',overflowY:'auto'}}>
       {menusListing.map((menu: MenuItem1, index: number) => (
     // <Menuitem key={index} menu={menu}/>
     <Container key={index}>
@@ -161,6 +134,32 @@ const NavMenu: React.FC = () => {
       )}
     </Container>
   ))  }
+                  <Box style={{display:"flex",flexDirection:'column',columnGap:"2vw",rowGap:"10vw",margin:'5%'}}>
+
+            <Button
+              variant="contained"
+              sx={{ textTransform: "capitalize", boxShadow: 6 ,"&:hover": {
+                backgroundColor: "primary.light",
+                borderColor: "primary.light",
+              },}}
+            >
+               <Typography style={{fontSize:15}}>
+              Login
+                </Typography>
+            </Button>
+            <Button
+              variant="contained"
+              sx={{ textTransform: "capitalize", boxShadow: 6 ,"&:hover": {
+                backgroundColor: "primary.light",
+                borderColor: "primary.light",
+              },}}
+              onClick={handleClickContact}
+              >
+                <Typography style={{fontSize:15}}>
+              contact sales
+                </Typography>
+            </Button>
+          </Box>
       </Box>
 
   </Menu>

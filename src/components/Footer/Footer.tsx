@@ -117,7 +117,7 @@ const Footer = () => {
               </Typography>
           </Box>
 
-          {/* <Box sx={{ marginRight: '50px',marginBottom:5 }}>
+          <Box sx={{ marginRight: '50px',marginBottom:5 }}>
             <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10 }}>Anyware Software</Typography>
             <Link href="" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer',marginBottom:5 }}>
@@ -125,14 +125,13 @@ const Footer = () => {
               </Typography>
             </Link>
             <Box style={{display:'flex'}}>
-            <Button  onClick={handleclick}>- Contact Us  </Button>
             </Box>
-            <Link href="" passHref>
+            <Link href="AboutUs" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer',marginBottom:5 }}>
                 - About Us
               </Typography>
             </Link>
-          </Box> */}
+          </Box>
 
         </Box>
       <hr style={{ borderTop: '1px grey', margin: '20px auto', width: '90%' }} />
