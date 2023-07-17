@@ -7,8 +7,11 @@ import onlineOrdering from "@images/online-ordering.png";
 import menuItemOne from "@images/menu-item-1.png";
 import menuItemTwo from "@images/menu-item-2.png";
 import menuItemThree from "@images/menu-item-3.png";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const Video: React.FC = () => {
+  const { isMobile } = useIsMobile();
+
   return (
     <Box sx={{ position: "relative", zIndex: 10 }}>
       <motion.div

@@ -14,6 +14,8 @@ import caffe from "../../../public/images/ni-caffe-removebg-preview 1.png";
 import caf from "../../../public/images/CAF.png";
 import FeaturedCard from "./FeaturedCard";
 import { allItems } from "@/constants/features";
+import useIsMobile from "@/hooks/useIsMobile";
+
 interface StateProps {
   videoKey: string;
 }
@@ -27,6 +29,9 @@ const HomeFeatures: React.FC = () => {
   ReactGA.set({ userId: "1241123459812" });
   const [state, setState] = useState(initialState);
   const { videoKey } = state;
+  const { isMobile } = useIsMobile();
+
+
 
   const useAnalyticsEventTracker = (category = "Blog category") => {
     const eventTracker = (action = "test action", label = "test label") => {
@@ -70,14 +75,14 @@ const HomeFeatures: React.FC = () => {
             <Grid item xs={12} md={6}>
               <BannerForm />
             </Grid>
-            <Grid
-              item
-              xs={12}
-              md={6}
-              sx={{ span: { display: "block !important" } }}
-            >
-              <Video key={videoKey} />
-            </Grid>
+                <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{ span: { display: "block !important" },transform:isMobile? "scale(0.7)":"scale(1)",marginTop:isMobile?'20%':0,display:'flex',alignItems:'center',justifyContent:'center',}}
+                >
+                <Video key={videoKey} />
+              </Grid>
           </Grid>
         </Section>
         <Box style={{marginTop:-50}}>
