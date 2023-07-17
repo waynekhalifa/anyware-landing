@@ -106,7 +106,7 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(
     const ctx = await App.getInitialProps(appContext);
 
     const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
-    const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
+ 
 
     store.dispatch(setMenus(mainMenu));
 
