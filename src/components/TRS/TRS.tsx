@@ -14,10 +14,12 @@ import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
 import bannerBg from "../../../public/images/home-header-bg.png";
 import Footer from "../Footer/Footer";
+import { useEffect, useState } from "react";
 
 const TRS: React.FC = () => {
   const venues = [reif, megumi, lexies, sachi1, sachi2, sachi3, kazoku];
   const { isMobile, width } = useIsMobile();
+
 
   return (
     <div
@@ -87,7 +89,7 @@ const TRS: React.FC = () => {
             flexDirection: "column",
             padding:0,
             marginBottom: isMobile?-20 :160,
-            marginTop:isMobile?0:-100,
+            marginTop:isMobile?20:-100,
           }}
         >
           <Grid xs={12} >

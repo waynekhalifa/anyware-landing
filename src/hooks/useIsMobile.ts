@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect,useState } from 'react'
 
 const useIsMobile = () => {
-    const [width, setWidth] = useState<number>(1200);
+    const [width, setWidth] = useState<number>(window.innerWidth);
     
     function handleWindowSizeChange() {
         setWidth(window.innerWidth);
@@ -11,7 +11,7 @@ const useIsMobile = () => {
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
         }
-    }, []);
+    }, [window.innerWidth]);
     
     const isMobile = width <= 768;
     return{isMobile,width}
