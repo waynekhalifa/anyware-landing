@@ -50,6 +50,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
       <Grid
         container
         spacing={4}
+        
         sx={{
           minWidth: isMobile ? "100%" : "100%",
           maxWidth: isMobile ? "100%" : "120%",
@@ -117,11 +118,13 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
               height: "400px",
               transform :items.imgOrientation=="landscape"?  "scale(1)" : "scale(1.4)",
               position: "relative",
+              marginTop: isMobile && items.imgOrientation==="landscape" ? -80 : 0,
+              marginBottom: isMobile && items.imgOrientation==="landscape" ? -40 : 0
             }}
           >
              <FadingImages images={items.img} interval={items.img.length>1  ? 3 : 0} />
           </Box>
-          <Box sx={{minWidth:'100%',display:'flex',alignItems:'center',justifyContent:items.direction=="row"?'flex-start' :'flex-end',}}>
+          <Box sx={{minWidth:'100%',display:'flex',alignItems:'center',justifyContent:'center',}}>
           {isMobile&& <Button
             variant="contained"
             sx={{

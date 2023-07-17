@@ -122,7 +122,7 @@ const TRS: React.FC = () => {
                     alt="Banner background"
                     layout="fixed"
                     width="150px"
-                    height="60px"
+                    height={index==venues.length-1 ? "80px":"60px" }
                     objectFit="contain"
                     src={venue.src}
                   />
@@ -132,7 +132,7 @@ const TRS: React.FC = () => {
           </Grid>
         </Grid>
         {Items.slice(1, Items.length).map((item, index) => (
-           <Grid key={index+1} style={{ width: "100%", padding: 0,marginBottom:isMobile?40:120 }} xs={12} md={12}>
+           <Grid key={index+1} style={{ width: "100%", padding: 0,marginBottom:isMobile?0:120 }} xs={12} md={12}>
            <Box
              style={{
                width: "100%",
