@@ -13,9 +13,9 @@ const Partners: React.FC = () => {
       justifyContent={"space-between"}
       sx={{ maxWidth: 300 }}
     >
-      <Image src={oracle} alt="oracle" width={80} height={13} />
-      <Image src={act} alt="act" width={80} height={40} />
-      <Image src={raya} alt="act" width={80} height={25} />
+      <Image src={oracle} alt="oracle" width={70} height={14} />
+      <Image src={act} alt="act" width={70} height={20} />
+      <Image src={raya} alt="act" width={70} height={20} />
     </Grid>
   );
 };

@@ -10,7 +10,7 @@ const ContactUs: React.FC = () => {
   return (
     // <OneColumn background="white">
 
-        <Box style={{backgroundColor:'white',width:isMobile?'90%':'40%',height:isMobile?'70%':'80%',justifyContent:'center',marginTop:'5%'}}>
+        <Box style={{backgroundColor:'white',width:isMobile?'90%':'40%',height:isMobile?'70%':'80%',justifyContent:'center',marginTop:isMobile?'30%':'5%'}}>
 
           <ContactUsForm />
         </Box>

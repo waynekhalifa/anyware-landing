@@ -16,7 +16,7 @@ import "@fontsource/manrope/700.css";
 import MainModal from "@/components/UI/MainModal";
 import { useSelector } from "react-redux";
 import { selectModalOpen } from "@/store/appSlice";
-import { getMenusByName, MenuItem1} from "@/services/menu";
+import { getMenusByName, MenuItem1 } from "@/services/menu";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -105,6 +105,7 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(
   (store) => async (appContext: AppContext) => {
     const ctx = await App.getInitialProps(appContext);
 
+    const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
     const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
 
     store.dispatch(setMenus(mainMenu));
