@@ -25,7 +25,7 @@ import aio6 from "../../../public/images/aio6.png"
 const makeRes = {
   typo: "Make outings and special events reservations more easy!",
   Description:
-    "Handle full booking cycle  in your venue with multiple add-on features",
+    "Handle full booking cycle  in your venue with multiple add-on features.",
     img : [trs1],
     imgOrientation: "landscape",
 
