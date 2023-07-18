@@ -31,7 +31,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       key={index}
       style={{
         marginBottom: "10vh",
-        backgroundColor: "#FFF7D4",
+        backgroundColor: "rgba(228,198,108,0.6)",
         borderRadius: "20px",
         width: "90%",
         display: "flex",
