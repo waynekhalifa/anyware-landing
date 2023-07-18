@@ -57,7 +57,7 @@ const ContactUsForm: React.FC = () => {
     onClick={handleFormClick}
     >
       <Box style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
-        <Typography style={{ fontSize: 30, fontWeight: "bold", flex: 1, textAlign: "center" }}>
+        <Typography style={{ fontSize: 25, fontWeight: "bold", flex: 1, textAlign: "center" }}>
           Contact Sales
         </Typography>
         <IconButton
@@ -184,7 +184,9 @@ const ContactUsForm: React.FC = () => {
               startIcon={isSubmitting && <ButtonLoader />}
               disabled={isSubmitting}
             >
+              <Typography sx={{fontSize:18,fontWeight:'bold'}}>
               Submit
+              </Typography>
             </Button>
             {confirm!.length > 0 && (
               <Alert

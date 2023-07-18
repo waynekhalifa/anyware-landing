@@ -113,7 +113,7 @@ const Footer = () => {
                 - In-App Payments
               </Typography>
             </Link>
-            <Link href="" passHref>
+            <Link href="CashlessWallet" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Cashless Solution
               </Typography>

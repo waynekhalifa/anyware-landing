@@ -13,6 +13,7 @@ import { listFeatures } from "@/services/feature";
 import { setSlug } from "@/store/appSlice";
 import TRS from "@/components/TRS/TRS";
 import AboutUs from "@/components/AboutUs/AboutUs";
+import CashlessWallet from "@/components/CashlessWallet/CashlessWallet";
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
   return (
@@ -25,6 +26,7 @@ const PageTemplate: NextPage = () => {
       {slug === Pages.SURVEY &&  <Survey />}
       {slug === Pages.TRS &&  <TRS />}
       {slug === Pages.AboutUs &&  <AboutUs />}
+      {slug === Pages.CashlessWallet &&  <CashlessWallet />}
 
     </>
   );
