@@ -51,7 +51,10 @@ const NavMenu: React.FC = () => {
   <Box style={{marginRight:20,display:'flex',}}>
                 <Button
               variant="contained"
-              sx={{ textTransform: "capitalize",backgroundColor:'transparent',boxShadow:1,marginRight:2}}
+              sx={{ textTransform: "capitalize",
+              boxShadow:3,
+              borderColor: "primary.light",
+              marginRight:2}}
               onClick={handleClickContact}
               >
                 <Typography style={{fontSize:15}}>
@@ -67,14 +70,27 @@ const NavMenu: React.FC = () => {
     {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}  </IconButton>
 
 
-  <Menu
-    id="menu-appbar"
-    anchorEl={anchorEl}
-    open={Boolean(anchorEl)}
-    onClose={handleCloseAnchor}
+    <Menu
+      id="menu-appbar"
+      anchorEl={anchorEl}
+      open={Boolean(anchorEl)}
+      onClose={handleCloseAnchor}
+      PaperProps={{
+        style: {
+          position: 'fixed',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          marginTop: '7%',
+          backgroundColor: 'white',
+          overflowY: 'auto',
+          maxHeight: '90vh',
+          minWidth:'102vw',
+          marginLeft:'5%'
+        },
+      }}
     >
-      {/* <Box style={{position:'fixed',top:0,bottom:0,left:0,right:0,width:'100%',height:'90%',marginTop:'20%',backgroundColor:'white',overflowY:'auto'}}> */}
-      <Grid sx={{position:'fixed',top:0,bottom:0,left:0,right:0,marginTop:'20%',backgroundColor:'white',overflowY:'auto'}}>
       {menusListing.map((menu: MenuItem1, index: number) => (
     <Container key={index}>
 <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '3%' }}>
@@ -114,7 +130,7 @@ const NavMenu: React.FC = () => {
       {open === menu.name && (
         <Box style={{display:'flex',flexDirection:'column',marginBottom:'5%',marginTop:-30}}>
             {menu.children.map((child: any, index: number) => (
-             loading ? <h3>loading...</h3> :  
+            //  loading ? <h3>loading...</h3> :  
              <Button
                 key={index}
                 onClick={()=>{}}
@@ -167,12 +183,9 @@ const NavMenu: React.FC = () => {
                 </Typography>
             </Button>
           </Box>
-      {/* </Box> */}
-      </Grid>
   </Menu>
 </Box>
  : menusListing.map((menu: MenuItem1, index: number) => (
-    // <Menuitem key={index} menu={menu}/>
     <Container key={index}>
       <Button
         key={menu.id}

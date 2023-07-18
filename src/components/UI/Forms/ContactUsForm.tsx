@@ -1,16 +1,36 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Alert, Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Alert, Box, Button, Grid, IconButton, TextField, Typography } from "@mui/material";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useConfirm from "@/hooks/useConfirm";
 import useFormValidations from "@/hooks/useFormValidations";
 import ButtonLoader from "../ButtonLoader";
 import LightBox from "../LightBox";
 import useIsMobile from "@/hooks/useIsMobile";
+import CloseIcon from "@mui/icons-material/Close";
+import { useState } from "react";
+import useApp from "@/hooks/useApp";
 
 const ContactUsForm: React.FC = () => {
   const { confirm, changeConfirm } = useConfirm();
-  const { isMobile} = useIsMobile();
+  const { isMobile } = useIsMobile();
+  const { closeModal } = useApp();
 
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleFormClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+  };
+
+  const handleFormScroll = (event: React.WheelEvent<HTMLDivElement>) => {
+    event.preventDefault();
+  };
   const { getValidationSchema } = useFormValidations("contact-us");
   const {
     register,
@@ -32,138 +52,129 @@ const ContactUsForm: React.FC = () => {
     }
   };
   return (
-    <Box style={{marginRight:20,marginLeft:20,marginTop:20}}>
-      <Box style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center',marginBottom:20 }}>
-        <Typography style={{ fontSize: 30, fontWeight: 'bolder'}}>
+    <Box style={{ margin: "auto", maxWidth: isMobile ? "90%" : "400px", marginTop: "20px" }}
+    onWheel={handleFormScroll}
+    onClick={handleFormClick}
+    >
+      <Box style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
+        <Typography style={{ fontSize: 30, fontWeight: "bold", flex: 1, textAlign: "center" }}>
           Contact Sales
         </Typography>
+        <IconButton
+          color="primary"
+          aria-label="close"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={closeModal}
+          sx={{
+            transform: isHovered ? "rotate(180deg)" : "rotate(0)",
+            transition: "transform 0.5s ease-in-out",
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
       </Box>
-      {/* <LightBox> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={2}>
-        <Grid item xs={12} md={12}>
-          <Box style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <Box style={{flex:1,marginLeft:10}}>
-            <Typography style={{ marginRight: '50px',width:120 }}>Full Name</Typography>
-            </Box>
-            <Box style={{flex:2}}>
+          <Grid item xs={12}>
+          <Typography>
+            Full Name
+            <span style={{ color: 'red' }}> *</span>
+          </Typography>
             <TextField
-                {...register("fullName")}
-                type="text"
-                placeholder="Full Name"
-                fullWidth
-                id="fullName"
-                size="small"
-                error={!!errors.fullName}
-                required
-
-              />
-            </Box>
-            {errors.fullName && (
+              {...register("fullName")}
+              type="text"
+              placeholder="Full Name"
+              fullWidth
+              id="fullName"
+              size="small"
+              error={!!errors.fullName}
+              required
+            />
+            {errors.fullname && (
               <Typography color="error">
-                <>{errors.fullName.message}</>
+                <>{errors.fullname.message}</>
               </Typography>
             )}
-          </Box>
           </Grid>
 
-          <Grid item xs={12} md={12}>
-          <Box style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <Box style={{flex:1,marginLeft:10}}>
-            <Typography style={{ marginRight: '50px',width:120,flexWrap:'wrap' }}>Restaurant/Hotel Name (Optional)</Typography>
-            </Box>
-            <Box style={{flex:2}}>
+          <Grid item xs={12}>
+          <Typography>Restaurant / Hotel Name</Typography>
             <TextField
-                {...register("restaurant")}
-                type="text"
-                placeholder="Restaurant/Hotel Name"
-                fullWidth
-                id="restaurant"
-                size="small"
-                error={!!errors.restaurant}
-              />
-            </Box>
+              {...register("restaurant")}
+              type="text"
+              placeholder="Restaurant/Hotel Name"
+              fullWidth
+              id="restaurant"
+              size="small"
+              error={!!errors.restaurant}
+            />
             {errors.restaurant && (
               <Typography color="error">
                 <>{errors.restaurant.message}</>
               </Typography>
             )}
-          </Box>
           </Grid>
-          <Grid item xs={12} md={12}>
-          <Box style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <Box style={{flex:1,marginLeft:10}}>
-            <Typography style={{ marginRight: '50px',width:120 }}>Email</Typography>
-            </Box>
-            <Box style={{flex:2}}>
+
+          <Grid item xs={12}>
+          <Typography>Email <span style={{ color: 'red' }}> *</span></Typography>
+
             <TextField
-                {...register("email")}
-                type="text"
-                placeholder="Email"
-                fullWidth
-                id="email"
-                size="small"
-                error={!!errors.email}
-                required
-              />
-            </Box>
+              {...register("email")}
+              type="text"
+              placeholder="Email"
+              fullWidth
+              id="email"
+              size="small"
+              error={!!errors.email}
+              required
+            />
             {errors.email && (
               <Typography color="error">
                 <>{errors.email.message}</>
               </Typography>
             )}
-          </Box>
           </Grid>
-          <Grid item xs={12} md={12}>
-          <Box style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <Box style={{flex:1,marginLeft:10}}>
-            <Typography style={{ marginRight: '50px',width:120 }}>Mobile Number</Typography>
-            </Box>
-            <Box style={{flex:2}}>
+
+          <Grid item xs={12}>
+          <Typography>Mobile <span style={{ color: 'red' }}> *</span></Typography>
             <TextField
-                {...register("mobile")}
-                type="text"
-                placeholder="Mobile Number"
-                fullWidth
-                id="mobile"
-                size="small"
-                error={!!errors.mobile}
-                required
-              />
-            </Box>
+              {...register("mobile")}
+              type="text"
+              placeholder="Mobile Number"
+              fullWidth
+              id="mobile"
+              size="small"
+              error={!!errors.mobile}
+              required
+            />
             {errors.mobile && (
               <Typography color="error">
                 <>{errors.mobile.message}</>
               </Typography>
             )}
-          </Box>
           </Grid>
 
-          <Grid item xs={12} md={12}>
-          <Box style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <Box style={{flex:1,marginLeft:10}}>
-            <Typography style={{ marginRight: '50px',width:120 }}>Message</Typography>
-            </Box>
-            <Box style={{flex:2}}>
+          <Grid item xs={12}>
+          <Typography>Message <span style={{ color: 'red' }}> *</span></Typography>
             <TextField
-                {...register("message")}
-                type="text"
-                placeholder="Message"
-                fullWidth
-                id="message"
-                size="small"
-                error={!!errors.message}
-                required
-              />
-            </Box>
+              {...register("message")}
+              type="text"
+              placeholder="Message"
+              fullWidth
+              id="message"
+              size="small"
+              error={!!errors.message}
+              required
+            />
             {errors.message && (
               <Typography color="error">
                 <>{errors.message.message}</>
               </Typography>
             )}
-          </Box>
           </Grid>
-          <Grid item xs={12} style={{marginTop:'5%'}}>
+
+          <Grid item xs={12} sx={{mb:5}}>
             <Button
               fullWidth
               disableElevation
@@ -189,7 +200,6 @@ const ContactUsForm: React.FC = () => {
           </Grid>
         </Grid>
       </form>
-      {/* </LightBox> */}
     </Box>
   );
 };

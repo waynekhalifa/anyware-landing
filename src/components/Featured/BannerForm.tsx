@@ -52,7 +52,7 @@ const BannerForm: React.FC = () => {
               setState({ ...state, email: e.target.value })
             }
             sx={{
-              minWidth: 400,
+              minWidth: 350,
               input: { p: 2 },
             }}
           />

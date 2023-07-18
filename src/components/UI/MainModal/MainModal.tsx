@@ -20,6 +20,10 @@ const MainModal: React.FC = () => {
         return modalContent;
     }
   };
+  
+  const handleFormScroll = (event: React.WheelEvent<HTMLDivElement>) => {
+    event.preventDefault();
+  };
 
   return (
     <Backdrop
@@ -32,11 +36,13 @@ const MainModal: React.FC = () => {
       <Box
         sx={{
           position: "absolute",
-          inset: 0,
+          // inset: 0,
           zIndex: 0,
-          cursor: "pointer",
+          // cursor: "pointer",
         }}
-        onClick={closeModal}
+        onWheel={handleFormScroll}
+
+        // onClick={closeModal}
       />
       <Suspense fallback={<ContentLoader />}>{renderModalContent()}</Suspense>
     </Backdrop>

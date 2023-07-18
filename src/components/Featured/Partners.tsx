@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 import act from "@images/act.png";
 import oracle from "@images/oracle.png";
@@ -13,9 +13,15 @@ const Partners: React.FC = () => {
       justifyContent={"space-between"}
       sx={{ maxWidth: 300 }}
     >
-      <Image src={oracle} alt="oracle" width={70} height={14} />
-      <Image src={act} alt="act" width={70} height={20} />
-      <Image src={raya} alt="act" width={70} height={20} />
+      <Box style={{width:80 , height:20,position:'relative'}}>
+      <Image src={oracle} alt="oracle" layout="fill"  objectFit='contain' />
+      </Box>
+      <Box style={{width:70 , height:18,position:'relative'}}>
+      <Image src={act} alt="oracle" layout="fill"  objectFit='contain' />
+      </Box>
+      <Box style={{width:70 , height:17,position:'relative'}}>
+      <Image src={raya} alt="oracle" layout="fill"  objectFit='contain' />
+      </Box>
     </Grid>
   );
 };

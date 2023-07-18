@@ -47,7 +47,7 @@ const Header: React.FC = () => {
             <Box style={{display:"flex",flexDirection:"row",columnGap:"1vw"}}>
             <Button
               variant="contained"
-              sx={{ textTransform: "capitalize", boxShadow: 12 ,"&:hover": {
+              sx={{ textTransform: "capitalize", boxShadow: 7 ,"&:hover": {
                 backgroundColor: "primary.light",
                 borderColor: "primary.light",
               },}}
@@ -57,7 +57,7 @@ const Header: React.FC = () => {
             </Button>
             <Button
               variant="contained"
-              sx={{ textTransform: "capitalize", boxShadow: 12 ,mr:3,"&:hover": {
+              sx={{ textTransform: "capitalize", boxShadow: 7 ,mr:3,"&:hover": {
                 backgroundColor: "primary.light",
                 borderColor: "primary.light",
               },}}

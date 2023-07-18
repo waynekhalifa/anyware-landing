@@ -6,9 +6,8 @@ import TRScard from "./TRScard";
 import reif from "../../../public/images/reif.png";
 import megumi from "../../../public/images/megumi.png";
 import lexies from "../../../public/images/lexies.png";
-import sachi1 from "../../../public/images/sachi1.png";
-import sachi2 from "../../../public/images/sachi2.png";
-import sachi3 from "../../../public/images/sachi3.png";
+import sachi from "../../../public/images/sachi.png";
+import shinko from "../../../public/images/shinko.png";
 import kazoku from "../../../public/images/kazoku.png";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
@@ -18,7 +17,7 @@ import { useEffect, useState } from "react";
 import TRSAIO from "./TRSAIO";
 
 const TRS: React.FC = () => {
-  const venues = [reif, megumi, lexies, sachi1, sachi2, sachi3, kazoku];
+  const venues = [shinko,reif, megumi, lexies, sachi, kazoku];
   const { isMobile, width } = useIsMobile();
 
 
@@ -124,9 +123,10 @@ const TRS: React.FC = () => {
                     alt="Banner background"
                     layout="fixed"
                     width="150px"
-                    height={index==venues.length-1 ? "80px":"60px" }
+                    height={index==venues.length-1||venues.length-5? "80px":"60px" }
                     objectFit="contain"
                     src={venue.src}
+                    style={{opacity:'0.7'}}
                   />
                 </Grid>
               );

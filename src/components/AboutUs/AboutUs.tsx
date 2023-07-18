@@ -36,9 +36,20 @@ const AboutUs: React.FC = () => {
             position:'absolute',
             backgroundColor:'#D7B35E',
             zIndex:-1,
-            borderBottomLeftRadius:'30%'
+            borderBottomLeftRadius:'20%'
             }}>
         </Box>
+        {/* <Box style={{
+            width:'50%',
+            height:isMobile?'30%':'40%',
+            position:'absolute',
+            backgroundColor:'#D7B35E',
+            zIndex:-1,
+            borderRadius:'20%',
+            transform:'rotate(-20deg)'
+            }}>
+        </Box> */}
+
     <Box sx={{ overflow: "hidden",width:'100%',marginTop:isMobile?'10%': '5%' }}>
       <Container sx={{overflow:'hidden'}}>
         <Section>
@@ -63,7 +74,7 @@ const AboutUs: React.FC = () => {
 
         {/* MISSION */}
             <Grid sx={{marginTop:'10%'}}>
-            <Typography variant="body2" fontSize={30} sx={{ color:'black',fontWeight:'bolder',marginBottom:2 }}>
+            <Typography variant="body2" fontSize={20} sx={{ color:'#D7B35E',fontWeight:'bolder',marginBottom:2 }}>
                     Mission</Typography>   
                 <Typography  variant="body2" fontSize={40} sx={{ color:'black',fontWeight:'bolder' }}
                 >{<RocketIcon sx={{ verticalAlign: 'middle', marginRight: '5px',color:'#D7B35E',width:isMobile?'15%':'5%',height:isMobile?'15%':'5%' }} />}   Our mission</Typography>
@@ -78,7 +89,7 @@ const AboutUs: React.FC = () => {
 
         {/* Team */}
             <Grid sx={{ marginTop: '10%' }}>
-                <Typography variant="body2" fontSize={30} sx={{ color: 'black', fontWeight: 'bolder', marginBottom: 2 }}>Team</Typography>
+                <Typography variant="body2" fontSize={20} sx={{ color: '#D7B35E', fontWeight: 'bolder', marginBottom: 2 }}>Team</Typography>
                 <Typography variant="body2" fontSize={40} sx={{ color: 'black', fontWeight: 'bolder' }}>
                 <Team sx={{ verticalAlign: 'middle', marginRight: '5px', color: '#D7B35E',width:isMobile?'15%':'5%',height:isMobile?'15%':'5%' }} />   Our Team</Typography>
                 <Typography variant="body2" fontSize={15} sx={{ color: 'black', width:isMobile?'100%':'70%' }}>
@@ -90,8 +101,8 @@ const AboutUs: React.FC = () => {
             </Grid>
 
             {/* PROMISE */}
-            <Grid sx={{ marginTop: '10%',mb:'5%' }}>
-                <Typography variant="body2" fontSize={30} sx={{ color: 'black', fontWeight: 'bolder', marginBottom: 2 }}>Promise</Typography>
+            <Grid sx={{ marginTop: '10%',mb:'15%' }}>
+                <Typography variant="body2" fontSize={20} sx={{ color: '#D7B35E', fontWeight: 'bolder', marginBottom: 2 }}>Promise</Typography>
                 <Typography variant="body2" fontSize={40} sx={{ color: 'black', fontWeight: 'bolder' }}>
                 <ThumbUpOffAlt sx={{ verticalAlign: 'middle', marginRight: '5px', color: '#D7B35E',width:isMobile?'15%':'5%',height:isMobile?'15%':'5%' }} />   Our promise</Typography>
                 <Typography variant="body2" fontSize={15} sx={{ color: 'black', width:isMobile?'100%':'70%' }}>
