@@ -15,8 +15,8 @@ import caf from "../../../public/images/CAF.png";
 import FeaturedCard from "./FeaturedCard";
 import { allItems } from "@/constants/features";
 import useIsMobile from "@/hooks/useIsMobile";
-import { useRouter } from "next/router";
-import Trackpathforanalytics from "Trackpathforanalytics";
+// import { useRouter } from "next/router";
+// import Trackpathforanalytics from "Trackpathforanalytics";
 interface StateProps {
   videoKey: string;
 }
@@ -31,18 +31,17 @@ const HomeFeatures: React.FC = () => {
   const [state, setState] = useState(initialState);
   const { videoKey } = state;
   const { isMobile } = useIsMobile();
-	// const { pathname, search } = useLocation();
-  const router = useRouter();
-  const pathname = String(router.query.pathname);
-  const search = String(router.query.search);
-  const analytics = useCallback(() => {
-    Trackpathforanalytics({ path: pathname, search: search, title: pathname?.split("/")[1] });
-}, [pathname, search]);
+//   const router = useRouter();
+//   const pathname = String(router.query.pathname);
+//   const search = String(router.query.search);
+//   const analytics = useCallback(() => {
+//     Trackpathforanalytics({ path: pathname, search: search, title: pathname?.split("/")[1] });
+// }, [pathname, search]);
 
 
-useEffect(() => {
-  analytics();
-}, [analytics]);
+// useEffect(() => {
+//   analytics();
+// }, [analytics]);
 
 
   const useAnalyticsEventTracker = (category = "Blog category") => {
