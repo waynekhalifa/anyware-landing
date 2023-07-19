@@ -28,7 +28,8 @@ const makeRes = {
     "Handle full booking cycle  in your venue with multiple add-on features.",
     img : [trs1],
     imgOrientation: "landscape",
-
+ 
+    
   animatedTexts: {
     items: [
       "Branded Mobile Application",
