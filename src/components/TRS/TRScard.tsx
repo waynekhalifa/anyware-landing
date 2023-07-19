@@ -54,7 +54,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
         sx={{
           minWidth: isMobile ? "100%" : "100%",
           maxWidth: isMobile ? "100%" : "120%",
-          paddingTop: isMobile ? 10 : 0,
+          paddingTop: isMobile ? 15 : 0,
           paddingLeft: isMobile ? 0 : 10,
           paddingRight: isMobile ? 0 : 10,
           marginBottom: isMobile?0:10,

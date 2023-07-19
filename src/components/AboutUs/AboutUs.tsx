@@ -54,7 +54,7 @@ const AboutUs: React.FC = () => {
       <Container sx={{overflow:'hidden'}}>
         <Section>
             <Grid item xs={12} md={6}>
-                <Typography component="h1" variant="h3" fontSize={isMobile?20:50} fontWeight={700}sx={{color:'white', mb: 2,flexWrap:'wrap' }}>
+                <Typography component="h1" variant="h3" fontSize={isMobile?20:50} fontWeight={700}sx={{color:'white', mb: 2,mt:1,flexWrap:'wrap' }}>
                 #1 Digitizing 
                 <br />
                 Software House

@@ -63,7 +63,7 @@ const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
           flexDirection: items.direction
         }}
       >
-        <Grid xs={isMobile ? 12 : 6} sx={{}}>
+        <Grid xs={isMobile ? 12 : 6} sx={{marginTop:isMobile?5:0}}>
             <Typography style={{fontWeight:'bold',color:'#8a743d',marginBottom:'5%'}}>{items.header}</Typography>
           <Typography
             variant="h4"
@@ -137,7 +137,7 @@ const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
               height: "400px",
               transform :items.imgOrientation=="landscape"?  "scale(1)" : "scale(1.4)",
               position: "relative",
-              marginTop: isMobile && items.imgOrientation==="landscape" ? -80 : 0,
+              marginTop: isMobile && items.imgOrientation==="landscape" ? -40 : 0,
               marginBottom: isMobile && items.imgOrientation==="landscape" ? -40 : 0
             }}
           >

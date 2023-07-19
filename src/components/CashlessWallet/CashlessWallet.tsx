@@ -86,8 +86,8 @@ const CashlessWallet: React.FC = () => {
             justifyContent: "center",
             flexDirection: "column",
             padding:0,
-            marginBottom: isMobile?-20 :160,
-            marginTop:isMobile?20:-100,
+            marginBottom: isMobile?-20 :50,
+            marginTop:isMobile?20:-50,
           }}
         >
           <Grid xs={12} >
@@ -118,16 +118,17 @@ const CashlessWallet: React.FC = () => {
           style={{
             display: "flex",
             flexDirection: "row",
-            justifyContent: "space-between",
+            justifyContent:isMobile?'center': "space-between",
             alignItems: "center",
             padding: "10px",
-            width:'50%'
+            width:'50%',
+            marginLeft:isMobile?20:0
           }}
           >
-          <img alt="millenium" src={millenium.src} style={{ width: "16%" }} />
-          <img alt="millenium" src={movenpick.src} style={{ width: "16%" }} />
-          <img alt="swissotel" src={jeddah.src} style={{ width: "16%" }} />
-          <img alt="coralBay" src={coralBay.src} style={{ width: "16%" }} />
+          <img alt="millenium" src={millenium.src} style={{ width: isMobile?'40%': "16%",marginRight:20 }} />
+          <img alt="millenium" src={movenpick.src} style={{ width: isMobile?'40%': "16%",marginRight:20 }} />
+          <img alt="swissotel" src={jeddah.src}    style={{ width: isMobile?'50%': "20%",marginRight:20 }} />
+          <img alt="coralBay"  src={coralBay.src}  style={{ width: isMobile?'40%': "16%",marginRight:20 }} />
         </Box>
           </Grid>
         </Grid>
