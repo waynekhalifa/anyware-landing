@@ -5,7 +5,7 @@ import ReactGA from "react-ga";
 import Video from "./Video";
 import BannerForm from "./BannerForm";
 import Partners from "./Partners";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import bannerBg from "../../../public/images/home-header-bg.png";
 import millenium from "../../../public/images/millenium.svg";
 import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.png";
@@ -15,7 +15,8 @@ import caf from "../../../public/images/CAF.png";
 import FeaturedCard from "./FeaturedCard";
 import { allItems } from "@/constants/features";
 import useIsMobile from "@/hooks/useIsMobile";
-
+import { useRouter } from "next/router";
+import Trackpathforanalytics from "Trackpathforanalytics";
 interface StateProps {
   videoKey: string;
 }
@@ -25,17 +26,24 @@ const initialState: StateProps = {
 };
 
 const HomeFeatures: React.FC = () => {
+  // ReactGA.initialize("UA-267753856-1");
+  // ReactGA.set({ userId: "1241123459812" });
   const [state, setState] = useState(initialState);
   const { videoKey } = state;
   const { isMobile } = useIsMobile();
+	// const { pathname, search } = useLocation();
+  const router = useRouter();
+  const pathname = String(router.query.pathname);
+  const search = String(router.query.search);
+  const analytics = useCallback(() => {
+    Trackpathforanalytics({ path: pathname, search: search, title: pathname?.split("/")[1] });
+}, [pathname, search]);
 
-  useEffect(() => {
-    ReactGA.initialize("UA-267753856-1");
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
 
+useEffect(() => {
+  analytics();
+}, [analytics]);
 
-  
 
   const useAnalyticsEventTracker = (category = "Blog category") => {
     const eventTracker = (action = "test action", label = "test label") => {
