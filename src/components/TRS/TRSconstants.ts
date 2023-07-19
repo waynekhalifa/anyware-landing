@@ -68,7 +68,7 @@ const deposit = {
   direction:"row-reverse"
 };
 const checkin = {
-  typo: "Guests Check-in using In-app QR Codes",
+  typo: "Guests Check-in using In-app QR Codes.",
   Description:"Guests’ ability to track pending,upcoming and past reservations in addition to ability to view booking check-in ticket with QR code to be used within the door selection and entrance process.",
     // img : [bakymobile1,bakymobile2,bakymobile3],
     img : [bakymobile6],
