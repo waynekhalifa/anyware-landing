@@ -25,13 +25,17 @@ const initialState: StateProps = {
 };
 
 const HomeFeatures: React.FC = () => {
-  ReactGA.initialize("UA-267753856-1");
-  ReactGA.set({ userId: "1241123459812" });
   const [state, setState] = useState(initialState);
   const { videoKey } = state;
   const { isMobile } = useIsMobile();
 
+  useEffect(() => {
+    ReactGA.initialize("UA-267753856-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
+
+  
 
   const useAnalyticsEventTracker = (category = "Blog category") => {
     const eventTracker = (action = "test action", label = "test label") => {
@@ -51,7 +55,8 @@ const HomeFeatures: React.FC = () => {
   });
 
   return (
-    <Box sx={{ overflow: "hidden", width: "100%", position: "relative" }}>
+    <Box sx={{ overflow: "hidden", width: "100%", position: "relative" }}
+    >
       <img
         src={bannerBg.src}
         style={{

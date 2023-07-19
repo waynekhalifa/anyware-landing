@@ -15,6 +15,7 @@
 		"@emotion/react": "^11.10.4",
 		"@emotion/server": "^11.10.0",
 		"@emotion/styled": "^11.10.4",
+		"@firebase/analytics": "^0.10.0",
 		"@fontsource/manrope": "^4.5.12",
 		"@hookform/resolvers": "^2.9.8",
 		"@mui/icons-material": "^5.10.3",
@@ -42,6 +43,7 @@
 		"yup": "^0.32.11"
 	},
 	"devDependencies": {
+		"@types/firebase": "^3.2.1",
 		"@types/node": "^18.7.16",
 		"@types/react": "^18.0.18",
 		"eslint": "^8.23.0",
