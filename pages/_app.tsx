@@ -8,7 +8,6 @@ import createEmotionCache from "@/helpers/createEmotionCache";
 import { wrapper } from "@/store/store";
 import { setListing as setMenus } from "@/store/menuSlice";
 import { GlobalStyles, Typography } from "@mui/material";
-
 import "@fontsource/manrope/300.css";
 import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/500.css";

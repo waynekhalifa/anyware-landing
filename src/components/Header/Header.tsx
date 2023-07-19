@@ -5,21 +5,35 @@ import Logo from "../Logo";
 
 import logo from "@images/anywarelogo.png";
 import bannerBg from "@images/home-header-bg.png";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { ContactForm } from '../UI/Forms';
 import useApp from '@/hooks/useApp';
 import useIsMobile from "@/hooks/useIsMobile";
-
-
+import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
 const Header: React.FC = () => {
+  
   const { isMobile } = useIsMobile();
 
   const { openModal } = useApp();
 
-  const handleClick=()=>{
-    openModal({ modalID: "contact"});
-
-  }
+  const handleClick = async () => {
+    openModal({ modalID: "contact" });
+    const data = { Category: "Category", Action: "Button Click", Label: "Contact Sales" };
+    try {
+      await trackButtonclick(data);
+      // Tracking successful
+    } catch (err) {
+      // Tracking failed
+    }
+  };
+  // const analytics = useCallback(() => {
+  //   trackButtonclick({ Category: data.Category, Action: data.Action, Label: data.Label });
+  // }, [data]);
+  
+// useEffect(() => {
+//   analytics();
+// }, [analytics]); 
+  
   return (
     <AppBar
       position="fixed"

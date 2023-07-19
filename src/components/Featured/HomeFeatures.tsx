@@ -16,7 +16,7 @@ import FeaturedCard from "./FeaturedCard";
 import { allItems } from "@/constants/features";
 import useIsMobile from "@/hooks/useIsMobile";
 import { useRouter } from "next/router";
-import Trackpathforanalytics from "Trackpathforanalytics";
+import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
 interface StateProps {
   videoKey: string;
 }
@@ -26,15 +26,13 @@ const initialState: StateProps = {
 };
 
 const HomeFeatures: React.FC = () => {
-  // ReactGA.initialize("UA-267753856-1");
-  // ReactGA.set({ userId: "1241123459812" });
   const [state, setState] = useState(initialState);
   const { videoKey } = state;
   const { isMobile } = useIsMobile();
-	// const { pathname, search } = useLocation();
   const router = useRouter();
-  const pathname = String(router.query.pathname);
+  const pathname = "adhaaaaaaaaam";
   const search = String(router.query.search);
+ 
   const analytics = useCallback(() => {
     Trackpathforanalytics({ path: pathname, search: search, title: pathname?.split("/")[1] });
 }, [pathname, search]);
