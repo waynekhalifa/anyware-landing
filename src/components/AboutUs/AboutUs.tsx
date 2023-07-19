@@ -12,7 +12,7 @@ import caf from "../../../public/images/CAF.png";
 import { allItems } from "@/constants/features";
 import useIsMobile from "@/hooks/useIsMobile";
 import RocketIcon from '@mui/icons-material/RocketLaunch';
-import Team from '@mui/icons-material/groups';
+import Team from '@mui/icons-material/People';
 import ThumbUpOffAlt from '@mui/icons-material/ThumbUpOffAlt';
 import Image from "next/image";
 import Footer from "../Footer/Footer";
