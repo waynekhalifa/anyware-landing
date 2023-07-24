@@ -11,12 +11,20 @@ import millenium from "../../../public/images/millenium.svg";
 import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.png";
 import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.png";
 import caffe from "../../../public/images/ni-caffe-removebg-preview 1.png";
+import reif from "../../../public/images/reif.png";
+import GCS from "../../../public/images/GCS.png";
+import capital from "../../../public/images/capital.png";
+import adnec from "../../../public/images/adnec.png";
+import zahrtlebanon from "../../../public/images/zahrtlebanon.png";
+import bosporus from "../../../public/images/bosporus.png";
 import caf from "../../../public/images/CAF.png";
 import FeaturedCard from "./FeaturedCard";
 import { allItems } from "@/constants/features";
 import useIsMobile from "@/hooks/useIsMobile";
 import { useRouter } from "next/router";
+import { bannerItems } from "@/constants/features";
 import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
+import HomeSlider from "../HomeSlider/HomeSlider";
 interface StateProps {
   videoKey: string;
 }
@@ -80,9 +88,10 @@ useEffect(() => {
           zIndex: -12,
         }}
       />
-      <Container sx={{ pt: 10 }}>
+      <Container sx={{ pt: 5 }}>
         <Section>
-          <Grid container>
+          {/*-------------------- SLIDER GOES HERE ------------------------*/}
+          {/* <Grid container>
             <Grid item xs={12} md={6}>
               <BannerForm />
             </Grid>
@@ -94,7 +103,10 @@ useEffect(() => {
                 >
                 <Video key={videoKey} />
               </Grid>
-          </Grid>
+          </Grid> */}
+
+          <HomeSlider/>
+
         </Section>
         <Box style={{marginTop:-50}}>
 
@@ -108,8 +120,8 @@ useEffect(() => {
             paragraph
             sx={{ mt: 1 }}
             >
-            JOIN 800,000+ HIGHLY PRODUCTIVE TEAMS
-          </Typography>
+            Join 100+ Highly Rated Hospitality Leaders
+           </Typography>
                   <Box
           style={{
             display: "flex",
@@ -124,6 +136,13 @@ useEffect(() => {
           <img alt="swissotel" src={jeddah.src} style={{ width: "13%" }} />
           <img alt="anyware" src={caffe.src} style={{ width: "13%" }} />
           <img alt="caf" src={caf.src} style={{ width: "13%", height: "10%" }} />
+          {/* <img alt="millenium" src={reif.src} style={{ width: "13%" }} />
+          <img alt="millenium" src={GCS.src} style={{ width: "13%" }} />
+          <img alt="swissotel" src={capital.src} style={{ width: "13%" }} />
+          <img alt="anyware" src={adnec.src} style={{ width: "13%" }} />
+          <img alt="swissotel" src={zahrtlebanon.src} style={{ width: "13%" }} />
+          <img alt="swissotel" src={bosporus.src} style={{ width: "13%" }} />
+          <img alt="caf" src={caf.src} style={{ width: "13%", height: "10%" }} /> */}
         </Box>
         </Section>
           </Box>

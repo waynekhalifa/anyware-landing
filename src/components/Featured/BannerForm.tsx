@@ -5,14 +5,13 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import CustomLoader from "../UI/CustomLoader";
 import Partners from "./Partners";
-
 interface StateProps {
   email: string;
 }
 
 const initialState: StateProps = { email: "" };
 
-const BannerForm: React.FC = () => {
+const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
   const [state, setState] = useState(initialState);
   const { push } = useRouter();
   const { openModal } = useApp();
@@ -36,12 +35,14 @@ const BannerForm: React.FC = () => {
   return (
     <>
       <Typography component="h1" variant="h3" fontWeight={700} sx={{ mb: 4 }}>
-        All in one hospitality
+        {bannerData.title}
+        {/* All in one hospitality
         <br />
-        digitization platform
+        digitization platform */}
       </Typography>
       <Typography variant="body2" fontWeight={500} sx={{ mb: 4 }}>
-        {`Online Ordering, Table Reservation, Call Center, Rewarding Loyalty Solution & more.`}
+        {bannerData.description}
+        {/* {`Online Ordering, Table Reservation, Call Center, Rewarding Loyalty Solution & more.`} */}
       </Typography>
       <Box sx={{ mb: 8 }}>
         <Box sx={{ mb: 4 }}>
