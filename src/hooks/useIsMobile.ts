@@ -4,12 +4,14 @@ import React, { useEffect, useState } from "react";
 const useIsMobile = () => {
   const router = useRouter();
   const [width, setWidth] = useState<number>(-1);
+  const [height, setHeight] = useState<number>(-1);
   const [windowLoaded, setWindowLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log("ho")
+    
     const handleWindowSizeChange = () => {
       setWidth(window.innerWidth);
+      setHeight(window.innerHeight)
     };
 
     const handleRouteChangeComplete = () => {
@@ -18,6 +20,7 @@ const useIsMobile = () => {
 
     if (typeof window !== "undefined") {
       setWidth(window.innerWidth);
+      setHeight(window.innerHeight)
       setWindowLoaded(true);
 
       window.addEventListener("resize", handleWindowSizeChange);
@@ -34,7 +37,7 @@ const useIsMobile = () => {
 
   const isMobile = width <= 768;
 
-  return { windowLoaded, isMobile, width };
+  return { windowLoaded, isMobile, width, height };
 };
 
 export default useIsMobile;

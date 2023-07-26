@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import CustomLoader from "../UI/CustomLoader";
 import Partners from "./Partners";
+import useIsMobile from '@/hooks/useIsMobile';
 interface StateProps {
   email: string;
 }
@@ -17,7 +18,7 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
   const { openModal } = useApp();
   const { updating, changeUpdating } = useUpdating();
   const { email } = state;
-
+  const {isMobile} = useIsMobile()
   const handleClick = async () => {
     changeUpdating(true);
 
@@ -34,7 +35,7 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
 
   return (
     <>
-      <Typography component="h1" variant="h3" fontWeight={700} sx={{ mb: 4 }}>
+      <Typography component="h1" variant={isMobile?"h5":"h3"} fontWeight={700} sx={{ mb: 4 }}>
         {bannerData.title}
         {/* All in one hospitality
         <br />
@@ -55,6 +56,7 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
             sx={{
               minWidth: 350,
               input: { p: 2 },
+              
             }}
           />
         </Box>

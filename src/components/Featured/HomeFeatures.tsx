@@ -108,7 +108,7 @@ useEffect(() => {
           <HomeSlider/>
 
         </Section>
-        <Box style={{marginTop:-50}}>
+        <Box style={{transform:'translateY(-100px)'}}>
 
         <Section>
           <Typography
