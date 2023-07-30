@@ -22,7 +22,7 @@ const makeRes = {
     animationType: "slide",
   },
   direction: "row",
-  header: "PLATFORM & WEBSITE DEVELOPMENT",
+  header: "PLATFORM & WEBSITE DEVELOPMENT ",
 };
 const floorMap = {
   typo: "Unlock the power of mobile technology for your business!",
