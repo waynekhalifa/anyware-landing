@@ -14,6 +14,9 @@ import { setSlug } from "@/store/appSlice";
 import TRS from "@/components/TRS/TRS";
 import AboutUs from "@/components/AboutUs/AboutUs";
 import CashlessWallet from "@/components/CashlessWallet/CashlessWallet";
+import Kiosk from "@/components/Kiosk/Kisok";
+import CustomSoftware from "@/components/customSoftware/CustomSoftware";
+import Integration from "@/components/integration/Integration";
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
   return (
@@ -27,6 +30,9 @@ const PageTemplate: NextPage = () => {
       {slug === Pages.TRS &&  <TRS />}
       {slug === Pages.AboutUs &&  <AboutUs />}
       {slug === Pages.CashlessWallet &&  <CashlessWallet />}
+      {slug === Pages.KioskPage &&  <Kiosk />}
+      {slug === Pages.CustomSoftware &&  <CustomSoftware />}
+      {slug === Pages.Integration &&  <Integration />}
 
     </>
   );

@@ -36,7 +36,7 @@ const initialState: StateProps = {
 const HomeFeatures: React.FC = () => {
   const [state, setState] = useState(initialState);
   const { videoKey } = state;
-  const { isMobile } = useIsMobile();
+  const { isMobile ,width} = useIsMobile();
   const router = useRouter();
   const pathname = "adhaaaaaaaaam";
   const search = String(router.query.search);
@@ -69,7 +69,7 @@ useEffect(() => {
   });
 
   return (
-    <Box sx={{ overflow: "hidden", width: "100%", position: "relative" }}
+    <Box sx={{ overflow: "hidden", width: "100%", position: "relative" ,flex:1}}
     >
       <img
         src={bannerBg.src}
@@ -88,7 +88,7 @@ useEffect(() => {
           zIndex: -12,
         }}
       />
-      <Container sx={{ pt: 5 }}>
+      <Container sx={{ pt: 5 ,minWidth:'90%'}}>
         <Section>
           {/*-------------------- SLIDER GOES HERE ------------------------*/}
           {/* <Grid container>

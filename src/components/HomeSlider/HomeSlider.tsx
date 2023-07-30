@@ -68,7 +68,7 @@ const HomeSlider = () => {
 
   const slides = [
     <Grid key="0" onFocus={stopAutoSlideTimer}
-     sx={{position:'absolute' ,visibility:currentSlide===0 ? 'block' : 'hidden',opacity:currentSlide===0 ? 1: 0, transition :'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out',maxWidth:'80%',height:'100%'}} > 
+     sx={{position:'absolute' ,visibility:currentSlide===0 ? 'block' : 'hidden',opacity:currentSlide===0 ? 1: 0, transition :'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out',maxWidth:'85%',height:'100%'}} > 
     <Grid container   >
       <Grid item xs={12} md={6}  >
         <BannerForm bannerData={bannerData1} />
@@ -90,7 +90,7 @@ const HomeSlider = () => {
       </Grid>
     </Grid></Grid>,
         <Grid key="1" onFocus={stopAutoSlideTimer}
-        sx={{position:'absolute' ,visibility:currentSlide===1 ? 'block' : 'hidden',opacity:currentSlide===1 ? 1: 0, transition :'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out',maxWidth:'80%',height:'100%'}} > 
+        sx={{position:'absolute' ,visibility:currentSlide===1 ? 'block' : 'hidden',opacity:currentSlide===1 ? 1: 0, transition :'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out',maxWidth:'85%',height:'100%'}} > 
 
     <Grid container key="1">
       <Grid item xs={12} md={6}>
@@ -100,14 +100,14 @@ const HomeSlider = () => {
         item
         xs={12}
         md={6}
-        sx={{ span: { display: "block !important" }, transform: isMobile ? "scale(0.7)" : "scale(1)", marginTop: isMobile ? '20%' : 0, display: 'flex', alignItems: 'center', justifyContent: 'center', }}
+        sx={{ span: { display: "block !important" }, transform: isMobile ? "scale(0.7)" : "translateX(3rem)", marginTop: isMobile ? '20%' : 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}
       >
         <Video key={videoKey} SlidePage={2} />
       </Grid>
     </Grid></Grid>,
 
     <Grid key="2" onFocus={stopAutoSlideTimer}
-    sx={{position:'absolute' ,visibility:currentSlide===2 ? 'block' : 'hidden' , opacity:currentSlide===2 ? 1: 0, transition :'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out',maxWidth:'80%',height:'100%'}} > 
+    sx={{position:'absolute' ,visibility:currentSlide===2 ? 'block' : 'hidden' , opacity:currentSlide===2 ? 1: 0, transition :'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out',maxWidth:'85%',height:'100%'}} > 
     <Grid container key="2" >
       <Grid item xs={12} md={6}>
         <BannerForm bannerData={bannerData3} />
@@ -116,7 +116,7 @@ const HomeSlider = () => {
         item
         xs={12}
         md={6}
-        sx={{ span: { display: "block !important" }, transform: isMobile ? "scale(0.7)" : "scale(1)", marginTop: isMobile ? '20%' : 0, display: 'flex', alignItems: 'center', justifyContent: 'center', }}
+        sx={{ span: { display: "block !important" }, transform: isMobile ? "scale(0.7)" : "translateX(3rem)", marginTop: isMobile ? '20%' : 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       >
         <Video key={videoKey} SlidePage={3} />
       </Grid>
@@ -132,7 +132,7 @@ const HomeSlider = () => {
         
       </Grid>
       {/* ========== space container========== */}
-      <Grid xs={12} md={6} style={{  minHeight:isMobile ? height*1.1:height*0.8,minWidth:'100%',display:'flex',zIndex:-9999}}></Grid>
+      <Grid item xs={12} md={6} style={{  minHeight:isMobile ? height*1.1:height*0.8,minWidth:'100%',display:'flex',zIndex:-9999}}></Grid>
       {/* ==================================== */}
       <Grid
         item

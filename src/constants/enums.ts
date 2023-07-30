@@ -11,11 +11,13 @@ export enum Languages {
 export enum Pages {
   HOME = "",
   LOGIN = "login",
-  TRS = "TRS",
+  TRS = "Table-Reservation-System",
   SURVEY="survey",
   AboutUs = "AboutUs",
-  CashlessWallet = "CashlessWallet"
-
+  CashlessWallet = "CashlessWallet",
+  KioskPage = "Kiosk",
+  CustomSoftware = "CustomSoftware",
+  Integration = "IntegrationServices",
 }
 
 export enum Orders {

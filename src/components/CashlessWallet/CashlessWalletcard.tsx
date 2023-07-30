@@ -64,7 +64,7 @@ const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
         }}
       >
         <Grid xs={isMobile ? 12 : 6} sx={{marginTop:isMobile?5:0}}>
-            <Typography style={{fontWeight:'bold',color:'#8a743d',marginBottom:'5%'}}>{items.header}</Typography>
+            <Typography style={{fontWeight:'bold',color:'#997736',marginBottom:'5%'}}>{items.header}</Typography>
           <Typography
             variant="h4"
             style={{
@@ -135,10 +135,8 @@ const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
             style={{
               width: "100%",
               height: "400px",
-              transform :items.imgOrientation=="landscape"?  "scale(1)" : "scale(1.4)",
+              transform :items.imgOrientation=="landscape" ? "scale(1)" : isMobile ? "scale(1)": "scale(1.4)",
               position: "relative",
-              marginTop: isMobile && items.imgOrientation==="landscape" ? -40 : 0,
-              marginBottom: isMobile && items.imgOrientation==="landscape" ? -40 : 0
             }}
           >
              <FadingImages images={items.img} interval={items.img.length>1  ? 3 : 0} />
