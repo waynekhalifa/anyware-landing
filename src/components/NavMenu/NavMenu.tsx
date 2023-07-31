@@ -284,11 +284,10 @@ const NavMenu: React.FC = () => {
                 marginTop: "0.5rem",
               }}
             >
-              {menu.children.map((child: any, index: number) =>
-                loading ? (
-                  <h3>loading...</h3>
-                ) : (
+              {loading ? <h3>loading...</h3>  : menu.children.map((child: any, index: number) =>
+                (
                   <Link
+                    key={index}
                     href={child.path}
                     underline="none"
                     style={{ width: "100%" }}

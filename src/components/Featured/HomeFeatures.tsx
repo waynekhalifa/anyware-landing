@@ -41,14 +41,14 @@ const HomeFeatures: React.FC = () => {
   const pathname = "adhaaaaaaaaam";
   const search = String(router.query.search);
  
-  const analytics = useCallback(() => {
-    Trackpathforanalytics({ path: pathname, search: search, title: pathname?.split("/")[1] });
-}, [pathname, search]);
+//   const analytics = useCallback(() => {
+//     Trackpathforanalytics({ path: pathname, search: search, title: pathname?.split("/")[1] });
+// }, [pathname, search]);
 
 
-useEffect(() => {
-  analytics();
-}, [analytics]);
+// useEffect(() => {
+//   analytics();
+// }, [analytics]);
 
 
   const useAnalyticsEventTracker = (category = "Blog category") => {
