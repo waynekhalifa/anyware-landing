@@ -3,12 +3,16 @@ import dynamic from "next/dynamic";
 import { Backdrop, Box } from "@mui/material";
 import ContentLoader from "../ContentLoader";
 import useApp from "@/hooks/useApp";
+import { useSelector } from "react-redux";
+import { selectModalOpen } from "@/store/appSlice";
 
 const Catcher = dynamic(() => import("../Catcher"), { suspense: true });
 const Contact = dynamic(() => import("../../ContactUs/ContactUs"), { suspense: true });
 
 const MainModal: React.FC = () => {
   const { modalOpen, modalID, modalContent, closeModal } = useApp();
+
+  // const modalOpen  = useSelector(selectModalOpen);
 
   const renderModalContent = () => {
     switch (modalID) {
@@ -26,6 +30,7 @@ const MainModal: React.FC = () => {
   };
 
   return (
+
     <Backdrop
       sx={{
         zIndex: (theme) => theme.zIndex.drawer + 1,
