@@ -3,20 +3,10 @@ import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Header from "../Header/Header";
 import { Items } from "./Kioskconstants";
 import CashlessWalletcard from "../CashlessWallet/CashlessWalletcard";
-import reif from "../../../public/images/reif.png";
-import megumi from "../../../public/images/megumi.png";
-import lexies from "../../../public/images/lexies.png";
-import sachi from "../../../public/images/sachi.png";
-import shinko from "../../../public/images/shinko.png";
-import kazoku from "../../../public/images/kazoku.png";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
 import bannerBg from "../../../public/images/home-header-bg.png";
 import Footer from "../Footer/Footer";
-import millenium from "../../../public/images/millenium.svg";
-import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.png";
-import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.png";
-import coralBay from "../../../public/images/coralBay.png";
 const Kiosk: React.FC = () => {
   const { isMobile, width } = useIsMobile();
   return (
