@@ -18,6 +18,7 @@ export enum Pages {
   KioskPage = "Kiosk",
   CustomSoftware = "CustomSoftware",
   Integration = "IntegrationServices",
+  partner = "becomepartner",
 }
 
 export enum Orders {

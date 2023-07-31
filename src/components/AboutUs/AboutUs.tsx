@@ -4,7 +4,7 @@ import axios from "axios";
 import ReactGA from "react-ga";
 import { useEffect, useState } from "react";
 import bannerBg from "../../../public/images/home-header-bg.png";
-import millenium from "../../../public/images/millenium.svg";
+import millenium from "../../../public/images/millenium.png";
 import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.png";
 import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.png";
 import caffe from "../../../public/images/ni-caffe-removebg-preview 1.png";

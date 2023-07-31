@@ -130,7 +130,7 @@ const AnimatedTexts: React.FC<Props> = ({ texts , interval,animationType,directi
     }}
   >
      {/* <img src={checkGold.src} style={{ width: '1rem'}} /> */}
-      <p style={{ fontWeight: isMobile ? "200" : '400', fontSize: isMobile ? '0.8rem' : '1rem', lineHeight: '1.7857142857' ,textAlign:direction=="row"?'left':'center',width:'100%' }}>{text}</p>
+      <p style={{ fontWeight: isMobile ? "200" : '400', fontSize: isMobile ? '1rem' : '1.2rem', lineHeight: '1.7857142857' ,textAlign:direction=="row"?'left':'center',width:'100%' }}>{text}</p>
     
   </Box>
 ))}

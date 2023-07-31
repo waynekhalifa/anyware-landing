@@ -139,6 +139,10 @@ const Footer = () => {
                 onClick={handleclick}
                 sx={{
                   textTransform: "capitalize",
+                  "&hover":{
+                    backgroundColor:'transparent',
+                    border:'none'
+                  }
                 }}
               >
                 <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5, color: 'white', marginLeft: -8 }}>
@@ -151,6 +155,11 @@ const Footer = () => {
             <Link href="AboutUs" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - About Us
+              </Typography>
+            </Link>
+            <Link href="becomepartner" passHref>
+              <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
+                - Become a partner
               </Typography>
             </Link>
           </Box>

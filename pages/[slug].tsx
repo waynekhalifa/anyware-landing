@@ -17,6 +17,7 @@ import CashlessWallet from "@/components/CashlessWallet/CashlessWallet";
 import Kiosk from "@/components/Kiosk/Kisok";
 import CustomSoftware from "@/components/customSoftware/CustomSoftware";
 import Integration from "@/components/integration/Integration";
+import BecomePartner from "@/components/becomepartner/BecomePartner";
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
   return (
@@ -33,6 +34,7 @@ const PageTemplate: NextPage = () => {
       {slug === Pages.KioskPage &&  <Kiosk />}
       {slug === Pages.CustomSoftware &&  <CustomSoftware />}
       {slug === Pages.Integration &&  <Integration />}
+      {slug === Pages.partner &&  <BecomePartner />}
 
     </>
   );
