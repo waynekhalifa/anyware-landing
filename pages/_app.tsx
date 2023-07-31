@@ -13,7 +13,7 @@ import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/500.css";
 import "@fontsource/manrope/700.css";
 import MainModal from "@/components/UI/MainModal";
-import { useSelector } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { selectModalOpen } from "@/store/appSlice";
 import { getMenusByName, MenuItem1 } from "@/services/menu";
 
@@ -24,11 +24,11 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const modalOpen = useSelector(selectModalOpen);
-
+function MyApp({ Component }:any , {...rest}) {
+  const { store, props } = wrapper.useWrappedStore(rest);
+  const {  emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
+    <Provider store={store}>
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -94,9 +94,10 @@ function MyApp(props: MyAppProps) {
           }}
         />
         <Component {...pageProps} />
-        {modalOpen && <MainModal />}
+        {<MainModal />}
       </ThemeProvider>
     </CacheProvider>
+    </Provider>
   );
 }
 
@@ -109,8 +110,8 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(
 
     store.dispatch(setMenus(mainMenu));
 
-    return { ...ctx };
+    return {store, ...ctx };
   }
 );
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;
