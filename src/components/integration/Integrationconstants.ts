@@ -16,7 +16,7 @@ const makeRes = {
         "Increasing the efficiency and speed of the business operation.",
         "Better data monitoring as data is securely transferred to your ERP.",
         "The data is pushed to your ERP journal unposted or provisioned for accounting team review.",
-        "Automate synchronization processes on a daily, weekly, and monthly basis without any manual intervention",
+        "Automate synchronization processes on a daily, weekly, and monthly basis without any manual intervention.",
         "Classifying your Journal entries according to your pre-configured over groups."
         
     ],
