@@ -29,12 +29,12 @@ const PageTemplate: NextPage = () => {
       {slug === Pages.LOGIN && <Login /> }
       {slug === Pages.SURVEY &&  <Survey />}
       {slug === Pages.TRS &&  <TRS />}
-      {slug === Pages.AboutUs &&  <AboutUs />}
+      {/* {slug === Pages.AboutUs &&  <AboutUs />}
       {slug === Pages.CashlessWallet &&  <CashlessWallet />}
       {slug === Pages.KioskPage &&  <Kiosk />}
       {slug === Pages.CustomSoftware &&  <CustomSoftware />}
       {slug === Pages.Integration &&  <Integration />}
-      {slug === Pages.partner &&  <BecomePartner />}
+      {slug === Pages.partner &&  <BecomePartner />} */}
 
     </>
   );
