@@ -13,9 +13,10 @@ import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/500.css";
 import "@fontsource/manrope/700.css";
 import MainModal from "@/components/UI/MainModal";
-import { useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { selectModalOpen } from "@/store/appSlice";
 import { getMenusByName, MenuItem1 } from "@/services/menu";
+import { FC, useEffect } from "react";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -24,11 +25,24 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const modalOpen = useSelector(selectModalOpen);
+const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
+  const { store, props } = wrapper.useWrappedStore(rest);
+  const { emotionCache = clientSideEmotionCache, pageProps } = props;
 
+  // const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  // const modalOpen = useSelector(selectModalOpen);
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   const fetchMainMenu = async () => {
+  //     const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
+  //     dispatch(setMenus(mainMenu));
+  //   };
+
+  //   fetchMainMenu();
+  // }, [dispatch]);
   return (
+    <Provider store={store}>
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -94,23 +108,38 @@ function MyApp(props: MyAppProps) {
           }}
         />
         <Component {...pageProps} />
-        {modalOpen && <MainModal />}
+         <MainModal />
       </ThemeProvider>
     </CacheProvider>
+    </Provider>
+
   );
 }
 
-MyApp.getInitialProps = wrapper.getInitialAppProps(
-  (store) => async (appContext: AppContext) => {
-    const ctx = await App.getInitialProps(appContext);
+// MyApp.getInitialProps = wrapper.getInitialAppProps(
+  // (store) => async (appContext: AppContext) => {
+  //   const ctx = await App.getInitialProps(appContext);
 
-    const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
+  //   const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
  
 
-    store.dispatch(setMenus(mainMenu));
+  //   store.dispatch(setMenus(mainMenu));
 
-    return { ...ctx };
-  }
-);
+  //   return { ...ctx };
+//   }
+// );
+// export const getServerSideProps = wrapper.getServerSideProps(
+//   (store) =>
+//   async (appContext: AppContext) => {
+//     const ctx = await App.getInitialProps(appContext);
 
-export default wrapper.withRedux(MyApp);
+//     const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
+ 
+
+//     store.dispatch(setMenus(mainMenu));
+
+//     return { ...ctx };
+//     }
+// );
+
+export default MyApp;

@@ -10,11 +10,26 @@ import { ContactForm } from '../UI/Forms';
 import useApp from '@/hooks/useApp';
 import useIsMobile from "@/hooks/useIsMobile";
 import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
+import { useDispatch } from 'react-redux';
+import { MenuItem1, getMenusByName } from "@/services/menu";
+import { setListing as setMenus } from "@/store/menuSlice";
+
 const Header: React.FC = () => {
   
   const { isMobile } = useIsMobile();
 
   const { openModal } = useApp();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchMainMenu = async () => {
+      const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
+      dispatch(setMenus(mainMenu));
+    };
+
+    fetchMainMenu();
+  }, [dispatch]);
 
   const handleClick = async () => {
     openModal({ modalID: "contact" });
