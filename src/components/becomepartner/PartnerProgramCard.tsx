@@ -83,7 +83,7 @@ const PartnerProgramCard: React.FC<Props> = ({ items, index,selected }) => {
             color: "primary.light",
             fontWeight: "600",
             textTransform: "capitalize",
-            
+            zIndex:100
           }}
           endIcon={
             <svg

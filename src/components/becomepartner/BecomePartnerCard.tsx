@@ -110,12 +110,12 @@ const BecomePartnerCard: React.FC<Props> = ({ items, index }) => {
             style={{
               width: "100%",
               height: "400px",
-              transform :"scale(2) translateY(1rem)",
+              transform : isMobile ? "scale(1)" : "scale(2) translateY(1rem)",
               position: "relative",
               opacity:"0.9",
-              marginLeft:90,
-              marginTop: isMobile && items.imgOrientation==="landscape" ? -80 : 0,
-              marginBottom: isMobile && items.imgOrientation==="landscape" ? -40 : 0
+              marginLeft: isMobile ?0 : 90,
+              marginTop:  0,
+              marginBottom:  0
             }}
           >
              <FadingImages images={items.img} interval={items.img.length>1  ? 3 : 0} />
@@ -133,6 +133,7 @@ const BecomePartnerCard: React.FC<Props> = ({ items, index }) => {
               fontWeight: "500",
               textTransform: "capitalize",
               borderRadius:2,
+              
               "&:hover": {
                 backgroundColor: "primary.main",
                 borderColor: "#fff",
