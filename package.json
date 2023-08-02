@@ -19,7 +19,7 @@
 		"@firebase/analytics": "^0.10.0",
 		"@fontsource/manrope": "^4.5.12",
 		"@hookform/resolvers": "^2.9.8",
-		"@mui/icons-material": "^5.10.3",
+		"@mui/icons-material": "^5.14.1",
 		"@mui/material": "^5.10.4",
 		"@reduxjs/toolkit": "^1.8.5",
 		"@remotion/player": "^3.2.25",

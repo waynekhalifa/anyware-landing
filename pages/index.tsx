@@ -4,9 +4,7 @@ import HomeFeatures from "@/components/Featured";
 
 import Head from "next/head";
 import Header from "@/components/Header";
-import TRS from "@/components/TRS/TRS";
 import useApp from "@/hooks/useApp";
-import { Pages } from "@/constants/enums";
 import Footer from "@/components/Footer/Footer";
 
 const Home: NextPage = () => {

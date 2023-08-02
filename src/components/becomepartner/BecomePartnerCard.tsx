@@ -110,8 +110,10 @@ const BecomePartnerCard: React.FC<Props> = ({ items, index }) => {
             style={{
               width: "100%",
               height: "400px",
-              transform :items.imgOrientation=="landscape"?  "scale(1)" : "scale(1.4)",
+              transform :"scale(2) translateY(1rem)",
               position: "relative",
+              opacity:"0.9",
+              marginLeft:90,
               marginTop: isMobile && items.imgOrientation==="landscape" ? -80 : 0,
               marginBottom: isMobile && items.imgOrientation==="landscape" ? -40 : 0
             }}
