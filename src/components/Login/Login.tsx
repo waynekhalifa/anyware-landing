@@ -117,7 +117,7 @@ const Login: React.FC = () => {
             register={register}
             setValue={setValue}
             errors={errors}
-            required={true}
+            
           />
         ))}
         <Button
