@@ -3,11 +3,12 @@ import * as Yup from "yup";
 const useFormValidations = (slug: string) => {
   const messageFormValidation = () =>
     Yup.object().shape({
-      firstName: Yup.string().required("First Name is required"),
-      lastName: Yup.string().required("Last Name is required"),
+      fullName: Yup.string().required("Name is required"),
+      restaurant: Yup.string().required("Resturant Name is required"),
       email: Yup.string()
         .required("Email is required")
         .email("Email is invalid"),
+        mobile: Yup.string().required("mobile is required"),
       message: Yup.string().required("Message is required"),
     });
 

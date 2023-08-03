@@ -9,6 +9,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import useApp from "@/hooks/useApp";
+import axios from "axios";
 
 const ContactUsForm: React.FC = () => {
   const { confirm, changeConfirm } = useConfirm();
@@ -29,7 +30,7 @@ const ContactUsForm: React.FC = () => {
   };
 
   const handleFormScroll = (event: React.WheelEvent<HTMLDivElement>) => {
-    event.preventDefault();
+    // event.preventDefault();
   };
   const { getValidationSchema } = useFormValidations("contact-us");
   const {
@@ -40,7 +41,37 @@ const ContactUsForm: React.FC = () => {
   } = useForm<any>({ resolver: yupResolver(getValidationSchema()) });
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
+    console.log(data)
     try {
+      const apiUrl = 'http://localhost/wordpress/wp-json/custom/v1/send-email?name=Hazem&email=zozohegazy500@gmail.com&message=test';
+    const data2 = {
+      action: 'send_custom_email',
+      name:data.fullName,
+      email:data.email,
+      message:  data.message,
+      mobile : data.mobile
+    };
+
+    await axios.post(apiUrl, data2)
+      .then(response => {
+        console.log(response.data); // Email status response from the server
+        // Handle success or error based on the response
+      })
+      .catch(error => {
+        console.error(error);
+        // Handle error
+      });
+      //  await fetch("https://asten-mail-server.herokuapp.com/api/send-mail", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     email: data.email,
+      //     cc: "hazem.alhegazy@gmail.com",
+      //     subject: `anyware Contact Form, Message from ${data.fullName} ${data.mobile}`,
+      //     message: data.message,
+      //     html: "",
+      //   }),
+      // });
       reset();
       changeConfirm("Your message has been sent!");
 
@@ -145,7 +176,7 @@ const ContactUsForm: React.FC = () => {
               fullWidth
               id="mobile"
               size="small"
-              error={!!errors.mobile}
+            error={!!errors.mobile}
               required
             />
             {errors.mobile && (
@@ -182,7 +213,8 @@ const ContactUsForm: React.FC = () => {
               type="submit"
               sx={{ mb: confirm!.length > 0 ? 2 : 0 }}
               startIcon={isSubmitting && <ButtonLoader />}
-              disabled={isSubmitting}
+              // disabled={isSubmitting}
+              onClick={handleSubmit(onSubmit)}
             >
               <Typography sx={{fontSize:18,fontWeight:'bold'}}>
               Submit

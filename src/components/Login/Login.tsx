@@ -25,6 +25,11 @@ const Login: React.FC = () => {
   const email = router.query.email;
   const { getFormFields } = useFormFields();
   const { getValidationSchema } = useFormValidations("test");
+  function isValidEmail(email:any) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
   const {
     register,
     handleSubmit,
@@ -33,10 +38,31 @@ const Login: React.FC = () => {
   } = useForm<any>({ resolver: yupResolver(getValidationSchema()) });
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
-    // const response=await axios.post("https://localhost/php/addSiteUser.php",{mobile:isNaN(data.email)?"":data.email,fullName:data.name,restaurantName:data.restaurant,email:isNaN(data.email)?data.email:"",referalCode:data.code})
-    // console.log(response.data)
 
-    push(`/survey?mobile=${isNaN(data.email)?"":data.email}&email=${isNaN(data.email)?data.email:""}&fullName=${data.name}`);
+ 
+    const data2 = {mobile:data.mobile,fullName:data.name,restaurantName:data.restaurant,email:data.email,referalCode:data.code}
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://localhost/php/addSiteUser.php',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data2
+    };
+    
+    axios.request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    
+    
+   
+
+    push(`/survey?mobile=${data.mobile}&email=${data.email}&fullName=${data.name}`);
   };
 
   return (
@@ -45,12 +71,12 @@ const Login: React.FC = () => {
     <Toolbar>
       <Logo imgSrc={logo} />
       <Box sx={{ flex: 1 }} />
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      {/* <Box sx={{ display: "flex", alignItems: "center" }}>
         <Typography sx={{ display: { xs: "none", md: "block" } }}>Already Registered With Us?</Typography>
         <Button variant="contained" size="large" sx={{ textTransform: "capitalize", boxShadow: 12, ml: { xs: 0, md: 3 } }}>
           Login
         </Button>
-      </Box>
+      </Box> */}
     </Toolbar>
   </AppBar>
   
@@ -86,11 +112,12 @@ const Login: React.FC = () => {
             placeholder={field.placeholder}
             type={field.type}
             autoFocus={field.autoFocus}
-            defaultValue={field.name !== "email" ? field.defaultValue : email}
+            defaultValue={(field.name === "email" && isValidEmail(email)) || (field.name==="mobile" && !isValidEmail(email)) ?email:  field.defaultValue }
             options={field.options}
             register={register}
             setValue={setValue}
             errors={errors}
+            required={true}
           />
         ))}
         <Button

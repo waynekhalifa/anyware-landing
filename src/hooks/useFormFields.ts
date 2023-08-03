@@ -250,8 +250,16 @@ const useFormFields = () => {
     },
     {
       name: "email",
-      label: "E-mail–mobile",
-      placeholder: "E-mail–mobile",
+      label: "E-mail",
+      placeholder: "E-mail",
+      type: "textField",
+      autoFocus: false,
+      defaultValue: "",
+    },
+    {
+      name: "mobile",
+      label: "Mobile",
+      placeholder: "mobile",
       type: "textField",
       autoFocus: false,
       defaultValue: "",

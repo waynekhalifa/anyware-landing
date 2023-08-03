@@ -22,7 +22,7 @@ const PriceCalculator: React.FC<Props> = ({ completed, selectedFeatures,handleSe
   const { months } = state;
   let price = 0;
   const features = featuresListing.filter((feature: any) =>
-    selectedFeatures.has(feature.id)
+    selectedFeatures.has(feature.title)
   );
 
   for (let feature of features) {

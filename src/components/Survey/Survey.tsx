@@ -19,6 +19,7 @@ const Survey: React.FC = () => {
   }
   const handleSelectedColor=(color:any)=>{
     setSelectedColor(color)
+    
   }
   const handleSelectedFeature=(feature:any)=>{
     let features2:any[]=[]
@@ -39,14 +40,35 @@ const Survey: React.FC = () => {
     // formData.append('price', totalPrice+"");
     // formData.append('month', selectedMonth+"");
     // formData.append('features',JSON.stringify(selectedFeatures))
-    // var id=data.email!=""? data.email:data.mobile
-    // formData.append('userID', id+"");
-    // const response=await axios.post("https://localhost/php/addUserProduct.php",{image:selectedImage,color:selectedColor,month:selectedMonth,price:totalPrice,features:selectedFeatures,userID:data.email!=""? data.email:data.mobile}
-    // ,
-    // {headers: {
-    //   'Content-Type': 'multipart/form-data',
-    // },})
-    // console.log(response.data)
+    
+    // formData.append('mobile', data.mobile+"");
+    
+ // Assuming this code is inside an async function
+try {
+  const response = await axios.post("https://localhost/php/addUserProduct.php", {
+    image: selectedImage,
+    color: selectedColor,
+    month: selectedMonth,
+    price: totalPrice,
+    features: selectedFeatures,
+    userID: data.mobile,
+  }, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  // If the request is successful, the response will be available here
+  console.log(response.data); // This will log the response data
+  // You can also perform any other actions with the response data as needed
+
+} catch (error) {
+  // If the request encounters an error, it will be caught here
+  console.error(error); // This will log the error details
+
+  // You can display an error message to the user or perform any other error handling
+}
+
   }
   // console.log(selectedImage)
   // console.log(selectedColor)

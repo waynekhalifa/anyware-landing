@@ -16,7 +16,7 @@ const Colors: React.FC<MyProps> = ({handleSelectedColor,handleSelectedImage}) =>
   const [state, setState] = useState(initialState);
 
   const colors: string[] = [
-    "primary.main",
+    "rgb(198, 166, 88)",
     "rgb(123, 104, 238)",
     "rgb(255, 161, 47)",
     "rgb(255, 87, 34)",
