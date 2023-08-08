@@ -83,17 +83,17 @@ const NavMenu: React.FC = () => {
         onClose={handleCloseAnchor}
         PaperProps={{
           style: {
-            position: "fixed",
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            transform: "translateY(25px)",
-            backgroundColor: "white",
-            overflowY: "auto",
+            // position: "fixed",
+            // top: 0,
+            // bottom: 0,
+            // left: 0,
+            // right: 0,
+            // transform: "translateY(25px)",
+            // backgroundColor: "white",
+            // overflowY: "auto",
             maxHeight: "90vh",
-            minWidth: "102vw",
-            marginLeft: "5%",
+            minWidth: "90vw",
+            
           },
         }}
       >
