@@ -13,13 +13,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import useMenu from "@/hooks/useMenu";
 import Link from "../UI/Link";
-import { MenuItem1 } from "@/services/menu";
+import { MenuItem1, getMenusByName } from "@/services/menu";
 import React, { useState, useEffect, useRef } from "react";
 import { Box } from "@mui/material";
 import MuiMenuItem from "@mui/material/MenuItem";
 import Menuitem from "./MenuItem";
 import useIsMobile from "@/hooks/useIsMobile";
 import useApp from "@/hooks/useApp";
+import { useDispatch } from "react-redux";
+import { setListing as setMenus } from "@/store/menuSlice";
 
 const NavMenu: React.FC = () => {
   const { menusListing } = useMenu("menus", "menu");
@@ -52,7 +54,16 @@ const NavMenu: React.FC = () => {
   };
   const [loading, setLoading] = useState(false);
   const { isMobile } = useIsMobile();
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    const fetchMainMenu = async () => {
+      const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
+      dispatch(setMenus(mainMenu));
+    };
+
+    fetchMainMenu();
+  }, [dispatch]);
   return isMobile ? (
     <Box style={{ marginRight: 20, display: "flex" }}>
       <Button

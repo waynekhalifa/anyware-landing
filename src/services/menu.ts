@@ -11,7 +11,7 @@ interface MenuSubItem extends MenuItem1 {
   description: string;
 }
 
-const mainMenu: MenuItem1[] = [
+export const mainMenu: MenuItem1[] = [
   {
     id: 1,
     name: "product",

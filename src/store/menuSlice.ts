@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 import { AppState } from "./store";
+import { mainMenu } from "@/services/menu";
 
 // Type for our state
 export interface StateProps {
@@ -11,7 +12,7 @@ export interface StateProps {
 
 // Initial state
 const initialState: StateProps = {
-  listing: [],
+  listing: mainMenu,
   searchText: "",
   selected: null,
 };
