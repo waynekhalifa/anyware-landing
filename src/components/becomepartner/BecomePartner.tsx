@@ -28,8 +28,8 @@ const BecomePartner: React.FC = () => {
         width: "100%",
         height: "100vh",
         position: "absolute",
-        overflowX: "hidden",
-        paddingTop: isMobile ? 20 : 120,
+        overflowX:"clip",
+                paddingTop: isMobile ? 20 : 120,
       }}
     >
       <Header />

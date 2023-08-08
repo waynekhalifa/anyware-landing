@@ -65,7 +65,7 @@ const Header: React.FC = () => {
     >
       <Box sx={{margin: "auto", width: "100%" }}>
         <Grid container justifyContent="space-between" alignItems="center">
-          <Box sx={{ display: "flex", alignItems: "center",justifyContent:'space-between',width:isMobile?'100%':'60%' }}>
+          <Box sx={{ display: "flex", alignItems: "center",justifyContent:'space-between',width:isMobile?'100%':'50%' }}>
             <Box sx={{ mr: 3 , ml :3 }}>
               <Logo imgSrc={logo} />
             </Box>

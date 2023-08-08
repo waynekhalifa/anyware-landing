@@ -15,6 +15,7 @@ import bannerBg from "../../../public/images/home-header-bg.png";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import TRSAIO from "./TRSAIO";
+import Head from "next/head";
 
 const TRS: React.FC = () => {
   const venues = [shinko,reif, megumi, lexies, sachi, kazoku];
@@ -22,6 +23,12 @@ const TRS: React.FC = () => {
 
 
   return (
+    <>
+    <Head>
+        <title>Anyware Software</title>
+        <meta name="description" content={"Anyware Software"} />
+      </Head>
+    <Header />
     <div
       style={{
         display: "flex",
@@ -31,11 +38,12 @@ const TRS: React.FC = () => {
         width: "100%",
         height: "100vh",
         position: "absolute",
-        overflowX: "hidden",
+        // overflowX: "hidden",
+        
+        overflowX:"clip",
         paddingTop: isMobile ? 20 : 120,
       }}
     >
-      <Header />
       <Box
         style={{
           top: "-100.016vh",
@@ -169,6 +177,7 @@ const TRS: React.FC = () => {
       </Grid>
       <Footer/>
     </div>
+    </>
   );
 };
 

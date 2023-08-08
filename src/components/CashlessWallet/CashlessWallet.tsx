@@ -23,7 +23,7 @@ const CashlessWallet: React.FC = () => {
         width: "100%",
         height: "100vh",
         position: "absolute",
-        overflowX: "hidden",
+        overflowX:"clip",
         paddingTop: isMobile ? 20 : 120,
       }}
     >
