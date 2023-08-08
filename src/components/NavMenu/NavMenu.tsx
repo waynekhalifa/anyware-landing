@@ -143,7 +143,7 @@ const NavMenu: React.FC = () => {
                   width: "100%",
                 }}
               >
-                <Typography style={{fontSize:15, fontWeight: "bolder" }}>
+                <Typography style={{ fontWeight: "bolder" }}>
                   {menu.name}
                 </Typography>
               </Button>
@@ -261,8 +261,8 @@ const NavMenu: React.FC = () => {
             fontWeight: 600,
             color: "text.primary",
             justifyContent: "flex-start",
-            p: "0px 16px",
-            mr: 1,
+            // p: "0px 16px",
+            // mr: 1,
             zIndex: 2,
             "&:hover": {
               backgroundColor: "transparent",
