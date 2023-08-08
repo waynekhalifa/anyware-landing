@@ -88,7 +88,7 @@ const NavMenu: React.FC = () => {
             bottom: 0,
             left: 0,
             right: 0,
-            transform: "translateY(2rem)",
+            transform: "translateY(25px)",
             backgroundColor: "white",
             overflowY: "auto",
             maxHeight: "90vh",
