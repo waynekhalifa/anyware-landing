@@ -25,6 +25,8 @@ import { useRouter } from "next/router";
 import { bannerItems } from "@/constants/features";
 import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
 import HomeSlider from "../HomeSlider/HomeSlider";
+import NextImage from "next/image";
+
 interface StateProps {
   videoKey: string;
 }
@@ -67,6 +69,7 @@ useEffect(() => {
       clearInterval(interval);
     };
   });
+  const venues = [millenium,movenpick, jeddah, caffe, caf];
 
   return (
     <Box sx={{ overflow: "hidden", width: "100%", position: "relative" ,flex:1}}
@@ -81,15 +84,12 @@ useEffect(() => {
           left: "calc(65vw)",
           width: isMobile?'80.1vw': "37.1vw",
           height: isMobile? '100vh' : "135.43vh",
-          //webkitTransform: "translate(0,-28.5%)",
-          // msTransform: "translate(0,-28.5%)",
-          // transform: "translate(0,-28.5%)",
           transition: "unset",
           zIndex: -12,
         }}
       />
-      <Container sx={{ pt: 5 ,minWidth:'90%'}}>
-        <Section>
+      <Container sx={{ pt: 15 ,minWidth:'90%'}}>
+        
           {/*-------------------- SLIDER GOES HERE ------------------------*/}
           {/* <Grid container>
             <Grid item xs={12} md={6}>
@@ -107,10 +107,10 @@ useEffect(() => {
 
           <HomeSlider/>
 
-        </Section>
-        <Box style={{transform:'translateY(-100px)'}}>
+        
+        <Box style={{marginTop:"4rem",padding:0,marginBottom:'3rem',}}>
 
-        <Section>
+        
           <Typography
             color="text.secondary"
             align="center"
@@ -122,29 +122,34 @@ useEffect(() => {
             >
             Join 100+ Highly Rated Hospitality Leaders
            </Typography>
-                  <Box
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "10px",
-          }}
+           <Grid
+            xs={12}
+            container
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+              
+              
+            }}
           >
-          <img alt="millenium" src={millenium.src} style={{ width: "13%" }} />
-          <img alt="millenium" src={movenpick.src} style={{ width: "13%" }} />
-          <img alt="swissotel" src={jeddah.src} style={{ width: "13%" }} />
-          <img alt="anyware" src={caffe.src} style={{ width: "13%" }} />
-          <img alt="caf" src={caf.src} style={{ width: "13%", height: "10%" }} />
-          {/* <img alt="millenium" src={reif.src} style={{ width: "13%" }} />
-          <img alt="millenium" src={GCS.src} style={{ width: "13%" }} />
-          <img alt="swissotel" src={capital.src} style={{ width: "13%" }} />
-          <img alt="anyware" src={adnec.src} style={{ width: "13%" }} />
-          <img alt="swissotel" src={zahrtlebanon.src} style={{ width: "13%" }} />
-          <img alt="swissotel" src={bosporus.src} style={{ width: "13%" }} />
-          <img alt="caf" src={caf.src} style={{ width: "13%", height: "10%" }} /> */}
-        </Box>
-        </Section>
+            {venues.map((venue, index) => {
+              return (
+                <Grid key={index} xs={isMobile ? 6 : undefined} style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
+                  <NextImage
+                    alt="Banner background"
+                    layout="fixed"
+                    width="260px"
+                    height="130px"
+                    objectFit="contain"
+                    src={venue.src}
+                    style={{opacity:'0.7'}}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
           </Box>
       </Container>
 

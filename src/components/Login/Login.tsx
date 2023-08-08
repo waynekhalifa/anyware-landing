@@ -44,7 +44,7 @@ const Login: React.FC = () => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'https://localhost/php/addSiteUser.php',
+      url: 'https://www.landingadmin.anyware.software/wp-json/custom/v1/addUser',
       headers: { 
         'Content-Type': 'application/json'
       },

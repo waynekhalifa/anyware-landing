@@ -17,7 +17,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setSelectedTap(newValue);
   };
-  const { isMobile , width} = useIsMobile();
+  const { isMobile, width } = useIsMobile();
   const baseHeight =
     items[selectedTap].imgOrientation == "landscape" ? 320 : 380;
   const offestHeight =
@@ -25,7 +25,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       ? items[selectedTap].animatedTexts.items.length * 50
       : items[selectedTap].animatedTexts.items.length * 10;
   const tabs = items.map((item: any) => item.title);
-  
+
   return (
     <Container
       key={index}
@@ -38,7 +38,6 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
         alignItems: "center",
         flexDirection: "column",
         overflow: "hidden",
-        
       }}
     >
       <Box
@@ -47,10 +46,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "flex-start",
-          minHeight:
-            baseHeight +
-            offestHeight+
-            "px",
+          minHeight: baseHeight + offestHeight + "px",
         }}
       >
         <Tabs
@@ -59,7 +55,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
           variant="scrollable"
           scrollButtons={true}
           aria-label="scrollable prevent tabs example"
-          style={{ maxWidth: width -50, marginBottom: "2rem" }}
+          style={{ maxWidth: width - 40, marginBottom: "2rem" }}
         >
           {tabs.map((tab: any, index: number) => (
             <Tab
@@ -79,15 +75,26 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
         <Grid
           container
           spacing={4}
-          sx={{ minWidth: isMobile ?"90%":"100%",  maxWidth: isMobile? "100%": "120%", paddingLeft: isMobile?0:10, paddingRight: isMobile?0:10 }}
+          sx={{
+            minWidth: isMobile ? "90%" : "100%",
+            maxWidth: isMobile ? "100%" : "120%",
+            paddingLeft: isMobile ? 0 : 10,
+            paddingRight: isMobile ? 0 : 10,
+          }}
         >
-          <Grid xs={items[selectedTap].direction=="row"&&!isMobile ? 6 : 12} sx={{ }}>
+          <Grid
+            xs={items[selectedTap].direction == "row" && !isMobile ? 6 : 12}
+            sx={{}}
+          >
             <Typography
               variant="h4"
               style={{
                 fontWeight: "600",
                 fontSize: isMobile ? "1rem" : "1.5rem",
-                textAlign: items[selectedTap].direction=="row"&&!isMobile ? 'left' :'center'
+                textAlign:
+                  items[selectedTap].direction == "row" && !isMobile
+                    ? "left"
+                    : "center",
               }}
             >
               {items[selectedTap].typo}
@@ -97,7 +104,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
               <Grid
                 container
                 spacing={2}
-                sx={{ height: "20%", maxWidth: "90%"}}
+                sx={{ minHeight: "20%", maxWidth: "90%" }}
               >
                 {items[selectedTap].icons.map((icon: any, index: any) => (
                   <Grid xs={3} key={index}>
@@ -117,11 +124,21 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
             <AnimatedTexts
               texts={items[selectedTap].animatedTexts.items}
               interval={2}
-              animationType={isMobile?"slide":items[selectedTap].animatedTexts.animationType}
+              animationType={
+                isMobile
+                  ? "slide"
+                  : items[selectedTap].animatedTexts.animationType
+              }
               direction={items[selectedTap].direction}
             />
           </Grid>
-          <Grid xs={items[selectedTap].direction=="row" &&!isMobile? 6 : 12} sx={{marginTop:items[selectedTap].direction=="row"&&!isMobile ? 0 :'2rem'}}>
+          <Grid
+            xs={items[selectedTap].direction == "row" && !isMobile ? 6 : 12}
+            sx={{
+              marginTop:
+                items[selectedTap].direction == "row" && !isMobile ? 0 : "2rem",
+            }}
+          >
             <Box
               style={{
                 width: "100%",
@@ -140,7 +157,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       <Box
         style={{
           backgroundColor: "#C6A658",
-          minWidth: "105%",
+          minWidth: "110%",
           minHeight: "70px",
           alignItems: "center",
           justifyContent: "center",

@@ -45,7 +45,7 @@ const Survey: React.FC = () => {
     
  // Assuming this code is inside an async function
 try {
-  const response = await axios.post("https://localhost/php/addUserProduct.php", {
+  const response = await axios.post("https://www.landingadmin.anyware.software/wp-json/custom/v1/addUserProduct", {
     image: selectedImage,
     color: selectedColor,
     month: selectedMonth,

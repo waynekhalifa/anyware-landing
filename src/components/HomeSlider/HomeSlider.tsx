@@ -132,7 +132,7 @@ const HomeSlider = () => {
         
       </Grid>
       {/* ========== space container========== */}
-      <Grid item xs={12} md={6} style={{  minHeight:isMobile ? height*1.1:height*0.8,minWidth:'100%',display:'flex',zIndex:-9999}}></Grid>
+      <Grid item xs={12} md={6} style={{  minHeight:isMobile ? height<800 ? 800 : height*0.9 :height*0.8,minWidth:'100%',display:'flex',zIndex:-9999}}></Grid>
       {/* ==================================== */}
       <Grid
         item

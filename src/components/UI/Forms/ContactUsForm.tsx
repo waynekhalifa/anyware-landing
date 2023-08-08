@@ -43,7 +43,8 @@ const ContactUsForm: React.FC = () => {
   const onSubmit: SubmitHandler<any> = async (data: any) => {
     console.log(data)
     try {
-      const apiUrl = 'http://localhost/wordpress/wp-json/custom/v1/send-email?name=Hazem&email=zozohegazy500@gmail.com&message=test';
+      const apiUrl = 'https://www.landingadmin.anyware.software/wp-json/custom/v1/send-email';
+      
     const data2 = {
       action: 'send_custom_email',
       name:data.fullName,

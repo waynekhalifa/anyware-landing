@@ -71,7 +71,7 @@ const PriceCalculator: React.FC<Props> = ({ completed, selectedFeatures,handleSe
           fontWeight={700}
           sx={{ color: "primary.main" }}
         >
-          EGP {price * months}
+          USD {price * months}
         </Typography>
       </Box>
       <Box sx={{ p: 2 }}>
