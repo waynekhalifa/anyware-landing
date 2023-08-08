@@ -13,6 +13,12 @@ interface MenuSubItem extends MenuItem1 {
 
 export const mainMenu: MenuItem1[] = [
   {
+    id: 0,
+    name: "Home",
+    path: "/",
+    children: [],
+  },
+  {
     id: 1,
     name: "product",
     path: "#",
@@ -357,12 +363,12 @@ export const mainMenu: MenuItem1[] = [
       // },
     ],
   },
-  // {
-  //   id: 4,
-  //   name: "pricing",
-  //   path: "/pricing",
-  //   children: [],
-  // },
+  {
+    id: 4,
+    name: "About us",
+    path: "/AboutUs",
+    children: [],
+  },
   // {
   //   id: 5,
   //   name: "enterprise",

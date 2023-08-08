@@ -29,10 +29,13 @@ const NavMenu: React.FC = () => {
   const [open, setOpen] = useState<string>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
-  
-  const handleClick = (title: string) => {
-    if (open !== title) setOpen(title);
-    else setOpen("");
+  const handleClick = (menu: any) => {
+    if(menu.children.length===0){
+      router.push(menu.path);
+    }else{
+      if (open !== menu.name) setOpen(menu.name);
+      else {setOpen("");}
+    }
   };
 
   const handleClose = () => {
@@ -124,7 +127,7 @@ const NavMenu: React.FC = () => {
                 key={menu.id}
                 component="li"
                 disableRipple
-                onClick={() => handleClick(menu.name)}
+                onClick={() => handleClick(menu)}
                 sx={{
                   textTransform: "capitalize",
                   fontWeight: 600,
@@ -140,13 +143,13 @@ const NavMenu: React.FC = () => {
                   width: "100%",
                 }}
               >
-                <Typography style={{ fontWeight: "bolder" }}>
+                <Typography style={{fontSize:15, fontWeight: "bolder" }}>
                   {menu.name}
                 </Typography>
               </Button>
               {menu.children.length > 0 && (
                 <KeyboardArrowDownIcon
-                  onClick={() => handleClick(menu.name)}
+                  onClick={() => handleClick(menu)}
                   fontSize="small"
                   style={{
                     transform: open === menu.name ? "rotate(180deg)" : "",
@@ -247,12 +250,12 @@ const NavMenu: React.FC = () => {
           endIcon={
             menu.children.length > 0 && (
               <KeyboardArrowDownIcon
-                onClick={() => handleClick(menu.name)}
+                onClick={() => handleClick(menu)}
                 fontSize="small"
               />
             )
           }
-          onClick={() => handleClick(menu.name)}
+          onClick={() => handleClick(menu)}
           sx={{
             textTransform: "capitalize",
             fontWeight: 600,
