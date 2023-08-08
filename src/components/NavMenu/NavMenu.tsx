@@ -22,12 +22,14 @@ import useIsMobile from "@/hooks/useIsMobile";
 import useApp from "@/hooks/useApp";
 import { useDispatch } from "react-redux";
 import { setListing as setMenus } from "@/store/menuSlice";
+import { useRouter } from "next/router";
 
 const NavMenu: React.FC = () => {
   const { menusListing } = useMenu("menus", "menu");
   const [open, setOpen] = useState<string>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const router = useRouter();
+  
   const handleClick = (title: string) => {
     if (open !== title) setOpen(title);
     else setOpen("");
@@ -39,6 +41,7 @@ const NavMenu: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClickAnchor = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(event.currentTarget)
     setAnchorEl(event.currentTarget);
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -165,12 +168,14 @@ const NavMenu: React.FC = () => {
                 {menu.children.map((child: any, index: number) => (
                   //  loading ? <h3>loading...</h3> :
                   <Link
+                  onClick={child.path===router.asPath ? ()=>{setAnchorEl(null);setMobileMenuOpen(false)} : ()=>{}}
                     key={index}
                     href={child.path}
                     underline="none"
                     color={"inherit"}
                   >
                     <Button
+                    onClick={()=>setMobileMenuOpen(false)}
                       sx={{
                         width:'100%',
                         borderRadius: 0,
@@ -298,13 +303,15 @@ const NavMenu: React.FC = () => {
               {loading ? <h3>loading...</h3>  : menu.children.map((child: any, index: number) =>
                 (
                   <Link
-                    key={index}
+                  onClick={child.path===router.asPath ? ()=>{setOpen("")} :()=>{}}
+                  key={index}
                     href={child.path}
                     underline="none"
                     style={{ width: "100%" }}
                     color={"inherit"}
                   >
                     <Button
+                      onClick={handleClickAnchor}
                       key={index}
                       sx={{
                         width: "100%",
