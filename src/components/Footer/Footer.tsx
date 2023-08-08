@@ -46,7 +46,7 @@ const Footer = () => {
                 - QR Dine-in Self Ordering
               </Typography>
             </Link>
-            <Link href="" passHref>
+            <Link href="/Kiosk" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Self Service Kiosk
               </Typography>
@@ -87,7 +87,7 @@ const Footer = () => {
                 - CRM Solution
               </Typography>
             </Link>
-            <Link href="" passHref>
+            <Link href="/Table-Reservation-System" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Table Reservation System
               </Typography>
@@ -103,7 +103,7 @@ const Footer = () => {
             <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10 }}>
               Payment Features
             </Typography>
-            <Link href="" passHref>
+            <Link href="/IntegrationServices" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - POS Payment Integrations
               </Typography>

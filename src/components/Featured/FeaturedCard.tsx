@@ -192,7 +192,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d="M1 3.996h11.59L10.3 1.707A1 1 0 1 1 11.715.293l3.992 3.992a.997.997 0 0 1 .293.71.997.997 0 0 1-.293.708l-4 4a1 1 0 0 1-1.414-1.414l2.293-2.293H1a1 1 0 0 1 0-2Z"
-                fill="#C07F00"
+                fill="#333"
               ></path>
             </svg>
           }

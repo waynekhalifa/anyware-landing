@@ -247,6 +247,7 @@ const NavMenu: React.FC = () => {
           key={menu.id}
           component="li"
           disableRipple
+          variant="text"
           endIcon={
             menu.children.length > 0 && (
               <KeyboardArrowDownIcon
@@ -263,6 +264,7 @@ const NavMenu: React.FC = () => {
             justifyContent: "flex-start",
             // p: "0px 16px",
             // mr: 1,
+            width:'100%',
             zIndex: 2,
             "&:hover": {
               backgroundColor: "transparent",

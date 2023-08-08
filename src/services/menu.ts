@@ -369,12 +369,12 @@ export const mainMenu: MenuItem1[] = [
     path: "/AboutUs",
     children: [],
   },
-  // {
-  //   id: 5,
-  //   name: "enterprise",
-  //   path: "/enterprise",
-  //   children: [],
-  // },
+  {
+    id: 5,
+    name: "Become a partner",
+    path: "/becomepartner",
+    children: [],
+  },
 ];
 
 /**
