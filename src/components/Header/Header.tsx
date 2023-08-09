@@ -9,6 +9,7 @@ import React, { useCallback, useEffect } from "react";
 import { ContactForm } from '../UI/Forms';
 import useApp from '@/hooks/useApp';
 import useIsMobile from "@/hooks/useIsMobile";
+
 import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
 import { useDispatch } from 'react-redux';
 import { MenuItem1, getMenusByName } from "@/services/menu";
@@ -65,7 +66,7 @@ const Header: React.FC = () => {
     >
       <Box sx={{margin: "auto", width: "100%" }}>
         <Grid container justifyContent="space-between" alignItems="center">
-          <Box sx={{ display: "flex", alignItems: "center",justifyContent:'space-between',width:isMobile?'100%':'50%' }}>
+          <Box sx={{ display: "flex", alignItems: "center",justifyContent:'space-between',width:isMobile?'100%':'60%' }}>
             <Box sx={{ mr: 3 , ml :3 }}>
               <Logo imgSrc={logo} />
             </Box>

@@ -29,7 +29,7 @@ const ContactForm: React.FC = () => {
       //     html: "",
       //   }),
       // });
-      console.log("hi")
+      
       reset();
       changeConfirm("Your message has been sent!");
 

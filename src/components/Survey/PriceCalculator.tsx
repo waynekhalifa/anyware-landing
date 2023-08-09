@@ -2,6 +2,7 @@ import { createArray } from "@/helpers/utils";
 import useFeature from "@/hooks/useFeature";
 import { Box, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import useIsMobile from "@/hooks/useIsMobile";
 
 interface Props {
   completed: boolean;
@@ -17,6 +18,8 @@ interface StateProps {
 const initialState: StateProps = { months: 1 };
 
 const PriceCalculator: React.FC<Props> = ({ completed, selectedFeatures,handleSelectedMonth,handleTotalPrice }) => {
+const { isMobile } = useIsMobile();
+
   const [state, setState] = useState(initialState);
   const { featuresListing } = useFeature("features", "feature");
   const { months } = state;
@@ -34,17 +37,31 @@ const PriceCalculator: React.FC<Props> = ({ completed, selectedFeatures,handleSe
 
   return (
     <Box
-      sx={{
+      sx={isMobile?{
+        // position: "fixed",
+        // top: 200,
+        // right: "4%",
+      
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        border: "1px solid",
+        borderColor: "divider",
+        zIndex: 10,
+        backgroundColor: "common.white",
+        width: "100%",
+        padding:'1rem',
+        borderRadius: 2,
+      }:{
         position: "fixed",
-        top: 200,
+        top: '10%',
         right: "4%",
         border: "1px solid",
         borderColor: "divider",
         zIndex: 10,
         backgroundColor: "common.white",
         width: "18%",
-        borderRadius: "4px",
-      }}
+        borderRadius: "4px",}}
     >
       <Box
         sx={{
@@ -62,16 +79,16 @@ const PriceCalculator: React.FC<Props> = ({ completed, selectedFeatures,handleSe
           borderColor: "divider",
         }}
       >
-        <Typography gutterBottom fontWeight={700}>
+        <Typography gutterBottom fontWeight={700} fontSize={'1rem'}>
           Your monthly installment:
         </Typography>
         <Typography
           variant="h4"
           align="right"
           fontWeight={700}
-          sx={{ color: "primary.main" }}
+          sx={{ color: "primary.main",textAlign:'center'}}
         >
-          USD {price * months}
+          {price * months} USD
         </Typography>
       </Box>
       <Box sx={{ p: 2 }}>

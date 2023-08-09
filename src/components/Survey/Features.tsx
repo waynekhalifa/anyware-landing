@@ -37,9 +37,7 @@ const Features: React.FC<Props> = ({ isActive, completed,handleSelectedFeature,h
 
   return (
     <>
-  <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
-    {renderCalculator()}
-  </Box>
+
   <Grid container columnSpacing={3} sx={{ mt: 4 }}>
     {featuresListing.map((feature: any) => (
       <Grid item xs={12} md={6} lg={4} xl={3} sx={{ mb: 3 }} key={feature.id}>
@@ -53,6 +51,9 @@ const Features: React.FC<Props> = ({ isActive, completed,handleSelectedFeature,h
       </Grid>
     ))}
   </Grid>
+  <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
+    {renderCalculator()}
+  </Box>
 </>
 
   );

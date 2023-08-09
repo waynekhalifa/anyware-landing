@@ -57,7 +57,6 @@ const NavMenu: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClickAnchor = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(event.currentTarget)
     setAnchorEl(event.currentTarget);
     setMobileMenuOpen(!mobileMenuOpen);
   };
