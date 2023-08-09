@@ -125,6 +125,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
               texts={items[selectedTap].animatedTexts.items}
               interval={2}
               animationType={
+                items[selectedTap].animatedTexts.items.length===1 ? "none":
                 isMobile
                   ? "slide"
                   : items[selectedTap].animatedTexts.animationType
