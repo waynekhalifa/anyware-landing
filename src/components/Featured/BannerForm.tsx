@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import CustomLoader from "../UI/CustomLoader";
 import Partners from "./Partners";
 import useIsMobile from '@/hooks/useIsMobile';
+
 interface StateProps {
   email: string;
 }
@@ -16,8 +17,10 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
   const [state, setState] = useState(initialState);
   const { push } = useRouter();
   const { openModal } = useApp();
+  
   const { updating, changeUpdating } = useUpdating();
   const { email } = state;
+  
   const {isMobile} = useIsMobile()
   const handleClick = async () => {
     changeUpdating(true);

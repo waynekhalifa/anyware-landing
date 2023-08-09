@@ -6,7 +6,7 @@ import catcherBg from "@images/catcher-bg.svg";
 import useApp from "@/hooks/useApp";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-
+import useIsMobile from '@/hooks/useIsMobile';
 interface StateProps {
   email: string;
   errMessage: string;
@@ -18,6 +18,7 @@ const Catcher: React.FC = () => {
   const [state, setState] = useState(initialState);
   const { push } = useRouter();
   const { closeModal } = useApp();
+  const {width, isMobile} = useIsMobile()
   const { email, errMessage } = state;
 
   const handleClick = () => {
@@ -40,15 +41,19 @@ const Catcher: React.FC = () => {
       style={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "flex-start",
+        justifyContent: isMobile ? "center":"flex-start",
         textShadow: "0 1px 1px rgb(0 0 0 / 20%)",
         position: "relative",
-        minWidth: "400px",
+        minWidth: isMobile ? "200px":"400px",
+        
         width: "100%",
         height: "100%",
         padding: "20px 80px 20px 80px",
         background: `url(${catcherBg.src}) no-repeat -10% 50%/890px`,
         color: "#fff",
+        flexDirection:isMobile?'column':'row',
+        
+        
       }}
     >
       <Box
@@ -82,7 +87,7 @@ const Catcher: React.FC = () => {
           fontSize="large"
         />
       </Box>
-      <Typography fontWeight={600}>
+      <Typography fontWeight={600}  sx={{marginBottom:isMobile?5:0}}>
         <Typography component="span" variant="h3">
           <b>Sign up for FREE</b>
         </Typography>
@@ -92,9 +97,11 @@ const Catcher: React.FC = () => {
         </Typography>
       </Typography>
       <motion.div
-        initial={{ opacity: 0, left: "10%", position: "relative" }}
+        initial={{ opacity: 0, left: "10%", position: "relative"  }}
         animate={{ opacity: 1, left: 0 }}
         transition={{ duration: 0.1, delay: 0.2 }}
+        style={{alignItems:'center',display:'flex'}}
+        
       >
         <Box
           sx={{
@@ -103,9 +110,10 @@ const Catcher: React.FC = () => {
             boxShadow: "0 13.373px 75.66px rgb(38 33 74 / 50%)",
             borderRadius: "22.78px",
             padding: "6px",
-            margin: "0 0 0 50px",
+            margin: isMobile ? 0:"0 0 0 50px",
             width: "100%",
-            maxWidth: "520px",
+            maxWidth: isMobile? width-50 : "520px",
+            
           }}
         >
           <Box
@@ -117,12 +125,13 @@ const Catcher: React.FC = () => {
               webkitBoxPack: "justify",
               msFlexPack: "justify",
               justifyContent: "space-between",
+              
             }}
           >
             <InputBase
               fullWidth
               type="email"
-              placeholder="Enter your email or phone number"
+              placeholder={isMobile ? "Email/phone number":"Enter your email or phone number"}
               value={email}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
                 setState({

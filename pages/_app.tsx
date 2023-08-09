@@ -51,7 +51,7 @@ const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
     };
 
     fetchMainMenu();
-  }, []);
+  }, [router]);
   return (
     <Provider store={store}>
     <CacheProvider value={emotionCache}>

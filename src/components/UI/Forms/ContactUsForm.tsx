@@ -198,6 +198,7 @@ const ContactUsForm: React.FC = () => {
               size="small"
               error={!!errors.message}
               required
+              multiline
             />
             {errors.message && (
               <Typography color="error">

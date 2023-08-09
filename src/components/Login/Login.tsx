@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import Logo from "../Logo";
-
+import useIsMobile from '@/hooks/useIsMobile';
 import logo from "@images/anywarelogo.png";
 import useFormFields from "@/hooks/useFormFields";
 import useFormValidations from "@/hooks/useFormValidations";
@@ -29,7 +29,8 @@ const Login: React.FC = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
-  
+const {width,isMobile} = useIsMobile()
+
   const {
     register,
     handleSubmit,
@@ -80,14 +81,14 @@ const Login: React.FC = () => {
     </Toolbar>
   </AppBar>
   
-  <Box sx={{ marginTop:"0.5vh", position: "absolute", top: "52.5%", left: "50%", transform: "translate(-50%, -50%)" }}>
-    <Container maxWidth="sm">
+  <Box sx={{ marginTop:"0.5vh", position: "absolute", top: "52.5%", left: "50%", transform: "translate(-50%, -50%)" ,width:width}}>
+    <Container maxWidth={"sm"}>
       <Box
         component="form"
         onSubmit={handleSubmit(onSubmit)}
         sx={{
           width: "100%",
-          maxWidth: "480px",
+          maxWidth: isMobile? "100%":"480px",
           background: "#fff",
           boxShadow: "0 24px 64px #26214a1a",
           borderRadius: "12px",

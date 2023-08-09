@@ -35,9 +35,12 @@ const NavMenu: React.FC = () => {
       if(menu.children.length>0){
         menu.children.forEach((child:any)=>{
           router.prefetch(child.path)
+        
         })
       }else{
         router.prefetch(menu.path)
+        
+
       }
     }
     )

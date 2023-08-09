@@ -32,6 +32,9 @@ const Header: React.FC = () => {
     fetchMainMenu();
   }, [dispatch]);
 
+  const handleLoginClick = ()=>{
+    openModal({ modalID: "catcher", modalContent: "login form" });
+  }
   const handleClick = async () => {
     openModal({ modalID: "contact" });
     const data = { Category: "Category", Action: "Button Click", Label: "Contact Sales" };
@@ -86,6 +89,7 @@ const Header: React.FC = () => {
               contact sales
             </Button>
             <Button
+            onClick={handleLoginClick}
               variant="contained"
               sx={{ textTransform: "capitalize", boxShadow: 7 ,mr:3,"&:hover": {
                 backgroundColor: "primary.light",
