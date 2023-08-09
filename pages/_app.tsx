@@ -17,6 +17,7 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import { selectModalOpen } from "@/store/appSlice";
 import { getMenusByName, MenuItem1 } from "@/services/menu";
 import { FC, useEffect } from "react";
+import { useRouter } from "next/router";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -32,15 +33,25 @@ const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
   // const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   // const modalOpen = useSelector(selectModalOpen);
   // const dispatch = useDispatch();
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   const fetchMainMenu = async () => {
-  //     const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
-  //     dispatch(setMenus(mainMenu));
-  //   };
+  useEffect(() => {
+    const fetchMainMenu = async () => {
+      const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
+      mainMenu.forEach((menu:any)=>{
+        if(menu.children.length>0){
+          menu.children.forEach((child:any)=>{
+            router.prefetch(child.path)
+          })
+        }else{
+          router.prefetch(menu.path)
+        }
+      }
+      )
+    };
 
-  //   fetchMainMenu();
-  // }, [dispatch]);
+    fetchMainMenu();
+  }, []);
   return (
     <Provider store={store}>
     <CacheProvider value={emotionCache}>
