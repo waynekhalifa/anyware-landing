@@ -32,7 +32,7 @@ const NavMenu: React.FC = () => {
   useEffect(() => {
     // Prefetch the dashboard page
     menusListing.forEach((menu:any)=>{
-      if(menusListing.children.length>0){
+      if(menu.children.length>0){
         menu.children.forEach((child:any)=>{
           router.prefetch(child.path)
         })
