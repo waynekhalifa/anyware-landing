@@ -29,6 +29,19 @@ const NavMenu: React.FC = () => {
   const [open, setOpen] = useState<string>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
+  useEffect(() => {
+    // Prefetch the dashboard page
+    menusListing.forEach((menu:any)=>{
+      if(menusListing.children.length>0){
+        menu.children.forEach((child:any)=>{
+          router.prefetch(child.path)
+        })
+      }else{
+        router.prefetch(menu.path)
+      }
+    }
+    )
+  }, [router,menusListing])
   const handleClick = (menu: any) => {
     if(menu.children.length===0){
       router.push(menu.path);
@@ -223,7 +236,7 @@ const NavMenu: React.FC = () => {
           >
             <Typography style={{ fontSize: 15 }}>Login</Typography>
           </Button>
-          <Button
+          {/* <Button
             variant="contained"
             sx={{
               textTransform: "capitalize",
@@ -236,7 +249,7 @@ const NavMenu: React.FC = () => {
             onClick={handleClickContact}
           >
             <Typography style={{ fontSize: 15 }}>contact sales</Typography>
-          </Button>
+          </Button> */}
         </Box>
       </Menu>
     </Box>
@@ -260,6 +273,7 @@ const NavMenu: React.FC = () => {
             textTransform: "capitalize",
             fontWeight: 600,
             color: "text.primary",
+            
             justifyContent: "flex-start",
             // p: "0px 16px",
             // mr: 1,

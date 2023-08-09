@@ -78,7 +78,7 @@ const BecomePartner: React.FC = () => {
           </Grid>
           <Grid container spacing={4} style={{display:'flex',width:'100%',justifyContent:'center',alignItems:'center',flexWrap:'wrap',flexDirection:'row'}} >
             {programs.map((program : any, index:number)=>(
-          <Grid key={index} xs={12} sx={{width:isMobile?'80%':'20%',minHeight:400,marginTop:isMobile? 0:5}} onClick={selected===index?()=>setSelected(-1):()=>setSelected(index)} >
+          <Grid key={index} xs={12} sx={{width:isMobile?'80%':'20%',minHeight:400,marginTop:isMobile? 0:5}} onMouseEnter={()=>setSelected(index)} onMouseLeave={()=>setSelected(-1)} >
         <PartnerProgramCard items={program} index={index} selected={selected}/>
           </Grid>
             ))}
