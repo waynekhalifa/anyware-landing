@@ -8,7 +8,7 @@ import Partners from "./Partners";
 import useIsMobile from '@/hooks/useIsMobile';
 import { getAnalytics, logEvent, setUserId } from "firebase/analytics";
 
-import useFireBase from '@/hooks/useFireBase';
+import useFireBaseAnalysis from '@/hooks/useFireBaseAnalysis';
 
 interface StateProps {
   email: string;
@@ -25,7 +25,7 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
   const { email } = state;
   
   const {isMobile} = useIsMobile()
-    const { app, firebase } = useFireBase()
+    const { app } = useFireBaseAnalysis()
 
     const handleClick = async () => {
       console.log("hi")
