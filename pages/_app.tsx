@@ -18,7 +18,7 @@ import { selectModalOpen } from "@/store/appSlice";
 import { getMenusByName, MenuItem1 } from "@/services/menu";
 import { FC, useEffect } from "react";
 import { useRouter } from "next/router";
-import useFireBase from 'src/hooks/useFireBase';
+
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -35,7 +35,7 @@ const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
   // const modalOpen = useSelector(selectModalOpen);
   // const dispatch = useDispatch();
   const router = useRouter();
-  const { app, firebase } = useFireBase();
+  
 
   useEffect(() => {
     const fetchMainMenu = async () => {
