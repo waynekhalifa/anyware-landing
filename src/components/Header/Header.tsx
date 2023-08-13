@@ -14,8 +14,6 @@ import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
 import { useDispatch } from 'react-redux';
 import { MenuItem1, getMenusByName } from "@/services/menu";
 import { setListing as setMenus } from "@/store/menuSlice";
-import useFireBase from "../../hooks/useFireBase";
-
 const Header: React.FC = () => {
 const { app, firebase } = useFireBase();
   

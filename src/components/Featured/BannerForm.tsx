@@ -8,6 +8,8 @@ import Partners from "./Partners";
 import useIsMobile from '@/hooks/useIsMobile';
 import { getAnalytics, logEvent, setUserId } from "firebase/analytics";
 
+import useFireBase from '@/hooks/useFireBase';
+
 interface StateProps {
   email: string;
 }
@@ -23,6 +25,7 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
   const { email } = state;
   
   const {isMobile} = useIsMobile()
+    const { app, firebase } = useFireBase()
 
     const handleClick = async () => {
       console.log("hi")
@@ -37,7 +40,7 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
       setTimeout(() => {
           changeUpdating(false);
         
-          setUserId(analytics, email);
+          setUserId(analytics, "Test123");
 
         push(`/login?email=${email}`);
       }, 1000);

@@ -17,7 +17,9 @@ const Trackpathforanalytics = async (data: AnalyticsData) => {
   const { path, search, title } = data;
   try {
     const ga4react = await new GA4React("G-YBR7CRY471").initialize();
-    const ga =await(await ga4react).gtag();
+      const ga = await (await ga4react).gtag();
+      ga4react.gtag('set', { 'user_id': 'testUSER' });
+
     ga.pageview(path, search, title);
   } catch (err) {
     console.error(`Analytics failed: ${err}`);
