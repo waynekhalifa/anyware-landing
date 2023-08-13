@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import CustomLoader from "../UI/CustomLoader";
 import Partners from "./Partners";
 import useIsMobile from '@/hooks/useIsMobile';
+import { getAnalytics, logEvent, setUserId } from "firebase/analytics";
 
 interface StateProps {
   email: string;
@@ -17,12 +18,16 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
   const [state, setState] = useState(initialState);
   const { push } = useRouter();
   const { openModal } = useApp();
-  
+    
   const { updating, changeUpdating } = useUpdating();
   const { email } = state;
   
   const {isMobile} = useIsMobile()
-  const handleClick = async () => {
+
+    const handleClick = async () => {
+      console.log("hi")
+      const analytics = getAnalytics();
+      logEvent(analytics, 'Get Started Button');
     changeUpdating(true);
 
     if (email.length === 0) {
@@ -30,7 +35,10 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
       openModal({ modalID: "catcher", modalContent: "login form" });
     } else {
       setTimeout(() => {
-        changeUpdating(false);
+          changeUpdating(false);
+        
+          setUserId(analytics, email);
+
         push(`/login?email=${email}`);
       }, 1000);
     }

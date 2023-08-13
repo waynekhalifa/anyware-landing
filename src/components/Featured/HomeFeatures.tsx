@@ -23,7 +23,7 @@ import { allItems } from "@/constants/features";
 import useIsMobile from "@/hooks/useIsMobile";
 import { useRouter } from "next/router";
 import { bannerItems } from "@/constants/features";
-import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
+ import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
 import HomeSlider from "../HomeSlider/HomeSlider";
 import NextImage from "next/image";
 
@@ -40,25 +40,25 @@ const HomeFeatures: React.FC = () => {
   const { videoKey } = state;
   const { isMobile ,width} = useIsMobile();
   const router = useRouter();
-  const pathname = "adhaaaaaaaaam";
-  const search = String(router.query.search);
+   const pathname = "adhaaaaaaaaam";
+   const search = String(router.query.search);
  
-  const analytics = useCallback(() => {
-    Trackpathforanalytics({ path: pathname, search: search, title: pathname?.split("/")[1] });
-}, [pathname, search]);
+   const analytics = useCallback(() => {
+     Trackpathforanalytics({ path: pathname, search: search, title: pathname?.split("/")[1] });
+ }, [pathname, search]);
 
 
-useEffect(() => {
-  analytics();
-}, [analytics]);
+ useEffect(() => {
+   analytics();
+ }, [analytics]);
 
 
-  const useAnalyticsEventTracker = (category = "Blog category") => {
-    const eventTracker = (action = "test action", label = "test label") => {
-      ReactGA.event({ category, action, label });
-    };
-    return eventTracker;
-  };
+   const useAnalyticsEventTracker = (category = "Blog category") => {
+     const eventTracker = (action = "test action", label = "test label") => {
+       ReactGA.event({ category, action, label });
+     };
+     return eventTracker;
+   };
 
   useEffect(() => {
     const interval = setInterval(() => {

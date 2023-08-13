@@ -3,7 +3,6 @@
 	"version": "1.0.0",
 	"private": true,
 	"license": "MIT",
-	
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -26,7 +25,7 @@
 		"@remotion/player": "^3.2.25",
 		"@types/react-slick": "^0.23.10",
 		"axios": "^1.4.0",
-		"firebase": "^10.0.0",
+		"firebase": "^10.1.0",
 		"framer-motion": "^7.5.2",
 		"ga-4-react": "^0.1.281",
 		"next": "^12.3.0",

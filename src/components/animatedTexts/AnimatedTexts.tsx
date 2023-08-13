@@ -21,7 +21,7 @@ const AnimatedTexts: React.FC<Props> = ({ texts , interval,animationType,directi
           for(var i = 0 ; i<=currentIndex ; i++){
             setVisibleTexts(visibleTexts.concat(texts[i]))
           }
-  },[currentIndex,texts,animationType,interval,direction,texts.length])
+  },[currentIndex,texts,animationType,interval,direction,texts.length,])
 
   useEffect(() => {
     const intervalTime = setInterval(() => {
