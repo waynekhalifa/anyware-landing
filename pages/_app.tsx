@@ -18,6 +18,7 @@ import { selectModalOpen } from "@/store/appSlice";
 import { getMenusByName, MenuItem1 } from "@/services/menu";
 import { FC, useEffect } from "react";
 import { useRouter } from "next/router";
+import { initializeApp } from "firebase/app";
 
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -35,7 +36,17 @@ const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
   // const modalOpen = useSelector(selectModalOpen);
   // const dispatch = useDispatch();
   const router = useRouter();
-  
+  const firebaseConfig = {
+    apiKey: "AIzaSyAlqlIJy_psLxACxmRf5nYU0CLA7oj96mI",
+    authDomain: "hospitality-digitization.firebaseapp.com",
+    projectId: "hospitality-digitization",
+    storageBucket: "hospitality-digitization.appspot.com",
+    messagingSenderId: "1078672455768",
+    appId: "1:1078672455768:web:b8dfbdb530e0cb3f42722d",
+    measurementId: "G-YBR7CRY471"
+  };
+   
+    const app = initializeApp(firebaseConfig);
 
   useEffect(() => {
     const fetchMainMenu = async () => {

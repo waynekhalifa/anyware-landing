@@ -26,6 +26,7 @@ import { bannerItems } from "@/constants/features";
  import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
 import HomeSlider from "../HomeSlider/HomeSlider";
 import NextImage from "next/image";
+import { getAnalytics, logEvent, setUserId } from "@firebase/analytics";
 
 interface StateProps {
   videoKey: string;
@@ -52,6 +53,12 @@ const HomeFeatures: React.FC = () => {
    analytics();
  }, [analytics]);
 
+ useEffect(() => {
+  const analytics = getAnalytics();
+  setUserId(analytics, "user1")
+  logEvent(analytics, "page_view", { user_id: "user1", page_name: "/",num:"01123204458", });
+
+}, []);
 
    const useAnalyticsEventTracker = (category = "Blog category") => {
      const eventTracker = (action = "test action", label = "test label") => {

@@ -7,11 +7,22 @@ import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
 import bannerBg from "../../../public/images/home-header-bg.png";
 import Footer from "../Footer/Footer";
+import { getAnalytics, logEvent, setUserId, setUserProperties } from "@firebase/analytics";
+import { useEffect } from "react";
+import useFireBaseAnalysis from "@/hooks/useFireBaseAnalysis";
 const Kiosk: React.FC = () => {
   const { isMobile, width } = useIsMobile();
+    
+
+  useEffect(() => {
+    const analytics = getAnalytics();
+    setUserProperties(analytics, { favorite_food: 'apples' });
+    setUserId(analytics, "user1")
+    logEvent(analytics, "page_view", { user_id: "user1", page_name: "kioskk" });
+  }, []);
   return (
     <div
-      style={{
+      style={{ 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

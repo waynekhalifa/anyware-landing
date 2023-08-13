@@ -7,6 +7,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import AnimatedTexts from "../animatedTexts/AnimatedTexts";
 import NextImage from "next/image";
 import bannerBg from '@images/home-header-bg.png';
+import { getAnalytics, logEvent, setUserId } from "@firebase/analytics";
 
 interface Props {
   items: any;
@@ -15,6 +16,12 @@ interface Props {
 
 const TRScard: React.FC<Props> = ({ items, index }) => {
   const { isMobile, width } = useIsMobile();
+  const handleClick=()=>{
+    const analytics = getAnalytics();
+    setUserId(analytics, "user1")
+    logEvent(analytics, "01123204458", { user_id: "user1",eventHappened:"TRS GET STARTED", });
+  
+  }
   return (
     <Box
       style={{
@@ -92,6 +99,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
           )}
          {!isMobile&& <Button
             variant="contained"
+            onClick={handleClick}
             sx={{
               backgroundColor: "black",
               borderColor: "transparent",

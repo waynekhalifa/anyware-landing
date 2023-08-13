@@ -1,5 +1,8 @@
 import { GA4React } from "ga-4-react";
 
+import React from 'react';
+
+import ReactGA from 'react-ga';
 
 export interface AnalyticsData {
   path: string;
@@ -17,10 +20,15 @@ const Trackpathforanalytics = async (data: AnalyticsData) => {
   const { path, search, title } = data;
   try {
     const ga4react = await new GA4React("G-YBR7CRY471").initialize();
-      const ga = await (await ga4react).gtag();
-      ga4react.gtag('set', { 'user_id': 'testUSER' });
+    if(ga4react){
 
-    ga.pageview(path, search, title);
+      const ga = await ga4react.gtag();
+      
+      ReactGA.set({ userId: 'testing011' });
+      
+      
+      ga.pageview(path, search, title);
+    }
   } catch (err) {
     console.error(`Analytics failed: ${err}`);
   }

@@ -14,7 +14,7 @@ import { setSlug } from "@/store/appSlice";
 import TRS from "@/components/TRS/TRS";
 import AboutUs from "@/components/AboutUs/AboutUs";
 import CashlessWallet from "@/components/CashlessWallet/CashlessWallet";
-import Kiosk from "@/components/Kiosk/Kisok";
+import Kiosk from "@/components/Kiosk/Kiosk";
 import CustomSoftware from "@/components/customSoftware/CustomSoftware";
 import Integration from "@/components/integration/Integration";
 import BecomePartner from "@/components/becomepartner/BecomePartner";

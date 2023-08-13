@@ -18,8 +18,19 @@ import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.pn
 import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.png";
 import coralBay from "../../../public/images/coralBay.png";
 import integrationPartners from "../../../public/images/integrationPartners.png"
+import { useEffect } from "react";
+import { getAnalytics, logEvent, setUserId, setUserProperties } from "@firebase/analytics";
+import useFireBaseAnalysis from "@/hooks/useFireBaseAnalysis";
 const Integration: React.FC = () => {
   const { isMobile, width } = useIsMobile();
+      
+
+  useEffect(() => {
+    const analytics = getAnalytics();
+    setUserProperties(analytics, { favorite_food: 'apples' });
+    setUserId(analytics, "user1")
+    logEvent(analytics, "page_view", { user_id: "user1", page_name: "INTEGRATION" });
+  }, []);
   return (
     <div
       style={{

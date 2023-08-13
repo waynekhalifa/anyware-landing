@@ -10,10 +10,14 @@ import { useDispatch } from 'react-redux';
 import { MenuItem1, getMenusByName } from "@/services/menu";
 import { useEffect } from "react";
 import { setListing as setMenus } from "@/store/menuSlice";
+import ReactGA from 'react-ga';
+import { initializeApp } from "firebase/app";
+import firebase from 'firebase/app';
 
 const Home: NextPage = () => {
   const { slug } = useApp();
   const dispatch = useDispatch();
+  ReactGA.initialize('G-YBR7CRY471');
 
   useEffect(() => {
     const fetchMainMenu = async () => {
