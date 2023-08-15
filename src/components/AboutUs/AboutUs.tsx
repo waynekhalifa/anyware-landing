@@ -2,14 +2,7 @@ import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
 import Section from "../UI/Section";
 import axios from "axios";
 import ReactGA from "react-ga";
-import { useEffect, useState } from "react";
-import bannerBg from "../../../public/images/home-header-bg.png";
-import millenium from "../../../public/images/millenium.png";
-import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.png";
-import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.png";
-import caffe from "../../../public/images/ni-caffe-removebg-preview 1.png";
-import caf from "../../../public/images/CAF.png";
-import { allItems } from "@/constants/features";
+
 import useIsMobile from "@/hooks/useIsMobile";
 import RocketIcon from '@mui/icons-material/RocketLaunch';
 import Team from '@mui/icons-material/People';
@@ -17,10 +10,6 @@ import ThumbUpOffAlt from '@mui/icons-material/ThumbUpOffAlt';
 import Image from "next/image";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import pic1 from '@images/pic1.png'
-import pic2 from '@images/pic2.png'
-import pic3 from '@images/pic3.png'
-import pic4 from '@images/pic4.png'
 const AboutUs: React.FC = () => {
   ReactGA.initialize("UA-267753856-1");
   ReactGA.set({ userId: "1241123459812" });

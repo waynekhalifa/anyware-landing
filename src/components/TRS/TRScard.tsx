@@ -6,7 +6,7 @@ import FadingImages from "../fadingImages/FadingImages";
 import useIsMobile from "@/hooks/useIsMobile";
 import AnimatedTexts from "../animatedTexts/AnimatedTexts";
 import NextImage from "next/image";
-import bannerBg from '@images/home-header-bg.png';
+import bannerBg from '@images/home-header-bg.webp';
 import { getAnalytics, logEvent, setUserId } from "@firebase/analytics";
 
 interface Props {

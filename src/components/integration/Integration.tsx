@@ -11,7 +11,7 @@ import shinko from "../../../public/images/shinko.png";
 import kazoku from "../../../public/images/kazoku.png";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
-import bannerBg from "../../../public/images/home-header-bg.png";
+import bannerBg from "../../../public/images/home-header-bg.webp";
 import Footer from "../Footer/Footer";
 import millenium from "../../../public/images/millenium.svg";
 import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.png";

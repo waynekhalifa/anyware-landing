@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
 import ReactGA from "react-ga";
 import { useCallback, useEffect, useState } from "react";
-import bannerBg from "../../../public/images/home-header-bg.png";
+import bannerBg from "../../../public/images/home-header-bg.webp";
 import millenium from "../../../public/images/millenium.png";
 import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.png";
 import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.png";

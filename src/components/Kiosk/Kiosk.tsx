@@ -5,7 +5,7 @@ import { Items } from "./Kioskconstants";
 import CashlessWalletcard from "../CashlessWallet/CashlessWalletcard";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
-import bannerBg from "../../../public/images/home-header-bg.png";
+import bannerBg from "../../../public/images/home-header-bg.webp";
 import Footer from "../Footer/Footer";
 import { getAnalytics, logEvent, setUserId, setUserProperties } from "@firebase/analytics";
 import { useEffect } from "react";

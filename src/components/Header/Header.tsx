@@ -4,7 +4,7 @@ import NavMenu from "../NavMenu";
 import Logo from "../Logo";
 
 import logo from "@images/anywarelogo.png";
-import bannerBg from "@images/home-header-bg.png";
+import bannerBg from "@images/home-header-bg.webp";
 import React, { useCallback, useEffect } from "react";
 import { ContactForm } from '../UI/Forms';
 import useApp from '@/hooks/useApp';
