@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Box, Grid } from "@mui/material";
 
-import act from "@images/act.png";
+import act from "@images/act.webp";
 import oracle from "@images/oracle.png";
 import raya from "@images/raya.png";
 

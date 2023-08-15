@@ -8,8 +8,8 @@ import menuItemOne from "@images/menu-item-1.png";
 import menuItemTwo from "@images/menu-item-2.png";
 import menuItemThree from "@images/menu-item-3.png";
 import useIsMobile from "@/hooks/useIsMobile";
-import bannerform1 from "@images/bannerform1.png";
-import bannerform3 from "@images/bannerform3.png";
+import bannerform1 from "@images/bannerform1.webp";
+import bannerform3 from "@images/bannerform3.webp";
 
 const Video: React.FC<{ SlidePage?: Number }> = ({ SlidePage }) => {
   const { isMobile } = useIsMobile();

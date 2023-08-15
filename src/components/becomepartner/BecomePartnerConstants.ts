@@ -1,4 +1,4 @@
-import becomepartner from "../../../public/images/becomepartner.png"
+import becomepartner from "../../../public/images/becomepartner.webp"
 import handshakeicon from "../../../public/images/handshakeicon.svg"
 import recycleicon from "../../../public/images/recycleicon.svg"
 
