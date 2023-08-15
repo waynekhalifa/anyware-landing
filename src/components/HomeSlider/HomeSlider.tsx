@@ -5,7 +5,7 @@ import BannerForm from '../Featured/BannerForm';
 import Video from "./Video";
 import useIsMobile from '@/hooks/useIsMobile';
 import { bannerItems } from '@/constants/features';
-import bannerform1 from "../../../public/images/bannerform1.png";
+import bannerform1 from "../../../public/images/bannerform1.webp";
 
 interface StateProps {
   videoKey: string;
