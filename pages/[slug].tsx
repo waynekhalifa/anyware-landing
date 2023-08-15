@@ -18,25 +18,34 @@ import Kiosk from "@/components/Kiosk/Kiosk";
 import CustomSoftware from "@/components/customSoftware/CustomSoftware";
 import Integration from "@/components/integration/Integration";
 import BecomePartner from "@/components/becomepartner/BecomePartner";
+import Header from "@/components/Header/Header";
+import HomeFeatures from "@/components/Featured/HomeFeatures";
+import Footer from "@/components/Footer/Footer";
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
-  
+
   return (
     <>
       <Head>
         <title>Anyware Software | {slug}</title>
         <meta name="description" content={"Anyware Software"} />
       </Head>
-      {slug === Pages.LOGIN && <Login /> }
-      {slug === Pages.SURVEY &&  <Survey />}
-      {slug === Pages.TRS &&  <TRS />}
-      {slug === Pages.AboutUs &&  <AboutUs />}
-      {slug === Pages.CashlessWallet &&  <CashlessWallet />}
-      {slug === Pages.KioskPage &&  <Kiosk />}
-      {slug === Pages.CustomSoftware &&  <CustomSoftware />}
-      {slug === Pages.Integration &&  <Integration />}
-      {slug === Pages.partner &&  <BecomePartner />}
-
+      {slug === Pages.HOME && (
+        <>
+          <Header />
+          <HomeFeatures />
+          <Footer />
+        </>
+      )}
+      {slug === Pages.LOGIN && <Login />}
+      {slug === Pages.SURVEY && <Survey />}
+      {slug === Pages.TRS && <TRS />}
+      {slug === Pages.AboutUs && <AboutUs />}
+      {slug === Pages.CashlessWallet && <CashlessWallet />}
+      {slug === Pages.KioskPage && <Kiosk />}
+      {slug === Pages.CustomSoftware && <CustomSoftware />}
+      {slug === Pages.Integration && <Integration />}
+      {slug === Pages.partner && <BecomePartner />}
     </>
   );
 };

@@ -56,6 +56,7 @@ const HomeFeatures: React.FC = () => {
    };
 
   useEffect(() => {
+    
     const interval = setInterval(() => {
       setState({ ...state, videoKey: new Date().toISOString() });
     }, 8000);

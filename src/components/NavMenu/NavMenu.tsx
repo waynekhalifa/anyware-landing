@@ -62,6 +62,8 @@ const NavMenu: React.FC = () => {
   const handleClickAnchor = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
     setMobileMenuOpen(!mobileMenuOpen);
+    
+
   };
 
   const handleCloseAnchor = () => {
@@ -185,15 +187,16 @@ const NavMenu: React.FC = () => {
               >
                 {menu.children.map((child: any, index: number) => (
                   //  loading ? <h3>loading...</h3> :
-                  <Link
-                  onClick={child.path===router.asPath ? ()=>{setAnchorEl(null);setMobileMenuOpen(false)} : ()=>{}}
-                    key={index}
-                    href={child.path}
-                    underline="none"
-                    color={"inherit"}
-                  >
+                  // <Link
+                  // onClick={child.path===router.asPath ? ()=>{setAnchorEl(null);setMobileMenuOpen(false)} : ()=>{}}
+                  //   key={index}
+                  //   href={child.path}
+                  //   underline="none"
+                  //   color={"inherit"}
+                  // >
                     <Button
-                    onClick={()=>setMobileMenuOpen(false)}
+                    key={index}
+                    onClick={child.path===router.asPath ? ()=>{setAnchorEl(null);setMobileMenuOpen(false)} : ()=>{router.push(child.path)}}
                       sx={{
                         width:'100%',
                         borderRadius: 0,
@@ -210,7 +213,7 @@ const NavMenu: React.FC = () => {
                     >
                       - {child.name}
                     </Button>
-                  </Link>
+                  // </Link>
                 ))}
               </Box>
             )}
@@ -323,16 +326,16 @@ const NavMenu: React.FC = () => {
             >
               {loading ? <h3>loading...</h3>  : menu.children.map((child: any, index: number) =>
                 (
-                  <Link
-                  onClick={child.path===router.asPath ? ()=>{setOpen("")} :()=>{}}
-                  key={index}
-                    href={child.path}
-                    underline="none"
-                    style={{ width: "100%" }}
-                    color={"inherit"}
-                  >
+                  // <Link
+                  // onClick={child.path===router.asPath ? ()=>{setOpen("")} :()=>{}}
+                  // key={index}
+                  //   href={child.path}
+                  //   underline="none"
+                  //   style={{ width: "100%" }}
+                  //   color={"inherit"}
+                  // >
                     <Button
-                      onClick={handleClickAnchor}
+                      onClick={child.path===router.asPath ? ()=>{setAnchorEl(null);setOpen("")} : ()=>{router.push(child.path)}}
                       key={index}
                       sx={{
                         width: "100%",
@@ -351,7 +354,7 @@ const NavMenu: React.FC = () => {
                     >
                       {child.name}
                     </Button>
-                  </Link>
+                  // </Link>
                 )
               )}
             </Box>

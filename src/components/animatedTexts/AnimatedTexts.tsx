@@ -26,7 +26,7 @@ const AnimatedTexts: React.FC<Props> = ({
     for (var i = 0; i <= currentIndex; i++) {
       setVisibleTexts(visibleTexts.concat(texts[i]));
     }
-    console.log("hi");
+    
   }, [currentIndex, texts, animationType, interval, direction, texts.length]);
 
   useEffect(() => {

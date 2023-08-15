@@ -1,5 +1,5 @@
 import { Box, Button, Container, Tab, Tabs, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Image from "next/image";
 import FadingImages from "../fadingImages/FadingImages";
@@ -205,4 +205,4 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   );
 };
 
-export default FeaturedCard;
+export default memo(FeaturedCard);
