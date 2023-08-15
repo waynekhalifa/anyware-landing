@@ -257,18 +257,21 @@ export const items4 = [
 
 export const bannerItems = [
   {
+    index:0,
     header:'',
     title:'All in one hospitality digitization platform',
     description:'Online Ordering, Table Reservation, Call Center, Rewarding Loyalty Solution & more.',
     images:[]
   },
   {
+    index:1,
     header:'CUSTOM SOFTWARE DEVELOPMENT',
     title:'Develop your website, platform or mobile application',
     description:'We design, develop, and implement custom software solutions  as per your business requirements.',
     images:[]
   },
   {
+    index:2,
     header:'INTEGRATION SERVICES',
     title:'Submit your system integration requirements and we have got your back!',
     description:'You can integrate your ERP with any external systems if it simply supports API integration.',

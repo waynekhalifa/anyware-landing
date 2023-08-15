@@ -94,7 +94,7 @@ const HomeFeatures: React.FC = () => {
         }}
         />
         </Box>
-      <Container sx={{ pt: 15 ,minWidth:'90%'}}>
+      <Container sx={isMobile ? { pt: 12,minWidth:'90%',margin:0,paddingLeft:isMobile?0:20}:{ pt: 15,minWidth:'90%'}}>
         
           {/*-------------------- SLIDER GOES HERE ------------------------*/}
           {/* <Grid container>
@@ -114,7 +114,7 @@ const HomeFeatures: React.FC = () => {
           <HomeSlider/>
 
         
-        <Box style={{marginTop:"4rem",padding:0,marginBottom:'3rem',}}>
+        <Box style={{marginTop:"4rem",padding:0,marginBottom:'3rem'}}>
 
         
           <Typography

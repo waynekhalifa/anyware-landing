@@ -5,9 +5,12 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import CustomLoader from "../UI/CustomLoader";
 import Partners from "./Partners";
-import useIsMobile from '@/hooks/useIsMobile';
+import useIsMobile from "@/hooks/useIsMobile";
 import { getAnalytics, logEvent, setUserId } from "firebase/analytics";
-
+import { Grid, IconButton } from "@mui/material";
+import Video from "@/components/HomeSlider/Video";
+import Image from "next/image";
+import act from "@images/act.webp";
 // import useFireBaseAnalysis from '@/hooks/useFireBaseAnalysis';
 
 interface StateProps {
@@ -16,24 +19,32 @@ interface StateProps {
 
 const initialState: StateProps = { email: "" };
 
-const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
+const BannerForm: React.FC<{
+  bannerData: any;
+  videoKey: string;
+  SlidePage: number;
+}> = ({ bannerData, videoKey, SlidePage }) => {
   const [state, setState] = useState(initialState);
+  const { email } = state;
+
   const { push } = useRouter();
   const { openModal } = useApp();
-    
-  const { updating, changeUpdating } = useUpdating();
-  const { email } = state;
-  
-  const {isMobile} = useIsMobile()
-    // const { app } = useFireBaseAnalysis()
 
-    const handleClick = async () => {
-      const analytics = getAnalytics();
-    setUserId(analytics, "user1")
-    logEvent(analytics, email, { user_id: "user1",eventHappened:"Get Started", });
-  
-      // const analytics = getAnalytics();
-      // logEvent(analytics, 'Get Started Button');
+  const { updating, changeUpdating } = useUpdating();
+
+  const { width, isMobile } = useIsMobile();
+  // const { app } = useFireBaseAnalysis()
+
+  const handleClick = async () => {
+    const analytics = getAnalytics();
+    setUserId(analytics, "user1");
+    logEvent(analytics, email, {
+      user_id: "user1",
+      eventHappened: "Get Started",
+    });
+
+    // const analytics = getAnalytics();
+    // logEvent(analytics, 'Get Started Button');
     changeUpdating(true);
 
     if (email.length === 0) {
@@ -41,9 +52,9 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
       openModal({ modalID: "catcher", modalContent: "login form" });
     } else {
       setTimeout(() => {
-          changeUpdating(false);
-        
-          // setUserId(analytics, "Test123");
+        changeUpdating(false);
+
+        // setUserId(analytics, "Test123");
 
         push(`/login?email=${email}`);
       }, 1000);
@@ -52,17 +63,58 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
 
   return (
     <>
-      <Typography component="h1" variant={isMobile?"h5":"h3"} fontWeight={700} sx={{ mb: 4 }}>
+      <Typography
+        component="h1"
+        variant={isMobile ? "h5" : "h3"}
+        fontWeight={700}
+        sx={{ mb: bannerData.index === 2 ? 1 : 2 }}
+      >
         {bannerData.title}
         {/* All in one hospitality
         <br />
         digitization platform */}
       </Typography>
-      <Typography variant="body2" fontWeight={500} sx={{ mb: 4 }}>
+      <Typography
+        variant="body2"
+        fontWeight={500}
+        sx={{ mb: bannerData.index === 2 ? 1 : 2 }}
+      >
         {bannerData.description}
         {/* {`Online Ordering, Table Reservation, Call Center, Rewarding Loyalty Solution & more.`} */}
       </Typography>
-      <Box sx={{ mb: 8 }}>
+      {isMobile && (
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            span: { display: "block !important" },
+            transform: isMobile
+              ? bannerData.index === 0
+                ? "scale(0.7)"
+                : "scale(0.8)"
+              : "scale(1)",
+            marginBottom: 2,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Video key={videoKey} SlidePage={SlidePage} />
+        </Grid>
+      )}
+      <Box
+        sx={
+          isMobile
+            ? {
+                mb: 4,
+                alignItems: "center",
+                display: "flex",
+                flexDirection: "column",
+              }
+            : { mb: 8 }
+        }
+      >
         <Box sx={{ mb: 4 }}>
           <TextField
             placeholder={"Enter your email address or phone number"}
@@ -73,7 +125,6 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
             sx={{
               minWidth: 350,
               input: { p: 2 },
-              
             }}
           />
         </Box>
@@ -82,24 +133,57 @@ const BannerForm: React.FC<{ bannerData: any }> = ({ bannerData }) => {
           variant="contained"
           size="large"
           sx={{
+            alignSelf: "center",
             textTransform: "none",
             boxShadow: 12,
-            "&:hover": { boxShadow: 12 ,  backgroundColor: "primary.light",
-            borderColor: "primary.light"},
+            "&:hover": {
+              boxShadow: 12,
+              backgroundColor: "primary.light",
+              borderColor: "primary.light",
+            },
             position: "relative",
             width: 152,
             height: 56,
-            
           }}
           onClick={handleClick}
         >
           {updating ? <CustomLoader /> : "Get Started"}
         </Button>
       </Box>
-      <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
-        Partner With
-      </Typography>
-      <Partners />
+      {isMobile ? (
+        <Box sx={{ alignSelf: "center", width: "100%", alignItems: "center" }}>
+          <Typography
+            component="h2"
+            variant="h6"
+            sx={{ mb: 2, textAlign: "center" }}
+          >
+            Partner With
+          </Typography>
+
+          <Box
+            style={{
+              width: 170,
+              height: 44,
+              position: "relative",
+              left: width / 2 - 85,
+            }}
+          >
+            <Image src={act} alt="oracle" layout="fill" objectFit="contain" />
+          </Box>
+        </Box>
+      ) : (
+        <>
+        <Typography
+          component="h2"
+          variant="h6"
+          sx={{ mb: 2}}
+        >
+          Partner With
+        </Typography>
+        <Partners />
+        </>
+      )}
+     
     </>
   );
 };

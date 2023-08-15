@@ -13,15 +13,15 @@ const Partners: React.FC = () => {
       justifyContent={"space-between"}
       sx={{ maxWidth: 300 }}
     >
-      <Box style={{width:80 , height:20,position:'relative'}}>
+      {/* <Box style={{width:80 , height:20,position:'relative'}}>
       <Image src={oracle} alt="oracle" layout="fill"  objectFit='contain' />
-      </Box>
-      <Box style={{width:70 , height:18,position:'relative'}}>
+      </Box> */}
+      <Box style={{width:170 , height:44,position:'relative'}}>
       <Image src={act} alt="oracle" layout="fill"  objectFit='contain' />
       </Box>
-      <Box style={{width:70 , height:17,position:'relative'}}>
+      {/* <Box style={{width:70 , height:17,position:'relative'}}>
       <Image src={raya} alt="oracle" layout="fill"  objectFit='contain' />
-      </Box>
+      </Box> */}
     </Grid>
   );
 };

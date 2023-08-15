@@ -15,6 +15,7 @@ const TRSAIO: React.FC<Props> = ({ items, index }) => {
   const [selectedTap, setSelectedTap] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    console.log(newValue)
     setSelectedTap(newValue);
   };
   const { isMobile, width } = useIsMobile();

@@ -40,7 +40,7 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       }
     }, [timeRemaining,images.length,interval,currentIndex,images]);
   return (
-     currentIndex<=images.length-1) && images.map((item: any , index: number) => (
+     currentIndex<=images.length-1 && images.map((item: any , index: number) => (
       <NextImage 
       key={index}
       src={item.src}
@@ -52,7 +52,7 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       
       style={{  width: images[currentIndex].src === item.src ? "100%" : "0%" , height:  images[currentIndex].src === item.src ? "100%" : "0%",transition:"opacity 1s ease-in-out", opacity:images[currentIndex].src === item.src ? 1:0 }}
       />
-    ))
+    )) )
 };
 
 export default FadingImages;
