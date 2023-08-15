@@ -19,7 +19,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
   const handleClick=()=>{
     const analytics = getAnalytics();
     setUserId(analytics, "user1")
-    logEvent(analytics, "01123204458", { user_id: "user1",eventHappened:"TRS GET STARTED", });
+    logEvent(analytics, "UserJourney", { user_id: "user1",eventHappened:"TRS GET STARTED, 01123204458, 13/8/23" });
   
   }
   return (

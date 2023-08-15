@@ -1,6 +1,6 @@
-import trs1 from "../../../public/images/trs1.png";
-import trs2 from "../../../public/images/trs2.png";
-import trs3 from "../../../public/images/trs3.png";
+import trs1 from "../../../public/images/trs1.webp";
+import trs2 from "../../../public/images/trs2.webp";
+import trs3 from "../../../public/images/trs3.webp";
 import bakymobile1 from "../../../public/images/bakymobile1.png"
 import bakymobile2 from "../../../public/images/bakymobile2.png"
 import bakymobile3 from "../../../public/images/bakymobile3.png"
@@ -21,7 +21,7 @@ import aio1 from "../../../public/images/aio1.png"
 import aio3 from "../../../public/images/aio3.png"
 import aio4 from "../../../public/images/aio4.png"
 import aio5 from "../../../public/images/aio5.png"
-import aio6 from "../../../public/images/aio6.png"
+import aio6 from "../../../public/images/aio6.webp"
 const makeRes = {
   typo: "Make outings and special events reservations more easy!",
   Description:

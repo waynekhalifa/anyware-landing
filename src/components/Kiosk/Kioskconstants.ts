@@ -1,9 +1,6 @@
 import kiosk1 from "../../../public/images/kiosk1.png";
 import kioskpage2 from "../../../public/images/kioskpage2.png";
-import kioskpage3 from "../../../public/images/kioskpage3.png";
-
-import CashlessWallet4 from "../../../public/images/CashlessWallet4.png";
-import CashlessWallet5 from "../../../public/images/CashlessWallet5.png";
+import kioskpage3 from "../../../public/images/kioskpage3.webp";
 const makeRes = {
   typo: "Self-Ordering Kiosk Solution for restaurants",
   Description:"Your perfect go-to in order to forget about long waiting queues in events and forever!", 

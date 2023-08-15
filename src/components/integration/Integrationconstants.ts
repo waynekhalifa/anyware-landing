@@ -1,7 +1,6 @@
 import POS from "../../../public/images/posPayment.png"
 import integration1 from "../../../public/images/integration1.png";
 import integration2 from "../../../public/images/integration2.png";
-import kioskpage3 from "../../../public/images/kioskpage3.png";
 
 import bannerform3 from "../../../public/images/bannerform3.png";
 const makeRes = {

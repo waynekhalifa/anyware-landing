@@ -16,7 +16,6 @@ import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import TRSAIO from "./TRSAIO";
 import Head from "next/head";
-import firebase from "firebase/app";
 import { getAnalytics, logEvent, setUserId } from "firebase/analytics";
 
 
