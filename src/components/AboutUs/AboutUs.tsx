@@ -28,16 +28,7 @@ const AboutUs: React.FC = () => {
             borderBottomLeftRadius:'20%'
             }}>
         </Box>
-        {/* <Box style={{
-            width:'50%',
-            height:isMobile?'30%':'40%',
-            position:'absolute',
-            backgroundColor:'#D7B35E',
-            zIndex:-1,
-            borderRadius:'20%',
-            transform:'rotate(-20deg)'
-            }}>
-        </Box> */}
+        
 
     <Box sx={{ overflow: "hidden",width:'100%',marginTop:isMobile?'10%': '5%' }}>
       <Container sx={{overflow:'hidden'}}>
@@ -52,13 +43,7 @@ const AboutUs: React.FC = () => {
                 Specialized in developing innovative and creative services.
                 </Typography>
             </Grid>
-            {/* <Grid>
-                <Image src={pic1} alt="act" width={88} height={13}/>
-                <Image src={pic2} alt="act" width={80} height={40} />
-                <Image src={pic3} alt="act" width={80} height={25} />
-                <Image src={pic4} alt="act" width={80} height={25} />
-
-            </Grid> */}
+            
         </Section>
 
         {/* MISSION */}

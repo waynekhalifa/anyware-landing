@@ -125,9 +125,9 @@ const Footer = () => {
             <Typography style={{ fontSize: 15, textAlign: 'left', marginBottom: 5 }}>
               - Dubai, UAE Office #: +971 50 506 4187
             </Typography>
-            <Typography style={{ fontSize: 15, textAlign: 'left', marginBottom: 5 }}>
+            {/* <Typography style={{ fontSize: 15, textAlign: 'left', marginBottom: 5 }}>
               - Cairo, Egypt Office #: +20 100 667 6388
-            </Typography>
+            </Typography> */}
           </Box>
 
           <Box sx={{ marginRight: '50px', marginBottom: 5 }}>
