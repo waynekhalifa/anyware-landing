@@ -149,10 +149,10 @@ const HomeSlider = () => {
           
         }}
       >
-        <IconButton onClick={handlePrevSlide}>
+        <IconButton name="back button" onClick={handlePrevSlide}>
           <ChevronLeft />
         </IconButton>
-        <IconButton onClick={handleNextSlide} sx={{ marginLeft: 5 }}>
+        <IconButton name="next button" onClick={handleNextSlide} sx={{ marginLeft: 5 }}>
           <ChevronRight />
         </IconButton>
       </Grid>
