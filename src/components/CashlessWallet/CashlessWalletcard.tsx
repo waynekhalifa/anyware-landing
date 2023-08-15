@@ -105,7 +105,13 @@ const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
             {items.animatedTexts &&items.animatedTexts.items.length==1 && (
                 <Box sx={{display:'flex',alignItems:'center'}}>
                     
-                    <img src={checkGold.src} style={{ width: '1rem',marginRight:5 }} />
+                    <NextImage
+                    layout="fixed"
+                    width={14}
+                    height={14}
+                    alt="gold check sign"
+                    src={checkGold.src}
+                  />
                 <Typography>{items.animatedTexts.items}</Typography>
                 </Box>
           )}

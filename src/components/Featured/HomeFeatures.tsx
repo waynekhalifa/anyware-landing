@@ -1,10 +1,5 @@
 import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
-import Section from "../UI/Section";
-import axios from "axios";
 import ReactGA from "react-ga";
-import Video from "./Video";
-import BannerForm from "./BannerForm";
-import Partners from "./Partners";
 import { useCallback, useEffect, useState } from "react";
 import bannerBg from "../../../public/images/home-header-bg.png";
 import millenium from "../../../public/images/millenium.png";
@@ -12,17 +7,10 @@ import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.pn
 import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.png";
 import caffe from "../../../public/images/ni-caffe-removebg-preview 1.png";
 import caf from "../../../public/images/CAF.png";
-import reif from "../../../public/images/reif.png";
-import GCS from "../../../public/images/GCS.png";
-import capital from "../../../public/images/capital.png";
-import adnec from "../../../public/images/adnec.png";
-import zahrtlebanon from "../../../public/images/zahrtlebanon.png";
-import bosporus from "../../../public/images/bosporus.png";
 import FeaturedCard from "./FeaturedCard";
 import { allItems } from "@/constants/features";
 import useIsMobile from "@/hooks/useIsMobile";
 import { useRouter } from "next/router";
-import { bannerItems } from "@/constants/features";
  import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
 import HomeSlider from "../HomeSlider/HomeSlider";
 import NextImage from "next/image";
@@ -81,9 +69,7 @@ const HomeFeatures: React.FC = () => {
   return (
     <Box sx={{ overflow: "hidden", width: "100%", position: "relative" ,flex:1}}
     >
-      <img
-        src={bannerBg.src}
-        style={{
+      <Box sx={{
           content: '""',
           display: "block",
           position: "absolute",
@@ -93,8 +79,20 @@ const HomeFeatures: React.FC = () => {
           height: isMobile? '100vh' : "135.43vh",
           transition: "unset",
           zIndex: -12,
+        }}>
+
+      <NextImage
+        src={bannerBg.src}
+        layout="fill"
+        style={{
+          content: '""',
+          display: "block",
+          position: "absolute",
+          transition: "unset",
+          zIndex: -12,
         }}
-      />
+        />
+        </Box>
       <Container sx={{ pt: 15 ,minWidth:'90%'}}>
         
           {/*-------------------- SLIDER GOES HERE ------------------------*/}

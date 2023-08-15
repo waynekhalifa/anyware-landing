@@ -13,6 +13,8 @@ import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.png";
 import coralBay from "../../../public/images/coralBay.png";
 const CashlessWallet: React.FC = () => {
   const { isMobile, width } = useIsMobile();
+  const venues = [millenium, movenpick, jeddah, coralBay];
+
   return (
     <div
       style={{
@@ -23,7 +25,7 @@ const CashlessWallet: React.FC = () => {
         width: "100%",
         height: "100vh",
         position: "absolute",
-        overflowX:"clip",
+        overflowX: "clip",
         paddingTop: isMobile ? 20 : 120,
       }}
     >
@@ -71,61 +73,54 @@ const CashlessWallet: React.FC = () => {
             <CashlessWalletcard index={0} items={Items[0]} />
           </Box>
         </Grid>
-
+        <Grid xs={12} sx={{ marginTop: isMobile ? 5 : 0 }}>
+          <Typography
+            color="text.secondary"
+            align="center"
+            variant="body2"
+            fontWeight="bold"
+            letterSpacing={1.2}
+            paragraph
+          >
+            Join 100+ Highly Rated Hospitality Leaders
+          </Typography>
+        </Grid>
         <Grid
-          spacing={4}
+          xs={12}
+          container
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            flexDirection: "column",
-            padding:0,
-            marginBottom: isMobile?-20 :50,
-            marginTop:isMobile?20:-50,
+            flexDirection: "row",
+            marginBottom: isMobile ? 0 : 10,
           }}
         >
-          <Grid xs={12} >
-            <Typography
-            //   color="text.secondary"
-              align="center"
-              variant="h4"
-              fontWeight="bold"
-              letterSpacing={1.2}
-              paragraph
-            >
-              Join Highly Rated Hospitality Leaders
-            </Typography>
-          </Grid>
-          <Grid
-            xs={12}
-            container
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "row",
-              
-              
-            }}
-          >
-        <Box
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent:isMobile?'center': "space-between",
-            alignItems: "center",
-            padding: "10px",
-            width:'50%',
-            marginLeft:isMobile?20:0
-          }}
-          >
-          <img alt="millenium" src={millenium.src} style={{ width: isMobile?'40%': "16%",marginRight:20 }} />
-          <img alt="millenium" src={movenpick.src} style={{ width: isMobile?'40%': "16%",marginRight:20 }} />
-          <img alt="swissotel" src={jeddah.src}    style={{ width: isMobile?'50%': "20%",marginRight:20 }} />
-          <img alt="coralBay"  src={coralBay.src}  style={{ width: isMobile?'40%': "16%",marginRight:20 }} />
-        </Box>
-          </Grid>
+          {venues.map((venue, index) => {
+            return (
+              <Grid
+                key={index}
+                xs={isMobile ? 5 : undefined}
+                style={{
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <NextImage
+                  alt="Banner background"
+                  layout="fixed"
+                  width="280px"
+                  height="140px"
+                  objectFit="contain"
+                  src={venue.src}
+                  style={{ opacity: "0.7" }}
+                />
+              </Grid>
+            );
+          })}
         </Grid>
+
         <Grid style={{ width: "100%", margin: 0, padding: 0 }} xs={12} md={12}>
           <Box
             style={{
@@ -139,7 +134,7 @@ const CashlessWallet: React.FC = () => {
           </Box>
         </Grid>
       </Grid>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

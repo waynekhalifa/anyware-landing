@@ -21,7 +21,7 @@ import kiosk1 from "../../public/images/kiosk1.png";
 import kiosk2 from "../../public/images/kioskpage3.webp";
 import kiosk3 from "../../public/images/kiosk3.png";
 import Tab4_1 from "../../public/images/4thTab1.webp";
-import Tab4_2 from "../../public/images/4thTab2.png";
+import Tab4_2 from "../../public/images/4thTab2.webp";
 import Tab5_1 from "../../public/images/5thTab1.webp";
 import Tab5_2 from "../../public/images/5thTab2.webp";
 import sec3tab1 from "../../public/images/sec3tab1.png";

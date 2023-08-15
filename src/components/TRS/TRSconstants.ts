@@ -17,10 +17,10 @@ import payment2 from "../../../public/images/payment2.png";
 import payment3 from "../../../public/images/payment3.png";
 import cashless1 from "../../../public/images/cashless1.png";
 import cashless2 from "../../../public/images/cashless2.png";
-import aio1 from "../../../public/images/aio1.png"
-import aio3 from "../../../public/images/aio3.png"
-import aio4 from "../../../public/images/aio4.png"
-import aio5 from "../../../public/images/aio5.png"
+import aio1 from "../../../public/images/aio1.webp"
+import aio3 from "../../../public/images/aio3.webp"
+import aio4 from "../../../public/images/aio4.webp"
+import aio5 from "../../../public/images/aio5.webp"
 import aio6 from "../../../public/images/aio6.webp"
 const makeRes = {
   typo: "Make outings and special events reservations more easy!",
