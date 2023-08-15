@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Logo from "../Logo";
 import useIsMobile from '@/hooks/useIsMobile';
-import logo from "@images/anywarelogo.png";
+import logo from "@images/anywarelogo.webp";
 import useFormFields from "@/hooks/useFormFields";
 import useFormValidations from "@/hooks/useFormValidations";
 import FormFields from "../UI/FormFields";

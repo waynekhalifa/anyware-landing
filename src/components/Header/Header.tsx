@@ -3,10 +3,8 @@ import { AppBar, Box, Button, Grid } from "@mui/material";
 import NavMenu from "../NavMenu";
 import Logo from "../Logo";
 
-import logo from "@images/anywarelogo.png";
-import bannerBg from "@images/home-header-bg.webp";
+import logo from "@images/anywarelogo.webp";
 import React, { useCallback, useEffect } from "react";
-import { ContactForm } from '../UI/Forms';
 import useApp from '@/hooks/useApp';
 import useIsMobile from "@/hooks/useIsMobile";
 

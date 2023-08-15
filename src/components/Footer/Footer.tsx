@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 import Logo from '../Logo';
-import logo from "@images/anywarelogowhite.png";
+import logo from "@images/anywarelogowhite.webp";
 import useApp from '@/hooks/useApp';
 
 const Footer = () => {

@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import logo from "@images/anywarelogo.png";
+import logo from "@images/anywarelogo.webp";
 import Logo from "../Logo";
 import useQuestion from "@/hooks/useQuestion";
 import HtmlContent from "../UI/HtmlContent";

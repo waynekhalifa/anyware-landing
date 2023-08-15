@@ -11,7 +11,7 @@ import vodafonelogo from '../../../public/images/vodafonelogo.png';
 import bakylogo from '../../../public/images/bakylogo.png';
 import newGenIcon from '../../../public/images/newGenIcon.png';
 import astenlogo from '../../../public/images/astenlogo.png';
-import balancedlogo from '../../../public/images/balancedlogo.png';
+import balancedlogo from '../../../public/images/balancedlogo.webp';
 import edufylogo from '../../../public/images/edufylogo.png';
 import entreprewarelogo from '../../../public/images/entreprewarelogo.png';
 

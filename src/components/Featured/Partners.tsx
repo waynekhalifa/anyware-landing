@@ -2,8 +2,8 @@ import Image from "next/image";
 import { Box, Grid } from "@mui/material";
 
 import act from "@images/act.webp";
-import oracle from "@images/oracle.png";
-import raya from "@images/raya.png";
+import oracle from "@images/oracle.webp";
+import raya from "@images/raya.webp";
 
 const Partners: React.FC = () => {
   return (

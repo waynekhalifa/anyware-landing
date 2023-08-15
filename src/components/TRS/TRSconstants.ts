@@ -4,16 +4,6 @@ import trs3 from "../../../public/images/trs3.webp";
 import bakymobile4 from "../../../public/images/bakymobile4.webp"
 import bakymobile5 from "../../../public/images/bakymobile5.webp"
 import bakymobile6 from "../../../public/images/bakymobile6.webp"
-import posPayment from "../../../public/images/posPayment.png";
-import payMob from "../../../public/images/paymob.png";
-import visa from "../../../public/images/visa.png";
-import meeza from "../../../public/images/meeza.png";
-import masterCard from "../../../public/images/masterCard.png";
-import payment1 from "../../../public/images/payment1.png";
-import payment2 from "../../../public/images/payment2.png";
-import payment3 from "../../../public/images/payment3.png";
-import cashless1 from "../../../public/images/cashless1.png";
-import cashless2 from "../../../public/images/cashless2.png";
 import aio1 from "../../../public/images/aio1.webp"
 import aio3 from "../../../public/images/aio3.webp"
 import aio4 from "../../../public/images/aio4.webp"
