@@ -17,16 +17,10 @@ import { useEffect, useState } from "react";
 import TRSAIO from "./TRSAIO";
 import Head from "next/head";
 import { getAnalytics, logEvent, setUserId } from "firebase/analytics";
-import millenium from "../../../public/images/millenium.png";
-import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.webp";
-import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.webp";
-import caffe from "../../../public/images/ni-caffe-removebg-preview 1.webp";
-import caf from "../../../public/images/CAF.webp";
 
 
 const TRS: React.FC = () => {
-  // const venues = [shinko, reif, megumi, lexies, sachi, kazoku];
-  const venues = [millenium,movenpick, jeddah, caffe, caf];
+  const venues = [shinko, reif, megumi, lexies, sachi, kazoku];
   const { isMobile, width } = useIsMobile();
 
   
@@ -132,33 +126,43 @@ const TRS: React.FC = () => {
               </Typography>
             </Grid>
             <Grid
-            xs={12}
-            container
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "row",
-              
-              
-            }}
-          >
-            {venues.map((venue, index) => {
-              return (
-                <Grid key={index} xs={isMobile ? 6 : undefined} style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
-                  <NextImage
-                    alt="Banner background"
-                    layout="fixed"
-                    width="260px"
-                    height="130px"
-                    objectFit="contain"
-                    src={venue.src}
-                    style={{opacity:'0.7'}}
-                  />
-                </Grid>
-              );
-            })}
-          </Grid>
+              xs={12}
+              container
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "row",
+              }}
+            >
+              {venues.map((venue, index) => {
+                return (
+                  <Grid
+                    key={index}
+                    xs={isMobile ? 6 : undefined}
+                    style={{
+                      alignItems: "center",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <NextImage
+                      alt="Venue Logos"
+                      layout="fixed"
+                      width="200px"
+                      height={
+                        index == venues.length - 1 || venues.length - 5
+                          ? "100px" 
+                          : "90px" 
+                      }
+                      objectFit="contain"
+                      src={venue.src}
+                      style={{ opacity: "0.7" }}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
           </Grid>
           {Items.slice(1, Items.length).map((item, index) => (
             <Grid
