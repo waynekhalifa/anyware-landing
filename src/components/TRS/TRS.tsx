@@ -149,11 +149,11 @@ const TRS: React.FC = () => {
                     <NextImage
                       alt="Banner background"
                       layout="fixed"
-                      width="150px"
+                      width="130px"
                       height={
                         index == venues.length - 1 || venues.length - 5
-                          ? "80px"
-                          : "60px"
+                          ? "70px"
+                          : "50px"
                       }
                       objectFit="contain"
                       src={venue.src}
