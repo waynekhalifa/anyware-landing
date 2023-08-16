@@ -62,6 +62,33 @@ const HomeSlider = () => {
     }
   };
 
+  const Arrows = <Grid
+  item
+  xs={12}
+  md={6}
+  sx={{
+    span: { display: "block !important" },
+    transform: "scale(1)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: isMobile ? "center" : "flex-end",
+    marginLeft: isMobile ? 0 : 5,
+    
+    
+  }}
+>
+  <IconButton name="back button" onClick={handlePrevSlide}    sx={{ margin:2}}>
+    <ChevronLeft />
+  </IconButton>
+  <IconButton
+    name="next button"
+    onClick={handleNextSlide}
+    sx={{ margin:2}}
+  >
+    <ChevronRight />
+  </IconButton>
+</Grid>
+
   const bannerData1 = bannerItems[0];
   const bannerData2 = bannerItems[1];
   const bannerData3 = bannerItems[2];
@@ -82,7 +109,7 @@ const HomeSlider = () => {
     >
       <Grid container>
         <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData1} videoKey={videoKey} SlidePage={1} />
+          <BannerForm bannerData={bannerData1} videoKey={videoKey} SlidePage={1} Arrows={Arrows} />
         </Grid>
         {!isMobile && <Grid
           item
@@ -116,7 +143,7 @@ const HomeSlider = () => {
     >
       <Grid container key="1">
       <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData2} videoKey={videoKey} SlidePage={2}/>
+          <BannerForm bannerData={bannerData2} videoKey={videoKey} SlidePage={2} Arrows={Arrows}/>
         </Grid>
         {!isMobile && <Grid
           item
@@ -151,7 +178,7 @@ const HomeSlider = () => {
     >
       <Grid container key="2">
       <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData3} videoKey={videoKey} SlidePage={3} />
+          <BannerForm bannerData={bannerData3} videoKey={videoKey} SlidePage={3} Arrows={Arrows}/>
         </Grid>
         {!isMobile &&  <Grid
           item
@@ -197,7 +224,7 @@ const HomeSlider = () => {
         }}
       ></Grid>
       {/* ==================================== */}
-      <Grid
+     {!isMobile && <Grid
         item
         xs={12}
         md={6}
@@ -222,7 +249,7 @@ const HomeSlider = () => {
         >
           <ChevronRight />
         </IconButton>
-      </Grid>
+      </Grid>}
     </Grid>
   );
 };

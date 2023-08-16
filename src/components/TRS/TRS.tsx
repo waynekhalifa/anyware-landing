@@ -139,7 +139,7 @@ const TRS: React.FC = () => {
                 return (
                   <Grid
                     key={index}
-                    xs={isMobile ? 5 : undefined}
+                    xs={isMobile ? 6 : undefined}
                     style={{
                       alignItems: "center",
                       display: "flex",
@@ -147,12 +147,13 @@ const TRS: React.FC = () => {
                     }}
                   >
                     <NextImage
+                      alt="Venue Logos"
                       layout="fixed"
-                      width={130}
+                      width="200px"
                       height={
                         index == venues.length - 1 || venues.length - 5
-                          ? 70 
-                          : 50 
+                          ? "100px" 
+                          : "90px" 
                       }
                       objectFit="contain"
                       src={venue.src}

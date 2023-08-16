@@ -19,11 +19,7 @@ interface StateProps {
 
 const initialState: StateProps = { email: "" };
 
-const BannerForm: React.FC<{
-  bannerData: any;
-  videoKey: string;
-  SlidePage: number;
-}> = ({ bannerData, videoKey, SlidePage }) => {
+const BannerForm = ({ bannerData, videoKey, SlidePage , Arrows} : any) => {
   const [state, setState] = useState(initialState);
   const { email } = state;
 
@@ -67,7 +63,7 @@ const BannerForm: React.FC<{
         component="h1"
         variant={isMobile ? "h5" : "h3"}
         fontWeight={700}
-        sx={{ mb: bannerData.index === 2 ? 1 : 2 }}
+        sx={{ mb: bannerData.index === 2 ? 0 : 2 }}
       >
         {bannerData.title}
         {/* All in one hospitality
@@ -77,7 +73,7 @@ const BannerForm: React.FC<{
       <Typography
         variant="body2"
         fontWeight={500}
-        sx={{ mb: bannerData.index === 2 ? 1 : 2 }}
+        sx={{ mb: bannerData.index === 2 ? 0 : 2 }}
       >
         {bannerData.description}
         {/* {`Online Ordering, Table Reservation, Call Center, Rewarding Loyalty Solution & more.`} */}
@@ -90,11 +86,9 @@ const BannerForm: React.FC<{
           sx={{
             span: { display: "block !important" },
             transform: isMobile
-              ? bannerData.index === 0
                 ? "scale(0.7)"
-                : "scale(0.8)"
               : "scale(1)",
-            marginBottom: 2,
+            marginBottom: bannerData.index === 2 ? 0 : 2,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -103,6 +97,7 @@ const BannerForm: React.FC<{
           <Video key={videoKey} SlidePage={SlidePage} />
         </Grid>
       )}
+      {Arrows}
       <Box
         sx={
           isMobile
@@ -157,7 +152,7 @@ const BannerForm: React.FC<{
             variant="h6"
             sx={{ mb: 2, textAlign: "center" }}
           >
-            Partner With
+            In partnership with
           </Typography>
 
           <Box
@@ -178,7 +173,7 @@ const BannerForm: React.FC<{
           variant="h6"
           sx={{ mb: 2}}
         >
-          Partner With
+          In partnership with
         </Typography>
         <Partners />
         </>
