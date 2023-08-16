@@ -1,11 +1,9 @@
 import { Box, Button, Container, Tab, Tabs, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
-import Image from "next/image";
 import FadingImages from "../fadingImages/FadingImages";
 import useIsMobile from "@/hooks/useIsMobile";
-import AnimatedTexts from "../animatedTexts/AnimatedTexts";
-import NextImage from "next/image";
+import Image from "next/image";
 
 interface Props {
   items: any;
@@ -23,10 +21,8 @@ const TRSAIO: React.FC<Props> = ({ items, index }) => {
   return (
     <Grid
       key={index}
-
       spacing={4}
       style={{
-      
         marginBottom: "10vh",
         maxWidth: isMobile ? "90%":"100%",
         display: "flex",
@@ -87,6 +83,8 @@ const TRSAIO: React.FC<Props> = ({ items, index }) => {
           
         }}
       >
+        
+        
         <Box
           style={{
             width:  "100%",
@@ -97,8 +95,19 @@ const TRSAIO: React.FC<Props> = ({ items, index }) => {
             justifyContent: "center", 
           }}
         >
-          <FadingImages images={items[selectedTap].img} interval={0} />
+          
+          {/* <FadingImages images={items[selectedTap].img} interval={0} /> */}
+          <Image 
+          alt="aio"
+      src={items[selectedTap].img[0].src}
+      priority
+      layout="fill"
+      objectFit="contain"
+      
+      style={{  width:  "100%" , height:  "100%" }}
+      />
         </Box>
+        
       </Grid>
     </Grid>
   );
