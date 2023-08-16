@@ -126,43 +126,33 @@ const TRS: React.FC = () => {
               </Typography>
             </Grid>
             <Grid
-              xs={12}
-              container
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "row",
-              }}
-            >
-              {venues.map((venue, index) => {
-                return (
-                  <Grid
-                    key={index}
-                    xs={isMobile ? 6 : undefined}
-                    style={{
-                      alignItems: "center",
-                      display: "flex",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <NextImage
-                      alt="Venue Logos"
-                      layout="fixed"
-                      width="200px"
-                      height={
-                        index == venues.length - 1 || venues.length - 5
-                          ? "100px" 
-                          : "90px" 
-                      }
-                      objectFit="contain"
-                      src={venue.src}
-                      style={{ opacity: "0.7" }}
-                    />
-                  </Grid>
-                );
-              })}
-            </Grid>
+            xs={12}
+            container
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+              
+              
+            }}
+          >
+            {venues.map((venue, index) => {
+              return (
+                <Grid key={index} xs={isMobile ? 6 : undefined} style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
+                  <NextImage
+                    alt="Banner background"
+                    layout="fixed"
+                    width="260px"
+                    height="130px"
+                    objectFit="contain"
+                    src={venue.src}
+                    style={{opacity:'0.7'}}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
           </Grid>
           {Items.slice(1, Items.length).map((item, index) => (
             <Grid

@@ -20,7 +20,7 @@ export const mainMenu: MenuItem1[] = [
   },
   {
     id: 1,
-    name: "product",
+    name: "Product",
     path: "#",
     children: [
       {
@@ -43,7 +43,7 @@ export const mainMenu: MenuItem1[] = [
       },
       {
         id: 13,
-        name: "Custom software",
+        name: "Custom Software",
         path: "/CustomSoftware",
         category: "product",
         icon: "",
@@ -365,7 +365,7 @@ export const mainMenu: MenuItem1[] = [
   },
   {
     id: 4,
-    name: "About us",
+    name: "About Us",
     path: "/AboutUs",
     children: [],
   },

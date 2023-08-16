@@ -86,9 +86,10 @@ const BannerForm = ({ bannerData, videoKey, SlidePage , Arrows} : any) => {
           sx={{
             span: { display: "block !important" },
             transform: isMobile
-                ? "scale(0.7)"
+                ? bannerData.index === 1 ? "scale(0.85)":"scale(0.7)"
               : "scale(1)",
             marginBottom: bannerData.index === 2 ? 0 : 2,
+            marginTop:bannerData.index===1 ? 5 :0,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -97,7 +98,7 @@ const BannerForm = ({ bannerData, videoKey, SlidePage , Arrows} : any) => {
           <Video key={videoKey} SlidePage={SlidePage} />
         </Grid>
       )}
-      {Arrows}
+      {isMobile && Arrows}
       <Box
         sx={
           isMobile
