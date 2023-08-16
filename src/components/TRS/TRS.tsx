@@ -3,12 +3,12 @@ import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Header from "../Header/Header";
 import { Items, TRSaio } from "./TRSconstants";
 import TRScard from "./TRScard";
-import reif from "../../../public/images/reif.png";
-import megumi from "../../../public/images/megumi.png";
-import lexies from "../../../public/images/lexies.png";
-import sachi from "../../../public/images/sachi.png";
-import shinko from "../../../public/images/shinko.png";
-import kazoku from "../../../public/images/kazoku.png";
+import reif from "../../../public/images/reif.webp";
+import megumi from "../../../public/images/megumi.webp";
+import lexies from "../../../public/images/lexies.webp";
+import sachi from "../../../public/images/sachi.webp";
+import shinko from "../../../public/images/shinko.webp";
+import kazoku from "../../../public/images/kazoku.webp";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
 import bannerBg from "../../../public/images/home-header-bg.webp";
