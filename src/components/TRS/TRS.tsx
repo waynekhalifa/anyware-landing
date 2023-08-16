@@ -147,7 +147,6 @@ const TRS: React.FC = () => {
                     }}
                   >
                     <NextImage
-                      alt="Banner background"
                       layout="fixed"
                       width="130px"
                       height={
