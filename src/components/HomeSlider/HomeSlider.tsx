@@ -188,7 +188,7 @@ const HomeSlider = () => {
           minHeight: isMobile
             ? height < 800
               ? 800
-              : height * 0.9
+              : height * 0.85
             : height * 0.8,
           minWidth: "100%",
           display: "flex",
