@@ -7,6 +7,7 @@ import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.we
 import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.webp";
 import caffe from "../../../public/images/ni-caffe-removebg-preview 1.webp";
 import caf from "../../../public/images/CAF.webp";
+
 import FeaturedCard from "./FeaturedCard";
 import { allItems } from "@/constants/features";
 import useIsMobile from "@/hooks/useIsMobile";
