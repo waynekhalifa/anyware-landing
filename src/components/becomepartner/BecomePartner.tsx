@@ -1,7 +1,7 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Header from "../Header/Header";
-import {programs,Items} from "./BecomePartnerConstants"
+import { programs, Items } from "./BecomePartnerConstants";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
 import Footer from "../Footer/Footer";
@@ -14,10 +14,50 @@ import BecomePartnerCard from "./BecomePartnerCard";
 import PartnerProgramCard from "./PartnerProgramCard";
 import anywarepartner from "@images/anywarepartner.png";
 import { useState } from "react";
+import useUpdating from "@/hooks/useUpdating";
+import useApp from "@/hooks/useApp";
+import { useRouter } from "next/router";
+import CustomLoader from "../UI/CustomLoader/CustomerLoader";
+
+interface StateProps {
+  email: string;
+}
+
+const initialState: StateProps = { email: "" };
+
 const BecomePartner: React.FC = () => {
+  const [state, setState] = useState(initialState);
+  const { email } = state;
+
   const { isMobile, width } = useIsMobile();
-  const venues = [millenium,movenpick, jeddah, caffe, caf];
-  const [selected,setSelected] = useState(-1);
+  const venues = [millenium, movenpick, jeddah, caffe, caf];
+  const [selected, setSelected] = useState(-1);
+  const { push } = useRouter();
+  const { openModal } = useApp();
+
+  const { updating, changeUpdating } = useUpdating();
+
+  // const { app } = useFireBaseAnalysis()
+
+  const handleClick = async () => {
+    // const analytics = getAnalytics();
+    // logEvent(analytics, 'Get Started Button');
+    changeUpdating(true);
+
+    if (email.length === 0) {
+      changeUpdating(false);
+      openModal({ modalID: "catcher", modalContent: "login form" });
+    } else {
+      setTimeout(() => {
+        changeUpdating(false);
+
+        // setUserId(analytics, "Test123");
+
+        push(`/login?email=${email}`);
+      }, 1000);
+    }
+  };
+
   return (
     <div
       style={{
@@ -28,72 +68,221 @@ const BecomePartner: React.FC = () => {
         width: "100%",
         height: "100vh",
         position: "absolute",
-        overflowX:"clip",
-                paddingTop: isMobile ? 20 : 120,
+        overflowX: "clip",
+        paddingTop: isMobile ? 20 : 120,
       }}
     >
       <Header />
-      <Grid xs={12} sx={{margin:0,padding:0,width:'100%'}}>
-     <BecomePartnerCard index={0} items={Items[0]} />
-        </Grid>
-     <Grid xs={12} sx={{marginTop:isMobile?5:10}}>
-            <Typography
-              color="text.secondary"
-              align="center"
-              variant="body2"
-              fontWeight="bold"
-              letterSpacing={1.2}
-              paragraph
+      <Grid xs={12} sx={{ margin: 0, padding: 0, width: "100%" }}>
+        <BecomePartnerCard index={0} items={Items[0]} />
+      </Grid>
+      <Grid xs={12} sx={{ marginTop: isMobile ? 5 : 10 }}>
+        <Typography
+          color="text.secondary"
+          align="center"
+          variant="body2"
+          fontWeight="bold"
+          letterSpacing={1.2}
+          paragraph
+        >
+          Join 100+ Highly Rated Hospitality Leaders
+        </Typography>
+      </Grid>
+      <Grid
+        xs={12}
+        container
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "row",
+        }}
+      >
+        {venues.map((venue, index) => {
+          return (
+            <Grid
+              key={index}
+              xs={isMobile ? 5 : undefined}
+              style={{
+                alignItems: "center",
+                display: "flex",
+                justifyContent: "center",
+              }}
             >
-              Join 100+ Highly Rated Hospitality Leaders
-            </Typography>
-          </Grid>
-          <Grid
-            xs={12}
-            container
+              <NextImage
+                alt="Banner background"
+                layout="fixed"
+                width="280px"
+                height="140px"
+                objectFit="contain"
+                src={venue.src}
+                style={{ opacity: "0.7" }}
+              />
+            </Grid>
+          );
+        })}
+      </Grid>
+      <Grid
+        container
+        spacing={4}
+        style={{
+          display: "flex",
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap",
+          flexDirection: "row",
+        }}
+      >
+        {programs.map((program: any, index: number) => (
+          <div
+            key={index}
+            
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "row",
-              
-              
+              width: isMobile ? "80%" : "20%",
+              minHeight: 400,
+              marginTop: isMobile ? 0 : 5,
             }}
+            onClick={
+              index === selected
+                ? () => setSelected(-1)
+                : () => setSelected(index)
+            }
           >
-            {venues.map((venue, index) => {
-              return (
-                <Grid key={index} xs={isMobile ? 5 : undefined} style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
-                  <NextImage
-                    alt="Banner background"
-                    layout="fixed"
-                    width="280px"
-                    height="140px"
-                    objectFit="contain"
-                    src={venue.src}
-                    style={{opacity:'0.7'}}
-                  />
-                </Grid>
-              );
-            })}
-          </Grid>
-          <Grid container spacing={4} style={{display:'flex',width:'100%',justifyContent:'center',alignItems:'center',flexWrap:'wrap',flexDirection:'row'}} >
-            {programs.map((program : any, index:number)=>(
-          <Grid key={index} xs={12} sx={{width:isMobile?'80%':'20%',minHeight:400,marginTop:isMobile? 0:5}} onClick={index===selected ? ()=>setSelected(-1):()=>setSelected(index)}  >
-        <PartnerProgramCard items={program} index={index} selected={selected}/>
-          </Grid>
-            ))}
-          </Grid>
-          <Grid xs={isMobile ? 5 : undefined} style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
-                  <NextImage
-                    alt="Banner background"
-                    layout="fixed"
-                    width="280px"
-                    height="140px"
-                    objectFit="contain"
-                    src={anywarepartner.src}
-                  />
-                </Grid>
-      <Footer/>
+            <PartnerProgramCard
+              items={program}
+              index={index}
+              selected={selected}
+            />
+          </div>
+        ))}
+
+            {!isMobile && <Box sx={{display:'flex',flexDirection:'column'}}>
+       
+      <Box
+        sx={{
+          mb: 4,
+          mt: 4,
+          opacity: selected === -1 ? 0 : 1,
+          transition: "opacity 0.5s ease-in-out",
+        }}
+        >
+        <TextField
+          placeholder={"Enter your email address or phone number"}
+          value={email}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setState({ ...state, email: e.target.value })
+          }
+          sx={{
+            minWidth: 350,
+            input: { p: 2 },
+          }}
+          />
+      </Box>
+      <Button
+        disableElevation
+        variant="contained"
+        size="large"
+        sx={{
+          opacity: selected === -1 ? 0 : 1,
+          transition: "opacity 0.5s ease-in-out",
+          alignSelf: "center",
+          textTransform: "none",
+          boxShadow: 12,
+          backgroundColor: "primary.main",
+          borderColor: "transparent",
+          fontSize: "1.3rem",
+          color: "white",
+          fontWeight: "500",
+          
+          borderRadius: 2,
+          "&:hover": {
+            backgroundColor: "primary.light",
+            borderColor: "#fff",
+            boxShadow: "0px 0px 6px #eee",
+          },
+          position: "relative",
+          width: 250,
+          height: 56,
+        }}
+        onClick={handleClick}
+        >
+        {updating ? <CustomLoader /> : "Become a partner"}
+      </Button>
+      </Box>}
+        </Grid>
+      <Grid
+        xs={isMobile ? 5 : undefined}
+        style={{
+          
+          alignItems: "center",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <NextImage
+          alt="Banner background"
+          layout="fixed"
+          width="220px"
+          height="100px"
+          objectFit="contain"
+          src={anywarepartner.src}
+        />
+      </Grid>
+      {!isMobile && <>
+      
+      <Box
+        sx={{
+          mb: 4,
+          mt: 4,
+          opacity: selected === -1 ? 0 : 1,
+          transition: "opacity 0.5s ease-in-out",
+        }}
+        >
+        <TextField
+          placeholder={"Enter your email address or phone number"}
+          value={email}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setState({ ...state, email: e.target.value })
+          }
+          sx={{
+            minWidth: 350,
+            input: { p: 2 },
+          }}
+          />
+      </Box>
+      <Button
+        disableElevation
+        variant="contained"
+        size="large"
+        sx={{
+          opacity: selected === -1 ? 0 : 1,
+          transition: "opacity 0.5s ease-in-out",
+          alignSelf: "center",
+          textTransform: "none",
+          boxShadow: 12,
+          backgroundColor: "primary.main",
+          borderColor: "transparent",
+          fontSize: "1.3rem",
+          color: "white",
+          fontWeight: "500",
+          
+          borderRadius: 2,
+          "&:hover": {
+            backgroundColor: "primary.light",
+            borderColor: "#fff",
+            boxShadow: "0px 0px 6px #eee",
+          },
+          position: "relative",
+          width: 250,
+          height: 56,
+        }}
+        onClick={handleClick}
+        >
+        {updating ? <CustomLoader /> : "Become a partner"}
+      </Button>
+      </>}
+      <Footer />
     </div>
   );
 };

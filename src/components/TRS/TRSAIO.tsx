@@ -12,12 +12,13 @@ const TRSAIO: React.FC<Props> = ({ items }) => {
   const [selectedTap, setSelectedTap] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    console.log(newValue);
+    
     setSelectedTap(newValue);
   };
 
   const { isMobile, width } = useIsMobile();
   const tabs = items.map((item: any) => item.title);
+  
   return (
     <Grid
       spacing={4}
@@ -71,18 +72,18 @@ const TRSAIO: React.FC<Props> = ({ items }) => {
       </Grid>
       <Grid
         xs={isMobile ? 12 : 4}
-        md={0}
+        md={6}
         sx={{
           display: "flex",
           paddingLeft: 0,
           paddingRight: 0,
           alignItems: "center",
           justifyContent: "center",
-          aligmSelf: "center",
+          alignSelf: "center",
           minWidth: "50%",
           minHeight: "100%",
           backgroundImage: "linear-gradient(to right bottom, #B48C44, #E4C66C)",
-          // boxShadow: "0 6px 6px rgba(228,198,108,0.3)",
+          boxShadow: "0 6px 6px rgba(228,198,108,0.3)",
           borderRadius: 1,
           width: "100%",
         }}
@@ -97,7 +98,7 @@ const TRSAIO: React.FC<Props> = ({ items }) => {
             justifyContent: "center",
           }}
         >
-          <FadingImages images={items[selectedTap].img} interval={0} />
+          <FadingImages images={items[selectedTap].img} interval={3} />
         </Box>
       </Grid>
     </Grid>

@@ -134,6 +134,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
           </Box>
           <Box sx={{minWidth:'100%',display:'flex',alignItems:'center',justifyContent:'center',}}>
           {isMobile&& <Button
+          onClick={()=>{console.log("hiiii")}}
             variant="contained"
             sx={{
               

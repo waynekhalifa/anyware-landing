@@ -50,7 +50,7 @@ const TRS: React.FC = () => {
           height: "100vh",
           position: "absolute",
           overflowX: "clip",
-          paddingTop: isMobile ? 80 : 120,
+          paddingTop: isMobile ? 100 : 120,
         }}
       >
         <Box

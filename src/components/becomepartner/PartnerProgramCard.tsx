@@ -31,7 +31,7 @@ const PartnerProgramCard: React.FC<Props> = ({ items, index,selected }) => {
         borderRadius:10,
         boxShadow:index===selected ? '0px 2px 4px #D7B35E' :'0px 2px 4px #aaa',
         cursor: 'pointer',
-        transition : 'transform 0.5s ease-in-out',
+        // transition : 'transform 0.5s ease-in-out',
     
         
       }}
