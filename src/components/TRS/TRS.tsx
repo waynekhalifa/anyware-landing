@@ -182,7 +182,7 @@ const TRS: React.FC = () => {
                   margin: 0,
                 }}
               >
-                <TRScard index={index + 1} items={item} />
+                <TRScard index={index } items={item} />
               </Box>
             </Grid>
           ))}
