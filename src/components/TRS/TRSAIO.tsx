@@ -100,12 +100,12 @@ const TRSAIO: React.FC<Props> = ({ items, index }) => {
           <Image 
           alt="aio"
       src={items[selectedTap].img[0].src}
-      priority
       layout="fill"
       objectFit="contain"
       
       style={{  width:  "100%" , height:  "100%" }}
       />
+      
         </Box>
         
       </Grid>

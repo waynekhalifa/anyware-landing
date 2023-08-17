@@ -46,7 +46,7 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       src={item.src}
       placeholder="blur"
       blurDataURL={item.blurDataURL}
-      priority
+      priority = {images[currentIndex].src === item.src ? true : false}
       layout="fill"
       objectFit="contain"
       
