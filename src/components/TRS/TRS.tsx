@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import { Items, TRSaio } from "./TRSconstants";
 import TRScard from "./TRScard";
 import reif from "@images/reif.webp";
-import megumi from "@images/megumi.png";
+import megumi from "@images/megumi.webp";
 import lexies from "@images/lexies.webp";
 import sachi from "@images/sachi.webp";
 import shinko from "@images/shinko.webp";
@@ -19,8 +19,8 @@ import Head from "next/head";
 import { getAnalytics, logEvent, setUserId } from "firebase/analytics";
 
 const TRS: React.FC = () => {
-  const venues = [shinko, reif, megumi, lexies, sachi, kazoku];
   const { isMobile, width } = useIsMobile();
+  const venues = !isMobile ? [shinko, reif, megumi, lexies, sachi, kazoku] :[shinko, kazoku, reif, megumi, lexies, sachi,]  ;
 
   useEffect(() => {
     const analytics = getAnalytics();
@@ -123,6 +123,7 @@ const TRS: React.FC = () => {
             <Grid
               xs={12}
               container
+              spacing={4}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -146,7 +147,7 @@ const TRS: React.FC = () => {
                       layout="fixed"
                       width="150px"
                       priority
-                      height={"55px"}
+                      height={isMobile ?(index===1 || index===0 ) ? "80px" : "60px" :(index===venues.length-1 || index===0 ) ? "80px" : "60px"}
                       objectFit="contain"
                       src={venue.src}
                       style={{ opacity: "0.7" }}

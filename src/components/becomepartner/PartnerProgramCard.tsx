@@ -19,19 +19,19 @@ const PartnerProgramCard: React.FC<Props> = ({ items, index,selected }) => {
   return (
     <Box
       style={{
-        width: "100%",
+        width: isMobile? "90%":"100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-start",
         flexDirection: "column",
-        minHeight: "100%",
+        minHeight: "500px",
         maxHeight: "100%",  
         border  :index===selected ? 'solid 2px #D7B35E' : 'solid 0.5px #aaa',
-        transform:index===selected ? 'scale(1)' : 'scale(0.8)',
+        transform:index===selected ? 'scale(0.9)' : 'scale(0.7)',
         borderRadius:10,
         boxShadow:index===selected ? '0px 2px 4px #D7B35E' :'0px 2px 4px #aaa',
         cursor: 'pointer',
-        // transition : 'transform 0.5s ease-in-out',
+        transition : 'transform 0.5s ease-in-out',
     
         
       }}
