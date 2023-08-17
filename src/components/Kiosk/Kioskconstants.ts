@@ -1,5 +1,5 @@
-import kiosk1 from "../../../public/images/kiosk1.png";
-import kioskpage2 from "../../../public/images/kioskpage2.png";
+import kiosk1 from "../../../public/images/kiosk1.webp";
+import kioskpage2 from "../../../public/images/kioskpage2.webp";
 import kioskpage3 from "../../../public/images/kioskpage3.webp";
 const makeRes = {
   typo: "Self-Ordering Kiosk Solution for restaurants",

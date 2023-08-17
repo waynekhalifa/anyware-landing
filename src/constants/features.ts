@@ -5,7 +5,7 @@ import meeza from "../../public/images/meeza.png";
 import masterCard from "../../public/images/masterCard.png";
 import payment1 from "../../public/images/payment1.png";
 import payment2 from "../../public/images/payment2.png";
-import payment3 from "../../public/images/payment3.png";
+import payment3 from "../../public/images/payment3.webp";
 import cashless1 from "../../public/images/cashless1.webp";
 import cashless2 from "../../public/images/cashless2.webp";
 import crmSol from "../../public/images/crmSol.png";
@@ -17,17 +17,17 @@ import survey3 from "../../public/images/survey3.png";
 import onlineOrder from "../../public/images/onlineorder.png";
 import onlineOrder2 from "../../public/images/onlineorder2.png";
 import qrdineIn from "../../public/images/qrdinein.png";
-import kiosk1 from "../../public/images/kiosk1.png";
+import kiosk1 from "../../public/images/kiosk1.webp";
 import kiosk2 from "../../public/images/kioskpage3.webp";
-import kiosk3 from "../../public/images/kiosk3.png";
+import kiosk3 from "../../public/images/kiosk3.webp";
 import Tab4_1 from "../../public/images/4thTab1.webp";
 import Tab4_2 from "../../public/images/4thTab2.webp";
 import Tab5_1 from "../../public/images/5thTab1.webp";
 import Tab5_2 from "../../public/images/5thTab2.webp";
-import sec3tab1 from "../../public/images/sec3tab1.png";
-import sec3tab2 from "../../public/images/sec3tab2.png";
-import sec3tab2_1 from "../../public/images/sec3tab2_1.png";
-import sec3tab2_2 from "../../public/images/sec3tab2_2.png";
+import sec3tab1 from "../../public/images/sec3tab1.webp";
+import sec3tab2 from "../../public/images/sec3tab2.webp";
+import sec3tab2_1 from "../../public/images/sec3tab2_1.webp";
+import sec3tab2_2 from "../../public/images/sec3tab2_2.webp";
 export const items = [
   {
     title: "POS Payment Integrations",

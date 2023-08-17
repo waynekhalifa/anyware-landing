@@ -150,6 +150,7 @@ const TRS: React.FC = () => {
                       alt="Venue Logos"
                       layout="fixed"
                       width="200px"
+                      priority
                       height={
                         index == venues.length - 1 || venues.length - 5
                           ? "100px" 

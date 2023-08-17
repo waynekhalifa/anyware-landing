@@ -46,10 +46,10 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       src={item.src}
       placeholder="blur"
       blurDataURL={item.blurDataURL}
-      priority = {images[currentIndex].src === item.src ? true : false}
+      priority 
       layout="fill"
       objectFit="contain"
-      
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"      
       style={{  width: images[currentIndex].src === item.src ? "100%" : "0%" , height:  images[currentIndex].src === item.src ? "100%" : "0%",transition:"opacity 1s ease-in-out", opacity:images[currentIndex].src === item.src ? 1:0 }}
       />
     )) )

@@ -63,7 +63,7 @@ const BannerForm = ({ bannerData, videoKey, SlidePage , Arrows} : any) => {
         component="h1"
         variant={isMobile ? "h5" : "h3"}
         fontWeight={700}
-        sx={{ mb: bannerData.index === 2 ? 0 : 2 }}
+        sx={{ mb: isMobile ? (bannerData.index === 2 ? 0 : 2) : 2}}
       >
         {bannerData.title}
         {/* All in one hospitality
@@ -73,7 +73,7 @@ const BannerForm = ({ bannerData, videoKey, SlidePage , Arrows} : any) => {
       <Typography
         variant="body2"
         fontWeight={500}
-        sx={{ mb: bannerData.index === 2 ? 0 : 2 }}
+        sx={{ mb: isMobile ? (bannerData.index === 2 ? 0 : 2) : 2 }}
       >
         {bannerData.description}
         {/* {`Online Ordering, Table Reservation, Call Center, Rewarding Loyalty Solution & more.`} */}
@@ -88,8 +88,8 @@ const BannerForm = ({ bannerData, videoKey, SlidePage , Arrows} : any) => {
             transform: isMobile
                 ? bannerData.index === 1 ? "scale(0.85)":"scale(0.7)"
               : "scale(1)",
-            marginBottom: bannerData.index === 2 ? 0 : 2,
-            marginTop:bannerData.index===1 ? 5 :0,
+            marginBottom:  isMobile ? bannerData.index === 2 ? 0 : 2 : 2,
+            marginTop: isMobile ? bannerData.index===1 ? 5 :0 : 0,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

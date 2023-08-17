@@ -95,17 +95,7 @@ const TRSAIO: React.FC<Props> = ({ items, index }) => {
             justifyContent: "center", 
           }}
         >
-          
-          {/* <FadingImages images={items[selectedTap].img} interval={0} /> */}
-          <Image 
-          alt="aio"
-      src={items[selectedTap].img[0].src}
-      layout="fill"
-      objectFit="contain"
-      
-      style={{  width:  "100%" , height:  "100%" }}
-      />
-      
+          <FadingImages images={items[selectedTap].img} interval={0} />
         </Box>
         
       </Grid>
