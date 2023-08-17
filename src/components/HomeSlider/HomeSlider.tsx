@@ -124,7 +124,7 @@ const HomeSlider = () => {
             justifyContent: "center",
           }}
         >
-          <Video key={videoKey} SlidePage={1} />
+          <Video key={videoKey} SlidePage={2} />
         </Grid>}
       </Grid>
     </Grid>,
@@ -143,7 +143,7 @@ const HomeSlider = () => {
     >
       <Grid container key="1">
       <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData2} videoKey={videoKey} SlidePage={2} Arrows={Arrows}/>
+          <BannerForm bannerData={bannerData2} videoKey={videoKey} SlidePage={1} Arrows={Arrows}/>
         </Grid>
         {!isMobile && <Grid
           item
