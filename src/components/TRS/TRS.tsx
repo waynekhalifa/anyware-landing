@@ -3,7 +3,7 @@ import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Header from "../Header/Header";
 import { Items, TRSaio } from "./TRSconstants";
 import TRScard from "./TRScard";
-import reif from "@images/reif.webp"
+import reif from "@images/reif.webp";
 import megumi from "@images/megumi.webp";
 import lexies from "@images/lexies.webp";
 import sachi from "@images/sachi.webp";
@@ -11,24 +11,26 @@ import shinko from "@images/shinko.webp";
 import kazoku from "@images/kazoku.webp";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
-import bannerBg from "../../../public/images/home-header-bg.webp";
+import bannerBg from "@images/home-header-bg.webp";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import TRSAIO from "./TRSAIO";
 import Head from "next/head";
 import { getAnalytics, logEvent, setUserId } from "firebase/analytics";
 
-
 const TRS: React.FC = () => {
   const venues = [shinko, reif, megumi, lexies, sachi, kazoku];
   const { isMobile, width } = useIsMobile();
 
-  
   useEffect(() => {
     const analytics = getAnalytics();
-    setUserId(analytics, "user1")
-    logEvent(analytics, "page_view", { user_id: "user1", page_name: "TRS",num:"01123204458", });
-  console.log("hi")
+    setUserId(analytics, "user1");
+    logEvent(analytics, "page_view", {
+      user_id: "user1",
+      page_name: "TRS",
+      num: "01123204458",
+    });
+    console.log("hi");
   }, []);
 
   return (
@@ -38,7 +40,7 @@ const TRS: React.FC = () => {
         <meta name="description" content={"Anyware Software"} />
       </Head>
       <Header />
-      <div
+      <Box
         style={{
           display: "flex",
           flexDirection: "column",
@@ -48,7 +50,7 @@ const TRS: React.FC = () => {
           height: "100vh",
           position: "absolute",
           overflowX: "clip",
-          paddingTop: isMobile ?80 : 120,
+          paddingTop: isMobile ? 80 : 120,
         }}
       >
         <Box
@@ -151,8 +153,8 @@ const TRS: React.FC = () => {
                       priority
                       height={
                         index == venues.length - 1 || venues.length - 5
-                          ? "100px" 
-                          : "90px" 
+                          ? "100px"
+                          : "90px"
                       }
                       objectFit="contain"
                       src={venue.src}
@@ -165,7 +167,7 @@ const TRS: React.FC = () => {
           </Grid>
           {Items.slice(1, Items.length).map((item, index) => (
             <Grid
-              key={index + 1}
+              key={index + 1 + "items"}
               style={{
                 width: "100%",
                 padding: 0,
@@ -182,7 +184,7 @@ const TRS: React.FC = () => {
                   margin: 0,
                 }}
               >
-                <TRScard index={index } items={item} />
+                <TRScard index={index + 1} items={item} />
               </Box>
             </Grid>
           ))}
@@ -216,12 +218,12 @@ const TRS: React.FC = () => {
                     }
               }
             >
-              <TRSAIO  items={TRSaio} />
+              <TRSAIO items={TRSaio} />
             </Box>
           </Grid>
         </Grid>
         <Footer />
-      </div>
+      </Box>
     </>
   );
 };

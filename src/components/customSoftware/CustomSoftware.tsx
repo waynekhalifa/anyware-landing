@@ -5,15 +5,15 @@ import { Items } from "./CustomSoftwareconstants";
 import CashlessWalletcard from "../CashlessWallet/CashlessWalletcard";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
-import bannerBg from "../../../public/images/home-header-bg.webp";
+import bannerBg from "@images/home-header-bg.webp";
 import Footer from "../Footer/Footer";
-import vodafonelogo from '../../../public/images/vodafonelogo.png';
-import bakylogo from '../../../public/images/bakylogo.png';
-import newGenIcon from '../../../public/images/newGenIcon.png';
-import astenlogo from '../../../public/images/astenlogo.png';
-import balancedlogo from '../../../public/images/balancedlogo.webp';
-import edufylogo from '../../../public/images/edufylogo.png';
-import entreprewarelogo from '../../../public/images/entreprewarelogo.png';
+import vodafonelogo from '@images/vodafonelogo.png';
+import bakylogo from '@images/bakylogo.png';
+import newGenIcon from '@images/newGenIcon.png';
+import astenlogo from '@images/astenlogo.png';
+import balancedlogo from '@images/balancedlogo.webp';
+import edufylogo from '@images/edufylogo.png';
+import entreprewarelogo from '@images/entreprewarelogo.png';
 
 const CustomSoftware: React.FC = () => {
   const { isMobile, width } = useIsMobile();

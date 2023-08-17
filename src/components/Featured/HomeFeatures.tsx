@@ -1,12 +1,12 @@
 import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
 import ReactGA from "react-ga";
 import { useCallback, useEffect, useState } from "react";
-import bannerBg from "../../../public/images/home-header-bg.webp";
-import millenium from "../../../public/images/millenium.png";
-import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.webp";
-import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.webp";
-import caffe from "../../../public/images/ni-caffe-removebg-preview 1.webp";
-import caf from "../../../public/images/CAF.webp";
+import bannerBg from "@images/home-header-bg.webp";
+import millenium from "@images/millenium.png";
+import movenpick from "@images/Movenpick_logo_Hotels_Resorts 1.webp";
+import jeddah from "@images/Jeddah Living 316X71 F 1.webp";
+import caffe from "@images/ni-caffe-removebg-preview 1.webp";
+import caf from "@images/CAF.webp";
 
 import FeaturedCard from "./FeaturedCard";
 import { allItems } from "@/constants/features";

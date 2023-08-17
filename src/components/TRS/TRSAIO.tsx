@@ -82,7 +82,7 @@ const TRSAIO: React.FC<Props> = ({ items }) => {
           minWidth: "50%",
           minHeight: "100%",
           backgroundImage: "linear-gradient(to right bottom, #B48C44, #E4C66C)",
-          boxShadow: "0 6px 6px rgba(228,198,108,0.3)",
+          // boxShadow: "0 6px 6px rgba(228,198,108,0.3)",
           borderRadius: 1,
           width: "100%",
         }}

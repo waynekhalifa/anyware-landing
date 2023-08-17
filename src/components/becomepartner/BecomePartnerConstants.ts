@@ -1,6 +1,6 @@
-import becomepartner from "../../../public/images/becomepartner.webp"
-import handshakeicon from "../../../public/images/handshakeicon.svg"
-import recycleicon from "../../../public/images/recycleicon.svg"
+import becomepartner from "@images/becomepartner.webp"
+import handshakeicon from "@images/handshakeicon.svg"
+import recycleicon from "@images/recycleicon.svg"
 
 const makeRes = {
   typo: "Partner with Anyware Software",

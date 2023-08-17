@@ -1,8 +1,8 @@
-import POS from "../../../public/images/posPayment.png"
-import integration1 from "../../../public/images/integration1.png";
-import integration2 from "../../../public/images/integration2.png";
+import POS from "@images/posPayment.png"
+import integration1 from "@images/integration1.png";
+import integration2 from "@images/integration2.png";
 
-import bannerform3 from "../../../public/images/bannerform3.webp";
+import bannerform3 from "@images/bannerform3.webp";
 const makeRes = {
   typo: "Get your Oracle Micros Simphony POS Sales Synchronized to your ERP daily!",
   Description:"Boost the operational flow of your restaurant by seamlessly integrating Simphony & Oracle Inventory data with your preferred ERP ", 

@@ -1,7 +1,7 @@
 import { Container, Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import NextImage from "next/image";
-import checkGold from "../../../public/images/checkGold.png";
+import checkGold from "@images/checkGold.png";
 import useIsMobile from "@/hooks/useIsMobile";
 
 interface Props {

@@ -6,8 +6,8 @@ import FadingImages from "../fadingImages/FadingImages";
 import useIsMobile from "@/hooks/useIsMobile";
 import AnimatedTexts from "../animatedTexts/AnimatedTexts";
 import NextImage from "next/image";
-import handshakeicon from "../../../public/images/handshakeicon.svg"
-import recycleicon from "../../../public/images/recycleicon.svg"
+import handshakeicon from "@images/handshakeicon.svg"
+import recycleicon from "@images/recycleicon.svg"
 interface Props {
   items: any;
   index: number;
@@ -73,7 +73,7 @@ const PartnerProgramCard: React.FC<Props> = ({ items, index,selected }) => {
       
       </Grid>
       <Grid xs={12} sx={{}}>
-      <Button
+      {/* <Button
           variant="text"
           sx={{
             backgroundColor: "transparent",
@@ -102,7 +102,7 @@ const PartnerProgramCard: React.FC<Props> = ({ items, index,selected }) => {
           }
         >
           Learn more
-        </Button>
+        </Button> */}
       </Grid>
     </Box>
   );

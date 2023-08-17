@@ -5,14 +5,14 @@ import {programs,Items} from "./BecomePartnerConstants"
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
 import Footer from "../Footer/Footer";
-import millenium from "../../../public/images/millenium.png";
-import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.webp";
-import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.webp";
-import caffe from "../../../public/images/ni-caffe-removebg-preview 1.webp";
-import caf from "../../../public/images/CAF.webp";
+import millenium from "@images/millenium.png";
+import movenpick from "@images/Movenpick_logo_Hotels_Resorts 1.webp";
+import jeddah from "@images/Jeddah Living 316X71 F 1.webp";
+import caffe from "@images/ni-caffe-removebg-preview 1.webp";
+import caf from "@images/CAF.webp";
 import BecomePartnerCard from "./BecomePartnerCard";
 import PartnerProgramCard from "./PartnerProgramCard";
-import anywarepartner from "../../../public/images/anywarepartner.png";
+import anywarepartner from "@images/anywarepartner.png";
 import { useState } from "react";
 const BecomePartner: React.FC = () => {
   const { isMobile, width } = useIsMobile();
@@ -78,7 +78,7 @@ const BecomePartner: React.FC = () => {
           </Grid>
           <Grid container spacing={4} style={{display:'flex',width:'100%',justifyContent:'center',alignItems:'center',flexWrap:'wrap',flexDirection:'row'}} >
             {programs.map((program : any, index:number)=>(
-          <Grid key={index} xs={12} sx={{width:isMobile?'80%':'20%',minHeight:400,marginTop:isMobile? 0:5}} onMouseEnter={()=>setSelected(index)} onMouseLeave={()=>setSelected(-1)} >
+          <Grid key={index} xs={12} sx={{width:isMobile?'80%':'20%',minHeight:400,marginTop:isMobile? 0:5}} onClick={index===selected ? ()=>setSelected(-1):()=>setSelected(index)}  >
         <PartnerProgramCard items={program} index={index} selected={selected}/>
           </Grid>
             ))}

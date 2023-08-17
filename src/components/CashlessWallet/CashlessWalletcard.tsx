@@ -6,7 +6,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import AnimatedTexts from "../animatedTexts/AnimatedTexts";
 import NextImage from "next/image";
 import bannerBg from '@images/home-header-bg.webp';
-import checkGold from "../../../public/images/checkGold.png"
+import checkGold from "@images/checkGold.png"
 
 interface Props {
   items: any;

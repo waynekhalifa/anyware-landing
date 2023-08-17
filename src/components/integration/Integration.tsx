@@ -5,10 +5,10 @@ import { Items } from "./Integrationconstants";
 import CashlessWalletcard from "../CashlessWallet/CashlessWalletcard";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
-import bannerBg from "../../../public/images/home-header-bg.webp";
+import bannerBg from "@images/home-header-bg.webp";
 import Footer from "../Footer/Footer";
 
-import integrationPartners from "../../../public/images/integrationPartners.png"
+import integrationPartners from "@images/integrationPartners.png"
 import { useEffect } from "react";
 import { getAnalytics, logEvent, setUserId, setUserProperties } from "@firebase/analytics";
 

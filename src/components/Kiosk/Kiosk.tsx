@@ -5,11 +5,10 @@ import { Items } from "./Kioskconstants";
 import CashlessWalletcard from "../CashlessWallet/CashlessWalletcard";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
-import bannerBg from "../../../public/images/home-header-bg.webp";
+import bannerBg from "@images/home-header-bg.webp";
 import Footer from "../Footer/Footer";
 import { getAnalytics, logEvent, setUserId, setUserProperties } from "@firebase/analytics";
 import { useEffect } from "react";
-import useFireBaseAnalysis from "@/hooks/useFireBaseAnalysis";
 const Kiosk: React.FC = () => {
   const { isMobile, width } = useIsMobile();
     

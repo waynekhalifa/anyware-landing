@@ -5,12 +5,12 @@ import { Items } from "./CashlessWalletconstants";
 import CashlessWalletcard from "./CashlessWalletcard";
 import useIsMobile from "@/hooks/useIsMobile";
 import NextImage from "next/image";
-import bannerBg from "../../../public/images/home-header-bg.webp";
+import bannerBg from "@images/home-header-bg.webp";
 import Footer from "../Footer/Footer";
-import millenium from "../../../public/images/millenium.svg";
-import movenpick from "../../../public/images/Movenpick_logo_Hotels_Resorts 1.webp";
-import jeddah from "../../../public/images/Jeddah Living 316X71 F 1.webp";
-import coralBay from "../../../public/images/coralBay.webp";
+import millenium from "@images/millenium.svg";
+import movenpick from "@images/Movenpick_logo_Hotels_Resorts 1.webp";
+import jeddah from "@images/Jeddah Living 316X71 F 1.webp";
+import coralBay from "@images/coralBay.webp";
 const CashlessWallet: React.FC = () => {
   const { isMobile, width } = useIsMobile();
   const venues = [millenium, movenpick, jeddah, coralBay];

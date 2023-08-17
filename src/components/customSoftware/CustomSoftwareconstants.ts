@@ -1,8 +1,8 @@
-import custom1 from "../../../public/images/custom1.png";
-import custom2 from "../../../public/images/custom2.png";
-import custom3 from "../../../public/images/custom3.png";
-import custom4 from "../../../public/images/custom4.png";
-import custom5 from "../../../public/images/custom5.png";
+import custom1 from "@images/custom1.png";
+import custom2 from "@images/custom2.png";
+import custom3 from "@images/custom3.png";
+import custom4 from "@images/custom4.png";
+import custom5 from "@images/custom5.png";
 
 const makeRes = {
   typo: "Customize your website or platform as per your business requirements.",

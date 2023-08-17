@@ -1,14 +1,14 @@
-import trs1 from "../../../public/images/trs1.webp";
-import trs2 from "../../../public/images/trs2.webp";
-import trs3 from "../../../public/images/trs3.webp";
-import bakymobile4 from "../../../public/images/bakymobile4.webp"
-import bakymobile5 from "../../../public/images/bakymobile5.webp"
-import bakymobile6 from "../../../public/images/bakymobile6.webp"
-import aio1 from "../../../public/images/aio1.webp"
-import aio3 from "../../../public/images/aio3.webp"
-import aio4 from "../../../public/images/aio4.webp"
-import aio5 from "../../../public/images/aio5.webp"
-import aio6 from "../../../public/images/aio6.webp"
+import trs1 from "@images/trs1.webp";
+import trs2 from "@images/trs2.webp";
+import trs3 from "@images/trs3.webp";
+import bakymobile4 from "@images/bakymobile4.webp"
+import bakymobile5 from "@images/bakymobile5.webp"
+import bakymobile6 from "@images/bakymobile6.webp"
+import aio1 from "@images/aio1.webp"
+import aio3 from "@images/aio3.webp"
+import aio4 from "@images/aio4.webp"
+import aio5 from "@images/aio5.webp"
+import aio6 from "@images/aio6.webp"
 const makeRes = {
   typo: "Make outings and special events reservations more easy!",
   Description:
@@ -42,14 +42,12 @@ const floorMap = {
 };
 const deposit = {
   typo: "Collect Reservation Deposits From your  App or website.",
+  img : [bakymobile4,bakymobile5],
   Description:"Guests will pay upfront deposits in-app to confirm their spot reservation.",
-    // img : [bakymobile1,bakymobile2,bakymobile3],
-    img : [bakymobile4,bakymobile5],
     imgOrientation: "portrait",
-
   animatedTexts: {
     items: [],
-    animationType: "slide",
+    animationType: "none",
   },
   direction:"row-reverse"
 };

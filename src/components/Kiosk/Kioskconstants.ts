@@ -1,6 +1,6 @@
-import kiosk1 from "../../../public/images/kiosk1.webp";
-import kioskpage2 from "../../../public/images/kioskpage2.webp";
-import kioskpage3 from "../../../public/images/kioskpage3.webp";
+import kiosk1 from "@images/kiosk1.webp";
+import kioskpage2 from "@images/kioskpage2.webp";
+import kioskpage3 from "@images/kioskpage3.webp";
 const makeRes = {
   typo: "Self-Ordering Kiosk Solution for restaurants",
   Description:"Your perfect go-to in order to forget about long waiting queues in events and forever!", 

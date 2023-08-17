@@ -1,8 +1,8 @@
-import CashlessWallet1 from "../../../public/images/CashlessWallet1.webp";
-import CashlessWallet2 from "../../../public/images/CashlessWallet2.webp";
-import CashlessWallet3 from "../../../public/images/CashlessWallet3.webp";
-import CashlessWallet4 from "../../../public/images/CashlessWallet4.webp";
-import CashlessWallet5 from "../../../public/images/CashlessWallet5.webp";
+import CashlessWallet1 from "@images/CashlessWallet1.webp";
+import CashlessWallet2 from "@images/CashlessWallet2.webp";
+import CashlessWallet3 from "@images/CashlessWallet3.webp";
+import CashlessWallet4 from "@images/CashlessWallet4.webp";
+import CashlessWallet5 from "@images/CashlessWallet5.webp";
 const makeRes = {
   typo: "Collect  upfront  payments by getting your own cashless wallet!",
   Description:"An extremely simple and safe method for your guests to pay for their transactions!", 

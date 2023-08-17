@@ -5,7 +5,7 @@ import BannerForm from "../Featured/BannerForm";
 import Video from "./Video";
 import useIsMobile from "@/hooks/useIsMobile";
 import { bannerItems } from "@/constants/features";
-import bannerform1 from "../../../public/images/bannerform1.webp";
+import bannerform1 from "@images/bannerform1.webp";
 
 interface StateProps {
   videoKey: string;
@@ -109,7 +109,7 @@ const HomeSlider = () => {
     >
       <Grid container>
         <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData1} videoKey={videoKey} SlidePage={2} Arrows={Arrows} />
+          <BannerForm bannerData={bannerData1} videoKey={videoKey} SlidePage={1} Arrows={Arrows} />
         </Grid>
         {!isMobile && <Grid
           item
@@ -124,7 +124,7 @@ const HomeSlider = () => {
             justifyContent: "center",
           }}
         >
-          <Video key={videoKey} SlidePage={2} />
+          <Video key={videoKey} SlidePage={1} />
         </Grid>}
       </Grid>
     </Grid>,
@@ -143,7 +143,7 @@ const HomeSlider = () => {
     >
       <Grid container key="1">
       <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData2} videoKey={videoKey} SlidePage={1} Arrows={Arrows}/>
+          <BannerForm bannerData={bannerData2} videoKey={videoKey} SlidePage={2} Arrows={Arrows}/>
         </Grid>
         {!isMobile && <Grid
           item

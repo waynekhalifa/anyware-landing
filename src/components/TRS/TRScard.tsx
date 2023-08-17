@@ -131,7 +131,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
               
             }}
           >
-             <FadingImages images={items.img} interval={items.img.length>1  ? 5 : 0} />
+             <FadingImages images={items.img} interval={3} />
           </Box>
           <Box sx={{minWidth:'100%',display:'flex',alignItems:'center',justifyContent:'center',}}>
           {isMobile&& <Button
