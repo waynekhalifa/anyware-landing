@@ -58,7 +58,6 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
       <Grid
         container
         spacing={4}
-        
         sx={{
           minWidth: isMobile ? "100%" : "100%",
           maxWidth: isMobile ? "100%" : "120%",
