@@ -32,7 +32,8 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
         flexDirection: "column",
         minHeight: "100%",
         maxHeight: "100%",
-        position:'relative'
+        position:'relative',
+        
       }}
     >
        {index!==0 && <Box
@@ -61,7 +62,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
         sx={{
           minWidth: isMobile ? "100%" : "100%",
           maxWidth: isMobile ? "100%" : "120%",
-          paddingTop: isMobile ? 15 : 0,
+          
           paddingLeft: isMobile ? 0 : 10,
           paddingRight: isMobile ? 0 : 10,
           marginBottom: isMobile?0:10,
@@ -69,7 +70,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
           flexDirection: items.direction
         }}
       >
-        <Grid xs={isMobile ? 12 : 6} sx={{}}>
+        <Grid xs={isMobile ? 12 : 6} sx={{marginBottom:0}}>
           <Typography
             variant="h4"
             style={{
@@ -84,7 +85,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
           {items.Description && (
             <AnimatedTexts
               texts={[items.Description]}
-              interval={2}
+              interval={0}
               animationType={"none"}
               direction={items.direction}
             />
@@ -119,15 +120,15 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
             Get Started
           </Button>}
         </Grid>
-        <Grid xs={isMobile ? 12 : 6} sx={{}}>
+        <Grid xs={isMobile ? 12 : 6} sx={items.imgOrientation=="landscape"?{margin:0,padding:0}:{}}>
           <Box
             style={{
               width: "100%",
               height: "400px",
               transform :items.imgOrientation=="landscape"?  "scale(1)" : "scale(1.4)",
               position: "relative",
-              marginTop: isMobile && items.imgOrientation==="landscape" ? -80 : 0,
-              marginBottom: isMobile && items.imgOrientation==="landscape" ? -40 : 0
+              margin:0,padding:0
+              
             }}
           >
              <FadingImages images={items.img} interval={items.img.length>1  ? 3 : 0} />

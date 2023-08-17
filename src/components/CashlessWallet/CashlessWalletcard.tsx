@@ -1,7 +1,6 @@
 import { Box, Button, Container, Tab, Tabs, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
-import Image from "next/image";
 import FadingImages from "../fadingImages/FadingImages";
 import useIsMobile from "@/hooks/useIsMobile";
 import AnimatedTexts from "../animatedTexts/AnimatedTexts";
@@ -43,6 +42,7 @@ const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
           alt="Banner background"
           layout="fill"
           src={bannerBg.src}
+          sizes="(max-width: 768px) 100vw"  
           style={{
             zIndex: -12,
           }}
@@ -111,6 +111,7 @@ const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
                     height={14}
                     alt="gold check sign"
                     src={checkGold.src}
+                    sizes="(max-width: 768px) 100vw"  
                   />
                 <Typography>{items.animatedTexts.items}</Typography>
                 </Box>

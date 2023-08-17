@@ -164,7 +164,7 @@ const BannerForm = ({ bannerData, videoKey, SlidePage , Arrows} : any) => {
               left: width / 2 - 85,
             }}
           >
-            <Image src={act} alt="oracle" layout="fill" objectFit="contain" />
+            <Image src={act} alt="oracle" layout="fill" objectFit="contain" sizes="(max-width: 768px) 100vw"   />
           </Box>
         </Box>
       ) : (

@@ -7,31 +7,30 @@ import Image from "next/image";
 
 interface Props {
   items: any;
-  index: number;
 }
-const TRSAIO: React.FC<Props> = ({ items, index }) => {
+const TRSAIO: React.FC<Props> = ({ items }) => {
   const [selectedTap, setSelectedTap] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    console.log(newValue)
+    console.log(newValue);
     setSelectedTap(newValue);
   };
-  
+
   const { isMobile, width } = useIsMobile();
   const tabs = items.map((item: any) => item.title);
   return (
     <Grid
-      key={index}
       spacing={4}
       style={{
         marginBottom: "10vh",
-        maxWidth: isMobile ? "90%":"100%",
+        maxWidth: isMobile ? "90%" : "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: isMobile ? "column" : "row",
         overflow: "hidden",
-        margin:0,padding:0
+        margin: 0,
+        padding: 0,
       }}
     >
       <Grid xs={isMobile ? 14 : 4} sx={{}}>
@@ -45,7 +44,12 @@ const TRSAIO: React.FC<Props> = ({ items, index }) => {
           sx={
             !isMobile
               ? { borderRight: 1, borderColor: "divider", maxHeight: "100%" }
-              : { maxWidth: width, marginBottom: "0rem" ,borderBottom: 1, borderColor: "divider",}
+              : {
+                  maxWidth: width,
+                  marginBottom: "0rem",
+                  borderBottom: 1,
+                  borderColor: "divider",
+                }
           }
         >
           {tabs.map((tab: any, index: number) => (
@@ -74,31 +78,27 @@ const TRSAIO: React.FC<Props> = ({ items, index }) => {
           paddingRight: 0,
           alignItems: "center",
           justifyContent: "center",
-          aligmSelf:'center',
+          aligmSelf: "center",
           minWidth: "50%",
           minHeight: "100%",
           backgroundImage: "linear-gradient(to right bottom, #B48C44, #E4C66C)",
           boxShadow: "0 6px 6px rgba(228,198,108,0.3)",
-          borderRadius:1,
-          width:'100%',
-          
+          borderRadius: 1,
+          width: "100%",
         }}
       >
-        
-        
         <Box
           style={{
-            width:  "100%",
+            width: "100%",
             height: "500px",
             position: "relative",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center", 
+            justifyContent: "center",
           }}
         >
           <FadingImages images={items[selectedTap].img} interval={0} />
         </Box>
-        
       </Grid>
     </Grid>
   );

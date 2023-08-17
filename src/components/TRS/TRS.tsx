@@ -47,10 +47,8 @@ const TRS: React.FC = () => {
           width: "100%",
           height: "100vh",
           position: "absolute",
-          // overflowX: "hidden",
-
           overflowX: "clip",
-          paddingTop: isMobile ? 20 : 120,
+          paddingTop: isMobile ?80 : 120,
         }}
       >
         <Box
@@ -109,8 +107,8 @@ const TRS: React.FC = () => {
               justifyContent: "center",
               flexDirection: "column",
               padding: 0,
-              marginBottom: isMobile ? -20 : 160,
-              marginTop: isMobile ? 20 : -100,
+              marginBottom: isMobile ? -20 : 80,
+              marginTop: isMobile ? 20 : -80,
             }}
           >
             <Grid xs={12}>
@@ -218,7 +216,7 @@ const TRS: React.FC = () => {
                     }
               }
             >
-              <TRSAIO index={0} items={TRSaio} />
+              <TRSAIO  items={TRSaio} />
             </Box>
           </Grid>
         </Grid>
