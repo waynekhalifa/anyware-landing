@@ -1,4 +1,4 @@
-import POS from "@images/posPayment.png"
+import POS from "@images/posPayment2.png"
 import integration1 from "@images/integration1.png";
 import integration2 from "@images/integration2.png";
 

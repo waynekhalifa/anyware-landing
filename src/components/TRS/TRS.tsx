@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import { Items, TRSaio } from "./TRSconstants";
 import TRScard from "./TRScard";
 import reif from "@images/reif.webp";
-import megumi from "@images/megumi.webp";
+import megumi from "@images/megumi.png";
 import lexies from "@images/lexies.webp";
 import sachi from "@images/sachi.webp";
 import shinko from "@images/shinko.webp";
@@ -42,15 +42,9 @@ const TRS: React.FC = () => {
       <Header />
       <Box
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          width: "100%",
-          height: "100vh",
-          position: "absolute",
-          overflowX: "clip",
-          paddingTop: isMobile ? 100 : 120,
+          
+          overflow: "hidden", position: "relative" ,flex:1,
+          paddingTop: isMobile ? 0 : 120,
         }}
       >
         <Box
@@ -61,6 +55,7 @@ const TRS: React.FC = () => {
             height: "185.43vh",
             display: "block",
             position: "absolute",
+            
           }}
         >
           <NextImage
@@ -139,7 +134,7 @@ const TRS: React.FC = () => {
                 return (
                   <Grid
                     key={index}
-                    xs={isMobile ? 6 : undefined}
+                    xs={isMobile ? 12 : undefined}
                     style={{
                       alignItems: "center",
                       display: "flex",
@@ -149,13 +144,9 @@ const TRS: React.FC = () => {
                     <NextImage
                       alt="Venue Logos"
                       layout="fixed"
-                      width="200px"
+                      width="150px"
                       priority
-                      height={
-                        index == venues.length - 1 || venues.length - 5
-                          ? "100px"
-                          : "90px"
-                      }
+                      height={"55px"}
                       objectFit="contain"
                       src={venue.src}
                       style={{ opacity: "0.7" }}

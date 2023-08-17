@@ -42,7 +42,7 @@ const floorMap = {
 };
 const deposit = {
   typo: "Collect Reservation Deposits From your  App or website.",
-  img : [bakymobile4],
+  img : [bakymobile4,bakymobile5],
   Description:"Guests will pay upfront deposits in-app to confirm their spot reservation.",
     imgOrientation: "portrait",
   animatedTexts: {

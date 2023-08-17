@@ -22,14 +22,7 @@ const CustomSoftware: React.FC = () => {
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        width: "100%",
-        height: "100vh",
-        position: "absolute",
-        overflowX:"clip",
+        overflow: "hidden", position: "relative" ,flex:1,
         paddingTop: isMobile ? 20 : 120,
       }}
     >

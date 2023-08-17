@@ -57,26 +57,22 @@ const BecomePartner: React.FC = () => {
       }, 1000);
     }
   };
-
+  
   return (
+    <>
+    
+    <Header />
+    
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        width: "100%",
-        height: "100vh",
-        position: "absolute",
-        overflowX: "clip",
+        overflow: "hidden", position: "relative" ,flex:1,
         paddingTop: isMobile ? 20 : 120,
       }}
     >
-      <Header />
       <Grid xs={12} sx={{ margin: 0, padding: 0, width: "100%" }}>
         <BecomePartnerCard index={0} items={Items[0]} />
       </Grid>
-      <Grid xs={12} sx={{ marginTop: isMobile ? 5 : 10 }}>
+      <Grid xs={12} sx={{ marginTop: isMobile ? 5 : 10  }}>
         <Typography
           color="text.secondary"
           align="center"
@@ -96,6 +92,7 @@ const BecomePartner: React.FC = () => {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "row",
+          
         }}
       >
         {venues.map((venue, index) => {
@@ -284,6 +281,7 @@ const BecomePartner: React.FC = () => {
       </>}
       <Footer />
     </div>
+    </>
   );
 };
 

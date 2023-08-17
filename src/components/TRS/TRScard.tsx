@@ -1,13 +1,11 @@
 import { Box, Button, Container, Tab, Tabs, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
-
 import FadingImages from "../fadingImages/FadingImages";
 import useIsMobile from "@/hooks/useIsMobile";
 import AnimatedTexts from "../animatedTexts/AnimatedTexts";
 import NextImage from "next/image";
 import bannerBg from '@images/home-header-bg.webp';
-import { getAnalytics, logEvent, setUserId } from "@firebase/analytics";
 
 interface Props {
   items: any;
@@ -16,12 +14,6 @@ interface Props {
 
 const TRScard: React.FC<Props> = ({ items, index }) => {
   const { isMobile, width } = useIsMobile();
-  const handleClick=()=>{
-    const analytics = getAnalytics();
-    setUserId(analytics, "user1")
-    logEvent(analytics, "UserJourney", { user_id: "user1",eventHappened:"TRS GET STARTED, 01123204458, 13/8/23" });
-  
-  }
   return (
     <Box
       style={{
@@ -32,8 +24,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
         flexDirection: "column",
         minHeight: "100%",
         maxHeight: "100%",
-        position:'relative',
-        
+        position:'relative'
       }}
     >
        {index!==0 && <Box
@@ -58,10 +49,11 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
       <Grid
         container
         spacing={4}
+        
         sx={{
           minWidth: isMobile ? "100%" : "100%",
           maxWidth: isMobile ? "100%" : "120%",
-          
+          paddingTop: isMobile ? 15 : 0,
           paddingLeft: isMobile ? 0 : 10,
           paddingRight: isMobile ? 0 : 10,
           marginBottom: isMobile?0:10,
@@ -69,7 +61,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
           flexDirection: items.direction
         }}
       >
-        <Grid xs={isMobile ? 12 : 6} sx={{marginBottom:0}}>
+        <Grid xs={isMobile ? 12 : 6} sx={{}}>
           <Typography
             variant="h4"
             style={{
@@ -84,7 +76,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
           {items.Description && (
             <AnimatedTexts
               texts={[items.Description]}
-              interval={0}
+              interval={2}
               animationType={"none"}
               direction={items.direction}
             />
@@ -99,7 +91,6 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
           )}
          {!isMobile&& <Button
             variant="contained"
-            onClick={handleClick}
             sx={{
               backgroundColor: "black",
               borderColor: "transparent",
@@ -119,22 +110,21 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
             Get Started
           </Button>}
         </Grid>
-        <Grid xs={isMobile ? 12 : 6} sx={items.imgOrientation=="landscape"?{margin:0,padding:0}:{}}>
+        <Grid xs={isMobile ? 12 : 6} sx={{}}>
           <Box
             style={{
               width: "100%",
               height: "400px",
               transform :items.imgOrientation=="landscape"?  "scale(1)" : "scale(1.4)",
               position: "relative",
-              margin:0,padding:0
-              
+              marginTop: isMobile && items.imgOrientation==="landscape" ? -80 : 0,
+              marginBottom: isMobile && items.imgOrientation==="landscape" ? -40 : 0
             }}
           >
-             <FadingImages images={items.img} interval={3} />
+             <FadingImages images={items.img} interval={items.img.length>1  ? 3 : 0} />
           </Box>
           <Box sx={{minWidth:'100%',display:'flex',alignItems:'center',justifyContent:'center',}}>
           {isMobile&& <Button
-          onClick={()=>{console.log("hiiii")}}
             variant="contained"
             sx={{
               
