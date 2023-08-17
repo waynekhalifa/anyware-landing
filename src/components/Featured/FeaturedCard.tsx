@@ -13,6 +13,7 @@ interface Props {
 }
 const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   const [selectedTap, setSelectedTap] = useState(0);
+  
   const choosenItem = items.filter((item: any) => item.title === selectedTap);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setSelectedTap(newValue);
@@ -150,7 +151,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
                 position: "relative",
               }}
             >
-              <FadingImages images={items[selectedTap].img} interval={3} />
+               <FadingImages images={items[selectedTap].img} interval={3} />
             </Box>
           </Grid>
         </Grid>
@@ -205,4 +206,4 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   );
 };
 
-export default memo(FeaturedCard);
+export default FeaturedCard;

@@ -16,6 +16,7 @@ const TRSAIO: React.FC<Props> = ({ items, index }) => {
     console.log(newValue)
     setSelectedTap(newValue);
   };
+  
   const { isMobile, width } = useIsMobile();
   const tabs = items.map((item: any) => item.title);
   return (

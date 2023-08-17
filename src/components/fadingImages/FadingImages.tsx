@@ -21,11 +21,11 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       setCurrentIndex(0)
     }
     return () => clearInterval(intervalTime);
-  }, [timeRemaining,currentIndex,images.length]);
+  }, [timeRemaining,currentIndex,images.length,images]);
   useEffect(()=>{
     setCurrentIndex(0)
     setTimeRemaining(interval)
-  },[images.length,interval])
+  },[images.length,interval,images])
   useEffect(() => {
       if (timeRemaining <= 0) {
         setTimeRemaining(interval);
@@ -49,7 +49,7 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       priority 
       layout="fill"
       objectFit="contain"
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"      
+      sizes="(max-width: 768px) 100vw"      
       style={{  width: images[currentIndex].src === item.src ? "100%" : "0%" , height:  images[currentIndex].src === item.src ? "100%" : "0%",transition:"opacity 1s ease-in-out", opacity:images[currentIndex].src === item.src ? 1:0 }}
       />
     )) )
