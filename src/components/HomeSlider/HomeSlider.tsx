@@ -109,7 +109,7 @@ const HomeSlider = () => {
     >
       <Grid container>
         <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData1} videoKey={videoKey} SlidePage={1} Arrows={Arrows} />
+          <BannerForm bannerData={bannerData1} videoKey={videoKey} SlidePage={2} Arrows={Arrows} />
         </Grid>
         {!isMobile && <Grid
           item
