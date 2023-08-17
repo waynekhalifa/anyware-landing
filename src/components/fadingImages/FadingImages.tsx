@@ -1,4 +1,3 @@
-import { Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import NextImage from 'next/image'
 
@@ -39,19 +38,30 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
         setCurrentIndex(0)
       }
     }, [timeRemaining,images.length,interval,currentIndex,images]);
+    
   return (
      currentIndex<=images.length-1 && images.map((item: any , index: number) => (
-      <NextImage 
-      key={index}
-      src={item.src}
-      placeholder="blur"
-      blurDataURL={item.blurDataURL}
-      priority 
-      layout="fill"
-      objectFit="contain"
-      sizes="(max-width: 768px) 100vw"      
-      style={{  width: images[currentIndex].src === item.src ? "100%" : "0%" , height:  images[currentIndex].src === item.src ? "100%" : "0%",transition:"opacity 1s ease-in-out", opacity:images[currentIndex].src === item.src ? 1:0 }}
-      />
+      
+<div key={index} style={{ width: "100%", height: "100%" }}>
+  <NextImage 
+    
+    src={item.src}
+    placeholder="blur"
+    blurDataURL={item.blurDataURL}
+    priority 
+    loading="eager"	
+    layout="fill"
+    objectFit="contain"
+    sizes="(max-width: 768px) 100vw"      
+    style={{  
+      width: images[currentIndex].src === item.src ? "100%" : "0%", 
+      height: images[currentIndex].src === item.src ? "100%" : "0%",
+      transition: "opacity 1s ease-in-out", 
+      opacity: images[currentIndex].src === item.src ? 1 : 0 
+    }}
+  />
+</div>
+
     )) )
 };
 
