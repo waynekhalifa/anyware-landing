@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Box, Grid } from "@mui/material";
 
-import videoPlaceholder from "@images/banner.png";
+import videoPlaceholder from "@images/banner.webp";
 import onlineOrdering from "@images/online-ordering.webp";
 import menuItemOne from "@images/menu-item-1.webp";
 import menuItemTwo from "@images/menu-item-2.webp";

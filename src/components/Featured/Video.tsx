@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Box } from "@mui/material";
 
-import videoPlaceholder from "@images/banner.png";
-import onlineOrdering from "@images/online-ordering.png";
-import menuItemOne from "@images/menu-item-1.png";
-import menuItemTwo from "@images/menu-item-2.png";
-import menuItemThree from "@images/menu-item-3.png";
+import videoPlaceholder from "@images/banner.webp";
+import onlineOrdering from "@images/online-ordering.webp";
+import menuItemOne from "@images/menu-item-1.webp";
+import menuItemTwo from "@images/menu-item-2.webp";
+import menuItemThree from "@images/menu-item-3.webp";
 import useIsMobile from "@/hooks/useIsMobile";
 
 const Video: React.FC = () => {

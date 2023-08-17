@@ -28,7 +28,7 @@ const TRS: React.FC = () => {
     const analytics = getAnalytics();
     setUserId(analytics, "user1")
     logEvent(analytics, "page_view", { user_id: "user1", page_name: "TRS",num:"01123204458", });
-  
+  console.log("hi")
   }, []);
 
   return (
