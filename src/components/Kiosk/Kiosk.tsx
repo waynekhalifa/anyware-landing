@@ -23,7 +23,7 @@ const Kiosk: React.FC = () => {
     <div
       style={{ 
         overflow: "hidden", position: "relative" ,flex:1,
-        paddingTop: isMobile ? 20 : 120,
+        paddingTop: isMobile ? 0 : 120,
       }}
     >
       <Header />

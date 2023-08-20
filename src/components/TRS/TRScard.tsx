@@ -24,6 +24,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
         flexDirection: "column",
         minHeight: "100%",
         maxHeight: "100%",
+        
         position:'relative'
       }}
     >
@@ -53,7 +54,7 @@ const TRScard: React.FC<Props> = ({ items, index }) => {
         sx={{
           minWidth: isMobile ? "100%" : "100%",
           maxWidth: isMobile ? "100%" : "120%",
-          paddingTop: isMobile ? 15 : 0,
+          paddingTop: isMobile ? index === 0 ? 15 : 7.5 : 0,
           paddingLeft: isMobile ? 0 : 10,
           paddingRight: isMobile ? 0 : 10,
           marginBottom: isMobile?0:10,

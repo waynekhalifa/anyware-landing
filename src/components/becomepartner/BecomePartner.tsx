@@ -13,11 +13,12 @@ import caf from "@images/CAF.webp";
 import BecomePartnerCard from "./BecomePartnerCard";
 import PartnerProgramCard from "./PartnerProgramCard";
 import anywarepartner from "@images/anywarepartner.png";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useUpdating from "@/hooks/useUpdating";
 import useApp from "@/hooks/useApp";
 import { useRouter } from "next/router";
 import CustomLoader from "../UI/CustomLoader/CustomerLoader";
+import { trackButtonclick } from "Trackpathforanalytics";
 
 interface StateProps {
   email: string;
@@ -34,6 +35,7 @@ const BecomePartner: React.FC = () => {
   const [selected, setSelected] = useState(-1);
   const { push } = useRouter();
   const { openModal } = useApp();
+  const textFieldRef = useRef<HTMLDivElement |null>(null); // Create a ref
 
   const { updating, changeUpdating } = useUpdating();
 
@@ -42,22 +44,21 @@ const BecomePartner: React.FC = () => {
   const handleClick = async () => {
     // const analytics = getAnalytics();
     // logEvent(analytics, 'Get Started Button');
-    changeUpdating(true);
-
-    if (email.length === 0) {
-      changeUpdating(false);
-      openModal({ modalID: "catcher", modalContent: "login form" });
-    } else {
-      setTimeout(() => {
-        changeUpdating(false);
-
-        // setUserId(analytics, "Test123");
-
-        push(`/login?email=${email}`);
-      }, 1000);
-    }
+    
+      openModal({ modalID: "partner",modalContent:email + "$$" + (selected===0?"Reseller Program" : "Affiliate Marketers") });
+  
+    
   };
+  const handleScroll = ()=>{
+    if(textFieldRef !==null && textFieldRef.current !==null){
+      textFieldRef.current.scrollIntoView({
+        behavior: 'smooth', // You can use 'auto' for immediate scroll
+        block: 'start',     // Scroll to the top of the element
+      });
+    }
 
+  }
+  
   return (
     <>
       <Header />
@@ -71,7 +72,7 @@ const BecomePartner: React.FC = () => {
         }}
       >
         <Grid xs={12} sx={{ margin: 0, padding: 0, width: "100%" }}>
-          <BecomePartnerCard index={0} items={Items[0]} />
+          <BecomePartnerCard index={0} items={Items[0]} handleScroll={handleScroll}/>
         </Grid>
         <Grid xs={12} sx={{ marginTop: isMobile ? 5 : 10 }}>
           <Typography
@@ -132,9 +133,11 @@ const BecomePartner: React.FC = () => {
             padding: 0,
             margin: 0,
           }}
+          ref={textFieldRef}
         >
           {programs.map((program: any, index: number) => (
             <div
+            
               key={index}
               style={{
                 width: isMobile ? "100%" : "20%",
@@ -166,7 +169,7 @@ const BecomePartner: React.FC = () => {
                       flexDirection: "column",
                       position: selected === -1 ? "absolute" : "unset",
                       right: -500,
-                      width:'25%',
+                      width:'25%', 
                       transition: "position 0.5s ease-in-out",
                 }
               }
@@ -181,7 +184,7 @@ const BecomePartner: React.FC = () => {
                 }}
               >
                 <TextField
-                  placeholder={"Enter your email address or phone number"}
+                  placeholder={"Enter your email address"}
                   value={email}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setState({ ...state, email: e.target.value })
@@ -242,11 +245,12 @@ const BecomePartner: React.FC = () => {
               }}
             >
               <TextField
-                placeholder={"Enter your email address or phone number"}
+                placeholder={"Enter your email address"}
                 value={email}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setState({ ...state, email: e.target.value })
                 }
+                
                 sx={{
                   minWidth: "90%",
                   input: { p: 2 },

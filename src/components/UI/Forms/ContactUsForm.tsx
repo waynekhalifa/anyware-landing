@@ -11,7 +11,7 @@ import { useState } from "react";
 import useApp from "@/hooks/useApp";
 import axios from "axios";
 
-const ContactUsForm: React.FC = () => {
+const ContactUsForm = ({partner,data}:any) => {
   const { confirm, changeConfirm } = useConfirm();
   const { isMobile } = useIsMobile();
   const { closeModal } = useApp();
@@ -40,17 +40,19 @@ const ContactUsForm: React.FC = () => {
     reset,
   } = useForm<any>({ resolver: yupResolver(getValidationSchema()) });
 
-  const onSubmit: SubmitHandler<any> = async (data: any) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<any> = async (formData: any) => {
+    console.log(formData)
     try {
       const apiUrl = 'https://www.landingadmin.anyware.software/wp-json/custom/v1/send-email';
       
     const data2 = {
       action: 'send_custom_email',
-      name:data.fullName,
-      email:data.email,
-      message:  data.message,
-      mobile : data.mobile
+      subject : partner ? "Become Partner Form Submission" + " for " + program : "Contact Us Form Submission",
+      name:formData.fullName,
+      email:formData.email,
+      restaurant : formData.restaurant,
+      message:  formData.message,
+      mobile : formData.mobile
     };
 
     await axios.post(apiUrl, data2)
@@ -83,6 +85,8 @@ const ContactUsForm: React.FC = () => {
       console.log(`${err}`);
     }
   };
+  const email = data&&data.length>0 ? data.split("$$")[0]: ""
+  const program = data&&data.length>0 ? data.split("$$")[1]: ""
   return (
     <Box style={{ margin: "auto", maxWidth: isMobile ? "90%" : "400px", marginTop: "20px" }}
     onWheel={handleFormScroll}
@@ -90,7 +94,7 @@ const ContactUsForm: React.FC = () => {
     >
       <Box style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
         <Typography style={{ fontSize: 25, fontWeight: "bold", flex: 1, textAlign: "center" }}>
-          Contact Sales
+          Contact Us
         </Typography>
         <IconButton
           color="primary"
@@ -130,7 +134,7 @@ const ContactUsForm: React.FC = () => {
             )}
           </Grid>
 
-          <Grid item xs={12}>
+         {!partner && <Grid item xs={12}>
           <Typography>Restaurant / Hotel Name</Typography>
             <TextField
               {...register("restaurant")}
@@ -146,7 +150,7 @@ const ContactUsForm: React.FC = () => {
                 <>{errors.restaurant.message}</>
               </Typography>
             )}
-          </Grid>
+          </Grid>}
 
           <Grid item xs={12}>
           <Typography>Email <span style={{ color: 'red' }}> *</span></Typography>
@@ -160,6 +164,7 @@ const ContactUsForm: React.FC = () => {
               size="small"
               error={!!errors.email}
               required
+              defaultValue={email}
             />
             {errors.email && (
               <Typography color="error">
@@ -213,7 +218,7 @@ const ContactUsForm: React.FC = () => {
               disableElevation
               variant="contained"
               type="submit"
-              sx={{ mb: confirm!.length > 0 ? 2 : 0 }}
+              sx={{ mb: confirm!.length > 0 ? 2 : 0 , mt:partner ? 5:0}}
               startIcon={isSubmitting && <ButtonLoader />}
               // disabled={isSubmitting}
               onClick={handleSubmit(onSubmit)}

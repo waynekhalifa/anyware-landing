@@ -135,7 +135,7 @@ const Integration: React.FC = () => {
             </Grid>
             <Box
               sx={{
-                minWidth:'100%',
+                minWidth:isMobile ?  '120%':'200%',
                 height:'150px',
                 transform:'translateY(3rem)'
               }}

@@ -23,7 +23,7 @@ const CustomSoftware: React.FC = () => {
     <div
       style={{
         overflow: "hidden", position: "relative" ,flex:1,
-        paddingTop: isMobile ? 20 : 120,
+        paddingTop: isMobile ? 0 : 120,
       }}
     >
       <Header />
@@ -80,7 +80,7 @@ const CustomSoftware: React.FC = () => {
             flexDirection: "column",
             padding:0,
             marginBottom: isMobile?-20 :160,
-            marginTop:isMobile?20:-100,
+            marginTop:isMobile?20:0,
           }}
         >
           <Grid xs={12} >
@@ -98,6 +98,7 @@ const CustomSoftware: React.FC = () => {
           <Grid
             xs={12}
             container
+            spacing={6}
             style={{
               display: "flex",
               alignItems: "center",
@@ -114,7 +115,7 @@ const CustomSoftware: React.FC = () => {
                     alt="Banner background"
                     layout="fixed"
                     width="150px"
-                    height={index==venues.length-1||venues.length-5? "80px":"60px" }
+                  height="80px"
                     objectFit="contain"
                     src={venue.src}
                     style={{opacity:'0.7'}}

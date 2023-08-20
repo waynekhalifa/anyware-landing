@@ -104,8 +104,8 @@ const TRS: React.FC = () => {
               justifyContent: "center",
               flexDirection: "column",
               padding: 0,
-              marginBottom: isMobile ? -20 : 80,
-              marginTop: isMobile ? 20 : -80,
+              marginBottom: isMobile ? 0 : 80,
+              marginTop: isMobile ? 50 : -80,
             }}
           >
             <Grid xs={12}>
@@ -129,6 +129,7 @@ const TRS: React.FC = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "row",
+                marginTop:10,
               }}
             >
               {venues.map((venue, index) => {
@@ -173,7 +174,8 @@ const TRS: React.FC = () => {
                   width: "100%",
                   minHeight: "100%",
                   maxHeight: "100%",
-                  margin: 0,
+                  marginTop: 0,
+                  
                 }}
               >
                 <TRScard index={index + 1} items={item} />

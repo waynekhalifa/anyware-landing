@@ -19,7 +19,9 @@ const MainModal: React.FC = () => {
       case "catcher":
         return <Catcher />;
       case "contact":
-        return <Contact />;  
+        return <Contact partner={false} data={""}/>;  
+      case "partner":
+        return <Contact partner={true} data={modalContent}/>;  
       default:
         return modalContent;
     }

@@ -4,7 +4,7 @@ const useFormValidations = (slug: string) => {
   const messageFormValidation = () =>
     Yup.object().shape({
       fullName: Yup.string().required("Name is required"),
-      restaurant: Yup.string().required("Resturant Name is required"),
+      // restaurant: Yup.string().required("Resturant Name is required"),
       email: Yup.string()
         .required("Email is required")
         .email("Email is invalid"),

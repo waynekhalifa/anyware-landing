@@ -8,12 +8,9 @@ import AnimatedTexts from "../animatedTexts/AnimatedTexts";
 import NextImage from "next/image";
 import bannerBg from '@images/home-header-bg.webp';
 
-interface Props {
-  items: any;
-  index: number;
-}
 
-const BecomePartnerCard: React.FC<Props> = ({ items, index }) => {
+
+const BecomePartnerCard = ({ items, index ,handleScroll}:any) => {
   const { isMobile, width } = useIsMobile();
   return (
     <Box
@@ -123,6 +120,7 @@ const BecomePartnerCard: React.FC<Props> = ({ items, index }) => {
           <Box sx={{minWidth:'100%',display:'flex',alignItems:'center',justifyContent:'center',}}>
           {isMobile&& <Button
             variant="contained"
+            onClick={handleScroll}
             sx={{
               
               backgroundColor: "black",
