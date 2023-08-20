@@ -43,8 +43,8 @@ export const mainMenu: MenuItem1[] = [
       },
       {
         id: 13,
-        name: "Custom Software",
-        path: "/CustomSoftware",
+        name: "Cashless Wallet",
+        path: "/CashlessWallet",
         category: "product",
         icon: "",
         description: "Break down any sized project into customized tasks",
@@ -264,8 +264,8 @@ export const mainMenu: MenuItem1[] = [
       },
       {
         id: 32,
-        name: "Cashless Wallet",
-        path: "/CashlessWallet",
+        name: "Custom Software",
+        path: "/CustomSoftware",
         category: "product",
         icon: "",
         description: "Break down any sized project into customized tasks",
