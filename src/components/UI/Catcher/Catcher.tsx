@@ -35,7 +35,7 @@ const Catcher: React.FC = () => {
         background: `url(${catcherBg.src}) no-repeat -50% 50%/890px`,
       }}
       animate={{
-        background: `url(${catcherBg.src}) no-repeat 0% 50%/890px`,
+        background: isMobile ? `url(${catcherBg.src}) no-repeat -10% 50%/890px` :`url(${catcherBg.src}) no-repeat 0% 50%/890px`  ,
       }}
       transition={{ duration: 0.1, delay: 0.1 }}
       style={{

@@ -221,7 +221,7 @@ const ContactUsForm = ({partner,data}:any) => {
               disableElevation
               variant="contained"
               type="submit"
-              sx={{ mb: confirm!.length > 0 ? 2 : 0 , mt:partner ? 5:0}}
+              sx={{ mb: confirm!.length > 0 ? 2 : 0 , mt:partner ? 2:0}}
               startIcon={isSubmitting && <ButtonLoader />}
               // disabled={isSubmitting}
               onClick={handleSubmit(onSubmit)}

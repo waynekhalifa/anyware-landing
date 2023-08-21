@@ -294,8 +294,7 @@ const BecomePartner: React.FC = () => {
                     boxShadow: "0px 0px 6px #eee",
                   },
                   position: "relative",
-                  width: 250,
-                  height: 56,
+                
                 }}
                 onClick={handleClick}
               >
