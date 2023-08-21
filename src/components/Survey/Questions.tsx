@@ -164,6 +164,23 @@ const Questions: React.FC<MyProps> = ({
               >
                 {updating &&question.id ===4 ? <CustomLoader /> :question.buttonText}
               </Button>
+              {question.id === 5 && <Button
+                disableElevation
+                variant="contained"
+                size="large"
+                sx={{
+                  textTransform: "none",
+                  borderRadius: "4px",
+                  height: 48,
+                  mt: 4,
+                  fontSize: "0.86rem",
+                  marginLeft:5,
+                }}
+                onClick={() => router.push('/')}
+               
+              >
+                {"return to home page"}
+              </Button>}
               {question.id === 3 && alert && (
                 <Alert
                   sx={{ marginTop: 3 }}

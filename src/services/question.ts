@@ -50,7 +50,7 @@ const question: any[] = [
     hasFeatures: false,
     hasDropZone: false,
     hasDropdown: false,
-    content: `<p>Thank you for your precious time! Now we're done and one of our representatives will contact you shortly.</p>`,
+    content: `<p>Thank you for your precious time! Now we're done.<br /> Rest assured that someone from our team will contact you shortly.</p>`,
     buttonText: `Get a 30-minute Product Tour`,
   },
 ];
