@@ -1,5 +1,5 @@
 import { Box, Button, Container, Tab, Tabs, Typography } from "@mui/material";
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Image from "next/image";
 import FadingImages from "../fadingImages/FadingImages";
@@ -14,6 +14,7 @@ interface Props {
 const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   const [selectedTap, setSelectedTap] = useState(0);
   
+  
   const choosenItem = items.filter((item: any) => item.title === selectedTap);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setSelectedTap(newValue);
@@ -26,6 +27,22 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       ? items[selectedTap].animatedTexts.items.length * 50
       : items[selectedTap].animatedTexts.items.length * 10;
   const tabs = items.map((item: any) => item.title);
+  
+  const images = items[selectedTap].img.map((item: any) => item.image);
+
+  useEffect(() => {
+    
+    const interval2 = setInterval(() => {
+      setSelectedTap((prevIndex:any) => (prevIndex + 1) % tabs.length);
+    
+    }, 8000 ); // Change image every 3 seconds
+    
+    return () => {
+    
+      clearInterval(interval2);
+    
+    };
+  }, [tabs]);
 
   return (
     <Container
@@ -102,25 +119,45 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
             </Typography>
 
             {items[selectedTap].icons.length > 0 && (
-              <Grid
-                container
-                spacing={2}
-                sx={{ minHeight: "20%", maxWidth: "90%" }}
-              >
-                {items[selectedTap].icons.map((icon: any, index: any) => (
-                  <Grid xs={3} key={index}>
-                    <NextImage
-                      src={icon.src}
-                      priority
-                      layout="responsive"
-                      width="100%"
-                      height="100%"
-                      objectFit="contain"
-                      sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    />
-                  </Grid>
-                ))}
-              </Grid>
+               <Grid
+               xs={12}
+               container
+               spacing={2}
+               style={{
+                 display: "flex",
+                 alignItems: "center",
+                 justifyContent: "center",
+                 flexDirection: "row",
+                 marginTop:10,
+                 marginLeft:0,
+                 paddingLeft:0
+               }}
+             >
+               {items[selectedTap].icons.map((venue:any, index:number) => {
+                 return (
+                   <Grid
+                     key={index}
+                     xs={isMobile ? 12 : 6}
+                     style={{
+                       alignItems: "center",
+                       display: "flex",
+                       justifyContent: "center",
+                     }}
+                   >
+                     <NextImage
+                       alt="Logos"
+                       layout="fixed"
+                       width={isMobile?70:"100px"}
+                       priority
+                       height={isMobile ? index==0 ? 50:35 :index==0 ? "90px":"50px"}
+                       objectFit="contain"
+                       src={venue.src}
+                       
+                     />
+                   </Grid>
+                 );
+               })}
+             </Grid>
             )}
             <AnimatedTexts
               texts={items[selectedTap].animatedTexts.items}
@@ -143,15 +180,13 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
           >
             <Box
               style={{
-                width: "100%",
-                height:
-                  items[selectedTap].imgOrientation === "landscape"
-                    ? "300px"
-                    : "500px",
+                width: items[selectedTap].direction ==="column" || isMobile? "100%" : "550px",
+                height: isMobile ? items[selectedTap].imgOrientation==="portrait" ?  "500px" : "300px" : "500px",
                 position: "relative",
+             
               }}
             >
-               <FadingImages images={items[selectedTap].img} interval={3} />
+               <FadingImages images={items[selectedTap].img} interval={5} selectedTap={selectedTap} />
             </Box>
           </Grid>
         </Grid>

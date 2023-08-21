@@ -4,45 +4,31 @@ import NextImage from 'next/image'
 interface Props {
   images: any;
   interval: number;
+  selectedTap? : number;
 }
-const FadingImages: React.FC<Props> = ({ images, interval }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(interval);
-
+const FadingImages: React.FC<Props> = ({ images, interval,selectedTap}) => {
+  const [currentIndex,setCurrentIndex]=useState(0)
+  
   useEffect(() => {
-    const intervalTime = setInterval(() => {
-      if (timeRemaining > 0) {
-        setTimeRemaining(timeRemaining - 1);
-      }
-      
-    }, 1000);
-    if(currentIndex>images.length-1){
+    
+    const interval2 = setInterval(() => {
+      setCurrentIndex((prevIndex:any) => (prevIndex + 1) % images.length);
+    }, 1000 * interval); // Change image every 3 seconds
+    
+    return () => {
+      clearInterval(interval2);
+    
+    };
+  }, [images]);
+  
+    useEffect(()=>{
       setCurrentIndex(0)
-    }
-    return () => clearInterval(intervalTime);
-  }, [timeRemaining,currentIndex,images.length,images]);
-  useEffect(()=>{
-    setCurrentIndex(0)
-    setTimeRemaining(interval)
-  },[images.length,interval,images])
-  useEffect(() => {
-      if (timeRemaining <= 0) {
-        setTimeRemaining(interval);
-        if (currentIndex == images.length - 1) {
-          setCurrentIndex(0);
-        } else {
-          setCurrentIndex(currentIndex + 1);
-        }
-      }
-      if(currentIndex>images.length-1){
-        setCurrentIndex(0)
-      }
-    }, [timeRemaining,images.length,interval,currentIndex,images]);
+    },[images,images.length, selectedTap])
     
   return (
      currentIndex<=images.length-1 && images.map((item: any , index: number) => (
       
-<div key={index} style={{ width: "100%", height: "100%" }}>
+<div key={index} style={{ width: "100%", height: "100%"}}>
   <NextImage 
     
     src={item.src}
@@ -57,7 +43,8 @@ const FadingImages: React.FC<Props> = ({ images, interval }) => {
       width: images[currentIndex].src === item.src ? "100%" : "0%", 
       height: images[currentIndex].src === item.src ? "100%" : "0%",
       transition: "opacity 1s ease-in-out", 
-      opacity: images[currentIndex].src === item.src ? 1 : 0 
+      opacity: images[currentIndex].src === item.src ? 1 : 0 ,
+      
     }}
   />
 </div>

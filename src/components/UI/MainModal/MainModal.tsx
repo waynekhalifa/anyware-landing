@@ -21,7 +21,7 @@ const MainModal: React.FC = () => {
       case "contact":
         return <Contact partner={false} data={""}/>;  
       case "partner":
-        return <Contact partner={true} data={modalContent}/>;  
+        return <Contact partner={true} data={modalContent}/>;    
       default:
         return modalContent;
     }

@@ -89,7 +89,7 @@ const Catcher: React.FC = () => {
       </Box>
       <Typography fontWeight={600}  sx={{marginBottom:isMobile?5:0}}>
         <Typography component="span" variant="h3">
-          <b>Sign up for FREE</b>
+          <b>Get started now</b>
         </Typography>
         <br />
         <Typography component="span" variant="h5">

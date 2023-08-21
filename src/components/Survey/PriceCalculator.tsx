@@ -1,8 +1,9 @@
 import { createArray } from "@/helpers/utils";
 import useFeature from "@/hooks/useFeature";
-import { Box, MenuItem, TextField, Typography } from "@mui/material";
+import { Alert, Box, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import useIsMobile from "@/hooks/useIsMobile";
+import useApp from "@/hooks/useApp";
 
 interface Props {
   completed: boolean;
@@ -33,7 +34,7 @@ const { isMobile } = useIsMobile();
   }
   handleTotalPrice(price*months)
   handleSelectedMonth(months)
-
+  const [alert,setAlert]=useState(false)
 
   return (
     <Box
@@ -136,6 +137,10 @@ const { isMobile } = useIsMobile();
           </TextField>
         </Box>
       </Box>
+      <Typography onClick={()=>{setAlert(true)}} sx={{margin:2,cursor:'pointer'}} fontSize={14}>Press here for a special discount</Typography>
+      {<div style={{opacity:alert?1:0,transition:'opacity 0.5s ease-in-out',position:'absolute',bottom:-60,width:'110%',marginLeft:isMobile?0:-15}}>
+      <Alert onClose={() => {setAlert(false)}}>We will contact you shortly {":)"}</Alert>
+      </div>}
     </Box>
   );
 };

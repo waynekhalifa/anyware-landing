@@ -205,7 +205,7 @@ const HomeFeatures: React.FC = () => {
                     height="130px"
                     objectFit="contain"
                     src={venue.src}
-                    style={{ opacity: "0.7" }}
+                    style={{ opacity: "1" }}
                   />
                 </Grid>
               );

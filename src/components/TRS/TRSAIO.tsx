@@ -40,7 +40,7 @@ const TRSAIO: React.FC<Props> = ({ items }) => {
           onChange={handleChange}
           variant="scrollable"
           orientation={isMobile ? "horizontal" : "vertical"}
-          scrollButtons={true}
+          scrollButtons={false}
           aria-label="scrollable prevent tabs example"
           sx={
             !isMobile
