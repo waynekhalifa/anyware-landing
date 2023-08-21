@@ -58,6 +58,7 @@ const ContactUsForm = ({partner,data}:any) => {
     await axios.post(apiUrl, data2)
       .then(response => {
         console.log(response.data); // Email status response from the server
+
         // Handle success or error based on the response
       })
       .catch(error => {
@@ -77,8 +78,10 @@ const ContactUsForm = ({partner,data}:any) => {
       // });
       reset();
       changeConfirm("Your message has been sent!");
+  
 
       setTimeout(() => {
+        closeModal()
         changeConfirm("");
       }, 3000);
     } catch (err: Error | any) {

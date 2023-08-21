@@ -15,13 +15,20 @@ const initialState: StateProps = {
   videoKey: new Date().toISOString(),
 };
 
-const HomeSlider = () => {
+const HomeSlider = ({clicked}:any) => {
   const [state, setState] = useState(initialState);
   const { videoKey } = state;
   const { height, width, isMobile } = useIsMobile();
   const [currentSlide, setCurrentSlide] = useState(0);
   const autoSlideIntervalRef = useRef<number | null>(null);
 
+  useEffect(()=>{
+    if(clicked>0){
+      handleNextSlide()
+    }else if(clicked<0){
+      handlePrevSlide()
+    }
+  },[clicked])
   const handleNextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
     resetAutoSlideTimer();
@@ -62,32 +69,36 @@ const HomeSlider = () => {
     }
   };
 
-  const Arrows = <Grid
-  item
-  xs={12}
-  md={6}
-  sx={{
-    span: { display: "block !important" },
-    transform: "scale(1)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: isMobile ? "center" : "flex-end",
-    marginLeft: isMobile ? 0 : 5,
-    
-    
-  }}
->
-  <IconButton name="back button" onClick={handlePrevSlide}    sx={{ margin:2}}>
-    <ChevronLeft />
-  </IconButton>
-  <IconButton
-    name="next button"
-    onClick={handleNextSlide}
-    sx={{ margin:2}}
-  >
-    <ChevronRight />
-  </IconButton>
-</Grid>
+  const Arrows = (
+    <Grid
+      item
+      xs={12}
+      md={6}
+      sx={{
+        span: { display: "block !important" },
+        transform: "scale(1)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: isMobile ? "center" : "flex-end",
+        marginLeft: isMobile ? 0 : 5,
+      }}
+    >
+      <IconButton
+        name="back button"
+        onClick={handlePrevSlide}
+        sx={{ margin: 2 }}
+      >
+        <ChevronLeft />
+      </IconButton>
+      <IconButton
+        name="next button"
+        onClick={handleNextSlide}
+        sx={{ margin: 2 }}
+      >
+        <ChevronRight />
+      </IconButton>
+    </Grid>
+  );
 
   const bannerData1 = bannerItems[0];
   const bannerData2 = bannerItems[1];
@@ -102,30 +113,36 @@ const HomeSlider = () => {
         visibility: currentSlide === 0 ? "block" : "hidden",
         opacity: currentSlide === 0 ? 1 : 0,
         transition: "opacity 0.5s ease-in-out, visibility 0.5s ease-in-out",
-        maxWidth: isMobile?"100%" :"85%",
+        maxWidth: isMobile ? "100%" : "85%",
         height: "100%",
-        
       }}
     >
       <Grid container>
-        <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData1} videoKey={videoKey} SlidePage={1} Arrows={Arrows} />
+        <Grid item xs={12} md={6} sx={{ padding: 1 }}>
+          <BannerForm
+            bannerData={bannerData1}
+            videoKey={videoKey}
+            SlidePage={1}
+            Arrows={Arrows}
+          />
         </Grid>
-        {!isMobile && <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            span: { display: "block !important" },
-            transform: isMobile ? "scale(0.7)" : "scale(1)",
-            marginTop: isMobile ? "20%" : 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Video key={videoKey} SlidePage={1} />
-        </Grid>}
+        {!isMobile && (
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+              span: { display: "block !important" },
+              transform: isMobile ? "scale(0.7)" : width<1200 ? "scale(0.85) ":"scale(0.9)",
+              marginTop: isMobile ? "20%" : 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Video key={videoKey} SlidePage={1} />
+          </Grid>
+        )}
       </Grid>
     </Grid>,
     <Grid
@@ -136,31 +153,36 @@ const HomeSlider = () => {
         visibility: currentSlide === 1 ? "block" : "hidden",
         opacity: currentSlide === 1 ? 1 : 0,
         transition: "opacity 0.5s ease-in-out, visibility 0.5s ease-in-out",
-        maxWidth: isMobile?"100%" :"85%",
+        maxWidth: isMobile ? "100%" : "85%",
         height: "100%",
-        
       }}
     >
       <Grid container key="1">
-      <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData2} videoKey={videoKey} SlidePage={2} Arrows={Arrows}/>
+        <Grid item xs={12} md={6} sx={{ padding: 1 }}>
+          <BannerForm
+            bannerData={bannerData2}
+            videoKey={videoKey}
+            SlidePage={2}
+            Arrows={Arrows}
+          />
         </Grid>
-        {!isMobile && <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            span: { display: "block !important" },
-            transform: isMobile ? "scale(0.7)" : "translateX(3rem)",
-            marginTop: isMobile ? "20%" : 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            
-          }}
-        >
-          <Video key={videoKey} SlidePage={2} />
-        </Grid>}
+        {!isMobile && (
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+              span: { display: "block !important" },
+              transform: isMobile ? "scale(0.7)" : width<1200 ? "scale(0.85) translateX(3rem)":"translateX(3rem)",
+              marginTop: isMobile ? "20%" : 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Video key={videoKey} SlidePage={2} />
+          </Grid>
+        )}
       </Grid>
     </Grid>,
 
@@ -172,36 +194,47 @@ const HomeSlider = () => {
         visibility: currentSlide === 2 ? "block" : "hidden",
         opacity: currentSlide === 2 ? 1 : 0,
         transition: "opacity 0.5s ease-in-out, visibility 0.5s ease-in-out",
-        maxWidth: isMobile?"100%" :"85%",
+        maxWidth: isMobile ? "100%" : "85%",
         height: "100%",
       }}
     >
       <Grid container key="2">
-      <Grid item xs={12} md={6} sx={{padding:1}}>
-          <BannerForm bannerData={bannerData3} videoKey={videoKey} SlidePage={3} Arrows={Arrows}/>
+        <Grid item xs={12} md={6} sx={{ padding: 1 }} >
+          <BannerForm
+            bannerData={bannerData3}
+            videoKey={videoKey}
+            SlidePage={3}
+            Arrows={Arrows}
+          />
         </Grid>
-        {!isMobile &&  <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            span: { display: "block !important" },
-            transform: isMobile ? "scale(0.7)" : "translateX(3rem)",
-            marginTop: isMobile ? "20%" : 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Video key={videoKey} SlidePage={3} />
-        </Grid>}
+        {!isMobile && (
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+              span: { display: "block !important" },
+              transform: isMobile ? "scale(0.7)" : width<1200 ? "scale(0.85) translateX(3rem)":"translateX(3rem)",
+              marginTop: isMobile ? "20%" : 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Video key={videoKey} SlidePage={3} />
+          </Grid>
+        )}
       </Grid>
     </Grid>,
   ];
 
   return (
-    <Grid container>
-      <Grid item xs={12} sx={{}}>
+    <Grid container sx={{display:'flex',flexDirection:'row'}} >
+     
+         
+     
+      <Grid item xs={10} sx={{}}>
+     
         {slides.map((item) => {
           return item;
         })}
@@ -220,36 +253,39 @@ const HomeSlider = () => {
           minWidth: "100%",
           display: "flex",
           zIndex: -9999,
-          
         }}
       ></Grid>
       {/* ==================================== */}
-     {!isMobile && <Grid
-        item
-        xs={12}
-        md={6}
-        sx={{
-          span: { display: "block !important" },
-          transform: "scale(1)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: isMobile ? "center" : "flex-end",
-          marginLeft: isMobile ? 0 : 5,
-          
-          
-        }}
-      >
-        <IconButton name="back button" onClick={handlePrevSlide}    sx={{ margin:2}}>
-          <ChevronLeft />
-        </IconButton>
-        <IconButton
-          name="next button"
-          onClick={handleNextSlide}
-          sx={{ margin:2}}
+      {/* {!isMobile && (
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            span: { display: "block !important" },
+            transform: "scale(1)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: isMobile ? "center" : "flex-end",
+            marginLeft: isMobile ? 0 : 5,
+          }}
         >
-          <ChevronRight />
-        </IconButton>
-      </Grid>}
+          <IconButton
+            name="back button"
+            onClick={handlePrevSlide}
+            sx={{ margin: 2 }}
+          >
+            <ChevronLeft />
+          </IconButton>
+          <IconButton
+            name="next button"
+            onClick={handleNextSlide}
+            sx={{ margin: 2 }}
+          >
+            <ChevronRight />
+          </IconButton>
+        </Grid>
+      )} */}
     </Grid>
   );
 };

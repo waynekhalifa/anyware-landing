@@ -1,4 +1,12 @@
-import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  Link,
+  Typography,
+} from "@mui/material";
 import ReactGA from "react-ga";
 import { useCallback, useEffect, useState } from "react";
 import bannerBg from "@images/home-header-bg.webp";
@@ -12,10 +20,11 @@ import FeaturedCard from "./FeaturedCard";
 import { allItems } from "@/constants/features";
 import useIsMobile from "@/hooks/useIsMobile";
 import { useRouter } from "next/router";
- import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
+import { Trackpathforanalytics, trackButtonclick } from "Trackpathforanalytics";
 import HomeSlider from "../HomeSlider/HomeSlider";
 import NextImage from "next/image";
 import { getAnalytics, logEvent, setUserId } from "@firebase/analytics";
+import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 
 interface StateProps {
   videoKey: string;
@@ -28,36 +37,41 @@ const initialState: StateProps = {
 const HomeFeatures: React.FC = () => {
   const [state, setState] = useState(initialState);
   const { videoKey } = state;
-  const { isMobile ,width} = useIsMobile();
+  const { isMobile, width } = useIsMobile();
   const router = useRouter();
-   const pathname = "adhaaaaaaaaam";
-   const search = String(router.query.search);
- 
-   const analytics = useCallback(() => {
-     Trackpathforanalytics({ path: pathname, search: search, title: pathname?.split("/")[1] });
- }, [pathname, search]);
+  const pathname = "adhaaaaaaaaam";
+  const search = String(router.query.search);
 
-
- useEffect(() => {
-   analytics();
- }, [analytics]);
-
- useEffect(() => {
-  const analytics = getAnalytics();
-  setUserId(analytics, "user1")
-  logEvent(analytics, "page_view", { user_id: "user1", page_name: "/",num:"01123204458", });
-
-}, []);
-
-   const useAnalyticsEventTracker = (category = "Blog category") => {
-     const eventTracker = (action = "test action", label = "test label") => {
-       ReactGA.event({ category, action, label });
-     };
-     return eventTracker;
-   };
+  const analytics = useCallback(() => {
+    Trackpathforanalytics({
+      path: pathname,
+      search: search,
+      title: pathname?.split("/")[1],
+    });
+  }, [pathname, search]);
 
   useEffect(() => {
-    
+    analytics();
+  }, [analytics]);
+
+  useEffect(() => {
+    const analytics = getAnalytics();
+    setUserId(analytics, "user1");
+    logEvent(analytics, "page_view", {
+      user_id: "user1",
+      page_name: "/",
+      num: "01123204458",
+    });
+  }, []);
+
+  const useAnalyticsEventTracker = (category = "Blog category") => {
+    const eventTracker = (action = "test action", label = "test label") => {
+      ReactGA.event({ category, action, label });
+    };
+    return eventTracker;
+  };
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setState({ ...state, videoKey: new Date().toISOString() });
     }, 8000);
@@ -66,58 +80,92 @@ const HomeFeatures: React.FC = () => {
       clearInterval(interval);
     };
   });
-  const venues = [millenium,movenpick, jeddah, caffe, caf];
-
+  const venues = [millenium, movenpick, jeddah, caffe, caf];
+  const [clicked,setClicked] = useState(0)
   return (
-    <Box sx={{ overflow: "hidden", width: "100%", position: "relative" ,flex:1}}
+    <Box
+      sx={{ overflow: "hidden", width: "100%", position: "relative", flex: 1 }}
     >
-      <Box sx={{
+      <Box
+        sx={{
           content: '""',
           display: "block",
           position: "absolute",
           top: "-42.016vh",
           left: "calc(65vw)",
-          width: isMobile?'80.1vw': "37.1vw",
-          height: isMobile? '100vh' : "135.43vh",
-          transition: "unset",
-          zIndex: -12,
-        }}>
-
-      <NextImage
-        src={bannerBg.src}
-        layout="fill"
-        style={{
-          content: '""',
-          display: "block",
-          position: "absolute",
+          width: isMobile ? "80.1vw" : "37.1vw",
+          height: isMobile ? "100vh" : "135.43vh",
           transition: "unset",
           zIndex: -12,
         }}
+      >
+        <NextImage
+          src={bannerBg.src}
+          layout="fill"
+          style={{
+            content: '""',
+            display: "block",
+            position: "absolute",
+            transition: "unset",
+            zIndex: -12,
+          }}
         />
-        </Box>
-      <Container sx={isMobile ? { pt: 12,minWidth:'90%',margin:0,paddingLeft:isMobile?0:20}:{ pt: 15,minWidth:'90%'}}>
-        
-          {/*-------------------- SLIDER GOES HERE ------------------------*/}
-          {/* <Grid container>
-            <Grid item xs={12} md={6}>
-              <BannerForm />
-            </Grid>
-                <Grid
-                item
-                xs={12}
-                md={6}
-                sx={{ span: { display: "block !important" },transform:isMobile? "scale(0.7)":"scale(1)",marginTop:isMobile?'20%':0,display:'flex',alignItems:'center',justifyContent:'center',}}
-                >
-                <Video key={videoKey} />
-              </Grid>
-          </Grid> */}
+      </Box>
+      <Container
+        sx={
+          isMobile
+            ? { pt: 12, minWidth: "90%", margin: 0 }
+            : { pt: 15, minWidth: "100%" }
+        }
+      >
+        {/*-------------------- SLIDER GOES HERE ------------------------*/}
 
-          <HomeSlider/>
+        {!isMobile ? (
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <div
+              style={{
+                minHeight: "100%",
+                
+                justifyContent: "center",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <IconButton
+                name="back button"
+                onClick={()=>setClicked(-Math.abs(clicked)-1)}
 
-        
-        <Box style={{marginTop:"4rem",padding:0,marginBottom:'3rem'}}>
+              >
+                <ChevronLeft sx={{width:40,height:40}} />
+              </IconButton>
+            </div>
+              
+            <HomeSlider clicked={clicked} />
+              
 
-        
+            <div
+              style={{
+                minHeight: "100%",
+                
+                justifyContent: "center",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+            <IconButton
+              name="next button"
+              onClick={()=>setClicked(Math.abs(clicked)+1)}
+
+            >
+              <ChevronRight sx={{width:40,height:40}}/>
+            </IconButton>
+            </div>
+          </div>
+        ) : (
+          <HomeSlider />
+        )}
+
+        <Box style={{ marginTop: "4rem", padding: 0, marginBottom: "3rem" }}>
           <Typography
             color="text.secondary"
             align="center"
@@ -126,10 +174,10 @@ const HomeFeatures: React.FC = () => {
             letterSpacing={1.2}
             paragraph
             sx={{ mt: 1 }}
-            >
+          >
             Join 100+ Highly Rated Hospitality Leaders
-           </Typography>
-           <Grid
+          </Typography>
+          <Grid
             xs={12}
             container
             style={{
@@ -137,13 +185,19 @@ const HomeFeatures: React.FC = () => {
               alignItems: "center",
               justifyContent: "center",
               flexDirection: "row",
-              
-              
             }}
           >
             {venues.map((venue, index) => {
               return (
-                <Grid key={index} xs={isMobile ? 6 : undefined} style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
+                <Grid
+                  key={index}
+                  xs={isMobile ? 6 : undefined}
+                  style={{
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
                   <NextImage
                     alt="Banner background"
                     layout="fixed"
@@ -151,13 +205,13 @@ const HomeFeatures: React.FC = () => {
                     height="130px"
                     objectFit="contain"
                     src={venue.src}
-                    style={{opacity:'0.7'}}
+                    style={{ opacity: "0.7" }}
                   />
                 </Grid>
               );
             })}
           </Grid>
-          </Box>
+        </Box>
       </Container>
 
       {allItems.map((item, index) => (
