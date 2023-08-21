@@ -47,29 +47,28 @@ const Questions: React.FC<MyProps> = ({
   const [disabled, setDisabled] = useState([2, 3, 4]);
   const router = useRouter();
   const [alert, setAlert] = useState(false);
-  const [updating,setUpdating] = useState(false)
-  const [submitted,setSubmitted]=useState(false)
+  const [updating, setUpdating] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   useEffect(() => {
-    if(!submitted){
+    if (!submitted) {
       const arr = [1, 2, 3, 4].filter((item) => item !== state.activeQuestion);
       setDisabled(arr);
     }
   }, [state]);
   const handleNextClick = async (id: number) => {
     if (id == 4) {
-      setUpdating(true)
+      setUpdating(true);
       await handleSubmit();
-      setSubmitted(true)
-      setUpdating(false)
+      setSubmitted(true);
+      setUpdating(false);
       router.prefetch("/");
     }
     if (id == 5) {
-      router.push("/");
+     router.push('/')
     }
     if (id === 3 && selectedFeatures.length == 0) {
       setAlert(true);
     } else {
-      
       var nextBox = document.getElementById(
         "question" + (state.activeQuestion + 1)
       );
@@ -86,7 +85,7 @@ const Questions: React.FC<MyProps> = ({
       }, 0);
     }
     setTimeout(() => {
-      setAlert(false)
+      setAlert(false);
     }, 3000);
   };
   return (
@@ -133,7 +132,7 @@ const Questions: React.FC<MyProps> = ({
               <HtmlContent content={question.content} />
               {question.hasDropZone && (
                 <DropZone
-                disabled={submitted}
+                  disabled={submitted}
                   handleSelectedImage={handleSelectedImage}
                   handleSelectedColor={handleSelectedColor}
                 />
@@ -148,44 +147,82 @@ const Questions: React.FC<MyProps> = ({
                   handleSelectedMonth={handleSelectedMonth}
                 />
               )}
-              <Button
-                disableElevation
-                variant="contained"
-                size="large"
-                sx={{
-                  textTransform: "none",
-                  borderRadius: "4px",
-                  height: 48,
-                  mt: 4,
-                  fontSize: "0.86rem",
-                }}
-                onClick={() => handleNextClick(question.id)}
-                disabled={disabled.includes(question.id)}
-              >
-                {updating &&question.id ===4 ? <CustomLoader /> :question.buttonText}
-              </Button>
-              {question.id === 5 && <Button
-                disableElevation
-                variant="contained"
-                size="large"
-                sx={{
-                  textTransform: "none",
-                  borderRadius: "4px",
-                  height: 48,
-                  mt: 4,
-                  fontSize: "0.86rem",
-                  marginLeft:5,
-                }}
-                onClick={() => router.push('/')}
-               
-              >
-                {"return to home page"}
-              </Button>}
+              {question.id === 5 ? (
+                <a
+                  href={
+                    "https://calendly.com/digital-solutions-demo/product-tour?month=2023-08"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    disableElevation
+                    variant="contained"
+                    size="large"
+                    sx={{
+                      textTransform: "none",
+                      borderRadius: "4px",
+                      height: 48,
+                      mt: 4,
+                      fontSize: "0.86rem",
+                    }}
+                    onClick={() => handleNextClick(question.id)}
+                    disabled={disabled.includes(question.id)}
+                  >
+                    {updating && question.id === 4 ? (
+                      <CustomLoader />
+                    ) : (
+                      question.buttonText
+                    )}
+                  </Button>
+                </a>
+              ) : (
+                <Button
+                  disableElevation
+                  variant="contained"
+                  size="large"
+                  sx={{
+                    textTransform: "none",
+                    borderRadius: "4px",
+                    height: 48,
+                    mt: 4,
+                    fontSize: "0.86rem",
+                  }}
+                  onClick={() => handleNextClick(question.id)}
+                  disabled={disabled.includes(question.id)}
+                >
+                  {updating && question.id === 4 ? (
+                    <CustomLoader />
+                  ) : (
+                    question.buttonText
+                  )}
+                </Button>
+              )}
+              {question.id === 5 && (
+                <Button
+                  disableElevation
+                  variant="contained"
+                  size="large"
+                  sx={{
+                    textTransform: "none",
+                    borderRadius: "4px",
+                    height: 48,
+                    mt: 4,
+                    fontSize: "0.86rem",
+                    marginLeft: 5,
+                  }}
+                  onClick={() => router.push("/")}
+                >
+                  {"return to home page"}
+                </Button>
+              )}
               {question.id === 3 && alert && (
                 <Alert
                   sx={{ marginTop: 3 }}
                   severity="warning"
-                  onClose={() => {setAlert(false)}}
+                  onClose={() => {
+                    setAlert(false);
+                  }}
                 >
                   You need to choose at least one feature{" "}
                 </Alert>
