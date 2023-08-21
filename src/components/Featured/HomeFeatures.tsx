@@ -146,7 +146,6 @@ const HomeFeatures: React.FC = () => {
             <div
               style={{
                 minHeight: "100%",
-                
                 justifyContent: "center",
                 display: "flex",
                 alignItems: "center",
@@ -165,7 +164,7 @@ const HomeFeatures: React.FC = () => {
           <HomeSlider />
         )}
 
-        <Box style={{ marginTop: "4rem", padding: 0, marginBottom: "3rem" }}>
+        <Box style={{ marginTop: "30px", padding: 0, marginBottom: "80px" }}>
           <Typography
             color="text.secondary"
             align="center"

@@ -50,7 +50,7 @@ const HomeSlider = ({clicked}:any) => {
     if (!autoSlideIntervalRef.current) {
       autoSlideIntervalRef.current = window.setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
-      }, 6000);
+      }, 15000);
     }
   };
 
@@ -115,6 +115,7 @@ const HomeSlider = ({clicked}:any) => {
         transition: "opacity 0.5s ease-in-out, visibility 0.5s ease-in-out",
         maxWidth: isMobile ? "100%" : "85%",
         height: "100%",
+        left:isMobile? 0 : 'unset' ,
       }}
     >
       <Grid container>
@@ -133,8 +134,7 @@ const HomeSlider = ({clicked}:any) => {
             md={6}
             sx={{
               span: { display: "block !important" },
-              transform: isMobile ? "scale(0.7)" : width<1200 ? "scale(0.85) ":"scale(0.9)",
-              marginTop: isMobile ? "20%" : 0,
+              transform:  width<1200 ? "scale(0.85) ":"scale(0.9)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -155,9 +155,10 @@ const HomeSlider = ({clicked}:any) => {
         transition: "opacity 0.5s ease-in-out, visibility 0.5s ease-in-out",
         maxWidth: isMobile ? "100%" : "85%",
         height: "100%",
+        left:isMobile? 0 : 'unset' ,
       }}
     >
-      <Grid container key="1">
+      <Grid container key="1" sx={{}}> 
         <Grid item xs={12} md={6} sx={{ padding: 1 }}>
           <BannerForm
             bannerData={bannerData2}
@@ -173,8 +174,8 @@ const HomeSlider = ({clicked}:any) => {
             md={6}
             sx={{
               span: { display: "block !important" },
-              transform: isMobile ? "scale(0.7)" : width<1200 ? "scale(0.85) translateX(3rem)":"translateX(3rem)",
-              marginTop: isMobile ? "20%" : 0,
+              transform:  width<1200 ? "scale(0.85) translateX(3rem)":"translateX(3rem)",
+              
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -196,6 +197,7 @@ const HomeSlider = ({clicked}:any) => {
         transition: "opacity 0.5s ease-in-out, visibility 0.5s ease-in-out",
         maxWidth: isMobile ? "100%" : "85%",
         height: "100%",
+        left:isMobile? 0 : 'unset' ,
       }}
     >
       <Grid container key="2">
@@ -214,8 +216,7 @@ const HomeSlider = ({clicked}:any) => {
             md={6}
             sx={{
               span: { display: "block !important" },
-              transform: isMobile ? "scale(0.7)" : width<1200 ? "scale(0.85) translateX(3rem)":"translateX(3rem)",
-              marginTop: isMobile ? "20%" : 0,
+              transform: width<1200 ? "scale(0.85) translateX(3rem)":"translateX(3rem)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -229,11 +230,11 @@ const HomeSlider = ({clicked}:any) => {
   ];
 
   return (
-    <Grid container sx={{display:'flex',flexDirection:'row'}} >
+    <Grid container  >
      
          
      
-      <Grid item xs={10} sx={{}}>
+      <Grid item xs={12} sx={{}}>
      
         {slides.map((item) => {
           return item;
@@ -246,8 +247,8 @@ const HomeSlider = ({clicked}:any) => {
         md={6}
         style={{
           minHeight: isMobile
-            ? height < 750
-              ? 750
+            ? height < 800
+              ? 800
               : height * 0.85
             : height * 0.8,
           minWidth: "100%",
@@ -255,37 +256,8 @@ const HomeSlider = ({clicked}:any) => {
           zIndex: -9999,
         }}
       ></Grid>
-      {/* ==================================== */}
-      {/* {!isMobile && (
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            span: { display: "block !important" },
-            transform: "scale(1)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: isMobile ? "center" : "flex-end",
-            marginLeft: isMobile ? 0 : 5,
-          }}
-        >
-          <IconButton
-            name="back button"
-            onClick={handlePrevSlide}
-            sx={{ margin: 2 }}
-          >
-            <ChevronLeft />
-          </IconButton>
-          <IconButton
-            name="next button"
-            onClick={handleNextSlide}
-            sx={{ margin: 2 }}
-          >
-            <ChevronRight />
-          </IconButton>
-        </Grid>
-      )} */}
+      
+      
     </Grid>
   );
 };

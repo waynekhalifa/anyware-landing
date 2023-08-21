@@ -32,8 +32,8 @@ const FadingImages: React.FC<Props> = ({ images, interval,selectedTap}) => {
   <NextImage 
     
     src={item.src}
-    placeholder="blur"
-    blurDataURL={item.blurDataURL}
+    // placeholder="blur"
+    // blurDataURL={item.blurDataURL}
     priority 
     loading="eager"	
     layout="fill"
