@@ -196,7 +196,7 @@ const ContactUsForm = ({partner,data}:any) => {
           </Grid>
 
           <Grid item xs={12}>
-          <Typography>Message <span style={{ color: 'red' }}> *</span></Typography>
+          <Typography>Message</Typography>
             <TextField
               {...register("message")}
               type="text"

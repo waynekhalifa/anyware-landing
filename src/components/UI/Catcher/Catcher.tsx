@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Box, Button, InputBase, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-import catcherBg from "@images/catcher-bg.svg";
+import catcherBg from "@images/catcher-bg.png";
 import useApp from "@/hooks/useApp";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -35,7 +35,7 @@ const Catcher: React.FC = () => {
         background: `url(${catcherBg.src}) no-repeat -50% 50%/890px`,
       }}
       animate={{
-        background: `url(${catcherBg.src}) no-repeat -10% 50%/890px`,
+        background: `url(${catcherBg.src}) no-repeat 0% 50%/890px`,
       }}
       transition={{ duration: 0.1, delay: 0.1 }}
       style={{
@@ -44,12 +44,12 @@ const Catcher: React.FC = () => {
         justifyContent: isMobile ? "center":"flex-start",
         textShadow: "0 1px 1px rgb(0 0 0 / 20%)",
         position: "relative",
-        minWidth: isMobile ? "200px":"400px",
+        minWidth: isMobile ? "200px":"100%",
         
         width: "100%",
         height: "100%",
         padding: "20px 80px 20px 80px",
-        background: `url(${catcherBg.src}) no-repeat -10% 50%/890px`,
+        background: `url(${catcherBg.src}) no-repeat -0% 50%/890px`,
         color: "#fff",
         flexDirection:isMobile?'column':'row',
         

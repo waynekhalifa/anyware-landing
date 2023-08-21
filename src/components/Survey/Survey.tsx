@@ -5,7 +5,13 @@ import { useRouter } from 'next/router';
 import { useState } from "react";
 import axios from "axios"
 import { features } from "process";
+interface StateProps {
+  activeQuestion: number;
+}
+const initialState: StateProps = { activeQuestion: 1 };
 const Survey: React.FC = () => {
+  const [state, setState] = useState(initialState);
+
   const router=useRouter()
   const data=router.query
   
@@ -16,21 +22,33 @@ const Survey: React.FC = () => {
   const [totalPrice,setTotalPrice]=useState(0)
   const handleSelectedImage=(image:any)=>{
     setSelectedImage(image)
+    setState((state:any) => ({
+      ...state,
+      activeQuestion: 2,
+    }))
   }
   const handleSelectedColor=(color:any)=>{
     setSelectedColor(color)
-    
+    setState((state:any) => ({
+      ...state,
+      activeQuestion: 2,
+    })) 
   }
   const handleSelectedFeature=(feature:any)=>{
     let features2:any[]=[]
     feature.forEach((element:any)=>features2.push(element))
     setSelectedFeatures(features2 as any)
+    setState((state:any) => ({
+      ...state,
+      activeQuestion: 3,
+    })) 
   }
   const handleSelectedMonth=(month:any)=>{
     setSelectedMonth(month)
   }
   const handleTotalPrice=(price:any)=>{
     setTotalPrice(price)
+    
   }
   const handleSubmit=async ()=>{
     // const formData = new FormData();
@@ -77,8 +95,8 @@ try {
   // console.log(totalPrice)
   return (
     <>
-      <Box sx={{ height: 400,display:"flex",flexDirection:"column" }} />
-      <Questions handleSubmit={handleSubmit} handleTotalPrice={handleTotalPrice} handleSelectedMonth={handleSelectedMonth} handleSelectedImage={handleSelectedImage} handleSelectedColor={handleSelectedColor} handleSelectedFeature={handleSelectedFeature} fullName={data.fullName as string} mobile={data.mobile as string} email={data.email as string} />
+      
+      <Questions selectedFeatures={selectedFeatures} state={state} setState={setState} handleSubmit={handleSubmit} handleTotalPrice={handleTotalPrice} handleSelectedMonth={handleSelectedMonth} handleSelectedImage={handleSelectedImage} handleSelectedColor={handleSelectedColor} handleSelectedFeature={handleSelectedFeature} fullName={data.fullName as string} mobile={data.mobile as string} email={data.email as string} />
       <Box
         sx={{
           backgroundColor: "primary.light",

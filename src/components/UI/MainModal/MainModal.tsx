@@ -46,6 +46,8 @@ const MainModal: React.FC = () => {
           // inset: 0,
           zIndex: 0,
           // cursor: "pointer",
+          
+          
         }}
         onWheel={handleFormScroll}
 

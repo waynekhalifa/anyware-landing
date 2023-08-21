@@ -7,12 +7,13 @@ import PriceCalculator from "./PriceCalculator";
 interface Props {
   isActive: boolean;
   completed: boolean;
+  disabled:boolean;
   handleSelectedFeature:(color:any)=>void
   handleSelectedMonth:(color:any)=>void
   handleTotalPrice:(color:any)=>void
 }
 
-const Features: React.FC<Props> = ({ isActive, completed,handleSelectedFeature,handleSelectedMonth,handleTotalPrice }) => {
+const Features: React.FC<Props> = ({ disabled,isActive, completed,handleSelectedFeature,handleSelectedMonth,handleTotalPrice }) => {
   const { selected, changeSelected } = useSelected();
   const { featuresListing } = useFeature("features", "feature");
 
@@ -44,7 +45,7 @@ const Features: React.FC<Props> = ({ isActive, completed,handleSelectedFeature,h
         <FeatureCard
           feature={feature}
           isSelected={selected.has(feature.title)}
-          handleClick={(event: React.MouseEvent<unknown>) =>
+          handleClick={disabled ? ()=>{}: (event: React.MouseEvent<unknown>) =>
             handleClick(feature.title)
           }
         />

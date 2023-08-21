@@ -5,14 +5,19 @@ import Color from "./Color";
 interface StateProps {
   color: string;
 }
-interface MyProps{
-  handleSelectedImage:(image:any)=>void,
-  handleSelectedColor:(color:any)=>void
+interface MyProps {
+  handleSelectedImage: (image: any) => void;
+  handleSelectedColor: (color: any) => void;
+  disabled: boolean;
 }
 
 const initialState: StateProps = { color: "primary.main" };
 
-const Colors: React.FC<MyProps> = ({handleSelectedColor,handleSelectedImage}) => {
+const Colors: React.FC<MyProps> = ({
+  disabled,
+  handleSelectedColor,
+  handleSelectedImage,
+}) => {
   const [state, setState] = useState(initialState);
 
   const colors: string[] = [
@@ -34,40 +39,57 @@ const Colors: React.FC<MyProps> = ({handleSelectedColor,handleSelectedImage}) =>
     "rgb(32, 32, 32)",
   ];
 
-  const handleClick = (color: string) => {handleSelectedColor(color);setState({ ...state, color })};
+  const handleClick = (color: string) => {
+    if(!disabled){
+    handleSelectedColor(color);
+    setState({ ...state, color });
+  }
+  };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center' }}>
-  <Box
-    sx={{
-      backgroundColor: state.color,
-      color: 'common.white',
-      width: { xs: 140, sm: 140 },
-      height: { xs: 140, sm: 140 },
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: '100%',
-      mr: { xs: 0, sm: 4 },
-      mb: { xs: 4, sm: 0 },
-    }}
-  >
-    <Typography align="center" variant="h2">
-      W
-    </Typography>
-  </Box>
-  <Box sx={{ maxWidth: 512, display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-    {colors.map((color: string, index: number) => (
-      <Color
-        key={index}
-        color={color}
-        isSelected={color === state.color}
-        onClick={(event: React.MouseEvent<unknown>) => handleClick(color)}
-      />
-    ))}
-  </Box>
-</Box>
-
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: { xs: "column", sm: "row" },
+        alignItems: "center",
+      }}
+    >
+      <Box
+        sx={{
+          backgroundColor: state.color,
+          color: "common.white",
+          width: { xs: 140, sm: 140 },
+          height: { xs: 140, sm: 140 },
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          borderRadius: "100%",
+          mr: { xs: 0, sm: 4 },
+          mb: { xs: 4, sm: 0 },
+        }}
+      >
+        <Typography align="center" variant="h2">
+          W
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          maxWidth: 512,
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        {colors.map((color: string, index: number) => (
+          <Color
+            key={index}
+            color={color}
+            isSelected={color === state.color}
+            onClick={(event: React.MouseEvent<unknown>) => handleClick(color)}
+          />
+        ))}
+      </Box>
+    </Box>
   );
 };
 
