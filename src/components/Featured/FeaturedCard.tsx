@@ -6,6 +6,7 @@ import FadingImages from "../fadingImages/FadingImages";
 import useIsMobile from "@/hooks/useIsMobile";
 import AnimatedTexts from "../animatedTexts/AnimatedTexts";
 import NextImage from "next/image";
+import useApp from "@/hooks/useApp";
 
 interface Props {
   items: any;
@@ -43,7 +44,11 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
     
     };
   }, [tabs]);
+  const {openModal} = useApp()
+  const HandleModal = ()=>{
+    openModal({ modalID: "catcher", modalContent: "login form" });
 
+  }
   return (
     <Container
       key={index}
@@ -233,6 +238,8 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
               ></path>
             </svg>
           }
+    
+  onClick={HandleModal}
         >
           Get Started
         </Button>

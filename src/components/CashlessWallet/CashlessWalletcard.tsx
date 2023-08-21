@@ -7,6 +7,7 @@ import AnimatedTexts from "../animatedTexts/AnimatedTexts";
 import NextImage from "next/image";
 import bannerBg from '@images/home-header-bg.webp';
 import checkGold from "@images/checkGold.png"
+import useApp from "@/hooks/useApp";
 
 interface Props {
   items: any;
@@ -15,6 +16,12 @@ interface Props {
 
 const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
   const { isMobile, width } = useIsMobile();
+  const {openModal} = useApp()
+  const HandleModal = ()=>{
+    openModal({ modalID: "catcher", modalContent: "login form" });
+
+  }
+  
   return (
     <Box
       style={{
@@ -133,6 +140,7 @@ const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
                 boxShadow: "0px 0px 6px #eee",
               },
             }}
+            onClick={HandleModal}
           >
             Get Started
           </Button>}
@@ -166,6 +174,8 @@ const CashlessWalletcard: React.FC<Props> = ({ items, index }) => {
                 boxShadow: "0px 0px 6px #eee",
               },
             }}
+            onClick={HandleModal}
+
             >
             Get Started
           </Button>}

@@ -98,6 +98,7 @@ const BecomePartnerCard = ({ items, index ,handleScroll}:any) => {
                 boxShadow: "0px 0px 6px #eee",
               },
             }}
+            onClick={handleScroll}
           >
             Become a partner
           </Button>}

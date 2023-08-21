@@ -35,7 +35,8 @@ const BecomePartner: React.FC = () => {
   const [selected, setSelected] = useState(-1);
   const { push } = useRouter();
   const { openModal } = useApp();
-  const textFieldRef = useRef<HTMLDivElement |null>(null); // Create a ref
+  const textFieldRef = useRef<HTMLDivElement | null>(null); // Create a ref
+  const GridRef = useRef<HTMLDivElement | null>(null); // Create a ref
 
   const { updating, changeUpdating } = useUpdating();
 
@@ -44,21 +45,33 @@ const BecomePartner: React.FC = () => {
   const handleClick = async () => {
     // const analytics = getAnalytics();
     // logEvent(analytics, 'Get Started Button');
-    
-      openModal({ modalID: "partner",modalContent:email + "$$" + (selected===0?"Reseller Program" : "Affiliate Marketers") });
-  
-    
-  };
-  const handleScroll = ()=>{
-    if(textFieldRef !==null && textFieldRef.current !==null){
-      textFieldRef.current.scrollIntoView({
-        behavior: 'smooth', // You can use 'auto' for immediate scroll
-        block: 'start',     // Scroll to the top of the element
-      });
-    }
 
-  }
-  
+    openModal({
+      modalID: "partner",
+      modalContent:
+        email +
+        "$$" +
+        (selected === 0 ? "Reseller Program" : "Affiliate Marketers"),
+    });
+  };
+  const handleScroll = () => {
+    if (isMobile) {
+      if (GridRef !== null && GridRef.current !== null) {
+        GridRef.current.scrollIntoView({
+          behavior: "smooth", // You can use 'auto' for immediate scroll
+          block: "start", // Scroll to the top of the element
+        });
+      }
+    } else {
+      if (textFieldRef !== null && textFieldRef.current !== null) {
+        textFieldRef.current.scrollIntoView({
+          behavior: "smooth", // You can use 'auto' for immediate scroll
+          block: "start", // Scroll to the top of the element
+        });
+      }
+    }
+  };
+
   return (
     <>
       <Header />
@@ -72,7 +85,11 @@ const BecomePartner: React.FC = () => {
         }}
       >
         <Grid xs={12} sx={{ margin: 0, padding: 0, width: "100%" }}>
-          <BecomePartnerCard index={0} items={Items[0]} handleScroll={handleScroll}/>
+          <BecomePartnerCard
+            index={0}
+            items={Items[0]}
+            handleScroll={handleScroll}
+          />
         </Grid>
         <Grid xs={12} sx={{ marginTop: isMobile ? 5 : 10 }}>
           <Typography
@@ -95,6 +112,7 @@ const BecomePartner: React.FC = () => {
             justifyContent: "center",
             flexDirection: "row",
           }}
+          ref={textFieldRef}
         >
           {venues.map((venue, index) => {
             return (
@@ -133,11 +151,10 @@ const BecomePartner: React.FC = () => {
             padding: 0,
             margin: 0,
           }}
-          ref={textFieldRef}
+          ref={GridRef}
         >
           {programs.map((program: any, index: number) => (
             <div
-            
               key={index}
               style={{
                 width: isMobile ? "100%" : "20%",
@@ -163,23 +180,21 @@ const BecomePartner: React.FC = () => {
 
           {!isMobile && (
             <Box
-              sx={
-                {
-                      display: "flex",
-                      flexDirection: "column",
-                      position: selected === -1 ? "absolute" : "unset",
-                      right: -500,
-                      width:'25%', 
-                      transition: "position 0.5s ease-in-out",
-                }
-              }
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                position: selected === -1 ? "absolute" : "unset",
+                right: -500,
+                width: "25%",
+                transition: "position 0.5s ease-in-out",
+              }}
             >
               <Box
                 sx={{
                   mb: 4,
                   mt: 4,
                   opacity: selected === -1 ? 0 : 1,
-                  
+
                   transition: "opacity 0.5s ease-in-out",
                 }}
               >
@@ -250,7 +265,6 @@ const BecomePartner: React.FC = () => {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setState({ ...state, email: e.target.value })
                 }
-                
                 sx={{
                   minWidth: "90%",
                   input: { p: 2 },
@@ -293,7 +307,7 @@ const BecomePartner: React.FC = () => {
         <Grid
           xs={isMobile ? 5 : undefined}
           style={{
-            opacity: isMobile ?selected === -1 ? 0 : 1 :1,
+            opacity: isMobile ? (selected === -1 ? 0 : 1) : 1,
             transition: "opacity 0.5s ease-in-out",
             alignItems: "center",
             display: "flex",
