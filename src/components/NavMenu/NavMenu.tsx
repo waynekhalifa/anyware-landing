@@ -29,8 +29,20 @@ const NavMenu: React.FC = () => {
   const [open, setOpen] = useState<string>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
+  useEffect(()=>{
+    router.prefetch('/')
+    router.prefetch('/Table-Reservation-System')
+    router.prefetch('/Kiosk')
+    router.prefetch('/CashlessWallet')
+  router.prefetch('/IntegrationServices')
+  router.prefetch('/CustomSoftware')
+  router.prefetch('/AboutUs')
+  router.prefetch('/becomepartner')
+},[])
+
+  
   useEffect(() => {
-    // Prefetch the dashboard page
+    
     menusListing.forEach((menu:any)=>{
       if(menu.children.length>0){
         menu.children.forEach((child:any)=>{
@@ -40,7 +52,6 @@ const NavMenu: React.FC = () => {
       }else{
         router.prefetch(menu.path)
         
-
       }
     }
     )
