@@ -9,7 +9,7 @@ import payment3 from "../../public/images/payment3.webp";
 import cashless1 from "../../public/images/cashless1.webp";
 import cashless2 from "../../public/images/cashless2.webp";
 import crmSol from "../../public/images/crmSol.webp";
-import tableReservation2 from "../../public/images/tablereservation2.webp";
+import tableReservation2 from "../../public/images/tableReservation2.webp";
 import tableReservation1 from "../../public/images/tableReservation1.webp";
 import survey1 from "../../public/images/survey1.webp";
 import survey2 from "../../public/images/survey2.webp";
