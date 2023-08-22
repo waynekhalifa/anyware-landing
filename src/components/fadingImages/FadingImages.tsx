@@ -5,8 +5,9 @@ interface Props {
   images: any;
   interval: number;
   selectedTap?: number;
+  
 }
-const FadingImages: React.FC<Props> = ({ images, interval, selectedTap }) => {
+const FadingImages: React.FC<Props> = ({ images, interval, selectedTap  }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

@@ -17,8 +17,9 @@ interface Props {
 const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   const [selectedTap, setSelectedTap] = useState(0);
   const [clicked,setClicked] = useState(false)
-  
+  const [images,setImages] = useState(items[selectedTap].img)
   const choosenItem = items.filter((item: any) => item.title === selectedTap);
+  
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setSelectedTap(newValue);
     setClicked(true)
@@ -32,7 +33,9 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       : items[selectedTap].animatedTexts.items.length * 10;
   const tabs = items.map((item: any) => item.title);
   
-  const images = items[selectedTap].img.map((item: any) => item.image);
+  useEffect(()=>{
+    setImages(items[selectedTap].img)
+  },[items,selectedTap])
 
   useEffect(() => {
     if(!clicked){
@@ -198,7 +201,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
              
               }}
             >
-               <FadingImages images={items[selectedTap].img} interval={5} selectedTap={selectedTap} />
+               <FadingImages images={images} interval={5} selectedTap={selectedTap}  />
             </Box>
           </Grid>
         </Grid>
