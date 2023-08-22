@@ -76,7 +76,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
           value={selectedTap}
           onChange={handleChange}
           variant="scrollable"
-          scrollButtons={true}
+          
           aria-label="scrollable prevent tabs example"
           style={{ maxWidth: width - 40, marginBottom: "2rem" }}
         >
@@ -174,6 +174,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
                   : items[selectedTap].animatedTexts.animationType
               }
               direction={items[selectedTap].direction}
+              selectedTap={selectedTap}
             />
           </Grid>
           <Grid

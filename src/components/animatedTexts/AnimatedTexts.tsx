@@ -9,59 +9,38 @@ interface Props {
   interval: number;
   animationType: string;
   direction: string;
+  selectedTap?: number;
 }
 const AnimatedTexts: React.FC<Props> = ({
   texts,
   interval,
   animationType,
   direction,
+  selectedTap,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleTexts, setVisibleTexts] = useState<string[]>([texts[0]]);
   const [counter, setCounter] = useState(0);
   const { isMobile } = useIsMobile();
-  const TimeInterval = animationType == "slide" ? interval + 2 : interval;
   useEffect(() => {
-    setVisibleTexts([]);
-    for (var i = 0; i <= currentIndex; i++) {
-      setVisibleTexts(visibleTexts.concat(texts[i]));
-    }
-    
-  }, [currentIndex, texts, animationType, interval, direction, texts.length]);
+    const interval2 = setInterval(() => {
+      setCurrentIndex((prevIndex: any) => (prevIndex + 1) % texts.length);
+    }, 1000 * (animationType === "slide" ? interval + 2 : interval)); // Change image every 3 seconds
 
-  useEffect(() => {
-    const intervalTime = setInterval(() => {
-      if (counter < TimeInterval) {
-        setCounter(counter + 1);
-      }
-    }, 1000);
-    if (currentIndex > texts.length - 1) {
-      setCurrentIndex(0);
-    }
-    return () => clearInterval(intervalTime);
-  }, [counter, texts.length, TimeInterval, currentIndex, texts, animationType]);
+    return () => {
+      clearInterval(interval2);
+    };
+  }, [texts, interval, animationType]);
 
   useEffect(() => {
     setVisibleTexts([]);
     setCurrentIndex(0);
-    setCounter(0);
-  }, [texts.length, TimeInterval, animationType]);
+  }, [selectedTap]);
 
   useEffect(() => {
-    if (counter >= TimeInterval) {
-      setCounter(0);
-      if (currentIndex == texts.length - 1) {
-        setVisibleTexts([]);
-        setCurrentIndex(0);
-      } else {
-        setCurrentIndex(currentIndex + 1);
-      }
-    }
-    if (currentIndex > texts.length - 1) {
-      setCurrentIndex(0);
-      setCounter(0);
-    }
-  }, [counter, texts.length, TimeInterval, currentIndex, texts, animationType]);
+    const newVisibleTexts = texts.slice(0, currentIndex + 1);
+    setVisibleTexts(newVisibleTexts);
+  }, [currentIndex, texts]);
 
   return animationType == "stack" ? (
     visibleTexts.length > 0 ? (
@@ -89,10 +68,7 @@ const AnimatedTexts: React.FC<Props> = ({
                 transition: "opacity 1s ease-in-out",
               }}
             >
-              {/* {text && visibleTexts.includes(text) && <img src={checkGold.src} style={{ width: '1rem' }} />}
-                {visibleTexts.includes(text) && (
-                  <p style={{ fontWeight: isMobile ? "200" : '400', fontSize: isMobile ? '0.8rem' : '1rem', lineHeight: '1.7857142857' }}>{text}</p>
-                )} */}
+              
               {visibleTexts.includes(text) && (
                 <p
                   style={{
@@ -146,7 +122,6 @@ const AnimatedTexts: React.FC<Props> = ({
                   "opacity 0.5s ease-in-out, transform 1s ease-in-out",
               }}
             >
-              {/* {text && visibleTexts.includes(text) && <img src={checkGold.src} style={{ width: '1rem'}} />} */}
               {visibleTexts.includes(text) && (
                 <p
                   style={{
@@ -158,14 +133,12 @@ const AnimatedTexts: React.FC<Props> = ({
                         ? "left"
                         : "center",
                     width: "100%",
-                    
                   }}
                 >
                   <NextImage
                     layout="fixed"
                     width={14}
                     height={14}
-                    
                     src={checkGold.src}
                   />{" "}
                   {text}
@@ -190,7 +163,7 @@ const AnimatedTexts: React.FC<Props> = ({
             flexDirection: "row",
           }}
         >
-          {/* <img src={checkGold.src} style={{ width: '1rem'}} /> */}
+          
           <p
             style={{
               fontWeight: isMobile ? "200" : "400",
