@@ -154,8 +154,10 @@ const AnimatedTexts: React.FC<Props> = ({
     <Box style={{ height: "fit-content", position: "relative" }}>
       {texts.map((text: string, index: number) => (
         <Box
+
           key={index}
           style={{
+            
             alignItems: "center",
             height: "fit-content",
             display: "flex",

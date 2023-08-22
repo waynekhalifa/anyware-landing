@@ -29,39 +29,36 @@ const NavMenu: React.FC = () => {
   const [open, setOpen] = useState<string>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
-  useEffect(()=>{
-    router.prefetch('/')
-    router.prefetch('/Table-Reservation-System')
-    router.prefetch('/Kiosk')
-    router.prefetch('/CashlessWallet')
-  router.prefetch('/IntegrationServices')
-  router.prefetch('/CustomSoftware')
-  router.prefetch('/AboutUs')
-  router.prefetch('/becomepartner')
-},[])
-
-  
   useEffect(() => {
-    
-    menusListing.forEach((menu:any)=>{
-      if(menu.children.length>0){
-        menu.children.forEach((child:any)=>{
-          router.prefetch(child.path)
-        
-        })
-      }else{
-        router.prefetch(menu.path)
-        
+    router.prefetch("/");
+    router.prefetch("/Table-Reservation-System");
+    router.prefetch("/Kiosk");
+    router.prefetch("/CashlessWallet");
+    router.prefetch("/IntegrationServices");
+    router.prefetch("/CustomSoftware");
+    router.prefetch("/AboutUs");
+    router.prefetch("/becomepartner");
+  }, []);
+
+  useEffect(() => {
+    menusListing.forEach((menu: any) => {
+      if (menu.children.length > 0) {
+        menu.children.forEach((child: any) => {
+          router.prefetch(child.path);
+        });
+      } else {
+        router.prefetch(menu.path);
       }
-    }
-    )
-  }, [router,menusListing])
+    });
+  }, [router, menusListing]);
   const handleClick = (menu: any) => {
-    if(menu.children.length===0){
+    if (menu.children.length === 0) {
       router.push(menu.path);
-    }else{
+    } else {
       if (open !== menu.name) setOpen(menu.name);
-      else {setOpen("");}
+      else {
+        setOpen("");
+      }
     }
   };
 
@@ -79,7 +76,7 @@ const NavMenu: React.FC = () => {
     setAnchorEl(null);
     setMobileMenuOpen(false);
   };
-  const { openModal } = useApp();
+  const { openModal ,closeModal} = useApp();
 
   const handleClickContact = () => {
     openModal({ modalID: "contact" });
@@ -87,7 +84,11 @@ const NavMenu: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const { isMobile } = useIsMobile();
   const dispatch = useDispatch();
-
+  
+  const handleLoginClick = ()=>{
+    handleCloseAnchor()
+    openModal({ modalID: "catcher", modalContent: "login form" });
+  }
   useEffect(() => {
     const fetchMainMenu = async () => {
       const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
@@ -136,7 +137,6 @@ const NavMenu: React.FC = () => {
             // overflowY: "auto",
             maxHeight: "90vh",
             minWidth: "90vw",
-            
           },
         }}
       >
@@ -197,16 +197,23 @@ const NavMenu: React.FC = () => {
                 {menu.children.map((child: any, index: number) => (
                   //  loading ? <h3>loading...</h3> :
                   <Link
-                  onClick={child.path===router.asPath ? ()=>{setAnchorEl(null);setMobileMenuOpen(false)} : ()=>{}}
+                    onClick={
+                      child.path === router.asPath
+                        ? () => {
+                            setAnchorEl(null);
+                            setMobileMenuOpen(false);
+                          }
+                        : () => {}
+                    }
                     key={index}
                     href={child.path}
                     underline="none"
                     color={"inherit"}
                   >
                     <Button
-                    onClick={()=>setMobileMenuOpen(false)}
+                      onClick={() => setMobileMenuOpen(false)}
                       sx={{
-                        width:'100%',
+                        width: "100%",
                         borderRadius: 0,
                         textTransform: "capitalize",
                         color: "#000",
@@ -238,6 +245,7 @@ const NavMenu: React.FC = () => {
         >
           <Button
             variant="contained"
+            onClick={handleLoginClick}
             sx={{
               textTransform: "capitalize",
               boxShadow: 6,
@@ -286,12 +294,12 @@ const NavMenu: React.FC = () => {
             textTransform: "capitalize",
             fontWeight: 600,
             color: "text.primary",
-            
+
             justifyContent: "flex-start",
             // p: "0px 16px",
             // mr: 1,
-            
-            textWrap:'nowrap',
+
+            textWrap: "nowrap",
             zIndex: 2,
             "&:hover": {
               backgroundColor: "transparent",
@@ -332,11 +340,19 @@ const NavMenu: React.FC = () => {
                 marginTop: "0.5rem",
               }}
             >
-              {loading ? <h3>loading...</h3>  : menu.children.map((child: any, index: number) =>
-                (
+              {loading ? (
+                <h3>loading...</h3>
+              ) : (
+                menu.children.map((child: any, index: number) => (
                   <Link
-                  onClick={child.path===router.asPath ? ()=>{setOpen("")} :()=>{}}
-                  key={index}
+                    onClick={
+                      child.path === router.asPath
+                        ? () => {
+                            setOpen("");
+                          }
+                        : () => {}
+                    }
+                    key={index}
                     href={child.path}
                     underline="none"
                     style={{ width: "100%" }}
@@ -363,7 +379,7 @@ const NavMenu: React.FC = () => {
                       {child.name}
                     </Button>
                   </Link>
-                )
+                ))
               )}
             </Box>
           </>

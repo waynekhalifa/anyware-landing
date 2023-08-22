@@ -30,6 +30,7 @@ const Catcher: React.FC = () => {
   };
 
   return (
+    
     <motion.div
       initial={{
         background: `url(${catcherBg.src}) no-repeat -50% 50%/890px`,
@@ -184,6 +185,7 @@ const Catcher: React.FC = () => {
         </Box>
       </motion.div>
     </motion.div>
+    
   );
 };
 

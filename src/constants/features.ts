@@ -3,17 +3,16 @@ import payMob from "../../public/images/paymob.png";
 import visa from "../../public/images/visa.png";
 import meeza from "../../public/images/meeza.png";
 import masterCard from "../../public/images/masterCard.png";
-import payment1 from "../../public/images/payment1.png";
-import payment2 from "../../public/images/payment2.png";
+import payment1 from "../../public/images/payment1.webp";
+import payment2 from "../../public/images/payment2.webp";
 import payment3 from "../../public/images/payment3.webp";
 import cashless1 from "../../public/images/cashless1.webp";
 import cashless2 from "../../public/images/cashless2.webp";
-import crmSol from "../../public/images/crmSol.png";
-import tableReservation2 from "../../public/images/tableReservation2.webp";
+import crmSol from "../../public/images/crmSol.webp";
+import tableReservation2 from "../../public/images/tablereservation2.webp";
 import tableReservation1 from "../../public/images/tableReservation1.webp";
-import survey1 from "../../public/images/survey1.png";
-import survey2 from "../../public/images/survey2.png";
-import survey3 from "../../public/images/survey3.png";
+import survey1 from "../../public/images/survey1.webp";
+import survey2 from "../../public/images/survey2.webp";
 import onlineOrder from "../../public/images/onlineorder.png";
 import onlineOrder2 from "../../public/images/onlineorder2.png";
 import qrdineIn from "../../public/images/qrdinein.png";
@@ -63,7 +62,7 @@ export const items = [
       ],
       animationType: "stack",
     },
-    icons: [visa, masterCard, meeza, payMob],
+    icons: [visa, masterCard, meeza],
     direction: "row",
   },
   {
@@ -143,7 +142,7 @@ export const items3 = [
   {
     title: "Online Ordering",
     img: [onlineOrder, onlineOrder2],
-    imgOrientation: "portrait",
+    imgOrientation: "landscape",
     typo: "Receive orders from your own branded application",
     animatedTexts: {
       items: ["Our applications support Delivery, Pickup & Drive-thru."],
@@ -183,8 +182,8 @@ export const items3 = [
   },
   {
     title: "Call Center",
-    img: [Tab4_1,Tab4_2],
-    imgOrientation: "portrait",
+    img: [Tab4_1, Tab4_2],
+    imgOrientation: "landscape",
     typo: "Ensure seamless synchronized orders made over the phone",
     animatedTexts: {
       items: [
@@ -205,7 +204,7 @@ export const items3 = [
   {
     title: "Delivery Aggregator",
     img: [Tab5_1, Tab5_2],
-    imgOrientation: "portrait",
+    imgOrientation: "landscape",
     typo: "Simplify your Restaurant Operations",
     animatedTexts: {
       items: [
@@ -221,7 +220,7 @@ export const items3 = [
 export const items4 = [
   {
     title: "Loyalty & Rewarding System",
-    img: [sec3tab1,sec3tab2],
+    img: [sec3tab1, sec3tab2],
     imgOrientation: "portrait",
     typo: "Get your customers to collect points to redeem into gifts and  discounts.",
     animatedTexts: {
@@ -242,40 +241,41 @@ export const items4 = [
     title: "Packages Solution",
     img: [sec3tab2_1, sec3tab2_2],
     imgOrientation: "portrait",
-    typo: "Create new tiered packages  with customizable benefits for your guests.",
+    typo: "Create new tiered packages with customizable benefits for your guests.",
     animatedTexts: {
-      items: [
-        "Seamless integration among all points of sale.",
-      ],
+      items: ["Seamless integration among all points of sale."],
       animationType: "none",
     },
     icons: [],
     direction: "column",
   },
-  
 ];
 
 export const bannerItems = [
   {
-    index:0,
-    header:'',
-    title:'All in one hospitality digitization platform',
-    description:'Online Ordering, Table Reservation, Call Center, Rewarding Loyalty Solution & more.',
-    images:[]
+    index: 0,
+    header: "",
+    title: "All in one hospitality digitization platform",
+    description:
+      "Online Ordering, Table Reservation, Call Center, Rewarding Loyalty Solution & more.",
+    images: [],
   },
   {
-    index:1,
-    header:'CUSTOM SOFTWARE DEVELOPMENT',
-    title:'Develop your website, platform or mobile application',
-    description:'We design, develop, and implement custom software solutions  as per your business requirements.',
-    images:[]
+    index: 1,
+    header: "CUSTOM SOFTWARE DEVELOPMENT",
+    title: "Develop your website, platform or mobile application",
+    description:
+      "We design, develop, and implement custom software solutions  as per your business requirements.",
+    images: [],
   },
   {
-    index:2,
-    header:'INTEGRATION SERVICES',
-    title:'Submit your system integration requirements and we have got your back!',
-    description:'You can integrate your ERP with any external systems if it simply supports API integration.',
-    images:[]
-  }
-]
-export const allItems = [ items2, items3,items4,items];
+    index: 2,
+    header: "INTEGRATION SERVICES",
+    title:
+      "Submit your system integration requirements and we have got your back!",
+    description:
+      "You can integrate your ERP with any external systems if it simply supports API integration.",
+    images: [],
+  },
+];
+export const allItems = [items2, items3, items4, items];

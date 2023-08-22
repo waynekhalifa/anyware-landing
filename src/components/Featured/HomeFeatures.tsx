@@ -41,6 +41,7 @@ const HomeFeatures: React.FC = () => {
   const router = useRouter();
   const pathname = "adhaaaaaaaaam";
   const search = String(router.query.search);
+  const [clicked,setClicked] = useState(0)
 
   const analytics = useCallback(() => {
     Trackpathforanalytics({
@@ -81,7 +82,7 @@ const HomeFeatures: React.FC = () => {
     };
   });
   const venues = [millenium, movenpick, jeddah, caffe, caf];
-  const [clicked,setClicked] = useState(0)
+  const [tabClicked,setTabClicked] = useState(false)
   return (
     <Box
       sx={{ overflow: "hidden", width: "100%", position: "relative", flex: 1 }}
@@ -214,7 +215,7 @@ const HomeFeatures: React.FC = () => {
       </Container>
 
       {allItems.map((item, index) => (
-        <FeaturedCard key={index} index={index} items={item} />
+        <FeaturedCard key={index} index={index} items={item} clicked={tabClicked} setClicked={setTabClicked} />
       ))}
     </Box>
   );

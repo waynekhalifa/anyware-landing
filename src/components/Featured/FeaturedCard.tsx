@@ -11,14 +11,17 @@ import useApp from "@/hooks/useApp";
 interface Props {
   items: any;
   index: number;
+  clicked : boolean ; 
+  setClicked : (x : boolean ) => void;
 }
 const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   const [selectedTap, setSelectedTap] = useState(0);
-  
+  const [clicked,setClicked] = useState(false)
   
   const choosenItem = items.filter((item: any) => item.title === selectedTap);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setSelectedTap(newValue);
+    setClicked(true)
   };
   const { isMobile, width } = useIsMobile();
   const baseHeight =
@@ -32,18 +35,20 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
   const images = items[selectedTap].img.map((item: any) => item.image);
 
   useEffect(() => {
-    
-    const interval2 = setInterval(() => {
-      setSelectedTap((prevIndex:any) => (prevIndex + 1) % tabs.length);
-    
-    }, 8000 ); // Change image every 3 seconds
-    
-    return () => {
-    
-      clearInterval(interval2);
-    
-    };
-  }, [tabs]);
+    if(!clicked){
+
+      const interval2 = setInterval(() => {
+        setSelectedTap((prevIndex:any) => (prevIndex + 1) % tabs.length);
+        
+      }, 8000 ); // Change image every 3 seconds
+      
+      return () => {
+        
+        clearInterval(interval2);
+        
+      };
+    }
+  }, [tabs,clicked]);
   const {openModal} = useApp()
   const HandleModal = ()=>{
     openModal({ modalID: "catcher", modalContent: "login form" });
@@ -69,7 +74,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "flex-start",
-          minHeight: baseHeight + offestHeight + "px",
+          minHeight: isMobile ? "unset" :baseHeight + offestHeight + "px",
         }}
       >
         <Tabs
@@ -182,12 +187,13 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
             sx={{
               marginTop:
                 items[selectedTap].direction == "row" && !isMobile ? 0 : "2rem",
+                
             }}
           >
             <Box
               style={{
-                width: items[selectedTap].direction ==="column" || isMobile? "100%" : "550px",
-                height: isMobile ? items[selectedTap].imgOrientation==="portrait" ?  "500px" : "300px" : "500px",
+                width: (items[selectedTap].direction ==="column" || isMobile)? "100%" : width*0.35 ,
+                height: isMobile ? (items[selectedTap].imgOrientation==="portrait" ?  "500px" : "250px") : "500px",
                 position: "relative",
              
               }}
