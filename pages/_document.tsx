@@ -9,6 +9,39 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
+          {/* <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/60fe6ec0d6e7610a49acff93/1fbgu18c1';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+              })();
+              ;
+            `,
+            }}
+          /> */}
+
+          <script
+            dangerouslySetInnerHTML=
+            {{
+              __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/64e5e31694cf5d49dc6c08d6/1h8gvu4tr';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+              })(); `,
+            }}
+        />
+
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <meta name="emotion-insertion-point" content="" />
