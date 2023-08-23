@@ -77,17 +77,17 @@ const ContactUsForm = ({ partner, data }: any) => {
         mobile: formData.mobile,
       };
 
-      // await axios
-      //   .post(apiUrl, data2)
-      //   .then((response) => {
-      //     console.log(response.data); // Email status response from the server
+      await axios
+        .post(apiUrl, data2)
+        .then((response) => {
+          console.log(response.data); // Email status response from the server
 
-      //     // Handle success or error based on the response
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //     // Handle error
-      //   });
+          // Handle success or error based on the response
+        })
+        .catch((error) => {
+          console.error(error);
+          // Handle error
+        });
 
       reset();
       changeConfirm("Your message has been sent!");
