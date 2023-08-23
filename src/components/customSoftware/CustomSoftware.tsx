@@ -14,6 +14,7 @@ import astenlogo from "@images/astenlogo.png";
 import balancedlogo from "@images/balancedlogo.webp";
 import edufylogo from "@images/edufylogo.png";
 import entreprewarelogo from "@images/entreprewarelogo.png";
+import { useEffect, useState } from "react";
 
 const CustomSoftware: React.FC = () => {
   const { isMobile, width } = useIsMobile();
@@ -26,6 +27,31 @@ const CustomSoftware: React.FC = () => {
     edufylogo,
     vodafonelogo,
   ];
+  const [logosInView, setLogosInView] = useState(false);
+  const handleLogosInView = (entries: any) => {
+    if (entries[0].isIntersecting) {
+      setLogosInView(true);
+    } else {
+      setLogosInView(false);
+    }
+  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleLogosInView, {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // Trigger when at least 50% of the element is in view
+    });
+
+    const target = document.querySelector("#logos-box-custom"); // Replace with the actual ID of your Box element
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
   const animationStyles = `
   @keyframes logoAnimation {
     0%, 100% {
@@ -128,6 +154,7 @@ const CustomSoftware: React.FC = () => {
               flexDirection: "row",
               marginTop:5,
             }}
+            id="logos-box-custom"
           >
             {venues.map((venue, index) => {
               return (
@@ -138,8 +165,8 @@ const CustomSoftware: React.FC = () => {
                     alignItems: "center",
                     display: "flex",
                     justifyContent: "center",
-                    animation: "logoAnimation 3s 1",
-                    animationDelay: `${index * 0.5 }s`,
+                    animation: logosInView ? "logoAnimation 3s 1" :"none",
+                    animationDelay: logosInView ? `${index * 0.5 }s`:"",
                   }}
                 >
                   <NextImage

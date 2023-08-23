@@ -13,7 +13,7 @@ import caf from "@images/CAF.webp";
 import BecomePartnerCard from "./BecomePartnerCard";
 import PartnerProgramCard from "./PartnerProgramCard";
 import anywarepartner from "@images/anywarepartner.png";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useUpdating from "@/hooks/useUpdating";
 import useApp from "@/hooks/useApp";
 import { useRouter } from "next/router";
@@ -32,6 +32,32 @@ const BecomePartner: React.FC = () => {
 
   const { isMobile, width } = useIsMobile();
   const venues = [millenium, movenpick, jeddah, caffe, caf];
+  const [logosInView, setLogosInView] = useState(false);
+  const handleLogosInView = (entries: any) => {
+    if (entries[0].isIntersecting) {
+      setLogosInView(true);
+    } else {
+      setLogosInView(false);
+    }
+  };
+useEffect(() => {
+    const observer = new IntersectionObserver(handleLogosInView, {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // Trigger when at least 50% of the element is in view
+    });
+
+    const target = document.querySelector("#logos-box-partner"); // Replace with the actual ID of your Box element
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
+
   const animationStyles = `
   @keyframes logoAnimation {
     0%, 100% {
@@ -115,7 +141,7 @@ const TextRef = useRef<HTMLDivElement | null>(null); // Create a ref
             handleScroll={handleScroll}
             />
         </Grid>
-        <Grid xs={12} sx={{ marginTop: isMobile ? 5 : 10 }}>
+        <Grid xs={12} sx={{ marginTop: isMobile ? 5 : 10 }} >
           <Typography
             color="text.secondary"
             align="center"
@@ -130,6 +156,7 @@ const TextRef = useRef<HTMLDivElement | null>(null); // Create a ref
         <Grid
           xs={12}
           container
+          id="logos-box-partner"
           style={{
             display: "flex",
             alignItems: "center",
@@ -147,8 +174,8 @@ const TextRef = useRef<HTMLDivElement | null>(null); // Create a ref
                 alignItems: "center",
                 display: "flex",
                 justifyContent: "center",
-                animation: "logoAnimation 3s 1",
-                animationDelay: `${index * 0.5}s`,
+                animation: logosInView ? "logoAnimation 3s 1" : "none",
+                animationDelay: logosInView ? `${index * 0.5}s` : "",
               }}
               >
                 <NextImage

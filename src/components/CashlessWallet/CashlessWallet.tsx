@@ -11,9 +11,35 @@ import millenium from "@images/millenium.svg";
 import movenpick from "@images/Movenpick_logo_Hotels_Resorts 1.webp";
 import jeddah from "@images/Jeddah Living 316X71 F 1.webp";
 import coralBay from "@images/coralBay.webp";
+import { useEffect, useState } from "react";
 const CashlessWallet: React.FC = () => {
   const { isMobile, width } = useIsMobile();
   const venues = [millenium, movenpick, jeddah, coralBay];
+  const [logosInView, setLogosInView] = useState(false);
+  const handleLogosInView = (entries: any) => {
+    if (entries[0].isIntersecting) {
+      setLogosInView(true);
+    } else {
+      setLogosInView(false);
+    }
+  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleLogosInView, {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // Trigger when at least 50% of the element is in view
+    });
+
+    const target = document.querySelector("#logos-box-cashless"); // Replace with the actual ID of your Box element
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
   const animationStyles = `
   @keyframes logoAnimation {
     0%, 100% {
@@ -101,6 +127,7 @@ const CashlessWallet: React.FC = () => {
             flexDirection: "row",
             marginBottom: isMobile ? 0 : 10,
           }}
+          id="logos-box-cashless"
         >
           {venues.map((venue, index) => {
             return (
@@ -111,8 +138,8 @@ const CashlessWallet: React.FC = () => {
                   alignItems: "center",
                   display: "flex",
                   justifyContent: "center",
-                  animation: "logoAnimation 3s 1",
-                  animationDelay: `${index * 0.5}s`,
+                  animation: logosInView ? "logoAnimation 3s 1" : "none",
+                  animationDelay: logosInView?`${index * 0.5}s` : "",
                 }}
               >
                 <NextImage

@@ -48,7 +48,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       threshold: 0.5, // Trigger when at least 50% of the element is in view
     });
 
-    const target = document.querySelector("#my-box"); // Replace with the actual ID of your Box element
+    const target = document.querySelector("#featured-box"+index); // Replace with the actual ID of your Box element
     if (target) {
       observer.observe(target);
     }
@@ -98,7 +98,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
         flexDirection: "column",
         overflow: "hidden",
       }}
-      id="my-box"
+      
     >
       <Box
         style={{
@@ -108,6 +108,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
           justifyContent: "flex-start",
           minHeight: isMobile ? "unset" :baseHeight + offestHeight + "px",
         }}
+        id={"featured-box"+index}
       >
         <Tabs
           value={selectedTap}

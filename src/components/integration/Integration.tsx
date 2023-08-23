@@ -9,7 +9,7 @@ import bannerBg from "@images/home-header-bg.webp";
 import Footer from "../Footer/Footer";
 
 import integrationPartners from "@images/integrationPartners.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   getAnalytics,
   logEvent,
@@ -20,6 +20,31 @@ import Head from "next/head";
 
 const Integration: React.FC = () => {
   const { isMobile, width } = useIsMobile();
+  const [logosInView, setLogosInView] = useState(false);
+  const handleLogosInView = (entries: any) => {
+    if (entries[0].isIntersecting) {
+      setLogosInView(true);
+    } else {
+      setLogosInView(false);
+    }
+  };
+useEffect(() => {
+    const observer = new IntersectionObserver(handleLogosInView, {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // Trigger when at least 50% of the element is in view
+    });
+
+    const target = document.querySelector("#logos-box-integration"); // Replace with the actual ID of your Box element
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const analytics = getAnalytics();
@@ -149,12 +174,13 @@ const Integration: React.FC = () => {
               </Typography>
             </Grid>
             <Box
+              id="logos-box-integration"
               sx={{
                 minWidth:isMobile ?  '120%':'200%',
                 height:'150px',
                 transform:'translateY(3rem)',
-                animation: "logoAnimation 2s 3",
-                animationDelay: "3s",
+                animation: logosInView ? "logoAnimation 2s 1" : "none",
+                animationDelay: logosInView ? "1s" : "",
                 
               }}
               >

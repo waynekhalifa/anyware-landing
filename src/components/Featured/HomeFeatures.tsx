@@ -42,6 +42,31 @@ const HomeFeatures: React.FC = () => {
   const pathname = "adhaaaaaaaaam";
   const search = String(router.query.search);
   const [clicked,setClicked] = useState(0)
+  const [logosInView, setLogosInView] = useState(false);
+  const handleLogosInView = (entries: any) => {
+    if (entries[0].isIntersecting) {
+      setLogosInView(true);
+    } else {
+      setLogosInView(false);
+    }
+  };
+useEffect(() => {
+    const observer = new IntersectionObserver(handleLogosInView, {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // Trigger when at least 50% of the element is in view
+    });
+
+    const target = document.querySelector("#logos-box"); // Replace with the actual ID of your Box element
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
 
   const analytics = useCallback(() => {
     Trackpathforanalytics({
@@ -180,7 +205,7 @@ const HomeFeatures: React.FC = () => {
           <HomeSlider />
         )}
 
-        <Box style={{ marginTop: "30px", padding: 0, marginBottom: "80px" }}>
+        <Box style={{ marginTop: "30px", padding: 0, marginBottom: "80px" }} id="logos-box">
           <Typography
             color="text.secondary"
             align="center"
@@ -212,10 +237,9 @@ const HomeFeatures: React.FC = () => {
                     alignItems: "center",
                     display: "flex",
                     justifyContent: "center",
-                    animation: "logoAnimation 3s 1",
-                    animationDelay: `${index * 0.5 }s`, // Delay each logo animation
-                    // animation: animationActive ? "logoAnimation 3s infinite" : "none",
-                    // animationDelay: animationActive ? `${index * 0.5}s` : "none", // Delay each logo animation
+                    animation: logosInView? "logoAnimation 3s 1" : "none",
+                    animationDelay: logosInView ?  `${index * 0.5 }s` : "", // Delay each logo animation
+                    
                 
                    } }
                 >

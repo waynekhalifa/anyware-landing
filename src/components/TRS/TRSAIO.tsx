@@ -19,6 +19,7 @@ const TRSAIO: React.FC<Props> = ({ items }) => {
     }
   };
 
+
   useEffect(() => {
     const observer = new IntersectionObserver(handleBoxInView, {
       root: null, // Use the viewport as the root

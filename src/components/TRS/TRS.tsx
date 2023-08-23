@@ -20,7 +20,9 @@ import { getAnalytics, logEvent, setUserId } from "firebase/analytics";
 
 const TRS: React.FC = () => {
   const { isMobile, width } = useIsMobile();
-  const venues = !isMobile ? [shinko, reif, megumi, lexies, sachi, kazoku] :[shinko, kazoku, reif, megumi, lexies, sachi,]  ;
+  const venues = !isMobile
+    ? [shinko, reif, megumi, lexies, sachi, kazoku]
+    : [shinko, kazoku, reif, megumi, lexies, sachi];
 
   useEffect(() => {
     const analytics = getAnalytics();
@@ -32,6 +34,32 @@ const TRS: React.FC = () => {
     });
     console.log("hi");
   }, []);
+  const [logosInView, setLogosInView] = useState(false);
+  const handleLogosInView = (entries: any) => {
+    if (entries[0].isIntersecting) {
+      setLogosInView(true);
+    } else {
+      setLogosInView(false);
+    }
+  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleLogosInView, {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // Trigger when at least 50% of the element is in view
+    });
+
+    const target = document.querySelector("#logos-box-trs"); // Replace with the actual ID of your Box element
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
+
   const animationStyles = `
   @keyframes logoAnimation {
     0%, 100% {
@@ -51,11 +79,12 @@ const TRS: React.FC = () => {
         <meta name="description" content={"Anyware Software"} />
       </Head>
       <Header />
-     <style>{animationStyles}</style>
+      <style>{animationStyles}</style>
       <Box
         style={{
-          
-          overflow: "hidden", position: "relative" ,flex:1,
+          overflow: "hidden",
+          position: "relative",
+          flex: 1,
           paddingTop: isMobile ? 0 : 120,
         }}
       >
@@ -67,7 +96,6 @@ const TRS: React.FC = () => {
             height: "185.43vh",
             display: "block",
             position: "absolute",
-            
           }}
         >
           <NextImage
@@ -133,6 +161,7 @@ const TRS: React.FC = () => {
               </Typography>
             </Grid>
             <Grid
+              id="logos-box-trs"
               xs={12}
               container
               spacing={4}
@@ -141,7 +170,7 @@ const TRS: React.FC = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "row",
-                marginTop:10,
+                marginTop: 10,
               }}
             >
               {venues.map((venue, index) => {
@@ -153,8 +182,8 @@ const TRS: React.FC = () => {
                       alignItems: "center",
                       display: "flex",
                       justifyContent: "center",
-                      animation: "logoAnimation 3s 1",
-                    animationDelay: `${index * 0.5 }s`,
+                      animation: logosInView ? "logoAnimation 3s 1" :"none",
+                      animationDelay: logosInView ? `${index * 0.5}s` : "",
                     }}
                   >
                     <NextImage
@@ -162,7 +191,15 @@ const TRS: React.FC = () => {
                       layout="fixed"
                       width="150px"
                       priority
-                      height={isMobile ?(index===1 || index===0 ) ? "80px" : "60px" :(index===venues.length-1 || index===0 ) ? "80px" : "60px"}
+                      height={
+                        isMobile
+                          ? index === 1 || index === 0
+                            ? "80px"
+                            : "60px"
+                          : index === venues.length - 1 || index === 0
+                          ? "80px"
+                          : "60px"
+                      }
                       objectFit="contain"
                       src={venue.src}
                       style={{ opacity: "0.7" }}
@@ -189,7 +226,6 @@ const TRS: React.FC = () => {
                   minHeight: "100%",
                   maxHeight: "100%",
                   marginTop: 0,
-                  
                 }}
               >
                 <TRScard index={index + 1} items={item} />
