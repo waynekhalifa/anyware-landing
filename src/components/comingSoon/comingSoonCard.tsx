@@ -143,7 +143,7 @@ const ComingSoonCard: React.FC<Props> = ({ items, index }) => {
           <Box
             style={{
               width: "100%",
-              height: "400px",
+              height: "320px",
               transform :items.imgOrientation=="landscape" ? "scale(1)" : isMobile ? "scale(1)": "scale(1.4)",
               position: "relative",
             }}
