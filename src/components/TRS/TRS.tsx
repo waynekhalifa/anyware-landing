@@ -32,7 +32,18 @@ const TRS: React.FC = () => {
     });
     console.log("hi");
   }, []);
-
+  const animationStyles = `
+  @keyframes logoAnimation {
+    0%, 100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    50% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+`;
   return (
     <>
       <Head>
@@ -40,6 +51,7 @@ const TRS: React.FC = () => {
         <meta name="description" content={"Anyware Software"} />
       </Head>
       <Header />
+     <style>{animationStyles}</style>
       <Box
         style={{
           
@@ -141,6 +153,8 @@ const TRS: React.FC = () => {
                       alignItems: "center",
                       display: "flex",
                       justifyContent: "center",
+                      animation: "logoAnimation 3s 1",
+                    animationDelay: `${index * 0.5 }s`,
                     }}
                   >
                     <NextImage

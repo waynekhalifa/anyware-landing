@@ -83,9 +83,22 @@ const HomeFeatures: React.FC = () => {
   });
   const venues = [millenium, movenpick, jeddah, caffe, caf];
   const [tabClicked,setTabClicked] = useState(false)
+  const animationStyles = `
+  @keyframes logoAnimation {
+    0%, 100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    50% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+`;
+
   return (
     <Box
-      sx={{ overflow: "hidden", width: "100%", position: "relative", flex: 1 }}
+      sx={{ overflow: "hidden", width: "100%", position: "relative", flex: 1 ,paddingTop:isMobile?2:0}}
     >
       <Box
         sx={{
@@ -112,6 +125,8 @@ const HomeFeatures: React.FC = () => {
           }}
         />
       </Box>
+      <style>{animationStyles}</style>
+
       <Container
         sx={
           isMobile
@@ -188,6 +203,7 @@ const HomeFeatures: React.FC = () => {
             }}
           >
             {venues.map((venue, index) => {
+              
               return (
                 <Grid
                   key={index}
@@ -196,7 +212,12 @@ const HomeFeatures: React.FC = () => {
                     alignItems: "center",
                     display: "flex",
                     justifyContent: "center",
-                  }}
+                    animation: "logoAnimation 3s 1",
+                    animationDelay: `${index * 0.5 }s`, // Delay each logo animation
+                    // animation: animationActive ? "logoAnimation 3s infinite" : "none",
+                    // animationDelay: animationActive ? `${index * 0.5}s` : "none", // Delay each logo animation
+                
+                   } }
                 >
                   <NextImage
                     alt="Banner background"

@@ -14,7 +14,18 @@ import coralBay from "@images/coralBay.webp";
 const CashlessWallet: React.FC = () => {
   const { isMobile, width } = useIsMobile();
   const venues = [millenium, movenpick, jeddah, coralBay];
-
+  const animationStyles = `
+  @keyframes logoAnimation {
+    0%, 100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    50% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+`;
   return (
     <div
       style={{
@@ -23,6 +34,8 @@ const CashlessWallet: React.FC = () => {
       }}
     >
       <Header />
+      <style>{animationStyles}</style>
+
       <Box
         style={{
           top: "-100.016vh",
@@ -98,6 +111,8 @@ const CashlessWallet: React.FC = () => {
                   alignItems: "center",
                   display: "flex",
                   justifyContent: "center",
+                  animation: "logoAnimation 3s 1",
+                  animationDelay: `${index * 0.5}s`,
                 }}
               >
                 <NextImage

@@ -53,7 +53,8 @@ const NavMenu: React.FC = () => {
   }, [router, menusListing]);
   const handleClick = (menu: any) => {
     if (menu.children.length === 0) {
-      router.push(menu.path);
+      if (router.asPath === menu.path) {setMobileMenuOpen(false); setAnchorEl(null)}
+      else router.push(menu.path);
     } else {
       if (open !== menu.name) setOpen(menu.name);
       else {
@@ -76,7 +77,7 @@ const NavMenu: React.FC = () => {
     setAnchorEl(null);
     setMobileMenuOpen(false);
   };
-  const { openModal ,closeModal} = useApp();
+  const { openModal, closeModal } = useApp();
 
   const handleClickContact = () => {
     openModal({ modalID: "contact" });
@@ -84,11 +85,11 @@ const NavMenu: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const { isMobile } = useIsMobile();
   const dispatch = useDispatch();
-  
-  const handleLoginClick = ()=>{
-    handleCloseAnchor()
+
+  const handleLoginClick = () => {
+    handleCloseAnchor();
     openModal({ modalID: "catcher", modalContent: "login form" });
-  }
+  };
   useEffect(() => {
     const fetchMainMenu = async () => {
       const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");

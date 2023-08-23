@@ -33,12 +33,40 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
       : items[selectedTap].animatedTexts.items.length * 10;
   const tabs = items.map((item: any) => item.title);
   
+  const [boxInView, setBoxInView] = useState(false);
+  const handleBoxInView = (entries: any) => {
+    if (entries[0].isIntersecting) {
+      setBoxInView(true);
+    } else {
+      setBoxInView(false);
+    }
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleBoxInView, {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // Trigger when at least 50% of the element is in view
+    });
+
+    const target = document.querySelector("#my-box"); // Replace with the actual ID of your Box element
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
+
+
   useEffect(()=>{
     setImages(items[selectedTap].img)
   },[items,selectedTap])
 
   useEffect(() => {
-    if(!clicked){
+    if(!clicked && boxInView){
 
       const interval2 = setInterval(() => {
         setSelectedTap((prevIndex:any) => (prevIndex + 1) % tabs.length);
@@ -51,7 +79,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
         
       };
     }
-  }, [tabs,clicked]);
+  }, [tabs,clicked,boxInView]);
   const {openModal} = useApp()
   const HandleModal = ()=>{
     openModal({ modalID: "catcher", modalContent: "login form" });
@@ -70,6 +98,7 @@ const FeaturedCard: React.FC<Props> = ({ items, index }) => {
         flexDirection: "column",
         overflow: "hidden",
       }}
+      id="my-box"
     >
       <Box
         style={{

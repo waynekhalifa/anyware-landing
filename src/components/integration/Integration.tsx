@@ -30,6 +30,19 @@ const Integration: React.FC = () => {
       page_name: "INTEGRATION",
     });
   }, []);
+
+  const animationStyles = `
+  @keyframes logoAnimation {
+    0%, 100% {
+      opacity: 1;
+      
+    }
+    50% {
+      opacity: 0;
+      
+    }
+  }
+`;
   return (
     <>
       <Head>
@@ -121,6 +134,8 @@ const Integration: React.FC = () => {
               transform: isMobile ? "scale(0.7)" : "scale(1)",
             }}
             >
+                    <style>{animationStyles}</style>
+
             <Grid xs={12}>
               <Typography
                 //   color="text.secondary"
@@ -137,7 +152,10 @@ const Integration: React.FC = () => {
               sx={{
                 minWidth:isMobile ?  '120%':'200%',
                 height:'150px',
-                transform:'translateY(3rem)'
+                transform:'translateY(3rem)',
+                animation: "logoAnimation 2s 3",
+                animationDelay: "3s",
+                
               }}
               >
               <NextImage

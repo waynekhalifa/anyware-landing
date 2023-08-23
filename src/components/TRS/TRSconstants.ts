@@ -1,10 +1,10 @@
 import trs1 from "@images/trs1.webp";
 import trs2 from "@images/trs2.webp";
-import trs3 from "@images/trs3.webp";
 import bakymobile4 from "@images/bakymobile4.webp"
 import bakymobile5 from "@images/bakymobile5.webp"
 import bakymobile6 from "@images/bakymobile6.webp"
 import aio1 from "@images/aio1.webp"
+import aio2 from "@images/aio2.webp"
 import aio3 from "@images/aio3.webp"
 import aio4 from "@images/aio4.webp"
 import aio5 from "@images/aio5.webp"
@@ -75,7 +75,7 @@ export const TRSaio = [
   },
   {
     title: "02. Exclusive Zones & FloorPlans",
-    img: [trs3],
+    img: [aio2],
     imgOrientation: "landscape",
     icons: [],
     },

@@ -32,11 +32,24 @@ const BecomePartner: React.FC = () => {
 
   const { isMobile, width } = useIsMobile();
   const venues = [millenium, movenpick, jeddah, caffe, caf];
-  const [selected, setSelected] = useState(-1);
-  const { push } = useRouter();
-  const { openModal } = useApp();
-  const textFieldRef = useRef<HTMLDivElement | null>(null); // Create a ref
-  const GridRef = useRef<HTMLDivElement | null>(null); // Create a ref
+  const animationStyles = `
+  @keyframes logoAnimation {
+    0%, 100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    50% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+`;
+const [selected, setSelected] = useState(-1);
+const { push } = useRouter();
+const { openModal } = useApp();
+const textFieldRef = useRef<HTMLDivElement | null>(null); // Create a ref
+const GridRef = useRef<HTMLDivElement | null>(null); // Create a ref
+const TextRef = useRef<HTMLDivElement | null>(null); // Create a ref
 
   const { updating, changeUpdating } = useUpdating();
 
@@ -49,7 +62,7 @@ const BecomePartner: React.FC = () => {
     openModal({
       modalID: "partner",
       modalContent:
-        email +
+      email +
         "$$" +
         (selected === 0 ? "Reseller Program" : "Affiliate Marketers"),
     });
@@ -71,7 +84,16 @@ const BecomePartner: React.FC = () => {
       }
     }
   };
-
+  const handleScrollTextField = () => {
+    if (isMobile) {
+      if (TextRef !== null && TextRef.current !== null) {
+        TextRef.current.scrollIntoView({
+          behavior: "smooth", // You can use 'auto' for immediate scroll
+          block: "start", // Scroll to the top of the element
+        });
+      }
+    } 
+  };
   return (
     <>
       <Header />
@@ -84,12 +106,14 @@ const BecomePartner: React.FC = () => {
           paddingTop: isMobile ? 20 : 120,
         }}
       >
+              <style>{animationStyles}</style>
+
         <Grid xs={12} sx={{ margin: 0, padding: 0, width: "100%" }}>
           <BecomePartnerCard
             index={0}
             items={Items[0]}
             handleScroll={handleScroll}
-          />
+            />
         </Grid>
         <Grid xs={12} sx={{ marginTop: isMobile ? 5 : 10 }}>
           <Typography
@@ -99,7 +123,7 @@ const BecomePartner: React.FC = () => {
             fontWeight="bold"
             letterSpacing={1.2}
             paragraph
-          >
+            >
             Join 100+ Highly Rated Hospitality Leaders
           </Typography>
         </Grid>
@@ -113,17 +137,19 @@ const BecomePartner: React.FC = () => {
             flexDirection: "row",
           }}
           ref={textFieldRef}
-        >
+          >
           {venues.map((venue, index) => {
             return (
               <Grid
-                key={index}
-                xs={isMobile ? 5 : undefined}
-                style={{
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
+              key={index}
+              xs={isMobile ? 5 : undefined}
+              style={{
+                alignItems: "center",
+                display: "flex",
+                justifyContent: "center",
+                animation: "logoAnimation 3s 1",
+                animationDelay: `${index * 0.5}s`,
+              }}
               >
                 <NextImage
                   alt="Banner background"
@@ -164,10 +190,11 @@ const BecomePartner: React.FC = () => {
                 justifyContent: "center",
                 marginTop: isMobile ? 0 : 5,
               }}
+              ref={TextRef}
               onClick={
                 index === selected
                   ? () => setSelected(-1)
-                  : () => setSelected(index)
+                  : () => {setSelected(index); handleScrollTextField()}
               }
             >
               <PartnerProgramCard
@@ -199,6 +226,7 @@ const BecomePartner: React.FC = () => {
                 }}
               >
                 <TextField
+               
                   placeholder={"Enter your email address"}
                   value={email}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -255,11 +283,13 @@ const BecomePartner: React.FC = () => {
                 alignItems: "center",
                 display: "flex",
                 flexDirection: "column",
-
+                
                 transition: "opacity 0.5s ease-in-out",
               }}
+              
             >
               <TextField
+              
                 placeholder={"Enter your email address"}
                 value={email}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

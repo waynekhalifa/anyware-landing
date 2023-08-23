@@ -10,17 +10,56 @@ interface Props {
 }
 const TRSAIO: React.FC<Props> = ({ items }) => {
   const [selectedTap, setSelectedTap] = useState(0);
+  const [boxInView, setBoxInView] = useState(false);
+  const handleBoxInView = (entries: any) => {
+    if (entries[0].isIntersecting) {
+      setBoxInView(true);
+    } else {
+      setBoxInView(false);
+    }
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleBoxInView, {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // Trigger when at least 50% of the element is in view
+    });
+
+    const target = document.querySelector("#my-box"); // Replace with the actual ID of your Box element
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    
     setSelectedTap(newValue);
+    setClikced(true);
   };
 
   const { isMobile, width } = useIsMobile();
   const tabs = items.map((item: any) => item.title);
-  
+  const [clicked, setClikced] = useState(false);
+  useEffect(() => {
+    if (!clicked && boxInView) {
+      const interval2 = setInterval(() => {
+        setSelectedTap((prevIndex: any) => (prevIndex + 1) % tabs.length);
+      }, 5000); // Change image every 3 seconds
+
+      return () => {
+        clearInterval(interval2);
+      };
+    }
+  }, [tabs, clicked, boxInView]);
+
   return (
     <Grid
+      id="my-box"
       spacing={4}
       style={{
         marginBottom: "10vh",
@@ -98,7 +137,11 @@ const TRSAIO: React.FC<Props> = ({ items }) => {
             justifyContent: "center",
           }}
         >
-          <FadingImages images={items[selectedTap].img} interval={3} />
+          <FadingImages
+            images={items[selectedTap].img}
+            interval={0}
+            selectedTap={selectedTap}
+          />
         </Box>
       </Grid>
     </Grid>

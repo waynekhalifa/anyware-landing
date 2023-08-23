@@ -1,6 +1,6 @@
 import custom1 from "@images/custom1.png";
 import custom2 from "@images/custom2.png";
-import custom3 from "@images/custom3.png";
+import custom3 from "@images/custom3.webp";
 import custom4 from "@images/custom4.png";
 import custom5 from "@images/custom5.png";
 
