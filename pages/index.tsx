@@ -11,13 +11,13 @@ import { MenuItem1, getMenusByName } from "@/services/menu";
 import { useEffect } from "react";
 import { setListing as setMenus } from "@/store/menuSlice";
 import { useRouter } from "next/router";
-import useIsMobile from "@/hooks/useIsMobile";
+
 
 const Home: NextPage = () => {
   const { slug } = useApp();
   const dispatch = useDispatch();
   const router = useRouter()
-  const {windowLoaded,width,isMobile} = useIsMobile()
+  
   useEffect(() => {
     router.prefetch("/");
     router.prefetch("/Table-Reservation-System");
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
     fetchMainMenu();
   }, [dispatch]);
   return (
-    width>0 && <>
+     <>
       <Head>
         <title>Anyware Software</title>
         <meta name="description" content={"Anyware Software"} />

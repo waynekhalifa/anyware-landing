@@ -18,7 +18,7 @@ import { selectModalOpen } from "@/store/appSlice";
 import { getMenusByName, MenuItem1 } from "@/services/menu";
 import { FC, useEffect } from "react";
 import { initializeApp } from "firebase/app";
-import useIsMobile from "@/hooks/useIsMobile";
+
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -30,7 +30,7 @@ interface MyAppProps extends AppProps {
 const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
   const { store, props } = wrapper.useWrappedStore(rest);
   const { emotionCache = clientSideEmotionCache, pageProps } = props;
-  const {windowLoaded , width}  = useIsMobile()
+  
   const firebaseConfig = {
     apiKey: "AIzaSyAlqlIJy_psLxACxmRf5nYU0CLA7oj96mI",
     authDomain: "hospitality-digitization.firebaseapp.com",
@@ -124,7 +124,7 @@ const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
             
           }}
         />
-       {windowLoaded && width>=0 && <Component {...pageProps} />}
+        <Component {...pageProps} />
          <MainModal />
       </ThemeProvider>
     </CacheProvider>
