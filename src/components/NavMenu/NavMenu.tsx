@@ -29,16 +29,7 @@ const NavMenu: React.FC = () => {
   const [open, setOpen] = useState<string>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
-  useEffect(() => {
-    router.prefetch("/");
-    router.prefetch("/Table-Reservation-System");
-    router.prefetch("/Kiosk");
-    router.prefetch("/CashlessWallet");
-    router.prefetch("/IntegrationServices");
-    router.prefetch("/CustomSoftware");
-    router.prefetch("/AboutUs");
-    router.prefetch("/becomepartner");
-  }, []);
+
 
   useEffect(() => {
     menusListing.forEach((menu: any) => {

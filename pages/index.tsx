@@ -10,11 +10,22 @@ import { useDispatch } from 'react-redux';
 import { MenuItem1, getMenusByName } from "@/services/menu";
 import { useEffect } from "react";
 import { setListing as setMenus } from "@/store/menuSlice";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const { slug } = useApp();
   const dispatch = useDispatch();
-
+  const router = useRouter()
+  useEffect(() => {
+    router.prefetch("/");
+    router.prefetch("/Table-Reservation-System");
+    router.prefetch("/Kiosk");
+    router.prefetch("/CashlessWallet");
+    router.prefetch("/IntegrationServices");
+    router.prefetch("/CustomSoftware");
+    router.prefetch("/AboutUs");
+    router.prefetch("/becomepartner");
+  }, []);
   useEffect(() => {
     const fetchMainMenu = async () => {
       const mainMenu: MenuItem1[] = await getMenusByName("main-navigation");
