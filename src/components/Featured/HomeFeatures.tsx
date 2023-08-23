@@ -125,7 +125,7 @@ useEffect(() => {
 `;
 
   return (
-    windowLoaded && width>=0 &&<>
+    windowLoaded && width>=0 ?<>
     {windowLoaded &&<Header/>}
      {windowLoaded &&<Box
       sx={{ overflow: "hidden", width: "100%", position: "relative", flex: 1 ,paddingTop:isMobile?2:0}}
@@ -269,7 +269,7 @@ useEffect(() => {
       ))}
     </Box>}
     {windowLoaded &&<Footer/>}  
-    </>
+    </>:<></>
   );
 };
 
