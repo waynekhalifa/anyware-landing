@@ -94,7 +94,7 @@ const Catcher: React.FC = () => {
         </Typography>
         <br />
         <Typography component="span" variant="h5">
-          and start using Anyware in seconds!
+        and join Anyware Software community in seconds!
         </Typography>
       </Typography>
       <motion.div

@@ -18,12 +18,12 @@ const Component: React.FC = () => {
       {[
         {
           id: 1,
-          href: "https://www.facebook.com/astencollege",
+          href: "https://www.facebook.com/",
           icon: <FacebookOutlinedIcon />,
         },
         {
           id: 2,
-          href: "https://instagram.com/astencollege?igshid=YzA2ZDJiZGQ=",
+          href: "https://instagram.com/",
           icon: <InstagramIcon />,
         },
       ].map((item: any) => (

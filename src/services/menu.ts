@@ -20,7 +20,7 @@ export const mainMenu: MenuItem1[] = [
   },
   {
     id: 1,
-    name: "Product",
+    name: "Products",
     path: "#",
     children: [
       {

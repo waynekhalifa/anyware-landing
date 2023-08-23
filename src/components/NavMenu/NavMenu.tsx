@@ -147,7 +147,7 @@ const NavMenu: React.FC = () => {
                 disableRipple
                 onClick={() => handleClick(menu)}
                 sx={{
-                  textTransform: "capitalize",
+                  textTransform: "none",
                   fontWeight: 600,
                   color: "text.primary",
                   justifyContent: "flex-start",
@@ -283,7 +283,7 @@ const NavMenu: React.FC = () => {
           }
           onClick={() => handleClick(menu)}
           sx={{
-            textTransform: "capitalize",
+            textTransform: "none",
             fontWeight: 600,
             color: "text.primary",
 

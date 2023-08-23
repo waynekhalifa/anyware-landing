@@ -1,12 +1,12 @@
 {
-	"theme_color": "#97282D",
-	"background_color": "#0D436B",
+	"theme_color": "#C6A658",
+	"background_color": "#fff",
 	"display": "standalone",
 	"scope": "/",
 	"start_url": "/",
-	"name": "astencollege",
-	"short_name": "AS",
-	"description": "Asten College",
+	"name": "Anyware Software",
+	"short_name": "Anyware Software",
+	"description": "Anyware Software",
 	"icons": [
 		{
 			"src": "/icon-192x192.png",

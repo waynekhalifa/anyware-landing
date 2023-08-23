@@ -26,6 +26,9 @@ import NextImage from "next/image";
 import { getAnalytics, logEvent, setUserId } from "@firebase/analytics";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+
 interface StateProps {
   videoKey: string;
 }
@@ -37,7 +40,7 @@ const initialState: StateProps = {
 const HomeFeatures: React.FC = () => {
   const [state, setState] = useState(initialState);
   const { videoKey } = state;
-  const { isMobile, width } = useIsMobile();
+  const {windowLoaded, isMobile, width } = useIsMobile();
   const router = useRouter();
   const pathname = "adhaaaaaaaaam";
   const search = String(router.query.search);
@@ -122,7 +125,9 @@ useEffect(() => {
 `;
 
   return (
-    <Box
+    windowLoaded && width>=0 &&<>
+    {windowLoaded &&<Header/>}
+     {windowLoaded &&<Box
       sx={{ overflow: "hidden", width: "100%", position: "relative", flex: 1 ,paddingTop:isMobile?2:0}}
     >
       <Box
@@ -262,7 +267,9 @@ useEffect(() => {
       {allItems.map((item, index) => (
         <FeaturedCard key={index} index={index} items={item} clicked={tabClicked} setClicked={setTabClicked} />
       ))}
-    </Box>
+    </Box>}
+    {windowLoaded &&<Footer/>}  
+    </>
   );
 };
 

@@ -19,11 +19,12 @@ import CustomSoftware from "@/components/customSoftware/CustomSoftware";
 import Integration from "@/components/integration/Integration";
 import BecomePartner from "@/components/becomepartner/BecomePartner";
 import ComingSoon from "@/components/comingSoon/comningSoon";
+import useIsMobile from "@/hooks/useIsMobile";
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
-  
+  const {windowLoaded } = useIsMobile()
   return (
-    <>
+    windowLoaded &&<>
       <Head>
         <title>Anyware Software | {slug}</title>
         <meta name="description" content={"Anyware Software"} />
