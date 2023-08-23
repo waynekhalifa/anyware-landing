@@ -18,6 +18,7 @@ import Kiosk from "@/components/Kiosk/Kiosk";
 import CustomSoftware from "@/components/customSoftware/CustomSoftware";
 import Integration from "@/components/integration/Integration";
 import BecomePartner from "@/components/becomepartner/BecomePartner";
+import ComingSoon from "@/components/comingSoon/comningSoon";
 const PageTemplate: NextPage = () => {
   const { slug } = useApp();
   
@@ -36,6 +37,7 @@ const PageTemplate: NextPage = () => {
       {slug === Pages.CustomSoftware &&  <CustomSoftware />}
       {slug === Pages.Integration &&  <Integration />}
       {slug === Pages.partner &&  <BecomePartner />}
+      {slug === Pages.comningSoon &&  <ComingSoon />}
 
     </>
   );

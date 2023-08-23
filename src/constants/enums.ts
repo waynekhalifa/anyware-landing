@@ -19,6 +19,7 @@ export enum Pages {
   CustomSoftware = "CustomSoftware",
   Integration = "IntegrationServices",
   partner = "becomepartner",
+  comningSoon = "ComingSoon",
 }
 
 export enum Orders {

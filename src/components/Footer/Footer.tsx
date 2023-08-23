@@ -1,6 +1,6 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Alert, Box, Button, Typography } from '@mui/material';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../Logo';
 import logo from "@images/anywarelogowhite.webp";
 import useApp from '@/hooks/useApp';
@@ -11,9 +11,17 @@ const Footer = () => {
   const handleclick = () => {
     openModal({ modalID: "contact" });
   };
-
+const [alert,setAlert] = useState(false)
+const linkStyle = {
+  // Define the same styles as the Link component
+  color: 'inherit',  // Inherit the text color from parent
+  textDecoration: 'none', // Remove underline
+  cursor: 'pointer', // Show pointer cursor
+};
   return (
+    
     <footer>
+      {<Alert icon={false} severity='info' style={{opacity:alert?1:0,transition:'opacity 0.5s ease-in-out' , position:'fixed' , bottom:100,width:'30%',left:'35%'}} onClose={() => {setAlert(false)}}>Coming soon {";)"} </Alert>}
       <Box
         sx={{
           background: 'linear-gradient(to right, #745C34, #D7B35E)',
@@ -36,25 +44,31 @@ const Footer = () => {
             <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10 }}>
               Ordering Features
             </Typography>
-            <Link href="" passHref>
+            <Link href="/ComingSoon" passHref >
+            <a target="_blank" rel="noopener noreferrer" style={linkStyle}>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Online Ordering System
               </Typography>
+              </a>
             </Link>
-            <Link href="" passHref>
+            <Link href="/ComingSoon" passHref >
+            <a target="_blank" rel="noopener noreferrer" style={linkStyle}>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - QR Dine-in Self Ordering
               </Typography>
+              </a>
             </Link>
             <Link href="/Kiosk" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Self Service Kiosk
               </Typography>
             </Link>
-            <Link href="" passHref>
+            <Link href="/ComingSoon" passHref >
+            <a target="_blank" rel="noopener noreferrer" style={linkStyle}>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Call Center Solution
               </Typography>
+              </a>
             </Link>
           </Box>
 
@@ -64,15 +78,19 @@ const Footer = () => {
                 Customer Retention Features
               </Typography>
             </Box>
-            <Link href="" passHref>
+            <Link href="/ComingSoon" passHref >
+            <a target="_blank" rel="noopener noreferrer" style={linkStyle}>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Loyalty & Rewarding System
               </Typography>
+              </a>
             </Link>
-            <Link href="" passHref>
+            <Link href="/ComingSoon" passHref >
+            <a target="_blank" rel="noopener noreferrer" style={linkStyle}>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Packages Solution
               </Typography>
+              </a>
             </Link>
           </Box>
 
@@ -82,20 +100,24 @@ const Footer = () => {
                 Customer Management Features
               </Typography>
             </Box>
-            <Link href="" passHref>
+            <Link href="/ComingSoon" passHref >
+            <a target="_blank" rel="noopener noreferrer" style={linkStyle}>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - CRM Solution
               </Typography>
+              </a>
             </Link>
             <Link href="/Table-Reservation-System" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Table Reservation System
               </Typography>
             </Link>
-            <Link href="" passHref>
+            <Link href="/ComingSoon" passHref >
+            <a target="_blank" rel="noopener noreferrer" style={linkStyle}>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - Feedback, Reviews & Surveys
               </Typography>
+              </a>
             </Link>
           </Box>
 
@@ -108,10 +130,12 @@ const Footer = () => {
                 - POS Payment Integrations
               </Typography>
             </Link>
-            <Link href="" passHref>
+            <Link href="/ComingSoon" passHref >
+            <a target="_blank" rel="noopener noreferrer" style={linkStyle}>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
                 - In-App Payments
               </Typography>
+              </a>
             </Link>
             <Link href="CashlessWallet" passHref>
               <Typography style={{ fontSize: 15, textAlign: 'left', cursor: 'pointer', marginBottom: 5 }}>
@@ -123,7 +147,7 @@ const Footer = () => {
           <Box sx={{ marginRight: '50px', marginBottom: 5 }}>
             <Typography style={{ fontSize: 20, fontWeight: 'bolder', marginBottom: 10,textAlign:'left' }}>Locations:</Typography>
             <Typography style={{ fontSize: 15, textAlign: 'left', marginBottom: 5 }}>
-              - Dubai, UAE Office #: +971 50 506 4187
+              - Dubai, UAE Office #: <span style={{color:'blue',textDecoration:'underline'}}>+971 50 506 4187</span>
             </Typography>
             {/* <Typography style={{ fontSize: 15, textAlign: 'left', marginBottom: 5 }}>
               - Cairo, Egypt Office #: +20 100 667 6388
